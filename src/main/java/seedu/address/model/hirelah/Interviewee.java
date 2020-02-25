@@ -1,5 +1,8 @@
 package seedu.address.model.hirelah;
 
+/**
+ * TODO: Javadoc
+ */
 public class Interviewee {
     private static int uniqueIntervieweeId = 1; // increment every time new Interviewee created
     /*

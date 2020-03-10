@@ -1,9 +1,9 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>AddressBook Level 3 - Developer Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>HireLah! - Developer Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">AddressBook-Level3</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link active" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/se-edu/addressbook-level3"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>AddressBook Level 3 - Developer Guide</h1></div><div id="content"><div id="preamble">
+<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">AddressBook-Level3</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link active" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/se-edu/addressbook-level3"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>HireLah! - Developer Guide</h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>By: <code>Team SE-EDU</code>      Since: <code>Jun 2016</code>      Licence: <code>MIT</code></p>
+<p>By: <code>AY1920S2-CS2103-W15-2</code>      Since: <code>Feb 2020</code>      Licence: <code>MIT</code></p>
 </div>
 </div>
 <div id="toc" class="toc">
@@ -33,7 +33,11 @@
 <li><a href="#dev-ops">6. Dev Ops</a></li>
 <li><a href="#product-scope">Appendix A: Product Scope</a></li>
 <li><a href="#user-stories">Appendix B: User Stories</a></li>
-<li><a href="#use-cases">Appendix C: Use Cases</a></li>
+<li><a href="#use-cases">Appendix C: Use Cases</a>
+<ul class="sectlevel2">
+<li><a href="#use-case-uc20-choose-best-interviewees">C.1. Use case: UC20 - Choose Best Interviewees</a></li>
+</ul>
+</li>
 <li><a href="#non-functional-requirements">Appendix D: Non Functional Requirements</a></li>
 <li><a href="#glossary">Appendix E: Glossary</a></li>
 <li><a href="#product-survey">Appendix F: Product Survey</a></li>
@@ -76,14 +80,14 @@
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-The <code>.puml</code> files used to create diagrams in this document can be found in the <a href="https://github.com/se-edu/addressbook-level3/tree/master/docs/diagrams/">diagrams</a> folder.
+The <code>.puml</code> files used to create diagrams in this document can be found in the <a href="https://github.com/AY1920S2-CS2103-W15-2/main/docs/diagrams/">diagrams</a> folder.
 Refer to the <a href="UsingPlantUml.html">Using PlantUML guide</a> to learn how to create and edit diagrams.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p><code>Main</code> has two classes called <a href="https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/Main.java"><code>Main</code></a> and <a href="https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/MainApp.java"><code>MainApp</code></a>. It is responsible for,</p>
+<p><code>Main</code> has two classes called <a href="https://github.com/AY1920S2-CS2103-W15-2/main/src/main/java/seedu/address/Main.java"><code>Main</code></a> and <a href="https://github.com/AY1920S2-CS2103-W15-2/main/src/main/java/seedu/address/MainApp.java"><code>MainApp</code></a>. It is responsible for,</p>
 </div>
 <div class="ulist">
 <ul>
@@ -170,13 +174,13 @@ The following class plays an important role at the architecture level:</p>
 <div class="title">Figure 4. Structure of the UI Component</div>
 </div>
 <div class="paragraph">
-<p><strong>API</strong> : <a href="https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/Ui.java"><code>Ui.java</code></a></p>
+<p><strong>API</strong> : <a href="https://github.com/AY1920S2-CS2103-W15-2/main/src/main/java/seedu/address/ui/Ui.java"><code>Ui.java</code></a></p>
 </div>
 <div class="paragraph">
 <p>The UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>PersonListPanel</code>, <code>StatusBarFooter</code> etc. All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
 </div>
 <div class="paragraph">
-<p>The <code>UI</code> component uses JavaFx UI framework. The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder. For example, the layout of the <a href="https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/MainWindow.java"><code>MainWindow</code></a> is specified in <a href="https://github.com/se-edu/addressbook-level3/tree/master/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
+<p>The <code>UI</code> component uses JavaFx UI framework. The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder. For example, the layout of the <a href="https://github.com/AY1920S2-CS2103-W15-2/main/src/main/java/seedu/address/ui/MainWindow.java"><code>MainWindow</code></a> is specified in <a href="https://github.com/AY1920S2-CS2103-W15-2/main/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
 </div>
 <div class="paragraph">
 <p>The <code>UI</code> component,</p>
@@ -202,7 +206,7 @@ The following class plays an important role at the architecture level:</p>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> :
-<a href="https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/logic/Logic.java"><code>Logic.java</code></a></p>
+<a href="https://github.com/AY1920S2-CS2103-W15-2/main/src/main/java/seedu/address/logic/Logic.java"><code>Logic.java</code></a></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -254,7 +258,7 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <div class="title">Figure 7. Structure of the Model Component</div>
 </div>
 <div class="paragraph">
-<p><strong>API</strong> : <a href="https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/model/Model.java"><code>Model.java</code></a></p>
+<p><strong>API</strong> : <a href="https://github.com/AY1920S2-CS2103-W15-2/main/src/main/java/seedu/address/model/Model.java"><code>Model.java</code></a></p>
 </div>
 <div class="paragraph">
 <p>The <code>Model</code>,</p>
@@ -299,7 +303,7 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <div class="title">Figure 8. Structure of the Storage Component</div>
 </div>
 <div class="paragraph">
-<p><strong>API</strong> : <a href="https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/storage/Storage.java"><code>Storage.java</code></a></p>
+<p><strong>API</strong> : <a href="https://github.com/AY1920S2-CS2103-W15-2/main/src/main/java/seedu/address/storage/Storage.java"><code>Storage.java</code></a></p>
 </div>
 <div class="paragraph">
 <p>The <code>Storage</code> component,</p>
@@ -673,70 +677,479 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">new user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">see usage instructions</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">refer to instructions when I forget how to use the App</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">New Interviewer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">See usage instructions</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Learn to use HireLah!</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">add a new person</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Interviewer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Create a new interview session</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Initialise the interviewee, their details, attributes and
+questions specific to this interview session.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">delete a person</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">remove entries that I no longer need</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Interviewer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Add a new interviewee to an interview session</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Keep track of interviewees applying for a job opening</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">find a person by name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">locate details of persons without having to go through the entire list</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Interviewer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">View the list of interviewees and their interview status</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Remember their names and interview those who have not been interviewed</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Interviewer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Delete an interviewee from an interview session</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Remove interviewees who withdrew their job application</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">hide <a href="#private-contact-detail">private contact details</a> by default</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">minimize chance of someone else seeing them by accident</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Interviewer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Update the information of interviewees</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ensure that I have the most up to date information about the interviewees</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user with many persons in the address book</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">sort persons by name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">locate a person easily</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Interviewer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Add a new <code>attribute</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Customize the interview session rubrics</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Interviewer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Delete any irrelevant <code>attribute</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Update the interview session&#8217;s rubrics as needed</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Busy Interviewer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Refer to my interviewees by both their interview ID as well as their name / alias</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Do not have
+to remember the full name / ID of each interviewee</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Interviewer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Finalise the attributes and questions for an interview session</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Avoid changing the rubrics for the interview session between interviews</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Interviewer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">See the list of attributes and questions that are preset before the interview session</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Refer back
+to the list of attributes and questions and assess all interviewees according to these exact parameters.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Interviewer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Record the remarks of my interviewees during the interview session</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Recall details that happened during the interview</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Interviewer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Group the remarks as an answer of a particular preset question</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Assess and review the interviewee’s
+answers to a particular question</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Interviewer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Have an audio recording for every interview session</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Refer back to it to minimize missing details</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Interviewer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Want to toggle between different phrases of the interview</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Make it more convenient during the interview session</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Interviewer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">navigate from the interviewees list to the answers of 1/2/3 particular interviewee to a specific questions</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">recall the answer of the interviewee to a certain question.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Interviewer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Find the best few interviewees based on the mean score of all attributes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Narrow down the number of interviewees</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Interviewer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Find the best few interviewees based on an attribute</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Narrow down the number of interviewees</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Interviewer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Navigate to 1/2/3 interviewee&#8217;s scores of attributes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">See the whole quality of attributes of the interviewee</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Interviewer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Navigate from the interviewees list to play audio of a particular recording at a certain time</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Recall what the interviewee said at a certain time</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Interviewer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Navigate to a certain keyword from my remarks of 1/2/3 particular person</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Recall my remarks about a certain topic</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Interviewer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Navigate to a certain timestamp of a particular interviewee</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Recall my remarks and the interviewee&#8217;s
+audio recording around that time</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Interviewer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Visualise the score of attributes of all interviewees</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">To compare easily</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Interviewer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Export the full report of each interviewee</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A record for each interview</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Interviewer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">App to be password protected</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Protect sensitive information from prying eyes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Experienced Interviewer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only use the keyboard</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Record down the particulars of the interviewee faster</p></td>
 </tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p><em>{More to be added}</em></p>
-</div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="use-cases"><a class="link" href="#use-cases">Appendix C: Use Cases</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>(For all use cases below, the <strong>System</strong> is the <code>AddressBook</code> and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
+<p>(For all use cases below, the <strong>System</strong> is the <code>HireLah!</code> and the <strong>Actor</strong> is the <code>User</code>, unless specified otherwise)</p>
 </div>
-<h3 id="use-case-delete-person" class="discrete">Use case: Delete person</h3>
+<h3 id="use-case-uc01-create-new-session" class="discrete">Use case: UC01 - Create new Session</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to list persons</p>
+<p>User chooses to create a new Interview Session</p>
 </li>
 <li>
-<p>AddressBook shows a list of persons</p>
+<p>User provides a name for the Session (eg. CEO Interview)</p>
 </li>
 <li>
-<p>User requests to delete a specific person in the list</p>
+<p>HireLah! creates the new Session and saves it</p>
 </li>
 <li>
-<p>AddressBook deletes the person</p>
+<p>HireLah! automatically <u>opens the Session (UC02)</u></p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. User provides an invalid name.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a1. HireLah! shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 1.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-uc02-open-existing-session" class="discrete">Use case: UC02 - Open existing Session</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User chooses to open a previous Interview Session</p>
+</li>
+<li>
+<p>User provides the name of previous session (eg. CEO Interview)</p>
+</li>
+<li>
+<p>HireLah! restores data from the session from memory</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. No such previous session exists.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a1. HireLah! shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-uc03-list-interviewee" class="discrete">Use case: UC03 - List Interviewee</h3>
+<div class="paragraph">
+<p><strong>Precondition</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User has opened a session</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests a list of interviewees.</p>
+</li>
+<li>
+<p>HireLah! provides the list of interviewees with their IDs and aliases.
+Use case ends.</p>
+</li>
+</ol>
+</div>
+<h3 id="use-case-uc04-add-interviewee" class="discrete">Use case: UC04 - Add Interviewee</h3>
+<div class="paragraph">
+<p><strong>Precondition</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User has opened a session</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User chooses to create a new Interviewee.</p>
+</li>
+<li>
+<p>User provides a name, and an alias (optional) for the Interviewee.</p>
+</li>
+<li>
+<p>HireLah! creates the new Interviewee and saves it.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<h3 id="use-case-uc05-delete-interviewee" class="discrete">Use case: UC05 - Delete Interviewee</h3>
+<div class="paragraph">
+<p><strong>Precondition</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User has opened a session</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User decides which Interviewee that wants to be deleted from the list.</p>
+</li>
+<li>
+<p>User requests to <u>list the interviewees (UC03)</u> to view their details.</p>
+</li>
+<li>
+<p>HireLah! displays the list of interviewees.</p>
+</li>
+<li>
+<p>User provides either the full name, the alias, or the ID.</p>
+</li>
+<li>
+<p>HireLah! deletes the interviewee with the following details provided.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a. The list is empty.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+<li>
+<p>4a. There is no interviewee with the given details.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>4a1. HireLah! shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 3.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-uc06-list-attribute" class="discrete">Use case: UC06 - List Attribute</h3>
+<div class="paragraph">
+<p><strong>Precondition</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User has opened a session</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to list all the saved attributes.</p>
+</li>
+<li>
+<p>HireLah! displays all the attributes that are stored.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<h3 id="use-case-uc07-add-attribute" class="discrete">Use case: UC07 - Add Attribute</h3>
+<div class="paragraph">
+<p><strong>Precondition</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User has opened a session</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User chooses a name for the attribute.</p>
+</li>
+<li>
+<p>User creates an attribute with the chosen name.</p>
+</li>
+<li>
+<p>HireLah! adds the attribute with a given name to the list.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a. There is already an attribute with the identical name</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. HireLah! shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 1.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-uc08-delete-attribute" class="discrete">Use case: UC08 - Delete Attribute</h3>
+<div class="paragraph">
+<p><strong>Precondition</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User has opened a session</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to <u>list all the attributes stored (UC06)</u>.</p>
+</li>
+<li>
+<p>HireLah! displays all the attributes stored.</p>
+</li>
+<li>
+<p>User enters a prefix of the attribute that wants to be deleted.</p>
+</li>
+<li>
+<p>HireLah! removes the attribute with the given prefix from the list.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -755,11 +1168,232 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </li>
 <li>
-<p>3a. The given index is invalid.</p>
+<p>3a. There is no attribute with the given prefix.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>3a1. AddressBook shows an error message.</p>
+<p>3a1. HireLah! shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 3.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>3b. There are multiple attributes with the same given prefix.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3b1. HireLah! shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 3.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-uc09-update-attribute" class="discrete">Use case: UC09 - Update Attribute</h3>
+<div class="paragraph">
+<p><strong>Precondition</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User has opened a session</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to <u>list all the attributes stored (UC06)</u>.</p>
+</li>
+<li>
+<p>HireLah! displays all the attributes stored.</p>
+</li>
+<li>
+<p>User enters a prefix of the attribute and the new name of the attribute.</p>
+</li>
+<li>
+<p>HireLah! updates the attribute with the given prefix with the entered name.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. The list is empty.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+<li>
+<p>3a. There is no attribute with the given prefix.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. HireLah! shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 3.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>3b. There are multiple attributes with the same given prefix.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3b1. HireLah! shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 3.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-uc10-list-question" class="discrete">Use case: UC10 - List Question</h3>
+<div class="paragraph">
+<p><strong>Precondition</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User has opened a session</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to list all the saved questions.</p>
+</li>
+<li>
+<p>HireLah! displays all the questions that are stored.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<h3 id="use-case-uc11-add-question" class="discrete">Use case: UC11 - Add Question</h3>
+<div class="paragraph">
+<p><strong>Precondition</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User has opened a session</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User chooses a description of the question..</p>
+</li>
+<li>
+<p>User creates a question with the given description.</p>
+</li>
+<li>
+<p>HireLah! adds the question with the given to the list.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a. There is already a question with the identical description.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. HireLah! shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 1.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-uc12-delete-question" class="discrete">Use case: UC12 - Delete Question</h3>
+<div class="paragraph">
+<p><strong>Precondition</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User has opened a session</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to <u>list all the questions stored (UC10)</u>.</p>
+</li>
+<li>
+<p>HireLah! displays all the questions stored.</p>
+</li>
+<li>
+<p>User enters the index of the question that wants to be deleted.</p>
+</li>
+<li>
+<p>HireLah! removes the question with the given index from the list.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. The list is empty.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+<li>
+<p>3a. The index given is not within the valid range.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. HireLah! shows an error message.</p>
 <div class="paragraph">
 <p>Use case resumes at step 2.</p>
 </div>
@@ -769,8 +1403,646 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </li>
 </ul>
 </div>
+<h3 id="use-case-uc13-update-question" class="discrete">Use case: UC13 - Update Question</h3>
 <div class="paragraph">
-<p><em>{More to be added}</em></p>
+<p><strong>Precondition</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User has opened a session</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to <u>list all the questions stored (UC10)</u>.</p>
+</li>
+<li>
+<p>HireLah! displays all the questions stored.</p>
+</li>
+<li>
+<p>User enters an index of the question and the updated description.</p>
+</li>
+<li>
+<p>HireLah! updates the description of the question with the given index.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. The list is empty.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+<li>
+<p>3a. The index given is not within the valid range.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. HireLah! shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-uc14-finalize-questions-and-attributes" class="discrete">Use case: UC14 - Finalize Questions and Attributes</h3>
+<div class="paragraph">
+<p><strong>Precondition</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User has opened a session</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Guarantees</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Attribute list and Question list cannot be changed after finalizing</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User chooses to finalize the current list of questions and attributes
+Use case ends</p>
+</li>
+</ol>
+</div>
+<h3 id="use-case-uc15-interview-an-interviewee" class="discrete">Use case: UC15 - Interview an Interviewee</h3>
+<div class="paragraph">
+<p><strong>Precondition</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User has <u>finalized questions and attributes for the session (UC14)</u>.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User gives name or alias or id of Interviewee to interview</p>
+</li>
+<li>
+<p>HireLah! displays the interview questions</p>
+</li>
+<li>
+<p>User writes remarks while conducting the interview</p>
+</li>
+<li>
+<p>HireLah! saves the remark and the time during the interview when the remark was made</p>
+</li>
+<li>
+<p>User <u>records answers to the interview questions (UC16)</u></p>
+</li>
+<li>
+<p>User <u>scores interviewee on each attribute (UC17)</u></p>
+</li>
+<li>
+<p>User chooses to end the interview</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. Name, alias or id does not refer to any interviewee.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. HireLah! shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 1.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>1b. Interviewee specified has already been interviewed.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b1. HireLah! shows an error message.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>7a. User has not scored the interviewee in all attributes</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>7a1. HireLah! shows which attributes have not been scored</p>
+<div class="paragraph">
+<p>Use case resumes from step 6.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-uc16-record-question-answer" class="discrete">Use case: UC16 - Record Question Answer</h3>
+<div class="paragraph">
+<p><strong>Precondition</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User is <u>interviewing an interviewee (UC15)</u>.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User indicates question to record answers for</p>
+</li>
+<li>
+<p>User takes notes of the answer to the question</p>
+</li>
+<li>
+<p>HireLah! saves the remark and the time during the interview when the remark was made</p>
+</li>
+<li>
+<p>User indicates the answer is finished</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. Question number is invalid (too large, or less than 1)</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. HireLah! shows an error message.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-uc17-score-interviewee" class="discrete">Use case: UC17 - Score Interviewee</h3>
+<div class="paragraph">
+<p><strong>Precondition</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User is <u>interviewing an interviewee (UC15)</u>.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User indicates attribute to score</p>
+</li>
+<li>
+<p>User indicates score to give</p>
+</li>
+<li>
+<p>HireLah! overwrites any previous score given with the new score</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. Attribute does not exist.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. HireLah! shows an error message.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>2a. Score given is not a number</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a1. HireLah! shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes from step 1.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-uc18-working-with-an-interviewee-report" class="discrete">Use case: UC18 - Working with an Interviewee Report</h3>
+<div class="paragraph">
+<p><strong>Precondition</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User has <u>stopped an interview session(UC15)</u> with any interviewee.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User chooses the interviewee that wants to be examined.</p>
+</li>
+<li>
+<p>User opens the interviewee transcript, containing the remarks that are added during the interview.</p>
+</li>
+<li>
+<p>User may navigate between questions and time (UC19) to view their remarks.</p>
+</li>
+<li>
+<p>User closes the interviewee report when he/she is done.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. User <u>has not started an interview (UC15)</u> with this interviewee.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. HireLah! shows an error message.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>1b. There is no interviewee with a given details (alias, ID, or fullname).</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b1. HireLah! shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes from step 1.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-uc19-navigating-through-the-interview-report" class="discrete">Use case: UC19 - Navigating through the Interview report</h3>
+<div class="paragraph">
+<p><strong>Precondition</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User is <u>viewing an interview report (UC18)</u>.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User provides the time for which he/she wishes to see the remarks made during that period of the interview</p>
+</li>
+<li>
+<p>HireLah! scrolls the interview report to the remark made at the closest time</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="sect2">
+<h3 id="use-case-uc20-choose-best-interviewees"><a class="link" href="#use-case-uc20-choose-best-interviewees">C.1. Use case: UC20 - Choose Best Interviewees</a></h3>
+<div class="paragraph">
+<p><strong>Precondition</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User has <u>interviewed at least 1 interviewee (UC15)</u>.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User indicates the metric (average, best by single attribute, or user-defined weightage) to sort interviewees by</p>
+</li>
+<li>
+<p>User indicates the number of top interviewees to show</p>
+</li>
+<li>
+<p>HireLah! displays the sorted and filtered list of top candidates</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. The indicated metric does not exist</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. HireLah! shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes from step 1.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>2a. The indicated number of interviewees to show is invalid</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a1. HireLah! sorts and displays all interviewed interviewees.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-uc21-list-metric" class="discrete">Use case: UC21 - List Metric</h3>
+<div class="paragraph">
+<p><strong>Precondition</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User has opened a session</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to list all the saved metrics.</p>
+</li>
+<li>
+<p>HireLah! displays all the metrics that are stored.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<h3 id="use-case-uc22-add-metric" class="discrete">Use case: UC22 - Add Metric</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User chooses the name of the metric and the weightage of each attribute</p>
+</li>
+<li>
+<p>HireLah! adds the metric to the list.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. If there is a missing attribute that has not given a weightage yet.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. HireLah! shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes from step 1.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-uc23-delete-metric" class="discrete">Use case: UC23 - Delete Metric</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to <u>list all the metrics stored (UC21)</u>.</p>
+</li>
+<li>
+<p>HireLah! displays all the metrics stored.</p>
+</li>
+<li>
+<p>User enters the prefix of the metric that wants to be deleted.</p>
+</li>
+<li>
+<p>HireLah! deletes the metric with the given prefix.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. The list is empty.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+<li>
+<p>3a. There is no metric with the given prefix</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. HireLah! shows an error message.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>3b. There are multiple metrics with the given prefix</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3b1. HireLah! shows an error message.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-uc23-update-metric" class="discrete">Use case: UC23 - Update Metric</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to <u>list all the metrics stored (UC21)</u>.</p>
+</li>
+<li>
+<p>HireLah! displays all the metrics stored.</p>
+</li>
+<li>
+<p>User enters the prefix of the metric that wants to be updated as well as the name of the new metric with the given weightage.</p>
+</li>
+<li>
+<p>HireLah! updates the metric with the given prefix.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. The list is empty.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+<li>
+<p>3a. There is no metric with the given prefix</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. HireLah! shows an error message.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>3b. There are multiple metrics with the given prefix</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3b1. HireLah! shows an error message.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
@@ -783,15 +2055,28 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <p>Should work on any <a href="#mainstream-os">mainstream OS</a> as long as it has Java <code>11</code> or above installed.</p>
 </li>
 <li>
-<p>Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.</p>
+<p>Should be able to hold up to 1000 interviewees without a noticeable sluggishness in performance for typical usage.</p>
 </li>
 <li>
-<p>A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.</p>
+<p>Each command word should not be longer than 6 characters so that interviewer with above-average typing speed for
+regular English text should be able to accomplish most of the tasks faster using commands than using the mouse.</p>
+</li>
+<li>
+<p>The application should be easy to use even for interviewers who have never used command-line programs before.</p>
+</li>
+<li>
+<p>The UI design of the application should be intuitive to interviewers to navigate between the different phases of the application.</p>
+</li>
+<li>
+<p>The application should not be larger than 100Mb.</p>
+</li>
+<li>
+<p>The application should save data after every command and not require interviews to save it manually.</p>
+</li>
+<li>
+<p>Our code should allow other developers to add new features in the application easily.</p>
 </li>
 </ol>
-</div>
-<div class="paragraph">
-<p><em>{More to be added}</em></p>
 </div>
 </div>
 </div>
@@ -958,4 +2243,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-03 18:07:06 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-10 12:55:22 UTC</div></div></div></body></html>

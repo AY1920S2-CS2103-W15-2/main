@@ -1,9 +1,10 @@
 package seedu.address.model.hirelah;
 
-import java.util.Iterator;
 import java.util.Map;
 import java.util.TreeMap;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.hirelah.exceptions.IllegalActionException;
 
@@ -12,7 +13,7 @@ import seedu.address.model.hirelah.exceptions.IllegalActionException;
  * It exposes a single accessor method, getInterviewee, which handles all forms of access by id,
  * alias or full name.
  */
-public class IntervieweeList implements Iterable<Interviewee> {
+public class IntervieweeList {
 
     /* The unique ID assigned to an interviewee for the entire session. */
     private int uniqueIntervieweeId;
@@ -20,6 +21,7 @@ public class IntervieweeList implements Iterable<Interviewee> {
     private Map<Integer, Interviewee> interviewees;
     /* Mappings from aliases and full names to the interviewee indices for efficient lookup. */
     private Map<String, Integer> identifierIndices;
+    private ObservableList<Interviewee> observableList;
 
     /**
      * Initializes an IntervieweeList with data from a saved session.
@@ -34,6 +36,7 @@ public class IntervieweeList implements Iterable<Interviewee> {
         this.uniqueIntervieweeId = uniqueIntervieweeId;
         this.interviewees = interviewees;
         this.identifierIndices = identifierIndices;
+        this.observableList = FXCollections.observableArrayList(interviewees.values());
     }
 
     /**
@@ -41,6 +44,10 @@ public class IntervieweeList implements Iterable<Interviewee> {
      */
     public IntervieweeList() {
         this(1, new TreeMap<>(), new TreeMap<>());
+    }
+
+    public ObservableList<Interviewee> getObservableList() {
+        return observableList;
     }
 
     /**
@@ -58,6 +65,7 @@ public class IntervieweeList implements Iterable<Interviewee> {
 
         interviewees.put(interviewee.getId(), interviewee);
         identifierIndices.put(name, interviewee.getId());
+        observableList.add(interviewee);
     }
 
     /**
@@ -106,6 +114,7 @@ public class IntervieweeList implements Iterable<Interviewee> {
         Interviewee toDelete = getInterviewee(identifier);
         interviewees.remove(toDelete.getId());
         identifierIndices.remove(toDelete.getFullName());
+        observableList.remove(toDelete);
         toDelete.getAlias().ifPresent(alias -> identifierIndices.remove(alias));
     }
 
@@ -135,16 +144,6 @@ public class IntervieweeList implements Iterable<Interviewee> {
             throw new IllegalActionException("No interviewee with this id can be found");
         }
         return result;
-    }
-
-    /**
-     * Returns an iterator over elements of type {@code T}.
-     *
-     * @return an Iterator.
-     */
-    @Override
-    public Iterator<Interviewee> iterator() {
-        return interviewees.values().iterator();
     }
 
     /**

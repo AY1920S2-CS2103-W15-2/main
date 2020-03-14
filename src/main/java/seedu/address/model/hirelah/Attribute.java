@@ -1,6 +1,6 @@
 package seedu.address.model.hirelah;
 
-import static seedu.address.commons.util.AppUtil.checkArgument;
+import seedu.address.commons.exceptions.IllegalValueException;
 
 /*
  * Attribute
@@ -18,28 +18,39 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
  * taken into account to assess the interviewee.</p>
  * @author AY1920S2-W15-2
  */
-
 public class Attribute {
     public static final String MESSAGE_CONSTRAINTS =
             "A name of attribute should only contain alphabet characters and spaces, and it should not be blank";
-    public static final String VALIDATION_REGEX = "^[a-zA-Z\\s]*$";
+    public static final String VALIDATION_REGEX = "[\\p{Alpha}][\\p{Alpha} ]*";
 
     private String name;
 
     /**
-     * Constructs an Attribute instance.
+     * Constructs an Attribute instance. Use the static factory method {@link #of(String)} for unvalidated input.
+     *
      * @param name The name of the attribute.
      */
-
     public Attribute(String name) {
-        checkArgument(isValidAttributeName(name), MESSAGE_CONSTRAINTS);
         this.name = name;
+    }
+
+    /**
+     * Constructs an Attribute with validation.
+     *
+     * @param name The name of the attribute.
+     * @return The created attribute.
+     * @throws IllegalValueException if the name is invalid.
+     */
+    public static Attribute of(String name) throws IllegalValueException {
+        if (!isValidAttributeName(name)) {
+            throw new IllegalValueException(MESSAGE_CONSTRAINTS);
+        }
+        return new Attribute(name);
     }
 
     /**
      * Returns true if a given string is a valid name.
      */
-
     public static boolean isValidAttributeName(String test) {
         return test.matches(VALIDATION_REGEX);
     }

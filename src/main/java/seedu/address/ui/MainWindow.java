@@ -153,8 +153,8 @@ public class MainWindow extends UiPart<Stage> {
         if (this.toggleView == toggleView) {
             return;
         }
+        this.toggleView = toggleView;
 
-        primaryStage.hide();
         listPanelStackPane.getChildren().removeAll();
         switch (toggleView) {
         case ATT: // attribute
@@ -181,7 +181,6 @@ public class MainWindow extends UiPart<Stage> {
         default:
             break;
         }
-        primaryStage.show();
     }
 
     /**
@@ -195,6 +194,7 @@ public class MainWindow extends UiPart<Stage> {
             helpWindow.focus();
         }
     }
+
 
     void show() {
         primaryStage.show();

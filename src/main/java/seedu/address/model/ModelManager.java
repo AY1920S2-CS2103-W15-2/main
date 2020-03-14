@@ -4,13 +4,16 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.nio.file.Path;
+import java.util.List;
 import java.util.function.Predicate;
 import java.util.logging.Logger;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
+import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.hirelah.Attribute;
 import seedu.address.model.hirelah.Interviewee;
 import seedu.address.model.hirelah.Question;
@@ -129,22 +132,33 @@ public class ModelManager implements Model {
 
     @Override
     public ObservableList<Attribute> getAttributeList() {
-        return null;
+        return FXCollections.observableList(List.of(new Attribute("Manliness"), new Attribute("Womanliness")));
     }
 
     @Override
     public ObservableList<Question> getQuestionList() {
-        return null;
+        return FXCollections.observableList(List.of(
+                new Question("How old are you?"),
+                new Question("How old are you?"),
+                new Question("How old are you?"),
+                new Question("How old are you?"),
+                new Question("How old are you?")));
     }
 
     @Override
     public ObservableList<Transcript> getTranscriptList(Interviewee interviewee) {
-        return null;
+        return FXCollections.observableList(List.of());
     }
 
     @Override
     public ObservableList<Interviewee> getFilteredIntervieweeList() {
-        return null;
+        Interviewee i;
+        try {
+            i = new Interviewee("Bob", 1);
+        } catch (IllegalValueException e) {
+            throw new RuntimeException();
+        }
+        return FXCollections.observableList(List.of(i));
     }
 
     @Override

@@ -12,7 +12,7 @@ public class AttributeListTest {
     @Test
     public void add_success() {
         try {
-            assertEquals("Successfully added attribute: courage", new AttributeList().add("courage"));
+            new AttributeList().add("courage");
         } catch (IllegalValueException e) {
             fail();
         }
@@ -78,7 +78,7 @@ public class AttributeListTest {
             fail();
         }
         try {
-            assertEquals("Successfully removed courage", list.delete("cou"));
+            list.delete("cou");
         } catch (IllegalValueException e) {
             fail();
         }

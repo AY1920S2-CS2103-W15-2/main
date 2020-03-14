@@ -12,8 +12,7 @@ public class QuestionListTest {
     @Test
     public void add_success() {
         try {
-            assertEquals("Successfully added question: what is this question?",
-                    new QuestionList().add("what is this question?"));
+            new QuestionList().add("what is this question?");
         } catch (IllegalValueException e) {
             fail();
         }
@@ -87,8 +86,7 @@ public class QuestionListTest {
             fail();
         }
         try {
-            assertEquals("Successfully deleted question: what is this question?",
-                    list.delete("1"));
+            list.delete("1");
         } catch (IllegalValueException e) {
             fail();
         }

@@ -2,7 +2,6 @@ package seedu.address.model.hirelah;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
@@ -37,7 +36,7 @@ class IntervieweeListTest {
         } catch (IllegalValueException e) {
             assertEquals(Interviewee.MESSAGE_CONSTRAINTS, e.getMessage());
         }
-        assertFalse(interviewees.iterator().hasNext()); // Should still be empty
+        assertTrue(interviewees.getObservableList().isEmpty()); // Should still be empty
     }
 
     @Test
@@ -88,7 +87,7 @@ class IntervieweeListTest {
     }
 
     @Test
-    void iterator_increasingIdOrder() throws IllegalValueException, IllegalActionException {
+    void getObservableList_increasingIdOrder() throws IllegalValueException, IllegalActionException {
         IntervieweeList interviewees = new IntervieweeList();
         interviewees.addInterviewee("A");
         interviewees.addInterviewee("B");
@@ -97,7 +96,7 @@ class IntervieweeListTest {
         interviewees.addInterviewee("E");
         interviewees.deleteInterviewee("D");
         int previous = 0;
-        for (Interviewee i : interviewees) {
+        for (Interviewee i : interviewees.getObservableList()) {
             assertTrue(i.getId() > previous);
             previous = i.getId();
         }

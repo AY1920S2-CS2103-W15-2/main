@@ -6,6 +6,8 @@ import static seedu.address.testutil.Assert.assertThrows;
 
 import org.junit.jupiter.api.Test;
 
+import seedu.address.commons.exceptions.IllegalValueException;
+
 /*
  * AttributeTest
  *
@@ -25,9 +27,8 @@ import org.junit.jupiter.api.Test;
 
 public class AttributeTest {
     @Test
-    public void constructor_invalidAttributeName_throwsIllegalArgumentException() {
-        String invalidName = "";
-        assertThrows(IllegalArgumentException.class, () -> new Attribute("1234"));
+    public void of_invalidAttributeName_throwsIllegalValueException() {
+        assertThrows(IllegalValueException.class, () -> Attribute.of("1234"));
     }
 
     @Test

@@ -1,7 +1,7 @@
 package seedu.address.model.hirelah;
 
-import java.util.ArrayList;
-
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import seedu.address.commons.exceptions.IllegalValueException;
 
 /*
@@ -22,40 +22,38 @@ import seedu.address.commons.exceptions.IllegalValueException;
  * @author AY1920S2-W15-2
  */
 
-public class AttributeList implements IList<Attribute> {
+public class AttributeList {
     private static final String DUPLICATE_MESSAGE = "There are multiple attributes with the same prefix.";
     private static final String NOT_FOUND_MESSAGE = "No attributes with the entered prefix.";
 
-    private ArrayList<Attribute> attributes;
+    private ObservableList<Attribute> attributes;
 
     /**
      * Constructs an AttributeList instance.
      */
-
     public AttributeList() {
-        this.attributes = new ArrayList<>();
+        this.attributes = FXCollections.observableArrayList();
+    }
+
+    public ObservableList<Attribute> getObservableList() {
+        return attributes;
     }
 
     /**
      * Adds the attribute to the list.
+     *
      * @param attributeName The attribute name.
-     * @return The message outcome.
+     * @throws IllegalValueException if the attribute already exists, or the name is invalid
      */
+    public void add(String attributeName) throws IllegalValueException {
+        Attribute attribute = Attribute.of(attributeName);
+        boolean isDuplicate = isDuplicate(attribute);
 
-    public String add(String attributeName) throws IllegalValueException {
-        try {
-            Attribute attribute = new Attribute(attributeName);
-            boolean isDuplicate = isDuplicate(attribute);
-
-            if (isDuplicate) {
-                throw new IllegalValueException("This attribute is already exists!");
-            }
-
-            attributes.add(attribute);
-            return String.format("Successfully added attribute: %s", attribute);
-        } catch (IllegalArgumentException e) {
-            return e.getMessage();
+        if (isDuplicate) {
+            throw new IllegalValueException("This attribute is already exists!");
         }
+
+        attributes.add(attribute);
     }
 
     /**
@@ -64,7 +62,6 @@ public class AttributeList implements IList<Attribute> {
      * @return The corresponding Attribute instance.
      * @throws IllegalValueException if the prefix can be multi-interpreted or no such Attribute found.
      */
-
     public Attribute find(String attributePrefix) throws IllegalValueException {
         checkPrefix(attributePrefix);
         return attributes.stream().filter(attribute -> attribute.toString().startsWith(attributePrefix))
@@ -74,15 +71,13 @@ public class AttributeList implements IList<Attribute> {
 
     /**
      * Deletes the attribute by its prefix.
+     *
      * @param attributePrefix The prefix of the attribute.
-     * @return The outcome message.
      * @throws IllegalValueException if the prefix can be multi-interpreted or no such Attribute found.
      */
-
-    public String delete(String attributePrefix) throws IllegalValueException {
+    public void delete(String attributePrefix) throws IllegalValueException {
         Attribute attribute = find(attributePrefix);
         attributes.remove(attribute);
-        return String.format("Successfully removed %s", attribute);
     }
 
     /**
@@ -101,6 +96,7 @@ public class AttributeList implements IList<Attribute> {
             throw new IllegalValueException(NOT_FOUND_MESSAGE);
         }
     }
+
     private boolean isDuplicate(Attribute attribute) {
         return attributes.stream().anyMatch(attribute::equals);
     }

@@ -18,12 +18,12 @@ public class IntervieweeListPanel extends UiPart<Region> {
     private final Logger logger = LogsCenter.getLogger(IntervieweeListPanel.class);
 
     @FXML
-    private ListView<Interviewee> intervieweeListView;
+    private ListView<Interviewee> generalListView;
 
     public IntervieweeListPanel(ObservableList<Interviewee> intervieweeList) {
         super(FXML);
-        intervieweeListView.setItems(intervieweeList);
-        intervieweeListView.setCellFactory(listView -> new IntervieweeListViewCell());
+        generalListView.setItems(intervieweeList);
+        generalListView.setCellFactory(listView -> new IntervieweeListViewCell());
     }
 
     /**

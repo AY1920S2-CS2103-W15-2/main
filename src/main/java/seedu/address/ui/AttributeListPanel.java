@@ -17,11 +17,11 @@ public class AttributeListPanel extends UiPart<Region> {
     private final Logger logger = LogsCenter.getLogger(AttributeListPanel.class);
 
     @FXML
-    private ListView<Attribute> attributeListView;
+    private ListView<Attribute> generalListView;
 
     public AttributeListPanel(ObservableList<Attribute> attributeList) {
         super(FXML);
-        attributeListView.setItems(attributeList);
+        generalListView.setItems(attributeList);
     }
 
 }

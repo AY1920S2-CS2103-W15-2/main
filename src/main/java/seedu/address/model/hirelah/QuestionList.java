@@ -1,7 +1,7 @@
 package seedu.address.model.hirelah;
 
-import java.util.ArrayList;
-
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import seedu.address.commons.exceptions.IllegalValueException;
 
 /*
@@ -22,51 +22,32 @@ import seedu.address.commons.exceptions.IllegalValueException;
  * @author AY1920S2-W15-2
  */
 
-public class QuestionList implements IList<Question> {
-    private ArrayList<Question> questions;
+public class QuestionList {
+    private ObservableList<Question> questions;
 
     public QuestionList() {
-        this.questions = new ArrayList<>();
+        this.questions = FXCollections.observableArrayList();
     }
 
-    /**
-     * Lists all the questions that have been added.
-     * @return The String represented the list.
-     */
-
-    public String listQuestions() {
-        String message = "";
-
-        for (int i = 1; i <= questions.size(); i++) {
-            if (i != 1) {
-                message += "\n";
-            }
-            message += questions.get(i - 1);
-        }
-
-        return message;
+    public ObservableList<Question> getObservableList() {
+        return questions;
     }
 
     /**
      * Adds the question to the list, if the input is valid.
+     *
      * @param questionDescription The question.
-     * @return The outcome message.
      * @throws IllegalValueException If the question already exists.
      */
-    public String add(String questionDescription) throws IllegalValueException {
-        try {
-            Question question = new Question(questionDescription);
-            boolean isDuplicate = isDuplicate(question);
+    public void add(String questionDescription) throws IllegalValueException {
+        Question question = new Question(questionDescription);
+        boolean isDuplicate = isDuplicate(question);
 
-            if (isDuplicate) {
-                throw new IllegalValueException("This question is already exists!");
-            }
-
-            questions.add(question);
-            return String.format("Successfully added question: %s", question);
-        } catch (IllegalArgumentException e) {
-            return e.getMessage();
+        if (isDuplicate) {
+            throw new IllegalValueException("This question is already exists!");
         }
+
+        questions.add(question);
     }
 
     /**
@@ -92,11 +73,11 @@ public class QuestionList implements IList<Question> {
     /**
      * Deletes the question based on its index, if the index
      * string entered is a valid integer string.
+     *
      * @param questionIndex The string index.
-     * @return The outcome message.
      * @throws IllegalValueException If the questionIndex is not a number or the index is out of bound.
      */
-    public String delete(String questionIndex) throws IllegalValueException {
+    public void delete(String questionIndex) throws IllegalValueException {
         try {
             int index = Integer.parseInt(questionIndex);
 
@@ -104,9 +85,7 @@ public class QuestionList implements IList<Question> {
                 throw new IllegalValueException("The index is out of bound");
             }
 
-            Question question = questions.get(index - 1);
-            questions.remove(question);
-            return String.format("Successfully deleted question: %s", question);
+            questions.remove(index - 1);
         } catch (NumberFormatException e) {
             throw new IllegalValueException("The input is not a number.");
         }

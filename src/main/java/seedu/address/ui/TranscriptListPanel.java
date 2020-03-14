@@ -18,12 +18,12 @@ public class TranscriptListPanel extends UiPart<Region> {
     private final Logger logger = LogsCenter.getLogger(TranscriptListPanel.class);
 
     @FXML
-    private ListView<Transcript> transcriptListView;
+    private ListView<Transcript> generalListView;
 
     public TranscriptListPanel(ObservableList<Transcript> transcriptList) {
         super(FXML);
-        transcriptListView.setItems(transcriptList);
-        transcriptListView.setCellFactory(listView -> new TranscriptListViewCell());
+        generalListView.setItems(transcriptList);
+        generalListView.setCellFactory(listView -> new TranscriptListViewCell());
     }
 
     /**
@@ -42,5 +42,4 @@ public class TranscriptListPanel extends UiPart<Region> {
             }
         }
     }
-
 }

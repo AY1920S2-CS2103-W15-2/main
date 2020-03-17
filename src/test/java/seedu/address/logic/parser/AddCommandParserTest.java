@@ -8,6 +8,7 @@ import static seedu.address.logic.commands.CommandTestUtility.VALID_PROPERTY_INT
 import static seedu.address.logic.commands.CommandTestUtility.VALID_PROPERTY_QUESTION;
 import static seedu.address.logic.commands.CommandTestUtility.VALID_QUESTION_WHAT;
 import static seedu.address.logic.commands.CommandTestUtility.WHITESPACE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_ALIAS;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
 
@@ -28,6 +29,12 @@ public class AddCommandParserTest {
                         + WHITESPACE + VALID_INTERVIEWEE_JANE,
                 new AddIntervieweeCommand("Jane Doe"));
 
+        assertParseSuccess(parser, WHITESPACE + VALID_PROPERTY_INTERVIEWEE
+                        + WHITESPACE + VALID_INTERVIEWEE_JANE
+                        + WHITESPACE + PREFIX_ALIAS
+                        + WHITESPACE + "Jane",
+                new AddIntervieweeCommand("Jane Doe", "Jane"));
+
         assertParseSuccess(parser, WHITESPACE
                         + VALID_PROPERTY_ATTRIBUTE
                         + WHITESPACE
@@ -42,9 +49,21 @@ public class AddCommandParserTest {
     }
 
     @Test
-    public void parse_compulsoryFieldMissing_failure() {
-        String expectedMessage = String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE);
+    void parse_compulsoryFieldsMissing_success() {
 
+        assertParseFailure(parser, WHITESPACE + VALID_PROPERTY_INTERVIEWEE + WHITESPACE,
+                String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
+
+        assertParseFailure(parser, WHITESPACE + VALID_PROPERTY_ATTRIBUTE + WHITESPACE,
+                String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
+
+        assertParseFailure(parser, WHITESPACE + VALID_PROPERTY_QUESTION + WHITESPACE,
+                String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
+    }
+
+    @Test
+    public void parse_argumentMissing_failure() {
+        String expectedMessage = String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE);
         assertParseFailure(parser, WHITESPACE, expectedMessage);
     }
 }

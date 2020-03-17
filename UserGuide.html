@@ -67,43 +67,11 @@ manage interviews.</p>
 <div class="sect2">
 <h3 id="start-session"><a class="link" href="#start-session">3.1. Start Session</a></h3>
 <div class="paragraph">
-<p>You can select, view, or delete interview sessions from a list of
-existing interview sessions to continue from an interview you left off
-previously, or you can create a new interview session from scratch.</p>
-</div>
-<div class="paragraph">
-<p><strong>Command</strong></p>
+<p>You can select the current interview session by updating the currentSession attribute in userConfig before launching HireLah! application. currentSession by default is defaultSession.</p>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>view session &lt;session&gt;
-delete session &lt;session&gt;
-start session &lt;session&gt;
-new session &lt;session&gt;</pre>
-</div>
-</div>
-<div class="paragraph">
-<p><strong>Example</strong></p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>view session
-new session CEOInterview</pre>
-</div>
-</div>
-<div class="paragraph">
-<p><em>Action:</em> views existing interview sessions, followed by creating and
-starting a new interview session named "CEOInterview"</p>
-</div>
-<div class="paragraph">
-<p><em>Output:</em></p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>You have 1 existing interview session:
-JanitorInterview
-
-Started new interview session: CEOInterview</pre>
+<pre>currentSession: defaultSession</pre>
 </div>
 </div>
 </div>
@@ -133,7 +101,7 @@ list interviewee</pre>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>&gt; new interviewee Jane Doe -a Doe
+<pre>&gt; add interviewee Jane Doe -a Doe
 &gt; edit interviewee -o Jane Doe -n Janice Doe
 &gt; delete interviewee Doe
 &gt; list interviewee</pre>
@@ -166,7 +134,7 @@ The following interviewee has been deleted:
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>&gt; new attribute &lt;attribute&gt;
+<pre>&gt; add attribute &lt;attribute&gt;
 &gt; edit attribute -o &lt;old attribute&gt; -n &lt;new attribute&gt;
 &gt; delete attribute &lt;attribute&gt;
 &gt; list attribute</pre>
@@ -177,8 +145,8 @@ The following interviewee has been deleted:
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>&gt; new attribute teamwork
-&gt; new attribute leadership
+<pre>&gt; add attribute teamwork
+&gt; add attribute leadership
 &gt; edit attribute leadership leadership
 &gt; list attribute
 &gt; delete attribute teamwork</pre>
@@ -220,7 +188,7 @@ questions.</p>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>new question &lt;question&gt;
+<pre>add question &lt;question&gt;
 edit question &lt;question number&gt; &lt;edited question&gt;
 list question
 delete question &lt;question number&gt;</pre>
@@ -231,7 +199,7 @@ delete question &lt;question number&gt;</pre>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>&gt; new question What are your relevant experiences?
+<pre>&gt; add question What are your relevant experiences?
 &gt; edit question 1 What do you hope to accomplish in 5 years?
 &gt; edit question 2 How can you add value to the company?
 &gt; list question
@@ -256,6 +224,77 @@ These are the current questions:
 
 The following question was deleted:
   1. What do you hope to accomplish in 5 years?</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="finalise-interview-attributes-and-questions"><a class="link" href="#finalise-interview-attributes-and-questions">3.2.4. Finalise Interview Attributes and Questions</a></h4>
+<div class="paragraph">
+<p>After the interviewer is satisfied with the list of questions and attributes created for an interview session, the interviewer must finalise changes in attributes and questions. This is to ensure that the interviewers will evaluate all interviewees fairly and equally using the same set of questions and attributes.</p>
+</div>
+<div class="paragraph">
+<p><strong>Command</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>finalise</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><em>Output:</em></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Questions and Attributes for this interview session have been finalised.</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="add-edit-and-delete-metrics"><a class="link" href="#add-edit-and-delete-metrics">3.2.5. Add, Edit and Delete Metrics</a></h4>
+<div class="paragraph">
+<p>Before the interview process, the interviewer may add, remove, and update Metrics to determine the relative importance of several Attributes. Each metric assigns a numerical score to one or more Attributes, and interviewees can be ranked based on their overall score for this metric in the Decision Phase.</p>
+</div>
+<div class="paragraph">
+<p><strong>Command</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>add metric &lt;name&gt; &lt;attribute&gt; &lt;score&gt; [&lt;attribute&gt; &lt;score&gt;...]
+edit metric &lt;name&gt; &lt;attribute&gt; &lt;score&gt; [&lt;attribute&gt; &lt;score&gt;...]
+list metric
+delete metric &lt;name&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Example</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&gt; add metric Weighted bravery 0.5 manliness 0.4 intellij 0.1
+&gt; edit metric Weighted bravery 0.005 manliness 0.005 intellij 0.99
+&gt; list metric
+&gt; delete metric Weighted</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><em>Output:</em></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>The following metric has been added:
+  Weighted
+
+The following metric has been updated:
+  Weighted
+
+These are the current metrics:
+  1. Weighted
+    - bravery: 0.005
+    - manliness: 0.005
+    - intellij: 0.99
+
+The following metric has been deleted:
+  Weighted</pre>
 </div>
 </div>
 </div>
@@ -306,7 +345,7 @@ interview session, to be asked to the interviewees.</p>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>view questions</pre>
+<pre>list question</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -317,8 +356,7 @@ interview session, to be asked to the interviewees.</p>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>Questions
-Q1. What are your strengths and weaknesses?
+<pre>Q1. What are your strengths and weaknesses?
 Q2. What are your relevant experiences as a software developer?
 Q3. What was your last salary?</pre>
 </div>
@@ -619,35 +657,13 @@ contains the data of your previous HireLah! folder.</p>
 <h2 id="command-summary"><a class="link" href="#command-summary">5. Command Summary</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><strong>Start Session</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>view session</code><br></p>
-</li>
-<li>
-<p><code>delete session &lt;session&gt;</code><br>
-e.g. <code>delete session CEOInterview</code></p>
-</li>
-<li>
-<p><code>start session &lt;session&gt;</code><br>
-e.g. <code>start session CEOInterview</code></p>
-</li>
-<li>
-<p><code>new session &lt;session&gt;</code><br>
-e.g. <code>new session CEOInterview</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
 <p><strong>Initialization Phase</strong></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>new interviewee &lt;fullname&gt; [-a &lt;alias&gt;]</code><br>
-e.g. <code>new interviewee - Jane Doe -a Doe</code></p>
+<p><code>add interviewee &lt;fullname&gt; [-a &lt;alias&gt;]</code><br>
+e.g. <code>add interviewee - Jane Doe -a Doe</code></p>
 </li>
 <li>
 <p><code>delete interviewee &lt;interviewee&gt;</code><br>
@@ -657,8 +673,8 @@ e.g. <code>delete interviewee Doe</code></p>
 <p><code>list interviewee</code></p>
 </li>
 <li>
-<p><code>new attribute &lt;attributes&gt;</code><br>
-e.g. <code>new attribute teamwork</code></p>
+<p><code>add attribute &lt;attributes&gt;</code><br>
+e.g. <code>add attribute teamwork</code></p>
 </li>
 <li>
 <p><code>edit attribute &lt;attributes&gt;</code><br>
@@ -763,4 +779,4 @@ e.g. <code>best 5 -w weightage1</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-17 14:55:25 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-17 15:06:44 UTC</div></div></div></body></html>

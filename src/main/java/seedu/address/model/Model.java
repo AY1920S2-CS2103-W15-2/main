@@ -82,6 +82,9 @@ public interface Model {
     /** Returns the current mode of the App */
     AppPhase getAppPhase();
 
-    /** Finalizes the questions and attributes so they do not change between interviews */
-    void finalizeQuestionsAndAttributes();
+    /** Finalizes the interviewees, questions and attributes so they do not change between interviews */
+    void finaliseInterviewProperties();
+
+    /** Checks whether the interviewees, questions and attributes has been finalised */
+    boolean isfinalisedInterviewProperties();
 }

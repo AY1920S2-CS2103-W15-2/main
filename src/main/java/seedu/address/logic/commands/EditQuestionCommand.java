@@ -7,6 +7,7 @@ import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.hirelah.Question;
 import seedu.address.model.hirelah.QuestionList;
+import seedu.address.model.hirelah.exceptions.IllegalActionException;
 
 /**
  * EditQuestionCommand describes the behavior when the
@@ -37,10 +38,14 @@ public class EditQuestionCommand extends EditCommand {
         QuestionList questions = model.getQuestionList();
 
         try {
+            if (model.isfinalisedInterviewProperties()) {
+                throw new IllegalActionException("The interview session's questions has been finalised."
+                        + " You can no longer edit a question.");
+            }
             Question question = questions.edit(questionIndex, updatedDescription);
             return new CommandResult(String.format(MESSAGE_EDIT_QUESTION_SUCCESS, question, updatedDescription),
                     ToggleView.QUESTION);
-        } catch (IllegalValueException e) {
+        } catch (IllegalValueException | IllegalActionException e) {
             throw new CommandException(e.getMessage());
         }
     }

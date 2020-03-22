@@ -37,6 +37,10 @@ public class DeleteIntervieweeCommand extends DeleteCommand {
         IntervieweeList interviewees = model.getIntervieweeList();
 
         try {
+            if (model.isfinalisedInterviewProperties()) {
+                throw new IllegalActionException("The interview session's interviewees has been finalised."
+                        + " You can no longer delete an interviewee.");
+            }
             interviewees.deleteInterviewee(identifier);
         } catch (IllegalActionException e) {
             throw new CommandException(e.getMessage());

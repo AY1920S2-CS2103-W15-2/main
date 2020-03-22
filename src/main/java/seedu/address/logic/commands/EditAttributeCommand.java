@@ -7,6 +7,7 @@ import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.hirelah.Attribute;
 import seedu.address.model.hirelah.AttributeList;
+import seedu.address.model.hirelah.exceptions.IllegalActionException;
 
 /**
  * EditAttributeCommand describes the behavior when the
@@ -38,10 +39,14 @@ public class EditAttributeCommand extends EditCommand {
         requireNonNull(model);
         AttributeList attributes = model.getAttributeList();
         try {
+            if (model.isfinalisedInterviewProperties()) {
+                throw new IllegalActionException("The interview session's attributes has been finalised."
+                        + " You can no longer edit an attribute.");
+            }
             Attribute attribute = attributes.edit(attributePrefix, updatedAttribute);
             return new CommandResult(String.format(MESSAGE_EDIT_ATTRIBUTE_SUCCESS, attribute, updatedAttribute),
                     ToggleView.ATTRIBUTE);
-        } catch (IllegalValueException e) {
+        } catch (IllegalValueException | IllegalActionException e) {
             throw new CommandException(e.getMessage());
         }
     }

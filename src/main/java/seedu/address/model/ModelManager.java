@@ -33,6 +33,7 @@ public class ModelManager implements Model {
     private final AttributeList attributeList;
     private final QuestionList questionList;
     private final UserPrefs userPrefs;
+    private boolean finalisedInterviewProperties;
 
     /**
      * Initializes a ModelManager with the given addressBook and userPrefs.
@@ -161,8 +162,14 @@ public class ModelManager implements Model {
      * Finalizes the questions and attributes so they do not change between interviews
      */
     @Override
-    public void finalizeQuestionsAndAttributes() {
-        // TODO: add finalizing methods for Questions and Attributes
+    public void finaliseInterviewProperties() {
+        this.finalisedInterviewProperties = true;
+    }
+
+    /** Checks whether the interviewees, questions and attributes has been finalised */
+    @Override
+    public boolean isfinalisedInterviewProperties() {
+        return this.finalisedInterviewProperties;
     }
 
     @Override

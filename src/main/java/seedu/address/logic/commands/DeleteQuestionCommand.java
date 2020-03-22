@@ -6,6 +6,7 @@ import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.hirelah.QuestionList;
+import seedu.address.model.hirelah.exceptions.IllegalActionException;
 
 /**
  * DeleteQuestionCommand describes the behavior when the
@@ -35,9 +36,13 @@ public class DeleteQuestionCommand extends DeleteCommand {
         requireNonNull(model);
         QuestionList questions = model.getQuestionList();
         try {
+            if (model.isfinalisedInterviewProperties()) {
+                throw new IllegalActionException("The interview session's questions has been finalised."
+                        + " You can no longer delete a question.");
+            }
             return new CommandResult(String.format(MESSAGE_DELETE_QUESTION_SUCCESS, questions.delete(questionIndex)),
                     ToggleView.QUESTION);
-        } catch (IllegalValueException e) {
+        } catch (IllegalValueException | IllegalActionException e) {
             throw new CommandException(e.getMessage());
         }
     }

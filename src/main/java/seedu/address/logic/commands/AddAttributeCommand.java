@@ -6,6 +6,7 @@ import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.hirelah.AttributeList;
+import seedu.address.model.hirelah.exceptions.IllegalActionException;
 
 /**
  * AddAttributeCommand describes the behavior when the
@@ -36,8 +37,12 @@ public class AddAttributeCommand extends AddCommand {
         AttributeList attributes = model.getAttributeList();
 
         try {
+            if (model.isfinalisedInterviewProperties()) {
+                throw new IllegalActionException("The interview session's attributes has been finalised."
+                        + " You can no longer add a new attribute.");
+            }
             attributes.add(toAdd);
-        } catch (IllegalValueException e) {
+        } catch (IllegalValueException | IllegalActionException e) {
             throw new CommandException(e.getMessage());
         }
 

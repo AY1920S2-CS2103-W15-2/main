@@ -36,8 +36,11 @@ public class EditIntervieweeCommand extends EditCommand {
         requireNonNull(model);
         IntervieweeList interviewees = model.getIntervieweeList();
         try {
+            if (model.isfinalisedInterviewProperties()) {
+                throw new IllegalActionException("The interview session's interviewees has been finalised."
+                        + " You can no longer edit an interviewee.");
+            }
             interviewees.getInterviewee(identifier).setFullName(updatedName);
-
         } catch (IllegalActionException e) {
             throw new CommandException(e.getMessage());
         }

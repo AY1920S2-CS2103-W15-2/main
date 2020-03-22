@@ -48,6 +48,10 @@ public class AddIntervieweeCommand extends AddCommand {
         IntervieweeList interviewees = model.getIntervieweeList();
 
         try {
+            if (model.isfinalisedInterviewProperties()) {
+                throw new IllegalActionException("The interview session's interviewees has been finalised."
+                        + " You can no longer add a new interviewee.");
+            }
             if (isEmptyAlias()) {
                 interviewees.addInterviewee(fullname);
             } else {

@@ -1,6 +1,5 @@
 package seedu.address.model.hirelah;
 
-import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
@@ -8,7 +7,6 @@ import static org.junit.jupiter.api.Assertions.fail;
 import org.junit.jupiter.api.Test;
 
 import seedu.address.commons.exceptions.IllegalValueException;
-import seedu.address.model.hirelah.exceptions.IllegalActionException;
 
 class IntervieweeTest {
 
@@ -28,22 +26,11 @@ class IntervieweeTest {
         }
     }
 
-    @Test
-    void giveAlias_moreThanOnce_exceptionThrown() throws IllegalValueException {
-        Interviewee i = new Interviewee("Bob", 4);
-        assertDoesNotThrow(() -> i.giveAlias("Bo"));
-        try {
-            i.giveAlias("B");
-            fail();
-        } catch (IllegalActionException e) {
-            assertEquals("Interviewee already has an alias", e.getMessage());
-        }
-    }
 
     @Test
-    void giveAlias_validIdentifier_hasAlias() throws IllegalValueException, IllegalActionException {
+    void setAlias_validIdentifier_hasAlias() throws IllegalValueException {
         Interviewee i = new Interviewee("Bob", 4);
-        i.giveAlias("Bo");
+        i.setAlias("Bo");
         assertTrue(i.getAlias().isPresent());
     }
 }

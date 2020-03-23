@@ -1,8 +1,10 @@
 package seedu.address.model.hirelah;
 
 import java.util.Map;
+import java.util.Optional;
 import java.util.TreeMap;
 
+import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import seedu.address.commons.exceptions.IllegalValueException;
@@ -36,7 +38,14 @@ public class IntervieweeList {
         this.uniqueIntervieweeId = uniqueIntervieweeId;
         this.interviewees = interviewees;
         this.identifierIndices = identifierIndices;
-        this.observableList = FXCollections.observableArrayList(interviewees.values());
+        this.observableList = FXCollections.observableArrayList(
+            interviewee -> new Observable[] {
+                interviewee.fullNameProperty(),
+                interviewee.aliasProperty(),
+                interviewee.resumeProperty(),
+                interviewee.transcriptProperty()
+            });
+        this.observableList.addAll(interviewees.values());
     }
 
     /**
@@ -82,26 +91,51 @@ public class IntervieweeList {
     public void addIntervieweeWithAlias(String name, String alias)
             throws IllegalValueException, IllegalActionException {
         addInterviewee(name);
-        addAlias(name, alias);
+        setAlias(name, alias);
     }
 
     /**
-     * Adds an alias for the given interviewee which can be used to retrieve said interviewee via getInterviewee.
+     * Sets an alias for the given interviewee which can be used to retrieve said interviewee via getInterviewee.
      *
-     * @param identifier The identifier to retrieve the interviewee, which must either be a full name
-     *                   or the interviewee's id, since no alias should be given presently.
+     * @param identifier The identifier to retrieve the interviewee.
      * @param alias The alias to give.
      * @throws IllegalValueException If the alias is already taken, or is invalid.
      * @throws IllegalActionException In the following situations:
      *  - The identifier cannot be associated with any interviewee.
-     *  - The interviewee already has an alias.
      */
-    public void addAlias(String identifier, String alias) throws IllegalValueException, IllegalActionException {
+    public void setAlias(String identifier, String alias) throws IllegalValueException, IllegalActionException {
         checkDuplicateIdentifier(alias);
 
         Interviewee interviewee = getInterviewee(identifier);
-        interviewee.giveAlias(alias);
+
+        // Store old alias before overwriting, to delete old alias from identifierIndices after setting
+        // in case the new alias is invalid and Interviewee#setAlias throws an Exception.
+        Optional<String> oldAlias = interviewee.getAlias();
+        interviewee.setAlias(alias);
+        oldAlias.ifPresent(old -> identifierIndices.remove(old));
         identifierIndices.put(alias, interviewee.getId());
+    }
+
+    /**
+     * Sets the full name of the given interviewee.
+     *
+     * @param identifier The identifier to retrieve the interviewee.
+     * @param fullName The new name to overwrite the interviewee's previous full name.
+     * @throws IllegalValueException If fullName is already taken, or is invalid.
+     * @throws IllegalActionException In the following situations:
+     *  - The identifier cannot be associated with any interviewee.
+     */
+    public void setName(String identifier, String fullName) throws IllegalValueException, IllegalActionException {
+        checkDuplicateIdentifier(fullName);
+
+        Interviewee interviewee = getInterviewee(identifier);
+
+        // Store old full name before overwriting, to delete from identifierIndices after setting
+        // in case the new full name is invalid and Interviewee#setFullName throws an Exception.
+        String oldName = interviewee.getFullName();
+        interviewee.setFullName(fullName);
+        identifierIndices.remove(oldName);
+        identifierIndices.put(fullName, interviewee.getId());
     }
 
     /**

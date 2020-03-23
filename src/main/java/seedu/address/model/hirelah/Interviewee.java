@@ -1,31 +1,34 @@
 package seedu.address.model.hirelah;
 
 import java.io.File;
-import java.util.Map;
 import java.util.Optional;
 
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import seedu.address.commons.exceptions.IllegalValueException;
-import seedu.address.model.hirelah.exceptions.IllegalActionException;
 
 /**
  * A class to represent Interviewee candidates in a Session. They have
- * - a unique ID per session.
- * - the candidate's full name.
- * - an optional, single, alias.
- * - an optional resume (a file object).
- * - an optional indicating if they have been interviewed, and containing the interview session data
- *   if they have been interviewed.
+ * <ul>
+ *     <li>a unique ID per session.</li>
+ *     <li>the candidate's full name.</li>
+ *     <li>optionally, an alias to refer to the candidate.</li>
+ *     <li>optionally, a resume (a file object).</li>
+ *     <li>a Transcript if they have been interviewed.</li>
+ * </ul>
  */
 public class Interviewee {
 
     public static final String MESSAGE_CONSTRAINTS =
             "Names and aliases should not be numbers, eg. 12345, and should not be blank";
 
-    private String fullName;
+    private final StringProperty fullName = new SimpleStringProperty(null);
     private final int id;
-    private Optional<String> alias = Optional.empty();
-    private Optional<File> resume = Optional.empty();
-    private Optional<InterviewSession> interview = Optional.empty();
+    private final StringProperty alias = new SimpleStringProperty(null);
+    private final ObjectProperty<File> resume = new SimpleObjectProperty<>(null);
+    private final ObjectProperty<Transcript> transcript = new SimpleObjectProperty<>(null);
 
     /**
      * Creates a new Interviewee in the system which starts with no alias, no resume and
@@ -35,9 +38,7 @@ public class Interviewee {
      * @param id The interviewee's unique interviewee id.
      */
     public Interviewee(String fullName, int id) throws IllegalValueException {
-        checkValidIdentifier(fullName);
-
-        this.fullName = fullName;
+        setFullName(fullName);
         this.id = id;
     }
 
@@ -46,45 +47,66 @@ public class Interviewee {
     }
 
     public String getFullName() {
-        return fullName;
+        return fullName.getValue();
     }
 
     /**
      * Sets the full name. Allows renaming of Interviewees.
      *
-     * @param fullName the new name of the interviewee
+     * @param fullName the new name of the interviewee.
+     * @throws IllegalValueException if the alias given is an invalid identifier.
      */
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
+    public void setFullName(String fullName) throws IllegalValueException {
+        checkValidIdentifier(fullName);
+        this.fullName.setValue(fullName);
+    }
+
+    public StringProperty fullNameProperty() {
+        return fullName;
     }
 
     public Optional<String> getAlias() {
-        return alias;
+        return Optional.ofNullable(alias.getValue());
     }
 
     /**
-     * Gives an alias to the interviewee object if the interviewee has no alias presently.
+     * Sets the alias of the interviewee if absent, or modifies it if present.
      *
-     * @param alias the alias referring to this interviewee.
+     * @param alias The new alias to refer to this interviewee.
+     * @throws IllegalValueException if the alias given is an invalid identifier.
      */
-    public void giveAlias(String alias) throws IllegalValueException, IllegalActionException {
+    public void setAlias(String alias) throws IllegalValueException {
         checkValidIdentifier(alias);
-        if (this.alias.isPresent()) {
-            throw new IllegalActionException("Interviewee already has an alias");
-        }
-        this.alias = Optional.of(alias);
+        this.alias.setValue(alias);
+    }
+
+    public StringProperty aliasProperty() {
+        return alias;
     }
 
     public Optional<File> getResume() {
-        return resume;
+        return Optional.ofNullable(resume.getValue());
     }
 
     public void setResume(File resume) {
-        this.resume = Optional.ofNullable(resume);
+        this.resume.setValue(resume);
     }
 
-    public Optional<InterviewSession> getInterview() {
-        return interview;
+    public ObjectProperty<File> resumeProperty() {
+        return resume;
+    }
+
+    public Optional<Transcript> getTranscript() {
+        return Optional.ofNullable(transcript.getValue());
+    }
+
+    public void setTranscript(Transcript transcript) {
+        assert this.transcript.getValue() == null;
+        this.transcript.setValue(transcript);
+    }
+
+    public ObjectProperty<Transcript> transcriptProperty() {
+        return transcript;
     }
 
     /**
@@ -93,25 +115,12 @@ public class Interviewee {
      *
      * @param attribute the Attribute to retrieve the score for.
      * @return the score of the given Attribute.
-     * @throws java.util.NoSuchElementException if Interviewee has not been interviewed.
-     *                                          However, it is guaranteed not to occur at runtime
-     *                                          as the IntervieweeList is filtered before sorting by score.
+     * @throws NullPointerException if Interviewee has not been interviewed.
+     *                              However, it is guaranteed not to occur at runtime
+     *                              as the IntervieweeList is filtered before sorting by score.
      */
     public double getScore(Attribute attribute) {
-        return interview.get().getScores().get(attribute);
-    }
-
-    /**
-     * Saves the interview session data, only if there is no previous interview session data, to prevent
-     * overwriting the session data accidentally.
-     *
-     * @param transcript The transcript of remarks taken down during the interview.
-     * @param scores the final attribute scores of the candidate.
-     * @param audioRecording the .wav file with the audio recording of the interview.
-     */
-    public void recordInterview(Transcript transcript, Map<Attribute, Double> scores, File audioRecording) {
-        assert this.interview.isEmpty(); // this method should only be called once
-        this.interview = Optional.of(new InterviewSession(transcript, scores, audioRecording));
+        return transcript.getValue().getAttributeScore(attribute);
     }
 
     /**

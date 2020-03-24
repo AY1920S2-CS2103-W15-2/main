@@ -13,11 +13,11 @@ import seedu.address.model.hirelah.exceptions.IllegalActionException;
  * client wants to open an interview report of an interviewee.
  */
 public class OpenReportCommand extends Command {
-    public static final String COMMAND_WORD = "report";
+    public static final String COMMAND_WORD = "open";
     public static final String MESSAGE_SUCCESS = "Interview report opened: %1$s";
-    public static final String MESSAGE_USAGE = "open " + COMMAND_WORD
+    public static final String MESSAGE_USAGE = COMMAND_WORD
             + ": Opens the interview report of an interviewee."
-            + "Example: open " + COMMAND_WORD + " John Doe";
+            + "Example: " + COMMAND_WORD + " John Doe";
 
     public static final String MESSAGE_OPEN_REPORT_INTERVIEWEE_SUCCESS = "Successfully opened Interviewee report: %1$s";
 

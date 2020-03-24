@@ -38,11 +38,11 @@ public class AddAttributeCommand extends AddCommand {
 
         try {
             if (model.isfinalisedInterviewProperties()) {
-                throw new IllegalActionException("The interview session's attributes has been finalised."
+                throw new CommandException("The interview session's attributes has been finalised."
                         + " You can no longer add a new attribute.");
             }
             attributes.add(toAdd);
-        } catch (IllegalValueException | IllegalActionException e) {
+        } catch (IllegalValueException e) {
             throw new CommandException(e.getMessage());
         }
 

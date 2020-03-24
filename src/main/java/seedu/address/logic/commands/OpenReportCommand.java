@@ -17,7 +17,7 @@ public class OpenReportCommand extends Command {
     public static final String MESSAGE_SUCCESS = "Interview report opened: %1$s";
     public static final String MESSAGE_USAGE = "open " + COMMAND_WORD
             + ": Opens the interview report of an interviewee."
-            + "Example: list " + COMMAND_WORD + " John Doe";
+            + "Example: open " + COMMAND_WORD + " John Doe";
 
     public static final String MESSAGE_OPEN_REPORT_INTERVIEWEE_SUCCESS = "Successfully opened Interviewee report: %1$s";
 

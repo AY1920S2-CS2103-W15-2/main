@@ -40,13 +40,13 @@ public class EditAttributeCommand extends EditCommand {
         AttributeList attributes = model.getAttributeList();
         try {
             if (model.isfinalisedInterviewProperties()) {
-                throw new IllegalActionException("The interview session's attributes has been finalised."
+                throw new CommandException("The interview session's attributes has been finalised."
                         + " You can no longer edit an attribute.");
             }
             Attribute attribute = attributes.edit(attributePrefix, updatedAttribute);
             return new CommandResult(String.format(MESSAGE_EDIT_ATTRIBUTE_SUCCESS, attribute, updatedAttribute),
                     ToggleView.ATTRIBUTE);
-        } catch (IllegalValueException | IllegalActionException e) {
+        } catch (IllegalValueException e) {
             throw new CommandException(e.getMessage());
         }
     }

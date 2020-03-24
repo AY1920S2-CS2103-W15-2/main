@@ -8,7 +8,7 @@ import seedu.address.logic.parser.exceptions.ParseException;
 /**
  * Parses input command and creates a new OpenReportCommand object
  */
-public class OpenReportCommandParser {
+public class OpenReportCommandParser implements Parser<OpenReportCommand> {
 
     /**
      * Parses the given {@code String} of identifier in the context of the OpenReportCommand

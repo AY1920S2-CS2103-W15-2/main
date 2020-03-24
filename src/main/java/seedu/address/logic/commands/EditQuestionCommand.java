@@ -39,13 +39,13 @@ public class EditQuestionCommand extends EditCommand {
 
         try {
             if (model.isfinalisedInterviewProperties()) {
-                throw new IllegalActionException("The interview session's questions has been finalised."
+                throw new CommandException("The interview session's questions has been finalised."
                         + " You can no longer edit a question.");
             }
             Question question = questions.edit(questionIndex, updatedDescription);
             return new CommandResult(String.format(MESSAGE_EDIT_QUESTION_SUCCESS, question, updatedDescription),
                     ToggleView.QUESTION);
-        } catch (IllegalValueException | IllegalActionException e) {
+        } catch (IllegalValueException e) {
             throw new CommandException(e.getMessage());
         }
     }

@@ -36,7 +36,7 @@ public class EditIntervieweeCommand extends EditCommand {
         requireNonNull(model);
         IntervieweeList interviewees = model.getIntervieweeList();
         try {
-            interviewees.getInterviewee(identifier).setFullName(updatedName);
+            interviewees.setName(identifier, updatedName);
         } catch (IllegalActionException | IllegalValueException e) {
             throw new CommandException(e.getMessage());
         }

@@ -11,13 +11,13 @@ import seedu.address.model.Model;
 
 public class FinaliseCommand extends Command {
 
-    public static final String COMMAND_WORD = "exit";
+    public static final String COMMAND_WORD = "finalise";
 
-    public static final String MESSAGE_SUCCESS = "Attributes, questions, and interviewees of this interview session"
+    public static final String MESSAGE_SUCCESS = "Attributes and questions of this interview session"
             + " has been finalised. You cannot change them anymore.";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Finalises the attributes, questions, "
-            + "and interviewees of an interview session.";
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Finalises the attributes and questions "
+            + "of an interview session.";
 
 
     @Override
@@ -27,5 +27,9 @@ public class FinaliseCommand extends Command {
         return new CommandResult(String.format(MESSAGE_SUCCESS));
     }
 
-
+    @Override
+    public boolean equals(Object other) {
+        return other == this // short circuit if same object
+                || (other instanceof FinaliseCommand); // instanceof handles nulls
+    }
 }

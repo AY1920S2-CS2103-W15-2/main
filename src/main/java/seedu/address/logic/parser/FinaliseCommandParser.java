@@ -2,13 +2,14 @@ package seedu.address.logic.parser;
 
 import static seedu.address.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
 
+import seedu.address.logic.commands.EditIntervieweeCommand;
 import seedu.address.logic.commands.FinaliseCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 
 /**
  * Parses input arguments and creates a new FinaliseCommand object
  */
-public class FinaliseCommandParser {
+public class FinaliseCommandParser implements Parser<FinaliseCommand> {
     /**
      * Parses the given {@code String} of arguments in the context of the FinaliseCommand
      * and returns a FinaliseCommand object for execution.

@@ -4,7 +4,7 @@ skinparam arrowThickness 1.1
 skinparam arrowColor MODEL_COLOR
 skinparam classBackgroundColor MODEL_COLOR
 
-Package Model <<Rectangle>> {
+Package Model <<Rectangle>>{
 Interface Model <<Interface>>
 Interface ObservableList <<Interface>>
 Class Session
@@ -20,73 +20,64 @@ Class ID
 Class Name
 Class CV
 Class Transcript
-Class IntervieweeList
+Class UniqueIntervieweeList
 }
 
 Package Question {
 Class Question
-Class QuestionDescription
-Class QuestionList
+Class QuestionName
+Class Number
+Class Answer
+Class UniqueQuestionList
 }
 
 Package Attribute {
 Class Attribute
 Class AttributeName
-Class AttributeList
+Class UniqueAttributeList
 }
 
 Package Metric {
-Class MetricList
+Class UniqueMetricList
 Class Metric
-Class MetricName
-Class AttributeToWeightMap
 }
 
 Package Transcript {
 Class Transcript
-Class RemarkList
-Class AttributeToScoreMap
-}
-
-Session --> Storage
-
-ModelManager .up.|> Model
-Model .right.> ObservableList
-ModelManager o-left-> "1" UserPrefs
-UserPrefs .up.|> ReadOnlyUserPrefs
-
-ModelManager *-right-> "1" Session
-ModelManager *-right-> "1" AppPhase
-
-ModelManager *--> "1" AttributeList
-AttributeList o--> "*" Attribute
-Attribute *--> AttributeName
-
-ModelManager *--> "1" QuestionList
-QuestionList o--> "*" Question
-Question *--> QuestionDescription
-
-ModelManager *--> "1" MetricList
-MetricList o--> "*" Metric
-Metric *--> "1" MetricName
-Metric *--> "1" AttributeToWeightMap
-}
-
-ModelManager *--> "1" IntervieweeList
-IntervieweeList o--> "*" Interviewee
-Interviewee *--> Name
-Interviewee *--> Alias
-Interviewee *--> ID
-Interviewee *--> CV
-Interviewee *-up-> "*" Transcript
-Transcript *--> RemarkList
-Transcript *--> AttributeToScoreMap
-
-Package Storage {
-Class HiddenStorage #FFFFFF
+Class RemarksMap
+Class Audio
 }
 
 Class HiddenOutside #FFFFFF
 HiddenOutside ..> Model
+
+ModelManager .up.|> Model
+Model .right.> ObservableList
+ModelManager o--> "1" Session
+ModelManager o-left-> "1" UserPrefs
+UserPrefs .up.|> ReadOnlyUserPrefs
+
+Session *--> "1" UniqueIntervieweeList
+UniqueIntervieweeList o--> "*" Interviewee
+Interviewee *--> Name
+Interviewee *--> Alias
+Interviewee *--> ID
+Interviewee *--> CV
+Interviewee *--> "*" Transcript
+Transcript *--> RemarksMap
+Transcript *--> Audio
+
+Session *--> "1" UniqueAttributeList
+UniqueAttributeList o--> "*" Attribute
+Attribute *--> AttributeName
+
+Session *--> "1" UniqueQuestionList
+UniqueQuestionList o--> "*" Question
+Question *--> QuestionName
+Question *--> Number
+Question *--> Answer
+
+Session *--> "1" UniqueMetricList
+UniqueMetricList o--> "*" Metric
 
 @enduml

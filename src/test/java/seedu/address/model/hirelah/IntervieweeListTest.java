@@ -54,15 +54,43 @@ class IntervieweeListTest {
     }
 
     @Test
-    void addAlias_duplicateName_exceptionThrown() throws IllegalValueException, IllegalActionException {
+    void setAlias_duplicateName_exceptionThrown() throws IllegalValueException, IllegalActionException {
         IntervieweeList interviewees = new IntervieweeList();
         interviewees.addInterviewee("Bob");
         interviewees.addInterviewee("Tom");
         try {
-            interviewees.addAlias("Tom", "Bob");
+            interviewees.setAlias("Tom", "Bob");
             fail();
         } catch (IllegalValueException e) {
             assertEquals("An Interviewee with this name or alias already exists!", e.getMessage());
+        }
+    }
+
+    @Test
+    void setAlias_oldAliasDeleted() throws IllegalActionException, IllegalValueException {
+        IntervieweeList interviewees = new IntervieweeList();
+        interviewees.addIntervieweeWithAlias("Bob Dylan", "Bob");
+        interviewees.addIntervieweeWithAlias("Tom Marvolo Riddle", "Riddle");
+        interviewees.setAlias("Riddle", "Tom");
+        try {
+            interviewees.getInterviewee("Riddle");
+            fail();
+        } catch (IllegalActionException e) {
+            assertEquals("No interviewee with the given identifier can be found", e.getMessage());
+        }
+    }
+
+    @Test
+    void setName_oldNameDeleted() throws IllegalActionException, IllegalValueException {
+        IntervieweeList interviewees = new IntervieweeList();
+        interviewees.addIntervieweeWithAlias("Bob Dylan", "Bob");
+        interviewees.addIntervieweeWithAlias("Tom Marvolo Riddle", "Riddle");
+        interviewees.setName("Riddle", "Tom Riddle");
+        try {
+            interviewees.getInterviewee("Tom Marvolo Riddle");
+            fail();
+        } catch (IllegalActionException e) {
+            assertEquals("No interviewee with the given identifier can be found", e.getMessage());
         }
     }
 

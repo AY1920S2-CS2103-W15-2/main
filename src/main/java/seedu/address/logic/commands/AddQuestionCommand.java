@@ -6,8 +6,6 @@ import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.hirelah.QuestionList;
-import seedu.address.model.hirelah.exceptions.IllegalActionException;
-
 
 /**
  * AddQuestionCommand describes the behavior when the

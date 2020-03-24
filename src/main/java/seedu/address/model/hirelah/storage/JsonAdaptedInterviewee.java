@@ -6,8 +6,8 @@ import java.util.Optional;
 import com.fasterxml.jackson.annotation.JsonCreator;
 
 import seedu.address.commons.exceptions.IllegalValueException;
-import seedu.address.model.hirelah.InterviewSession;
 import seedu.address.model.hirelah.Interviewee;
+import seedu.address.model.hirelah.Transcript;
 
 /**
  * Jackson-friendly version of {@link Interviewee}.
@@ -18,7 +18,7 @@ class JsonAdaptedInterviewee {
     private final int id;
     private Optional<String> alias;
     private Optional<File> resume;
-    private Optional<InterviewSession> interview;
+    private Optional<Transcript> interview;
 
     /**
      * Constructs a {@code JsonAdaptedPerson} with the given person details.
@@ -29,7 +29,7 @@ class JsonAdaptedInterviewee {
         id = source.getId();
         alias = source.getAlias();
         resume = source.getResume();
-        interview = source.getInterview();
+        interview = source.getTranscript();
     }
     /**
      * Converts this Jackson-friendly adapted person object into the model's {@code Interviewee} object.

@@ -2,6 +2,7 @@ package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
 
+import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.hirelah.IntervieweeList;
@@ -20,8 +21,7 @@ public class EditIntervieweeCommand extends EditCommand {
             + "Parameters: IDENTIFIER NAME\n"
             + "Example: update " + COMMAND_WORD + " Doe Mario Lorenzo";
 
-    public static final String MESSAGE_EDIT_INTERVIEWEE_SUCCESS = "Successfully edited Interviewee: %1$s to %1$s";
-    public static final String MESSAGE_EDIT_DUPLICATE_PREFIX = "There are multiple interviewees with identifier: %s";
+    public static final String MESSAGE_EDIT_INTERVIEWEE_SUCCESS = "Successfully edited Interviewee: %1$s to %2$s";
 
     private final String identifier;
     private final String updatedName;

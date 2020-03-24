@@ -1,6 +1,5 @@
 package seedu.address.model.hirelah;
 
-import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -14,7 +13,6 @@ import seedu.address.model.hirelah.exceptions.IllegalActionException;
  */
 public class Transcript {
     private final RemarkList remarkList;
-    private File audioFile;
     private final Map<Attribute, Double> attributeToScoreMap;
 
     /**
@@ -23,7 +21,6 @@ public class Transcript {
      */
     Transcript() {
         this.remarkList = new RemarkList();
-        this.audioFile = null;
         this.attributeToScoreMap = new HashMap<>();
     }
 
@@ -34,24 +31,6 @@ public class Transcript {
      */
     public RemarkList getRemarkList() {
         return remarkList;
-    }
-
-    /**
-     * Sets the {@code Transcript} to contain a file as its audio file.
-     *
-     * @param audioFile The File of the audio recording to be stored in this {@code Transcript}.
-     */
-    public void setAudioFile(File audioFile) {
-        this.audioFile = audioFile;
-    }
-
-    /**
-     * Retrieves the {@code File} that are associated with this {@code Transcript}.
-     *
-     * @return The {@code File} that are associated with this {@code Transcript}.
-     */
-    public File getAudioFile() {
-        return audioFile;
     }
 
     /**
@@ -68,9 +47,10 @@ public class Transcript {
      * Retrieves the score of this {@code Attribute} of this {@code Interviewee}.
      *
      * @param attribute The attribute whose score is to be retrieved.
+     * @return The score of the given attribute as recorded in the interview.
      */
-    public void getAttributeScore (Attribute attribute) {
-        this.attributeToScoreMap.get(attribute);
+    public double getAttributeScore (Attribute attribute) {
+        return this.attributeToScoreMap.get(attribute);
     }
 
     /**

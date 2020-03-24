@@ -39,9 +39,8 @@ public class OpenReportCommand extends Command {
             Interviewee identifiedInterviewee = interviewees.getInterviewee(identifier);
             identifiedInterviewee
                     .getTranscript()
-                    .orElseThrow(() -> new IllegalActionException(
+                    .orElseThrow(() -> new CommandException(
                             String.format("Interviewee %1$s has not been interviewed.", identifier)));
-
         } catch (IllegalActionException e) {
             throw new CommandException(e.getMessage());
         }

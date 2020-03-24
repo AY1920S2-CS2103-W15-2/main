@@ -41,7 +41,7 @@ public class EditIntervieweeCommand extends EditCommand {
                         + " You can no longer edit an interviewee.");
             }
             interviewees.getInterviewee(identifier).setFullName(updatedName);
-        } catch (IllegalActionException e) {
+        } catch (IllegalActionException | IllegalValueException e) {
             throw new CommandException(e.getMessage());
         }
         return new CommandResult(String.format(MESSAGE_EDIT_INTERVIEWEE_SUCCESS, identifier, updatedName),

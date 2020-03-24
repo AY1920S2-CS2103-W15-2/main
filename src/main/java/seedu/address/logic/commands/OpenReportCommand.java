@@ -38,7 +38,7 @@ public class OpenReportCommand extends Command {
         try {
             Interviewee identifiedInterviewee = interviewees.getInterviewee(identifier);
             identifiedInterviewee
-                    .getInterview()
+                    .getTranscript()
                     .orElseThrow(() -> new IllegalActionException(
                             String.format("Interviewee %1$s has not been interviewed.", identifier)));
 

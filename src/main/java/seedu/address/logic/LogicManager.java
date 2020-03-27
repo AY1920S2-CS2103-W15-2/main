@@ -45,8 +45,6 @@ public class LogicManager implements Logic {
         CommandResult commandResult;
         Command command;
         switch (model.getAppPhase()) {
-        case PRE_SESSION:
-            // TODO: PreSession parser
         case NORMAL:
             command = normalParser.parseCommand(commandText);
             break;

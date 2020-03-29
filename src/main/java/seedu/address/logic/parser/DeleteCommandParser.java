@@ -1,6 +1,5 @@
 package seedu.address.logic.parser;
 
-import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
 
 import java.util.regex.Matcher;
@@ -18,14 +17,6 @@ import seedu.address.logic.parser.exceptions.ParseException;
  */
 public class DeleteCommandParser implements Parser<Command> {
 
-    private static final String INPUT_WORD = "delete";
-
-    public static final String INPUT_FORMAT = INPUT_WORD + ": Deletes the properties of an interview session "
-            + "Includes: "
-            + "deleting an Interviewee object"
-            + "deleting an Attribute object"
-            + "deleting a Question object";
-
     private static final Pattern BASIC_DELETE_COMMAND_FORMAT =
             Pattern.compile("(?<deleteCommandWord>\\S+) (?<deleteArguments>.+)");
 
@@ -40,7 +31,7 @@ public class DeleteCommandParser implements Parser<Command> {
         Matcher matcher = BASIC_DELETE_COMMAND_FORMAT.matcher(arguments.trim());
 
         if (!matcher.matches()) {
-            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, INPUT_FORMAT));
+            throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
         }
         final String deleteCommandWord = matcher.group("deleteCommandWord");
         final String deleteArguments = matcher.group("deleteArguments");
@@ -61,7 +52,7 @@ public class DeleteCommandParser implements Parser<Command> {
             return new DeleteMetricCommand(deleteArguments.trim());
 
         default:
-            throw new ParseException(MESSAGE_UNKNOWN_COMMAND.trim());
+            throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
         }
     }
 

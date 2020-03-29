@@ -10,7 +10,7 @@ import seedu.address.model.Model;
  * client wants to list the questions.
  */
 
-public class ListQuestionCommand extends ListCommand {
+public class ListQuestionCommand extends Command {
     public static final String COMMAND_WORD = "question";
     public static final String MESSAGE_SUCCESS = "Here is the list of questions:";
     public static final String MESSAGE_USAGE = "list " + COMMAND_WORD + ": List the questions from the Question list. "

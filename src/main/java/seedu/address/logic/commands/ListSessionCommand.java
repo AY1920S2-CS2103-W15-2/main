@@ -10,7 +10,7 @@ import seedu.address.model.Model;
  * client wants to list the sessions.
  */
 
-public class ListSessionCommand extends ListCommand {
+public class ListSessionCommand extends Command {
     public static final String COMMAND_WORD = "session";
     public static final String MESSAGE_SUCCESS = "Here is the list of sessions:";
     public static final String MESSAGE_USAGE = "list " + COMMAND_WORD + ": List the sessions that has been created. "

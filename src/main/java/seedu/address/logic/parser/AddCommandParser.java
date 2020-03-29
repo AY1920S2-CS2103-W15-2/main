@@ -1,6 +1,5 @@
 package seedu.address.logic.parser;
 
-import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
 
 import java.util.regex.Matcher;
@@ -18,14 +17,6 @@ import seedu.address.logic.parser.exceptions.ParseException;
  */
 public class AddCommandParser implements Parser<Command> {
 
-    private static final String INPUT_WORD = "add";
-
-    public static final String INPUT_FORMAT = INPUT_WORD + ": Adds a property to the current interview session.\n"
-            + "Includes:\n"
-            + "adding an Interviewee object\n"
-            + "adding an Attribute object\n"
-            + "adding a Question object\n";
-
     private static final Pattern BASIC_ADD_COMMAND_FORMAT =
             Pattern.compile("(?<addCommandWord>\\S+) (?<addArguments>.+)");
 
@@ -39,7 +30,7 @@ public class AddCommandParser implements Parser<Command> {
     public Command parse(String arguments) throws ParseException {
         Matcher matcher = BASIC_ADD_COMMAND_FORMAT.matcher(arguments.trim());
         if (!matcher.matches()) {
-            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, INPUT_FORMAT));
+            throw new ParseException(String.format(MESSAGE_UNKNOWN_COMMAND));
         }
 
         final String addCommandWord = matcher.group("addCommandWord");

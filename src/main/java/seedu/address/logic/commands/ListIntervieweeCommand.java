@@ -10,7 +10,7 @@ import seedu.address.model.Model;
  * client wants to list the interviewees.
  */
 
-public class ListIntervieweeCommand extends ListCommand {
+public class ListIntervieweeCommand extends Command {
     public static final String COMMAND_WORD = "interviewee";
     public static final String MESSAGE_SUCCESS = "Here is the list of interviewees:";
     public static final String MESSAGE_USAGE = "list " + COMMAND_WORD

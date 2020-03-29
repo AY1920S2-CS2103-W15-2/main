@@ -534,16 +534,16 @@ audio record by specifying the –audio flag.</p>
 <div class="sect5">
 <h6 id="navigating-by-question-number"><a class="link" href="#navigating-by-question-number">Navigating by Question Number</a></h6>
 <div class="paragraph">
-<p>Displays all the remarks made while the current interviewee was
-answering the given question, or plays back the audio from that period
-of time.</p>
+<p>Displays the first remark made while the current interviewee was
+answering the given question. The user can scroll up and down to see the
+rest of the remarks.</p>
 </div>
 <div class="paragraph">
 <p><strong>Command</strong></p>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>q&lt;question number&gt; [--audio]</pre>
+<pre>goto q&lt;question number&gt;</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -551,7 +551,7 @@ of time.</p>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>&gt; q4</pre>
+<pre>&gt; goto q4</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -568,15 +568,15 @@ of time.</p>
 <div class="sect4">
 <h5 id="navigating-by-timestamp"><a class="link" href="#navigating-by-timestamp">Navigating by Timestamp</a></h5>
 <div class="paragraph">
-<p>Scrolls the list of remarks to the given time, or plays back the audio
-from that moment.</p>
+<p>Scrolls the list of remarks to the given time.
+The user can scroll up and down to see the rest of the remarks.</p>
 </div>
 <div class="paragraph">
 <p><strong>Command</strong></p>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>at &lt;time&gt; [--audio]</pre>
+<pre>goto &lt;time&gt;</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -584,24 +584,7 @@ from that moment.</p>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>&gt; at 30.00 --audio</pre>
-</div>
-</div>
-<div class="paragraph">
-<p><em>Action</em>: Plays audio starting at 30.00</p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="stopping-the-audio"><a class="link" href="#stopping-the-audio">Stopping the Audio</a></h5>
-<div class="paragraph">
-<p>Stops an ongoing audio playback.</p>
-</div>
-<div class="paragraph">
-<p><strong>Command</strong></p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>stop audio</pre>
+<pre>&gt; goto 30.00 --audio</pre>
 </div>
 </div>
 </div>
@@ -779,4 +762,4 @@ e.g. <code>best 5 -w weightage1</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-29 19:49:37 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-29 19:53:09 UTC</div></div></div></body></html>

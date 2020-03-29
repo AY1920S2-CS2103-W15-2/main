@@ -1,8 +1,8 @@
 package seedu.address.logic.parser;
 
-import seedu.address.logic.parser.exceptions.ParseException;
-
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+
+import seedu.address.logic.parser.exceptions.ParseException;
 
 /**
  * Contains utility methods used for parsing strings in the various *Parser classes.
@@ -36,6 +36,11 @@ public class ParserUtil {
         return (arguments.trim().equals(""));
     }
 
+    /** Raises exception when the argument has no content.
+     *
+     * @param messageUsage the message to be checked
+     * @throws ParseException if there is no content
+     */
     public static void checkEmptyArgument (String messageUsage) throws ParseException {
         if (ParserUtil.isEmptyArgument(messageUsage)) {
             throw new ParseException(

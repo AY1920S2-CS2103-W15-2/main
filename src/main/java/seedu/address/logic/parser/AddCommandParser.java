@@ -18,6 +18,14 @@ import seedu.address.logic.parser.exceptions.ParseException;
  */
 public class AddCommandParser implements Parser<AddCommand> {
 
+    public static final String INPUT_WORD = "add";
+
+    public static final String INPUT_FORMAT = INPUT_WORD + ": Adds a property to the current interview session.\n"
+            + "Includes:\n"
+            + "adding an Interviewee object\n"
+            + "adding an Attribute object\n"
+            + "adding a Question object\n";
+
     private static final Pattern BASIC_ADD_COMMAND_FORMAT =
             Pattern.compile("(?<addCommandWord>\\S+) (?<addArguments>.+)");
 
@@ -31,7 +39,7 @@ public class AddCommandParser implements Parser<AddCommand> {
     public AddCommand parse(String arguments) throws ParseException {
         Matcher matcher = BASIC_ADD_COMMAND_FORMAT.matcher(arguments.trim());
         if (!matcher.matches()) {
-            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, INPUT_FORMAT));
         }
 
         final String addCommandWord = matcher.group("addCommandWord");
@@ -39,12 +47,18 @@ public class AddCommandParser implements Parser<AddCommand> {
 
         switch (addCommandWord) {
         case AddAttributeCommand.COMMAND_WORD:
+            if (ParserUtil.isEmptyArgument(arguments)) {
+                throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddAttributeCommand.MESSAGE_USAGE));
+            }
             return new AddAttributeCommand(addArguments.trim());
 
         case AddIntervieweeCommand.COMMAND_WORD:
             return new AddIntervieweeCommandParser().parse(addArguments.trim());
 
         case AddQuestionCommand.COMMAND_WORD:
+            if (ParserUtil.isEmptyArgument(arguments)) {
+                throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddQuestionCommand.MESSAGE_USAGE));
+            }
             return new AddQuestionCommand(addArguments.trim());
 
         case AddMetricCommand.COMMAND_WORD:

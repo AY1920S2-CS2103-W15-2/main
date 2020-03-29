@@ -13,7 +13,8 @@ import seedu.address.model.Model;
 public class ListAttributeCommand extends Command {
     public static final String COMMAND_WORD = "attribute";
     public static final String MESSAGE_SUCCESS = "Here is the list of attributes:";
-    public static final String MESSAGE_USAGE = "list " + COMMAND_WORD + ": List the attribute from the Attribute list. "
+    public static final String MESSAGE_USAGE = "list " + COMMAND_WORD
+            + ": List the attribute from the Attribute list.\n"
             + "Example: list " + COMMAND_WORD;
 
     /**

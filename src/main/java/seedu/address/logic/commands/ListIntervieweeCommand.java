@@ -14,7 +14,7 @@ public class ListIntervieweeCommand extends Command {
     public static final String COMMAND_WORD = "interviewee";
     public static final String MESSAGE_SUCCESS = "Here is the list of interviewees:";
     public static final String MESSAGE_USAGE = "list " + COMMAND_WORD
-            + ": List the interviewee from the Interviewee list. "
+            + ": List the interviewee from the Interviewee list.\n"
             + "Example: list " + COMMAND_WORD;
 
     /**

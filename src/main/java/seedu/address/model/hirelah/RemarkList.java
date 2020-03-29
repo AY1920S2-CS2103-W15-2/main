@@ -41,11 +41,15 @@ public class RemarkList {
      *
      * @param toAdd The remark to be added to the list.
      */
-    public void add(Remark toAdd) {
+    public void add(Remark toAdd) throws IllegalValueException {
         requireNonNull(toAdd);
         if (toAdd.getQuestionNumber() != null) {
-            if (!isQuestionAnswered(toAdd.getQuestionNumber())) {
-                questionIndices[toAdd.getQuestionNumber()] = remarks.size();
+            try {
+                if (!isQuestionAnswered(toAdd.getQuestionNumber())) {
+                    questionIndices[toAdd.getQuestionNumber()] = remarks.size();
+                }
+            } catch (IllegalValueException e) {
+                throw new IllegalValueException(e.getMessage());
             }
         }
         remarks.add(toAdd);
@@ -82,11 +86,12 @@ public class RemarkList {
      * @param questionNumber Question that is checked against.
      * @return Whether the question has {@code Remark} associated with it.
      */
-    public boolean isQuestionAnswered(int questionNumber) {
+    public boolean isQuestionAnswered(int questionNumber) throws IllegalValueException {
         try {
             return questionIndices[questionNumber] != 0;
         } catch (ArrayIndexOutOfBoundsException e) {
-            return false;
+            throw new IllegalValueException(
+                    String.format("There are only %d questions in this interview session.", questionIndices.length - 1));
         }
     }
 

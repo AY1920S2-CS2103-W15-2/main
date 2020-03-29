@@ -80,7 +80,7 @@ public class Transcript {
      *
      * @param toAdd the Remark to add.
      */
-    public void addRemark(Remark toAdd) {
+    public void addRemark(Remark toAdd) throws IllegalValueException {
         remarkList.add(toAdd);
     }
 

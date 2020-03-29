@@ -6,7 +6,11 @@ import static seedu.address.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import seedu.address.logic.commands.*;
+import seedu.address.logic.commands.Command;
+import seedu.address.logic.commands.DeleteAttributeCommand;
+import seedu.address.logic.commands.DeleteIntervieweeCommand;
+import seedu.address.logic.commands.DeleteMetricCommand;
+import seedu.address.logic.commands.DeleteQuestionCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 
 /**
@@ -16,7 +20,7 @@ public class DeleteCommandParser implements Parser<Command> {
 
     private static final String INPUT_WORD = "delete";
 
-    private static final String INPUT_FORMAT = INPUT_WORD + ": Deletes the properties of an interview session "
+    public static final String INPUT_FORMAT = INPUT_WORD + ": Deletes the properties of an interview session "
             + "Includes: "
             + "deleting an Interviewee object"
             + "deleting an Attribute object"
@@ -44,7 +48,9 @@ public class DeleteCommandParser implements Parser<Command> {
         switch (deleteCommandWord) {
         case DeleteAttributeCommand.COMMAND_WORD:
             if (ParserUtil.isEmptyArgument(arguments)) {
-                throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, DeleteAttributeCommand.MESSAGE_USAGE));
+                throw new ParseException(
+                        String.format(MESSAGE_INVALID_COMMAND_FORMAT, DeleteAttributeCommand.MESSAGE_USAGE)
+                );
             }
             return new DeleteAttributeCommand(deleteArguments.trim());
 
@@ -53,7 +59,9 @@ public class DeleteCommandParser implements Parser<Command> {
 
         case DeleteQuestionCommand.COMMAND_WORD:
             if (ParserUtil.isEmptyArgument(arguments)) {
-                throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, DeleteQuestionCommand.MESSAGE_USAGE));
+                throw new ParseException(
+                        String.format(MESSAGE_INVALID_COMMAND_FORMAT, DeleteQuestionCommand.MESSAGE_USAGE)
+                );
             }
             return new DeleteQuestionCommand(deleteArguments.trim());
 

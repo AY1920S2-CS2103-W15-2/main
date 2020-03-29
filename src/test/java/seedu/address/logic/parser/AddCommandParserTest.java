@@ -15,7 +15,6 @@ import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSucces
 import org.junit.jupiter.api.Test;
 
 import seedu.address.logic.commands.AddAttributeCommand;
-import seedu.address.logic.commands.AddCommand;
 import seedu.address.logic.commands.AddIntervieweeCommand;
 import seedu.address.logic.commands.AddQuestionCommand;
 
@@ -52,18 +51,18 @@ public class AddCommandParserTest {
     void parse_compulsoryFieldsMissing_success() {
 
         assertParseFailure(parser, WHITESPACE + VALID_PROPERTY_INTERVIEWEE + WHITESPACE,
-                String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
+                String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommandParser.INPUT_FORMAT));
 
         assertParseFailure(parser, WHITESPACE + VALID_PROPERTY_ATTRIBUTE + WHITESPACE,
-                String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
+                String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommandParser.INPUT_FORMAT));
 
         assertParseFailure(parser, WHITESPACE + VALID_PROPERTY_QUESTION + WHITESPACE,
-                String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
+                String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommandParser.INPUT_FORMAT));
     }
 
     @Test
     public void parse_argumentMissing_failure() {
-        String expectedMessage = String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE);
+        String expectedMessage = String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommandParser.INPUT_FORMAT);
         assertParseFailure(parser, WHITESPACE, expectedMessage);
     }
 }

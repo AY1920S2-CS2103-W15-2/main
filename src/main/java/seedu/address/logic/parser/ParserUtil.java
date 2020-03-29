@@ -30,8 +30,8 @@ public class ParserUtil {
      * @param arguments the arguments to be checked
      * @return boolean whether the argument has any content
      */
-    public static boolean isEmptyArgument (String arguments)  {
-        return !(arguments.trim().equals(""));
+    public static boolean isEmptyArgument (String arguments) {
+        return (arguments.trim().equals(""));
     }
 
     /** Parses the arguments to obtain substring that is after the first prefix.

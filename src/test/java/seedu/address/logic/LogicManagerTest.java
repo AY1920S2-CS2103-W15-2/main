@@ -13,8 +13,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 
 import seedu.address.logic.commands.CommandResult;
-import seedu.address.logic.commands.DeleteCommand;
 import seedu.address.logic.commands.exceptions.CommandException;
+import seedu.address.logic.parser.DeleteCommandParser;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
@@ -47,7 +47,8 @@ public class LogicManagerTest {
     @Test
     public void execute_commandExecutionError_throwsParseException() {
         String deleteCommand = "delete 9";
-        assertParseException(deleteCommand, String.format(MESSAGE_INVALID_COMMAND_FORMAT, DeleteCommand.MESSAGE_USAGE));
+        assertParseException(deleteCommand,
+                String.format(MESSAGE_INVALID_COMMAND_FORMAT, DeleteCommandParser.INPUT_FORMAT));
     }
 
     /**

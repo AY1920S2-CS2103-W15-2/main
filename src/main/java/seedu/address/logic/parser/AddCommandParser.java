@@ -6,7 +6,11 @@ import static seedu.address.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import seedu.address.logic.commands.*;
+import seedu.address.logic.commands.AddAttributeCommand;
+import seedu.address.logic.commands.AddIntervieweeCommand;
+import seedu.address.logic.commands.AddMetricCommand;
+import seedu.address.logic.commands.AddQuestionCommand;
+import seedu.address.logic.commands.Command;
 import seedu.address.logic.parser.exceptions.ParseException;
 
 /**
@@ -14,7 +18,7 @@ import seedu.address.logic.parser.exceptions.ParseException;
  */
 public class AddCommandParser implements Parser<Command> {
 
-    public static final String INPUT_WORD = "add";
+    private static final String INPUT_WORD = "add";
 
     public static final String INPUT_FORMAT = INPUT_WORD + ": Adds a property to the current interview session.\n"
             + "Includes:\n"
@@ -44,7 +48,9 @@ public class AddCommandParser implements Parser<Command> {
         switch (addCommandWord) {
         case AddAttributeCommand.COMMAND_WORD:
             if (ParserUtil.isEmptyArgument(arguments)) {
-                throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddAttributeCommand.MESSAGE_USAGE));
+                throw new ParseException(
+                        String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddAttributeCommand.MESSAGE_USAGE)
+                );
             }
             return new AddAttributeCommand(addArguments.trim());
 
@@ -53,7 +59,9 @@ public class AddCommandParser implements Parser<Command> {
 
         case AddQuestionCommand.COMMAND_WORD:
             if (ParserUtil.isEmptyArgument(arguments)) {
-                throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddQuestionCommand.MESSAGE_USAGE));
+                throw new ParseException(
+                        String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddQuestionCommand.MESSAGE_USAGE)
+                );
             }
             return new AddQuestionCommand(addArguments.trim());
 

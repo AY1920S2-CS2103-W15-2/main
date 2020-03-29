@@ -20,7 +20,7 @@ class RemarkListTest {
     }
 
     @Test
-    void add_addRemarks_success() {
+    void add_addRemarks_success() throws IllegalValueException {
         RemarkList actualRemarks = new RemarkList(3);
         actualRemarks.add(RemarkTest.REMARK_MIDDLE_WITHOUT_QUESTION);
         ObservableList<Remark> expectedArray =
@@ -30,7 +30,7 @@ class RemarkListTest {
 
 
     @Test
-    void getIndexAtTime_getMiddleRemark_success() {
+    void getIndexAtTime_getMiddleRemark_success() throws IllegalValueException {
         RemarkList actualRemarks = new RemarkList(3);
         actualRemarks.add(RemarkTest.REMARK_START_WITHOUT_QUESTION);
         actualRemarks.add(RemarkTest.REMARK_QUARTER_WITH_QUESTION_1);
@@ -41,7 +41,7 @@ class RemarkListTest {
     }
 
     @Test
-    void isQuestionAnswered_noAnswer_success() {
+    void isQuestionAnswered_noAnswer_success() throws IllegalValueException {
         RemarkList actualRemarks = new RemarkList(3);
         actualRemarks.add(RemarkTest.REMARK_START_WITHOUT_QUESTION);
         actualRemarks.add(RemarkTest.REMARK_QUARTER_WITH_QUESTION_1);

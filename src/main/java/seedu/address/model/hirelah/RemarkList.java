@@ -90,8 +90,9 @@ public class RemarkList {
         try {
             return questionIndices[questionNumber] != 0;
         } catch (ArrayIndexOutOfBoundsException e) {
-            throw new IllegalValueException(
-                    String.format("There are only %d questions in this interview session.", questionIndices.length - 1));
+            throw new IllegalValueException(String.format(
+                    "There are only %d questions in this interview session.", questionIndices.length - 1)
+            );
         }
     }
 

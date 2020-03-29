@@ -18,6 +18,15 @@ import seedu.address.logic.parser.exceptions.ParseException;
  */
 public class EditCommandParser implements Parser<EditCommand> {
 
+    private static final String INPUT_WORD = "edit";
+
+    public static final String INPUT_FORMAT = INPUT_WORD + ": Edits the properties of an interview session.\n"
+            + "Includes:\n"
+            + "editing an Interviewee object\n"
+            + "editing an Attribute object\n"
+            + "editing a Question object\n";
+
+
     private static final Pattern BASIC_EDIT_COMMAND_FORMAT =
             Pattern.compile("(?<editCommandWord>\\S+) (?<editArguments>.+)");
 
@@ -32,7 +41,7 @@ public class EditCommandParser implements Parser<EditCommand> {
         Matcher matcher = BASIC_EDIT_COMMAND_FORMAT.matcher(arguments.trim());
 
         if (!matcher.matches()) {
-            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, EditCommand.MESSAGE_USAGE));
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, INPUT_FORMAT));
         }
 
         final String editCommandWord = matcher.group("editCommandWord");

@@ -6,11 +6,7 @@ import static seedu.address.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import seedu.address.logic.commands.Command;
-import seedu.address.logic.commands.DeleteAttributeCommand;
-import seedu.address.logic.commands.DeleteIntervieweeCommand;
-import seedu.address.logic.commands.DeleteMetricCommand;
-import seedu.address.logic.commands.DeleteQuestionCommand;
+import seedu.address.logic.commands.*;
 import seedu.address.logic.parser.exceptions.ParseException;
 
 /**
@@ -47,22 +43,14 @@ public class DeleteCommandParser implements Parser<Command> {
 
         switch (deleteCommandWord) {
         case DeleteAttributeCommand.COMMAND_WORD:
-            if (ParserUtil.isEmptyArgument(arguments)) {
-                throw new ParseException(
-                        String.format(MESSAGE_INVALID_COMMAND_FORMAT, DeleteAttributeCommand.MESSAGE_USAGE)
-                );
-            }
+            ParserUtil.checkEmptyArgument(DeleteAttributeCommand.MESSAGE_USAGE);
             return new DeleteAttributeCommand(deleteArguments.trim());
 
         case DeleteIntervieweeCommand.COMMAND_WORD:
             return new DeleteIntervieweeCommand(deleteArguments.trim());
 
         case DeleteQuestionCommand.COMMAND_WORD:
-            if (ParserUtil.isEmptyArgument(arguments)) {
-                throw new ParseException(
-                        String.format(MESSAGE_INVALID_COMMAND_FORMAT, DeleteQuestionCommand.MESSAGE_USAGE)
-                );
-            }
+            ParserUtil.checkEmptyArgument(DeleteQuestionCommand.MESSAGE_USAGE);
             return new DeleteQuestionCommand(deleteArguments.trim());
 
         case DeleteMetricCommand.COMMAND_WORD:

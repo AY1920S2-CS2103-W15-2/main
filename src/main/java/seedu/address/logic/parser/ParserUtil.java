@@ -2,6 +2,8 @@ package seedu.address.logic.parser;
 
 import seedu.address.logic.parser.exceptions.ParseException;
 
+import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+
 /**
  * Contains utility methods used for parsing strings in the various *Parser classes.
  */
@@ -32,6 +34,14 @@ public class ParserUtil {
      */
     public static boolean isEmptyArgument (String arguments) {
         return (arguments.trim().equals(""));
+    }
+
+    public static void checkEmptyArgument (String messageUsage) throws ParseException {
+        if (ParserUtil.isEmptyArgument(messageUsage)) {
+            throw new ParseException(
+                    String.format(MESSAGE_INVALID_COMMAND_FORMAT, messageUsage)
+            );
+        }
     }
 
     /** Parses the arguments to obtain substring that is after the first prefix.

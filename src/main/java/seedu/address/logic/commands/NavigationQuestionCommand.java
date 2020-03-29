@@ -15,8 +15,8 @@ import seedu.address.model.hirelah.exceptions.IllegalActionException;
  * client wants to navigate to a certain remark of the interview.
  */
 public class NavigationQuestionCommand extends Command {
-    public static final String COMMAND_WORD = "to";
-    public static final String MESSAGE_NAVIGATION_QUESTION_SUCCESS = "Here is the remark of question %s!";
+    public static final String COMMAND_WORD = "goto";
+    public static final String MESSAGE_NAVIGATION_QUESTION_SUCCESS = "Here is the remark of question %d!";
     public static final String MESSAGE_USAGE = COMMAND_WORD
             + ": Navigate to a particular answer of a question from an interviewee.\n"
             + "Parameters: questionNumber\n"
@@ -35,15 +35,10 @@ public class NavigationQuestionCommand extends Command {
             throw new CommandException("You need to open a transcript of a particular interviewee "
                     + "to go to the answer of a question.");
         }
-        Optional<Transcript> transcriptOfCurrentInterviewee = model.getCurrentInterviewee().getTranscript();
         try {
-            int index = transcriptOfCurrentInterviewee
-                    .orElseThrow(() -> new CommandException(
-                            String.format("Interviewee %1$s has not been interviewed.",
-                                    model.getCurrentInterviewee().getFullName())))
-                    .getIndexOfQuestion(questionIndex);
+            int remarkIndex = model.getCurrentTranscript().getIndexOfQuestion(questionIndex);
             return new NavigationCommandResult(String.format(MESSAGE_NAVIGATION_QUESTION_SUCCESS,
-                    questionIndex), ToggleView.TRANSCRIPT, index);
+                    questionIndex), ToggleView.TRANSCRIPT, remarkIndex);
         } catch (IllegalValueException | IllegalActionException e) {
             throw new CommandException(e.getMessage());
         }

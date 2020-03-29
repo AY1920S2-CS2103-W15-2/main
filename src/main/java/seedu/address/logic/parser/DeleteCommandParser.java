@@ -18,7 +18,6 @@ import seedu.address.logic.parser.exceptions.ParseException;
 public class DeleteCommandParser implements Parser<Command> {
     private static final Pattern BASIC_DELETE_COMMAND_FORMAT =
             Pattern.compile("(?<deleteCommandWord>\\S+) (?<deleteArguments>.+)");
-    private static final String INDEX_NOT_A_NUMBER = "The index is not a number.";
 
     /**
      * Parses the given {@code String} of arguments in the context of the DeleteCommand
@@ -51,7 +50,7 @@ public class DeleteCommandParser implements Parser<Command> {
                 int index = Integer.parseInt(deleteArguments.trim());
                 return new DeleteQuestionCommand(index);
             } catch (NumberFormatException e) {
-                throw new ParseException(INDEX_NOT_A_NUMBER);
+                throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
             }
 
         case DeleteMetricCommand.COMMAND_WORD:

@@ -405,20 +405,20 @@ audio record by specifying the –audio flag.
 
 ====== Navigating by Question Number
 
-Displays all the remarks made while the current interviewee was
-answering the given question, or plays back the audio from that period
-of time.
+Displays the first remark made while the current interviewee was
+answering the given question. The user can scroll up and down to see the
+rest of the remarks.
 
 *Command*
 
 ....
-q<question number> [--audio]
+goto q<question number>
 ....
 
 *Example*
 
 ....
-> q4
+> goto q4
 ....
 
 _Output_:
@@ -431,31 +431,19 @@ Question 4
 
 ===== Navigating by Timestamp
 
-Scrolls the list of remarks to the given time, or plays back the audio
-from that moment.
+Scrolls the list of remarks to the given time.
+The user can scroll up and down to see the rest of the remarks.
 
 *Command*
 
 ....
-at <time> [--audio]
+goto <time>
 ....
 
 *Example*
 
 ....
-> at 30.00 --audio
-....
-
-_Action_: Plays audio starting at 30.00
-
-===== Stopping the Audio
-
-Stops an ongoing audio playback.
-
-*Command*
-
-....
-stop audio
+> goto 30.00 --audio
 ....
 
 ==== Find Best Candidates

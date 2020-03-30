@@ -45,7 +45,7 @@ public class OpenReportCommand extends Command {
         } catch (IllegalActionException e) {
             throw new CommandException(e.getMessage());
         }
-        return new CommandResult(String.format(MESSAGE_OPEN_REPORT_INTERVIEWEE_SUCCESS, identifier),
+        return new ToggleCommandResult(String.format(MESSAGE_OPEN_REPORT_INTERVIEWEE_SUCCESS, identifier),
                 ToggleView.TRANSCRIPT);
     }
 

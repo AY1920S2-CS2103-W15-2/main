@@ -58,7 +58,7 @@ public class AddIntervieweeCommand extends Command {
             throw new CommandException(e.getMessage());
         }
 
-        return new CommandResult(String.format(MESSAGE_SUCCESS, fullName), ToggleView.INTERVIEWEE);
+        return new ToggleCommandResult(String.format(MESSAGE_SUCCESS, fullName), ToggleView.INTERVIEWEE);
     }
 
     @Override

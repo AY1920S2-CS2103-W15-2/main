@@ -36,7 +36,7 @@ public class DeleteAttributeCommand extends Command {
         AttributeList attributes = model.getAttributeList();
         try {
             Attribute attribute = attributes.delete(attributePrefix);
-            return new CommandResult(String.format(MESSAGE_DELETE_ATTRIBUTE_SUCCESS, attribute),
+            return new ToggleCommandResult(String.format(MESSAGE_DELETE_ATTRIBUTE_SUCCESS, attribute),
                     ToggleView.ATTRIBUTE);
         } catch (IllegalValueException e) {
             throw new CommandException(e.getMessage());

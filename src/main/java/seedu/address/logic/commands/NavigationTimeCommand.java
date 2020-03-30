@@ -35,7 +35,7 @@ public class NavigationTimeCommand extends Command {
         }
         int remarkIndex = model.getCurrentTranscript().getIndexAtTime(timeQuery);
         return new NavigationCommandResult(String.format(MESSAGE_NAVIGATION_TIME_SUCCESS,
-                timeQuery.toMinutes(), timeQuery.toSecondsPart()), ToggleView.TRANSCRIPT, remarkIndex);
+                timeQuery.toMinutes(), timeQuery.toSecondsPart()), remarkIndex);
     }
 
 

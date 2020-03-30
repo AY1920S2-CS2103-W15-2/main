@@ -35,7 +35,8 @@ public class DeleteQuestionCommand extends Command {
         validateFinalisation(model, DESIRED_MODEL_FINALIZED_STATE);
         QuestionList questions = model.getQuestionList();
         try {
-            return new CommandResult(String.format(MESSAGE_DELETE_QUESTION_SUCCESS, questions.delete(questionIndex)),
+            return new ToggleCommandResult(String.format(MESSAGE_DELETE_QUESTION_SUCCESS,
+                    questions.delete(questionIndex)),
                     ToggleView.QUESTION);
         } catch (IllegalValueException e) {
             throw new CommandException(e.getMessage());

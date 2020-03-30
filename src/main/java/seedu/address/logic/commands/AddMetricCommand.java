@@ -49,7 +49,7 @@ public class AddMetricCommand extends Command {
 
         try {
             metrics.add(toAdd, attributes, attributePrefixes, addedWeights);
-            return new CommandResult(String.format(MESSAGE_SUCCESS, toAdd), ToggleView.METRIC);
+            return new ToggleCommandResult(String.format(MESSAGE_SUCCESS, toAdd), ToggleView.METRIC);
         } catch (IllegalValueException e) {
             throw new CommandException(e.getMessage());
         }

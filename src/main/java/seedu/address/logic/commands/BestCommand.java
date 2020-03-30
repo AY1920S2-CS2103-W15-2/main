@@ -78,15 +78,16 @@ public class BestCommand extends Command {
         ObservableList<Interviewee> observableInterviewees = model.getFilteredIntervieweeListView();
         ObservableList<Interviewee> bestNInterviewees = model.getBestNInterviewees();
         getBestN(bestNInterviewees, observableInterviewees, comparator, size);
-        return new CommandResult(MESSAGE_SUCCESS, ToggleView.BEST_INTERVIEWEE);
+        return new ToggleCommandResult(MESSAGE_SUCCESS, ToggleView.BEST_INTERVIEWEE);
     }
 
     /**
+     * Fills the list of best interviewees with the top N interviewees using the given comparator.
      *
-     * @param observableInterviewees
-     * @param comparator
-     * @param size
-     * @return
+     * @param bestNInterviewees the list to fil.
+     * @param observableInterviewees the list of interviewees to compare.
+     * @param comparator the comparator to compare interviewees.
+     * @param size the number of interviewees to fill into bestNInterviewees.
      */
     private void getBestN(ObservableList<Interviewee> bestNInterviewees,
                           ObservableList<Interviewee> observableInterviewees,

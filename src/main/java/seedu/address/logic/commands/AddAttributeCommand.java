@@ -43,7 +43,7 @@ public class AddAttributeCommand extends Command {
             throw new CommandException(e.getMessage());
         }
 
-        return new CommandResult(String.format(MESSAGE_SUCCESS, toAdd), ToggleView.ATTRIBUTE);
+        return new ToggleCommandResult(String.format(MESSAGE_SUCCESS, toAdd), ToggleView.ATTRIBUTE);
     }
 
     @Override

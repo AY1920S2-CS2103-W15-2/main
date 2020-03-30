@@ -238,11 +238,29 @@ public class MainWindow extends UiPart<Stage> {
      * Closes the application.
      */
     @FXML
-    private void handleExit() {
+    public void handleExit() {
         GuiSettings guiSettings = new GuiSettings(primaryStage.getWidth(), primaryStage.getHeight(),
                 (int) primaryStage.getX(), (int) primaryStage.getY());
         logic.setGuiSettings(guiSettings);
         primaryStage.hide();
+    }
+
+    /**
+     * Sets feedback in the result display.
+     *
+     * @param feedback the feedback to display.
+     */
+    public void setFeedbackToUser(String feedback) {
+        resultDisplay.setFeedbackToUser(feedback);
+    }
+
+    /**
+     * Scrolls the Transcript to the given index.
+     *
+     * @param index the index to scroll to.
+     */
+    public void scrollTranscriptTo(int index) {
+        remarkListPanel.scrollTo(index);
     }
 
 
@@ -251,27 +269,11 @@ public class MainWindow extends UiPart<Stage> {
      *
      * @see seedu.address.logic.Logic#execute(String)
      */
-    private CommandResult executeCommand(String commandText) throws CommandException, IllegalValueException {
+    private void executeCommand(String commandText) throws CommandException, IllegalValueException {
         try {
             CommandResult commandResult = logic.execute(commandText);
             logger.info("Result: " + commandResult.getFeedbackToUser());
-            resultDisplay.setFeedbackToUser(commandResult.getFeedbackToUser());
-
-            if (commandResult.isShowHelp()) {
-                handleHelp();
-            }
-
-            if (commandResult.isExit()) {
-                handleExit();
-            }
-
-            if (commandResult instanceof NavigationCommandResult) {
-                remarkListPanel.scrollTo(((NavigationCommandResult) commandResult).getIndex());
-            }
-
-            handleToggle(commandResult.getToggleView());
-
-            return commandResult;
+            commandResult.displayResult(this);
         } catch (CommandException | ParseException e) {
             logger.info("Invalid command: " + commandText);
             resultDisplay.setFeedbackToUser(e.getMessage());

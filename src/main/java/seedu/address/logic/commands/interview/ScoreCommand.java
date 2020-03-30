@@ -32,7 +32,6 @@ public class ScoreCommand extends Command {
             throw new CommandException(e.getMessage());
         }
         model.getCurrentTranscript().setAttributeScore(attribute, this.score);
-        return new CommandResult(String.format(MESSAGE_SUCCESS, this.score, attribute),
-                ToggleView.TRANSCRIPT);
+        return new CommandResult(String.format(MESSAGE_SUCCESS, this.score, attribute));
     }
 }

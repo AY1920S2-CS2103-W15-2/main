@@ -40,7 +40,7 @@ public class EditQuestionCommand extends Command {
 
         try {
             Question question = questions.edit(questionIndex, updatedDescription);
-            return new CommandResult(String.format(MESSAGE_EDIT_QUESTION_SUCCESS, question, updatedDescription),
+            return new ToggleCommandResult(String.format(MESSAGE_EDIT_QUESTION_SUCCESS, question, updatedDescription),
                     ToggleView.QUESTION);
         } catch (IllegalValueException e) {
             throw new CommandException(e.getMessage());

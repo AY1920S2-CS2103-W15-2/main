@@ -31,6 +31,6 @@ public class StartQuestionCommand extends Command {
         } catch (IllegalValueException | IllegalActionException e) {
             throw new CommandException(e.getMessage());
         }
-        return new CommandResult(String.format(MESSAGE_SUCCESS, questionNumber), ToggleView.TRANSCRIPT);
+        return new CommandResult(String.format(MESSAGE_SUCCESS, questionNumber));
     }
 }

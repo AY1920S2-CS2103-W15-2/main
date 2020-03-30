@@ -39,7 +39,7 @@ public class EditAttributeCommand extends Command {
         AttributeList attributes = model.getAttributeList();
         try {
             Attribute attribute = attributes.edit(attributePrefix, updatedAttribute);
-            return new CommandResult(String.format(MESSAGE_EDIT_ATTRIBUTE_SUCCESS, attribute, updatedAttribute),
+            return new ToggleCommandResult(String.format(MESSAGE_EDIT_ATTRIBUTE_SUCCESS, attribute, updatedAttribute),
                     ToggleView.ATTRIBUTE);
         } catch (IllegalValueException e) {
             throw new CommandException(e.getMessage());

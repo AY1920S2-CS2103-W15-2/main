@@ -71,7 +71,7 @@ public class CommandBox extends UiPart<Region> {
          *
          * @see seedu.address.logic.Logic#execute(String)
          */
-        CommandResult execute(String commandText) throws CommandException, IllegalValueException;
+        void execute(String commandText) throws CommandException, IllegalValueException;
     }
 
 }

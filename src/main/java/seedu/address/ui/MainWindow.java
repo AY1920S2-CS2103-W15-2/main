@@ -19,7 +19,6 @@ import seedu.address.commons.core.LogsCenter;
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.logic.Logic;
 import seedu.address.logic.commands.CommandResult;
-import seedu.address.logic.commands.NavigationCommandResult;
 import seedu.address.logic.commands.ToggleView;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.parser.exceptions.ParseException;
@@ -43,7 +42,6 @@ public class MainWindow extends UiPart<Stage> {
     private IntervieweeListPanel bestNIntervieweesPanel;
     private RemarkListPanel remarkListPanel;
     private AttributeListPanel attributeListPanel;
-    private DetailedIntervieweeCard detailedIntervieweeCard;
     private MetricListPanel metricListPanel;
     private QuestionListPanel questionListPanel;
     private ResultDisplay resultDisplay;
@@ -51,7 +49,6 @@ public class MainWindow extends UiPart<Stage> {
     // On startup, HireLah shows the list of interviewees
     private ToggleView toggleView = ToggleView.INTERVIEWEE;
 
-    private Interviewee currentInterviewee;
 
     @FXML
     private StackPane commandBoxPlaceholder;
@@ -86,8 +83,6 @@ public class MainWindow extends UiPart<Stage> {
         attributeListPanel = new AttributeListPanel(logic.getAttributeListView());
         metricListPanel = new MetricListPanel(logic.getMetricListView());
         questionListPanel = new QuestionListPanel(logic.getQuestionListView());
-
-        this.currentInterviewee = null;
     }
 
     public Stage getPrimaryStage() {
@@ -162,13 +157,13 @@ public class MainWindow extends UiPart<Stage> {
      * @param toggleView enum representing what should be displayed
      */
     public void handleToggle(ToggleView toggleView) {
-        if (this.toggleView == toggleView) {
-            if (toggleView != ToggleView.TRANSCRIPT || currentInterviewee.equals(logic.getCurrentInterviewee())) {
-                return;
-            }
+        // Short circuit if no change to the view, unless currently viewing transcript
+        // which may change if it is a different interviewee's transcript
+        if (this.toggleView == toggleView && toggleView != ToggleView.TRANSCRIPT) {
+            return;
         }
-
         this.toggleView = toggleView;
+        // Clear the current interviewee if not viewing a report
         if (this.toggleView != ToggleView.TRANSCRIPT) {
             logic.setCurrentInterviewee(null);
         }
@@ -189,9 +184,9 @@ public class MainWindow extends UiPart<Stage> {
             listPanelStackPane.getChildren().add(questionListPanel.getRoot());
             break;
         case TRANSCRIPT: // transcript
-            currentInterviewee = logic.getCurrentInterviewee();
+            Interviewee currentInterviewee = logic.getCurrentInterviewee();
+            DetailedIntervieweeCard detailedIntervieweeCard = new DetailedIntervieweeCard(currentInterviewee);
             remarkListPanel = new RemarkListPanel(currentInterviewee);
-            detailedIntervieweeCard = new DetailedIntervieweeCard(currentInterviewee);
             listPanelStackPane.getChildren().addAll(remarkListPanel.getRoot(), detailedIntervieweeCard.getRoot());
             StackPane.setAlignment(detailedIntervieweeCard.getRoot(), Pos.TOP_CENTER);
             StackPane.setAlignment(remarkListPanel.getRoot(), Pos.CENTER);

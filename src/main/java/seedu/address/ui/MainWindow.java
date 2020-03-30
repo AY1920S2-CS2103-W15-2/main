@@ -161,10 +161,9 @@ public class MainWindow extends UiPart<Stage> {
      *
      * @param toggleView enum representing what should be displayed
      */
-    @FXML
     public void handleToggle(ToggleView toggleView) {
         if (this.toggleView == toggleView) {
-            if (toggleView != ToggleView.TRANSCRIPT || !currentInterviewee.equals(logic.getCurrentInterviewee())) {
+            if (toggleView != ToggleView.TRANSCRIPT || currentInterviewee.equals(logic.getCurrentInterviewee())) {
                 return;
             }
         }

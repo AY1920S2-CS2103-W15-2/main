@@ -136,6 +136,10 @@ public class ModelManager implements Model {
         return !(this.currentInterviewee == null);
     }
 
+    /**
+     * A utility to get the Transcript of the current Interviewee (guaranteed to exist).
+     * Do not use when there is no interviewee.
+     */
     @Override
     public Transcript getCurrentTranscript() {
         return currentInterviewee.getTranscript().get();

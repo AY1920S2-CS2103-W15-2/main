@@ -121,6 +121,7 @@ Successfully edited interviewee: Jane Doe
 
 image::Interviewee.png[]
 
+[[Attributes]]
 ==== Add, Edit and Delete Attributes
 
 In an interview, you often look out for a particular set of attributes in your candidates.
@@ -296,14 +297,14 @@ interview <interviewee>
 ....
 
 _Action:_ Initializes an interview session with Jane. Shows the uploaded
-CV (if any), and the list of interview questions in separate windows
+resume (if any), and the list of interview questions in a separate window. The app
+also starts the interview time.
 
 ==== Record Remarks
 
-You can add remarks throughout the interview sessions if you have any
-for the interviewee. This remarks will be mapped to the recording at
-this specific time such that you can remember what was discussed during
-this time.
+After starting the interview, HireLah! allows you to easily take notes within the app itself.
+Anything you type in the Command Box will be recorded as interview remarks, which are timestamped,
+allowing you to easily navigate your interview remarks after the interview is over.
 
 *Command*
 
@@ -320,19 +321,19 @@ this time.
 _Action:_ Stores this remark and maps it to the specific time when you
 enter it.
 
-==== Start and End Mark of A Question
+==== Asking Questions
 
-You can indicate to start typing the answer for a question such that all
-the remarks that falls between the start and end of a question will be
-regarded as the answer to this question
+Special commands while interviewing are prefixed with a ":". These commands are
+not recorded as remarks and instead perform special actions.
+
+The start question command allows you to indicate when you asked a question during
+the interview. This allows you to easily navigate to relevant parts of the interview
+after the interview ends, while viewing the report.
 
 *Command*
 
 ....
-:start q1
-<remarks>
-<remarks>
-:end q1
+:start q<question number>
 ....
 
 *Example*
@@ -341,20 +342,32 @@ regarded as the answer to this question
 > :start q1
 > Strengths: resilience, ambitious, good time-management
 > Weakness: perfectionist, not detail-oriented
-> :end q1
+> :start q2
 ....
 
-_Action:_ Stores these 2 lines of remark as the answer to Question 1.
+_Output:_
+
+....
+Marked the start of question 1
+
+Added the remark
+
+Added the remark
+
+Marked the start of question 2
+....
+
+_Action:_ Marks the start of question 1 and 2, with the 2 remarks in the middle under question 1
 
 ==== Score attributes
 
-Each of the interviewees have different scoring attributes and the
-interviewer could update the attributes anytime during the interview.
+During the interview, as you form your opinion on the candidate, you can give them scores for the
+attributes you have created earlier (see <<Attributes>>).
 
 *Command*
 
 ....
-:<attributes> <score>
+:<attribute> <score>
 ....
 
 *Example*
@@ -363,16 +376,29 @@ interviewer could update the attributes anytime during the interview.
 > :Productivity 5
 ....
 
-_Action:_ update the Productivity score for John Doe.
+_Action:_ update the Productivity score for John Doe (displayed on a bar chart).
+
+_Output:_
+
+....
+Scored 5.00 to Productivity
+....
+
 
 ==== End interview
 
-This is to allow the interviewers to end the interview session.
+After finishing the interview, give the end command. After the interview has ended,
+you will not be allowed to make any more remarks or change the interviewee's scores.
+Don't end prematurely!
+
+[TIP]
+HireLah! will not allow you to end the interview if you have not assigned a score
+on all the attributes!
 
 *Command*
 
 ....
-end
+:end
 ....
 
 *Example*
@@ -386,7 +412,7 @@ _Action:_ Ending the interview session.
 _Output_:
 
 ....
-The interview session has ended.
+Ended interview with John Doe.
 ....
 
 === Decision Phase
@@ -497,12 +523,77 @@ teamwork?
 > best 5 -w weight1
 ....
 
+== Advanced Features
+
+=== Typing shortcuts - Prefix matching
+
+It is often tedious to have to type out a long attribute like "Productivity"
+or "Team Player". Especially during an interview, a typing mistake may cost you
+precious time, possibly missing some important thing the interviewee said. HireLah!
+thus allows you to simply type part (a prefix) of the full word, as long as it
+uniquely identifies an attribute.
+
+For example, if you have the following attributes
+
+* Leadership
+* Ambition
+* Team player
+* Team motivator
+
+Then
+
+* "L", "Le" or any longer prefix can uniquely identify "Leadership"
+* "A" sufficiently identifies "Ambition"
+* "Team" **cannot** identify "Team player" as "Team motivator" shares this prefix
+* To minimally distinguish the 2, you must provide "Team p" or "Team m"
+
 == FAQ
 
-Q: How do I transfer my data to another Computer? +
-A: Install the app in
-the other computer and overwrite the `/data` folder with `/data` folder that
-contains the data of your previous HireLah! folder.
+Q: After an interview session for a role is finished, how do I start a fresh session? +
+A: In the home directory of HireLah! After the first time the app is run, a
+file called `preferences.json` will be created by the app to save your preferences, including
+the file where the session data is saved. Simply change the "sessionsDirectory" field to a new
+directory (with a relative path to the home directory), or just change the name and let HireLah!
+create the new directory for you!
+
+Sample `preferences.json`:
+....
+{
+  "guiSettings" : {
+    "windowWidth" : 1382.0,
+    "windowHeight" : 744.0,
+    "windowCoordinates" : {
+      "x" : -8,
+      "y" : -8
+    }
+  },
+  "sessionsDirectory" : "data"
+}
+....
+After changing the session directory:
+....
+{
+  "guiSettings" : {
+    "windowWidth" : 1382.0,
+    "windowHeight" : 744.0,
+    "windowCoordinates" : {
+      "x" : -8,
+      "y" : -8
+    }
+  },
+  "sessionsDirectory" : "ceo-interview"
+}
+....
+Now HireLah! will start in an empty session called ceo-interview. To switch
+between multiple sessions, just change the sessionDirectory to the correct directory.
+
+Q: What happens if the app crashes halfway? Especially during an interview? +
+A: HireLah! saves your work after every change. If the app crashes during an interview,
+the next time you open the app, the interviewee you were interviewing will be in
+an "incomplete interview" state. You can simply resume the interview by calling
+the `interview <interviewee>` command again. Note that you cannot perform the usual
+decision phase commands (finding best interviewee, viewing report) on an interviewee whose
+interview is incomplete!
 
 == Command Summary
 
@@ -531,18 +622,15 @@ e.g. `delete question 1`
 
 *Interviewing Phase*
 
-* Start: `start interview <name>` +
-e.g. `start interview Jane Doe`
-* View Questions: `view questions`
-* Add Remarks: `remarks` +
+* Start: `interview <interviewee>` +
+e.g. `interview Jane Doe`
+* Add Remarks: `<remarks>` +
 e.g. `This guy is good at bluffing`
-* Start a Question: `:start q<no_of_question>` +
+* Start a Question: `:start q<question number>` +
 e.g. `:start q1`
-* End a question: `:end q<no_of_question>` +
-e.g. `:end q1`
 * Score an attribute: `:<attribute> <score>` +
 e.g. `:Agility 10`
-* End: `end`
+* End: `:end`
 
 *Decision Phase*
 

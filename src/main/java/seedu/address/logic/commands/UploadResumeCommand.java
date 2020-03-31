@@ -5,6 +5,7 @@ import java.io.File;
 import javafx.stage.FileChooser;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
+import seedu.address.model.hirelah.Interviewee;
 import seedu.address.model.hirelah.exceptions.IllegalActionException;
 
 /**
@@ -25,6 +26,12 @@ public class UploadResumeCommand extends Command {
 
     @Override
     public CommandResult execute(Model model) throws CommandException {
+        Interviewee interviewee;
+        try {
+            interviewee = model.getIntervieweeList().getInterviewee(identifier);
+        } catch (IllegalActionException e) {
+            throw new CommandException(e.getMessage());
+        }
         File resume;
         if (path == null) {
             FileChooser fileChooser = new FileChooser();
@@ -34,14 +41,11 @@ public class UploadResumeCommand extends Command {
         } else {
             resume = new File(path);
         }
-        if (!resume.exists()) {
+        if (resume == null || !resume.exists()) {
             throw new CommandException(MESSAGE_FILE_NOT_FOUND);
         }
-        try {
-            model.getIntervieweeList().getInterviewee(identifier).setResume(resume);
-        } catch (IllegalActionException e) {
-            throw new CommandException(e.getMessage());
-        }
+        interviewee.setResume(resume);
+
         return new ToggleCommandResult(MESSAGE_SUCCESS, ToggleView.INTERVIEWEE);
     }
 }

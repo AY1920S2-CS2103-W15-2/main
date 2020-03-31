@@ -138,7 +138,13 @@ image::StorageClassDiagram.png[]
 The `Storage` component,
 
 * can save `UserPref` objects in json format and read it back.
-* can save the Address Book data in json format and read it back.
+* can save the Model data in json format and read it back.
+** Save IntervieweeList to interviewee.json
+** Save AttributeList to attribute.json
+** Save QuestionList to question.json
+** Save MetricList to metric.json
+** Save Transcripts of individual interviewees to separate json files in /transcript
+ - for example an interviewee with id = 1 has his/her transcript saved to transcript/1.json
 
 [[Design-Commons]]
 === Common classes

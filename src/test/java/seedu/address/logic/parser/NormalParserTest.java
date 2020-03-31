@@ -2,12 +2,42 @@ package seedu.address.logic.parser;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static seedu.address.logic.commands.CommandTestUtility.*;
-import static seedu.address.logic.parser.CliSyntax.*;
+import static seedu.address.logic.commands.CommandTestUtility.INVALID_DUMMY_VALUE;
+import static seedu.address.logic.commands.CommandTestUtility.VALID_COMMAND_ADD;
+import static seedu.address.logic.commands.CommandTestUtility.VALID_COMMAND_BEST;
+import static seedu.address.logic.commands.CommandTestUtility.VALID_COMMAND_DELETE;
+import static seedu.address.logic.commands.CommandTestUtility.VALID_COMMAND_EDIT;
+import static seedu.address.logic.commands.CommandTestUtility.VALID_COMMAND_EXIT;
+import static seedu.address.logic.commands.CommandTestUtility.VALID_COMMAND_FINALISE;
+import static seedu.address.logic.commands.CommandTestUtility.VALID_COMMAND_GOTO;
+import static seedu.address.logic.commands.CommandTestUtility.VALID_COMMAND_HELP;
+import static seedu.address.logic.commands.CommandTestUtility.VALID_COMMAND_INTERVIEW;
+import static seedu.address.logic.commands.CommandTestUtility.VALID_COMMAND_LIST;
+import static seedu.address.logic.commands.CommandTestUtility.VALID_COMMAND_OPEN;
+import static seedu.address.logic.commands.CommandTestUtility.VALID_COMMAND_RESUME;
+import static seedu.address.logic.commands.CommandTestUtility.VALID_INTERVIEWEE_JANE;
+import static seedu.address.logic.commands.CommandTestUtility.VALID_INTERVIEWEE_JANICE;
+import static seedu.address.logic.commands.CommandTestUtility.VALID_NUMBER_1;
+import static seedu.address.logic.commands.CommandTestUtility.VALID_PROPERTY_INTERVIEWEE;
+import static seedu.address.logic.commands.CommandTestUtility.VALID_QUESTION_NUMBER_14;
+import static seedu.address.logic.commands.CommandTestUtility.WHITESPACE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 
 import org.junit.jupiter.api.Test;
 
-import seedu.address.logic.commands.*;
+import seedu.address.logic.commands.AddIntervieweeCommand;
+import seedu.address.logic.commands.BestCommand;
+import seedu.address.logic.commands.Command;
+import seedu.address.logic.commands.DeleteIntervieweeCommand;
+import seedu.address.logic.commands.EditIntervieweeCommand;
+import seedu.address.logic.commands.ExitCommand;
+import seedu.address.logic.commands.FinaliseCommand;
+import seedu.address.logic.commands.HelpCommand;
+import seedu.address.logic.commands.ListIntervieweeCommand;
+import seedu.address.logic.commands.NavigationQuestionCommand;
+import seedu.address.logic.commands.OpenReportCommand;
+import seedu.address.logic.commands.OpenResumeCommand;
+import seedu.address.logic.commands.StartInterviewCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.hirelah.BestParameter;
 
@@ -96,10 +126,8 @@ class NormalParserTest {
 
     @Test
     void parse_invalidCommand_failure() {
-        assertThrows(ParseException.class, () -> parser.parseCommand(VALID_ATTRIBUTE_INTEGRITY + WHITESPACE
+        assertThrows(ParseException.class, () -> parser.parseCommand(INVALID_DUMMY_VALUE + WHITESPACE
                 + VALID_PROPERTY_INTERVIEWEE + WHITESPACE
-                + PREFIX_OLD + WHITESPACE + VALID_INTERVIEWEE_JANE
-                + WHITESPACE + PREFIX_NEW
                 + WHITESPACE + VALID_INTERVIEWEE_JANICE));
     }
 }

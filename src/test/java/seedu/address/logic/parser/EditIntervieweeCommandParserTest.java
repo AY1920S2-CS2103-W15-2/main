@@ -1,16 +1,18 @@
 package seedu.address.logic.parser;
 
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static seedu.address.logic.commands.CommandTestUtility.*;
-import static seedu.address.logic.parser.CliSyntax.*;
+import static seedu.address.logic.commands.CommandTestUtility.VALID_ALIAS_JANE;
+import static seedu.address.logic.commands.CommandTestUtility.VALID_INTERVIEWEE_JANE;
+import static seedu.address.logic.commands.CommandTestUtility.VALID_INTERVIEWEE_JANICE;
+import static seedu.address.logic.commands.CommandTestUtility.WHITESPACE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_ALIAS;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
-//import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
 
 import org.junit.jupiter.api.Test;
 
 import seedu.address.logic.commands.EditIntervieweeCommand;
-import seedu.address.logic.parser.exceptions.ParseException;
 
 class EditIntervieweeCommandParserTest {
 
@@ -30,7 +32,7 @@ class EditIntervieweeCommandParserTest {
 
     @Test
     void parse_oldFieldMissing_failure() {
-        assertParseFailure(parser,  WHITESPACE + PREFIX_ALIAS + VALID_ALIAS_JANE,
+        assertParseFailure(parser, WHITESPACE + PREFIX_ALIAS + VALID_ALIAS_JANE,
                 String.format(MESSAGE_INVALID_COMMAND_FORMAT, EditIntervieweeCommand.MESSAGE_USAGE));
     }
 

@@ -9,11 +9,13 @@ import static seedu.address.logic.commands.CommandTestUtility.VALID_PROPERTY_ATT
 import static seedu.address.logic.commands.CommandTestUtility.VALID_PROPERTY_INTERVIEWEE;
 import static seedu.address.logic.commands.CommandTestUtility.VALID_PROPERTY_QUESTION;
 import static seedu.address.logic.commands.CommandTestUtility.WHITESPACE;
-import static seedu.address.logic.parser.CliSyntax.*;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_ATTRIBUTE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
 
 import org.junit.jupiter.api.Test;
+
 import seedu.address.logic.commands.EditAttributeCommand;
 import seedu.address.logic.commands.EditIntervieweeCommand;
 

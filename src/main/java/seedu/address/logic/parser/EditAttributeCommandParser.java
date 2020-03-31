@@ -26,6 +26,9 @@ public class EditAttributeCommandParser implements Parser<EditAttributeCommand> 
         ArgumentMultimap argMultimap =
                 ArgumentTokenizer.tokenize(arguments, PREFIX_ATTRIBUTE);
 
+        if (argMultimap.getPreamble().equals("")) {
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, EditAttributeCommand.MESSAGE_USAGE));
+        }
         if (!argMultimap.arePrefixesPresent(PREFIX_ATTRIBUTE)) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, EditAttributeCommand.MESSAGE_USAGE));
         }

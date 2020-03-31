@@ -184,4 +184,12 @@ public class BestCommand extends Command {
             throw new CommandException(MESSAGE_SIZE_NOT_A_NUMBER);
         }
     }
+
+    @Override
+    public boolean equals(Object other) {
+        return other == this // short circuit if same object
+                || (other instanceof BestCommand // instanceof handles nulls
+                && numberOfInterviewees.equals(((BestCommand) other).numberOfInterviewees)
+                && paramType.equals(((BestCommand) other).paramType));
+    }
 }

@@ -20,6 +20,15 @@
 <li><a href="#decision-phase">3.5. Decision Phase</a></li>
 </ul>
 </li>
+<li><a href="#advanced-features">4. Advanced Features</a>
+<ul class="sectlevel2">
+<li><a href="#typing-shortcuts-prefix-matching">4.1. Typing shortcuts - Prefix matching</a></li>
+<li><a href="#gui-convenience-features">4.2. GUI Convenience Features</a></li>
+<li><a href="#keeping-track-of-interview-questions">4.3. Keeping Track of Interview Questions</a></li>
+</ul>
+</li>
+<li><a href="#faq">5. FAQ</a></li>
+<li><a href="#command-summary">6. Command Summary</a></li>
 </ul>
 </div>
 </div>
@@ -133,7 +142,7 @@ to the remarks he/she made of each interviewee and decides who to select</p>
 <div class="paragraph">
 <p>HireLah! takes care of this for you! By default, the first time you use HireLah!, the app will create a new folder
 <code>/data</code> in the same directory as the app and save your session data there. To learn how to configure your interview
-sessions (starting a fresh session, renaming your session, changing sessions) refer to <a href="#FAQ">[FAQ]</a>.</p>
+sessions (starting a fresh session, renaming your session, changing sessions) refer to <a href="#faq">Section 5, &#8220;FAQ&#8221;</a>.</p>
 </div>
 </div>
 <div class="sect2">
@@ -503,7 +512,7 @@ also starts the interview time.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/Screenshots/Finalise.png" alt="Finalise">
+<img src="images/Screenshots/Interview.png" alt="Interview">
 </div>
 </div>
 </div>
@@ -786,204 +795,267 @@ examining the session.</p>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>&gt; open Jane Doe
-
-_Action_: Shows the entire list of remarks made during the interview, with
-their timestamps.
-
-_Output_:</pre>
+<pre>&gt; open Jane Doe</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Successfully opened Interviewee report: Jane Doe</p>
+<p><em>Action</em>: Shows the entire list of remarks made during the interview, with
+their timestamps.</p>
+</div>
+<div class="paragraph">
+<p><em>Output</em>:</p>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>image::Screenshots/Report.png[]
-
-==== Working in an Interviewee Report
-
-After opening a report, you can scroll up and down to navigate through
+<pre>Successfully opened Interviewee report: Jane Doe</pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/Screenshots/Report.png" alt="Report">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="working-in-an-interviewee-report"><a class="link" href="#working-in-an-interviewee-report">3.5.3. Working in an Interviewee Report</a></h4>
+<div class="paragraph">
+<p>After opening a report, you can scroll up and down to navigate through
 the remarks you made during the interview. In addition, you can zoom in
 on a particular moment in the interview by question number, or by the
-interview time.
-
-===== Navigating by Question Number
-
-Displays the first remark made while the current interviewee was
+interview time.</p>
+</div>
+<div class="sect4">
+<h5 id="navigating-by-question-number"><a class="link" href="#navigating-by-question-number">Navigating by Question Number</a></h5>
+<div class="paragraph">
+<p>Displays the first remark made while the current interviewee was
 answering the given question. The user can scroll up and down to see the
-rest of the remarks.
-
-*Command*</pre>
-</div>
+rest of the remarks.</p>
 </div>
 <div class="paragraph">
-<p>goto q&lt;question number&gt;</p>
+<p><strong>Command</strong></p>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>*Example*</pre>
-</div>
-</div>
-<div class="quoteblock">
-<blockquote>
-<div class="paragraph">
-<p>goto q2</p>
-</div>
-</blockquote>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>_Output_:</pre>
+<pre>goto q&lt;question number&gt;</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Here is the remark of question 2!</p>
+<p><strong>Example</strong></p>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>image::Screenshots/NavigationQuestion.png[]
-
-===== Navigating by Timestamp
-
-Scrolls the list of remarks to the given time.
-The user can scroll up and down to see the rest of the remarks.
-
-*Command*</pre>
+<pre>&gt; goto q2</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>goto &lt;time&gt;</p>
+<p><em>Output</em>:</p>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>*Example*</pre>
+<pre>Here is the remark of question 2!</pre>
 </div>
 </div>
-<div class="quoteblock">
-<blockquote>
+<div class="imageblock">
+<div class="content">
+<img src="images/Screenshots/NavigationQuestion.png" alt="NavigationQuestion">
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="navigating-by-timestamp"><a class="link" href="#navigating-by-timestamp">Navigating by Timestamp</a></h5>
 <div class="paragraph">
-<p>goto 1.00</p>
+<p>Scrolls the list of remarks to the given time.
+The user can scroll up and down to see the rest of the remarks.</p>
 </div>
-</blockquote>
+<div class="paragraph">
+<p><strong>Command</strong></p>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>_Output_:</pre>
+<pre>goto &lt;time&gt;</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Here is the remark at time 1.00!</p>
+<p><strong>Example</strong></p>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>image::Screenshots/NavigationTime.png[]
-
-==== Find Best Candidates
-
-After interviewing all the candidates, you can find the top n candidates
+<pre>&gt; goto 1.00</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><em>Output</em>:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Here is the remark at time 1.00!</pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/Screenshots/NavigationTime.png" alt="NavigationTime">
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="find-best-candidates"><a class="link" href="#find-best-candidates">3.5.4. Find Best Candidates</a></h4>
+<div class="paragraph">
+<p>After interviewing all the candidates, you can find the top n candidates
 based on either a particular attribute, the average of all the
-attributes. You also can use a metric for scoring.
-
-*Command*</pre>
-</div>
+attributes. You also can use a metric for scoring.</p>
 </div>
 <div class="paragraph">
-<p>best &lt;number of candidates&gt;
+<p><strong>Command</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>best &lt;number of candidates&gt;
 best &lt;number of candidates&gt; [-a &lt;attribute&gt;]
-best &lt;number of candidates&gt; [-m &lt;metric&gt;]</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>*Example*</pre>
+best &lt;number of candidates&gt; [-m &lt;metric&gt;]</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>best 1
+<p><strong>Example</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>best 1
 best 2 -m extremeLeader
-best 3 -a leadership</p>
+best 3 -a leadership</pre>
 </div>
-<div class="literalblock">
-<div class="content">
-<pre>_Action_: Firstly, HireLah! will show top 1 interviewees in overall score.
+</div>
+<div class="paragraph">
+<p><em>Action</em>: Firstly, HireLah! will show top 1 interviewees in overall score.
 Then, it will show the top 2 interviewees based on their leadership score. Finally, it will
-show the top 3 interviewes based on the extremeDictatorship metric.
-
-_Output_:</pre>
-</div>
+show the top 3 interviewes based on the extremeDictatorship metric.</p>
 </div>
 <div class="paragraph">
-<p>Here are the best 1 interviewees.</p>
-</div>
-<div class="paragraph">
-<p>Here are the best 2 interviewees.</p>
-</div>
-<div class="paragraph">
-<p>Here are the best 3 interviewees.</p>
+<p><em>Output</em>:</p>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>image::Screenshots/NavigationTime.png[]
+<pre>Here are the best 1 interviewees.
 
-== Advanced Features
+Here are the best 2 interviewees.
 
-=== Typing shortcuts - Prefix matching
-
-It is often tedious to have to type out a long attribute like "Productivity"
+Here are the best 3 interviewees.</pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/Screenshots/Best.png" alt="Best">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="advanced-features"><a class="link" href="#advanced-features">4. Advanced Features</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="typing-shortcuts-prefix-matching"><a class="link" href="#typing-shortcuts-prefix-matching">4.1. Typing shortcuts - Prefix matching</a></h3>
+<div class="paragraph">
+<p>It is often tedious to have to type out a long attribute like "Productivity"
 or "Team Player". Especially during an interview, a typing mistake may cost you
 precious time, possibly missing some important thing the interviewee said. HireLah!
 thus allows you to simply type part (a prefix) of the full word, as long as it
-uniquely identifies an attribute.
-
-For example, if you have the following attributes
-
-* Leadership
-* Ambition
-* Team player
-* Team motivator
-
-Then
-
-* "L", "Le" or any longer prefix can uniquely identify "Leadership"
-* "A" sufficiently identifies "Ambition"
-* "Team" **cannot** identify "Team player" as "Team motivator" shares this prefix
-* To minimally distinguish the 2, you must provide "Team p" or "Team m"
-
-=== GUI Convenience Features
-
-==== Accessing Interviewee Report
-
-It might be tedious opening an interviewee's reports via the Command Line Interface command
-`open &lt;interviewee&gt;`. As such, we have implemented a convenient way of accessing interviewee reports.
-
-In order to open the report of an interviewee, the user can simply navigate view the interviewees, and click on the card of the interviewee the user want to view.
-
-==== Accessing Interviewee Resume
-
-During an interview or while viewing the interview report of an interviewee, the user can open the interviewee's resume easily by clicking on the "View Resume" button. If no resume has been uploaded for the interviewee, the button will say "No Resume" instead.
-
-image::Screenshots/OpenResumeGUI.png[width="400"]
-
-=== Keeping Track of Interview Questions
-
-The user may wish to refer to the list of interview questions created during an interview. As such, a second window showing the list of questions will pop up when the interviewer starts an interview.
-
-image::Screenshots/QuestionListInterview.png[width="300"]
-
-== FAQ
-
-Q: After an interview session for a role is finished, how do I start a fresh session? +
-A: In the home directory of HireLah! After the first time the app is run, a
-file called `preferences.json` will be created by the app to save your preferences, including
-the file where the session data is saved. Simply change the "sessionsDirectory" field to a new
-directory (with a relative path to the home directory), or just change the name and let HireLah!
-create the new directory for you!
-
-Sample `preferences.json`:</pre>
-</div>
+uniquely identifies an attribute.</p>
 </div>
 <div class="paragraph">
-<p>{
+<p>For example, if you have the following attributes</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Leadership</p>
+</li>
+<li>
+<p>Ambition</p>
+</li>
+<li>
+<p>Team player</p>
+</li>
+<li>
+<p>Team motivator</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Then</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>"L", "Le" or any longer prefix can uniquely identify "Leadership"</p>
+</li>
+<li>
+<p>"A" sufficiently identifies "Ambition"</p>
+</li>
+<li>
+<p>"Team" <strong>cannot</strong> identify "Team player" as "Team motivator" shares this prefix</p>
+</li>
+<li>
+<p>To minimally distinguish the 2, you must provide "Team p" or "Team m"</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="gui-convenience-features"><a class="link" href="#gui-convenience-features">4.2. GUI Convenience Features</a></h3>
+<div class="sect3">
+<h4 id="accessing-interviewee-report"><a class="link" href="#accessing-interviewee-report">4.2.1. Accessing Interviewee Report</a></h4>
+<div class="paragraph">
+<p>It might be tedious opening an interviewee&#8217;s reports via the Command Line Interface command
+<code>open &lt;interviewee&gt;</code>. As such, we have implemented a convenient way of accessing interviewee reports.</p>
+</div>
+<div class="paragraph">
+<p>In order to open the report of an interviewee, the user can simply navigate view the interviewees, and click on the card of the interviewee the user want to view.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="accessing-interviewee-resume"><a class="link" href="#accessing-interviewee-resume">4.2.2. Accessing Interviewee Resume</a></h4>
+<div class="paragraph">
+<p>During an interview or while viewing the interview report of an interviewee, the user can open the interviewee&#8217;s resume easily by clicking on the "View Resume" button. If no resume has been uploaded for the interviewee, the button will say "No Resume" instead.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/Screenshots/OpenResumeGUI.png" alt="OpenResumeGUI" width="400">
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="keeping-track-of-interview-questions"><a class="link" href="#keeping-track-of-interview-questions">4.3. Keeping Track of Interview Questions</a></h3>
+<div class="paragraph">
+<p>The user may wish to refer to the list of interview questions created during an interview. As such, a second window showing the list of questions will pop up when the interviewer starts an interview.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/Screenshots/QuestionListInterview.png" alt="QuestionListInterview" width="300">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="faq"><a class="link" href="#faq">5. FAQ</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Q: After an interview session for a role is finished, how do I start a fresh session?<br>
+A: In the home directory of HireLah! After the first time the app is run, a
+file called <code>preferences.json</code> will be created by the app to save your preferences, including
+the file where the session data is saved. Simply change the "sessionsDirectory" field to a new
+directory (with a relative path to the home directory), or just change the name and let HireLah!
+create the new directory for you!</p>
+</div>
+<div class="paragraph">
+<p>Sample <code>preferences.json</code>:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>{
   "guiSettings" : {
     "windowWidth" : 1382.0,
     "windowHeight" : 744.0,
@@ -993,15 +1065,15 @@ Sample `preferences.json`:</pre>
     }
   },
   "sessionsDirectory" : "data"
-}</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>After changing the session directory:</pre>
+}</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>{
+<p>After changing the session directory:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>{
   "guiSettings" : {
     "windowWidth" : 1382.0,
     "windowHeight" : 744.0,
@@ -1011,81 +1083,148 @@ Sample `preferences.json`:</pre>
     }
   },
   "sessionsDirectory" : "ceo-interview"
-}</p>
+}</pre>
 </div>
-<div class="literalblock">
-<div class="content">
-<pre>Now HireLah! will start in an empty session called ceo-interview. To switch
-between multiple sessions, just change the sessionDirectory to the correct directory.
-
-Q: What happens if the app crashes halfway? Especially during an interview? +
+</div>
+<div class="paragraph">
+<p>Now HireLah! will start in an empty session called ceo-interview. To switch
+between multiple sessions, just change the sessionDirectory to the correct directory.</p>
+</div>
+<div class="paragraph">
+<p>Q: What happens if the app crashes halfway? Especially during an interview?<br>
 A: HireLah! saves your work after every change. If the app crashes during an interview,
 the next time you open the app, the interviewee you were interviewing will be in
 an "incomplete interview" state. You can simply resume the interview by calling
-the `interview &lt;interviewee&gt;` command again. Note that you cannot perform the usual
+the <code>interview &lt;interviewee&gt;</code> command again. Note that you cannot perform the usual
 decision phase commands (finding best interviewee, viewing report) on an interviewee whose
-interview is incomplete!
-
-== Command Summary
-
-
-*Initialization Phase*
-
-* Add an interviewee: `add interviewee &lt;interviewee&gt; [-aka &lt;alias&gt;]` +
-e.g. `add interviewee Jane Doe -aka Doe`
-* Edit an interviewee: `edit interviewee &lt;interviewee&gt; [-n &lt;new full name&gt;] [-aka &lt;new alias&gt;]` +
-e.g. `edit interviewee Jane Doe -n Janice Doe -aka JDoe`
-* Delete an interviewee: `delete interviewee &lt;interviewee&gt;` +
-e.g. `delete interviewee Doe`
-* List interviewees: `list interviewee`
-* Add an attribute: `add attribute &lt;attribute&gt;` +
-e.g. `add attribute teamwork`
-* Edit an attribute: `edit attribute &lt;old attribute&gt; -a &lt;new attribute&gt;` +
-e.g. `edit attribute -a leadership`
-* Delete an attribute: `delete attribute &lt;attribute&gt;` +
-e.g. `delete attribute productivity`
-* List attributes: `list attribute`
-* Add a question: `add question &lt;question description&gt;` +
-e.g. `add question What are your relevant experiences?`
-* Edit a question: `edit question &lt;question number&gt; -q &lt;edited question&gt;` +
-e.g. `edit question 1 -q What do you hope to accomplish in 5 years?`
-* Delete a question: `delete question &lt;question number&gt;` +
-e.g. `delete question 1`
-* List questions: `list question`
-
-*Interviewing Phase*
-
-* Start: `interview &lt;interviewee&gt;` +
-e.g. `interview Jane Doe`
-* Add Remarks: `&lt;remarks&gt;` +
-e.g. `This guy is good at bluffing`
-* Start a Question: `:start q&lt;question number&gt;` +
-e.g. `:start q1`
-* Score an attribute: `:&lt;attribute&gt; &lt;score&gt;` +
-e.g. `:Agility 10`
-* End: `:end`
-
-*Decision Phase*
-
-* Open an interviewee report: `open &lt;interviewee&gt;` +
-e.g. `open Jane Doe`
-* Close an interviewee report: `close &lt;interviewee&gt;` +
-e.g. `close Jane Doe`
-* Navigate to answer of interviewee: `q&lt;question number&gt;` +
-e.g. `goto q4`
-* Navigate to a time of interviewee: `at &lt;time&gt;` +
-e.g. `goto 30.00`
-* Stops audio playing: `stop audio`
-* Create a new weightage: `new weightage &lt;weightage_name&gt;` +
-e.g. `new weightage extreme_intelligent`
-* Find the Best N candidates based on average attribute: `best &lt;no_of_candidates&gt;`
-* Find the Best N candidates based on a particular attribute: `best &lt;no_of_candidates&gt; -a &lt;attribute&gt;` +
-e.g. `best 3 strength`
-* Find the Best N candidates based on a metric: `best &lt;no_of_candidates&gt; -m &lt;metric&gt;` +
-e.g. `best 5 -m extremeDictatorship`</pre>
+interview is incomplete!</p>
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="command-summary"><a class="link" href="#command-summary">6. Command Summary</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Initialization Phase</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Add an interviewee: <code>add interviewee &lt;interviewee&gt; [-aka &lt;alias&gt;]</code><br>
+e.g. <code>add interviewee Jane Doe -aka Doe</code></p>
+</li>
+<li>
+<p>Edit an interviewee: <code>edit interviewee &lt;interviewee&gt; [-n &lt;new full name&gt;] [-aka &lt;new alias&gt;]</code><br>
+e.g. <code>edit interviewee Jane Doe -n Janice Doe -aka JDoe</code></p>
+</li>
+<li>
+<p>Delete an interviewee: <code>delete interviewee &lt;interviewee&gt;</code><br>
+e.g. <code>delete interviewee Doe</code></p>
+</li>
+<li>
+<p>List interviewees: <code>list interviewee</code></p>
+</li>
+<li>
+<p>Add an attribute: <code>add attribute &lt;attribute&gt;</code><br>
+e.g. <code>add attribute teamwork</code></p>
+</li>
+<li>
+<p>Edit an attribute: <code>edit attribute &lt;old attribute&gt; -a &lt;new attribute&gt;</code><br>
+e.g. <code>edit attribute -a leadership</code></p>
+</li>
+<li>
+<p>Delete an attribute: <code>delete attribute &lt;attribute&gt;</code><br>
+e.g. <code>delete attribute productivity</code></p>
+</li>
+<li>
+<p>List attributes: <code>list attribute</code></p>
+</li>
+<li>
+<p>Add a question: <code>add question &lt;question description&gt;</code><br>
+e.g. <code>add question What are your relevant experiences?</code></p>
+</li>
+<li>
+<p>Edit a question: <code>edit question &lt;question number&gt; -q &lt;edited question&gt;</code><br>
+e.g. <code>edit question 1 -q What do you hope to accomplish in 5 years?</code></p>
+</li>
+<li>
+<p>Delete a question: <code>delete question &lt;question number&gt;</code><br>
+e.g. <code>delete question 1</code></p>
+</li>
+<li>
+<p>List questions: <code>list question</code></p>
+</li>
+<li>
+<p>Upload resume: `upload &lt;interviewee&gt; [-p &lt;path&gt;]</p>
+</li>
+<li>
+<p>Open resume: <code>resume &lt;interviewee&gt;</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Interviewing Phase</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Start: <code>interview &lt;interviewee&gt;</code><br>
+e.g. <code>interview Jane Doe</code></p>
+</li>
+<li>
+<p>Add Remarks: <code>&lt;remarks&gt;</code><br>
+e.g. <code>This guy is good at bluffing</code></p>
+</li>
+<li>
+<p>Start a Question: <code>:start q&lt;question number&gt;</code><br>
+e.g. <code>:start q1</code></p>
+</li>
+<li>
+<p>Score an attribute: <code>:&lt;attribute&gt; &lt;score&gt;</code><br>
+e.g. <code>:Agility 10</code></p>
+</li>
+<li>
+<p>End: <code>:end</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Decision Phase</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Open an interviewee report: <code>open &lt;interviewee&gt;</code><br>
+e.g. <code>open Jane Doe</code></p>
+</li>
+<li>
+<p>Close an interviewee report: <code>close &lt;interviewee&gt;</code><br>
+e.g. <code>close Jane Doe</code></p>
+</li>
+<li>
+<p>Navigate to answer of interviewee: <code>q&lt;question number&gt;</code><br>
+e.g. <code>goto q4</code></p>
+</li>
+<li>
+<p>Navigate to a time of interviewee: <code>at &lt;time&gt;</code><br>
+e.g. <code>goto 30.00</code></p>
+</li>
+<li>
+<p>Create a new metric: <code>add metric &lt;weightage_name&gt;</code><br>
+e.g. <code>add metric -a ambition -w 0.9 -a leadership -w 0.1</code></p>
+</li>
+<li>
+<p>Find the Best N candidates based on average attribute: <code>best &lt;no_of_candidates&gt;</code></p>
+</li>
+<li>
+<p>Find the Best N candidates based on a particular attribute: <code>best &lt;no_of_candidates&gt; -a &lt;attribute&gt;</code><br>
+e.g. <code>best 3 -a strength</code></p>
+</li>
+<li>
+<p>Find the Best N candidates based on a metric: <code>best &lt;no_of_candidates&gt; -m &lt;metric&gt;</code><br>
+e.g. <code>best 5 -m extremeDictatorship</code></p>
+</li>
+</ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-31 15:39:14 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-31 15:47:42 UTC</div></div></div></body></html>

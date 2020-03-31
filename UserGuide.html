@@ -20,8 +20,13 @@
 <li><a href="#decision-phase">3.5. Decision Phase</a></li>
 </ul>
 </li>
-<li><a href="#faq">4. FAQ</a></li>
-<li><a href="#command-summary">5. Command Summary</a></li>
+<li><a href="#advanced-features">4. Advanced Features</a>
+<ul class="sectlevel2">
+<li><a href="#typing-shortcuts-prefix-matching">4.1. Typing shortcuts - Prefix matching</a></li>
+</ul>
+</li>
+<li><a href="#faq">5. FAQ</a></li>
+<li><a href="#command-summary">6. Command Summary</a></li>
 </ul>
 </div>
 </div>
@@ -135,7 +140,7 @@ to the remarks he/she made of each interviewee and decides who to select</p>
 <div class="paragraph">
 <p>HireLah! takes care of this for you! By default, the first time you use HireLah!, the app will create a new folder
 <code>/data</code> in the same directory as the app and save your session data there. To learn how to configure your interview
-sessions (starting a fresh session, renaming your session, changing sessions) refer to <a href="#faq">Section 4, &#8220;FAQ&#8221;</a>.</p>
+sessions (starting a fresh session, renaming your session, changing sessions) refer to <a href="#faq">Section 5, &#8220;FAQ&#8221;</a>.</p>
 </div>
 </div>
 <div class="sect2">
@@ -220,7 +225,7 @@ Edited interviewee: Jane Doe</pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="add-edit-and-delete-attributes"><a class="link" href="#add-edit-and-delete-attributes">3.3.2. Add, Edit and Delete Attributes</a></h4>
+<h4 id="Attributes"><a class="link" href="#Attributes">3.3.2. Add, Edit and Delete Attributes</a></h4>
 <div class="paragraph">
 <p>In an interview, you often look out for a particular set of attributes in your candidates.
 HireLah! lets you keep track of what to look out for during the interview, and even assign
@@ -395,16 +400,16 @@ list metric</pre>
 </div>
 <div class="paragraph">
 <p><em>Action:</em> Initializes an interview session with Jane. Shows the uploaded
-CV (if any), and the list of interview questions in separate windows</p>
+resume (if any), and the list of interview questions in a separate window. The app
+also starts the interview time.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="record-remarks"><a class="link" href="#record-remarks">3.4.2. Record Remarks</a></h4>
 <div class="paragraph">
-<p>You can add remarks throughout the interview sessions if you have any
-for the interviewee. This remarks will be mapped to the recording at
-this specific time such that you can remember what was discussed during
-this time.</p>
+<p>After starting the interview, HireLah! allows you to easily take notes within the app itself.
+Anything you type in the Command Box will be recorded as interview remarks, which are timestamped,
+allowing you to easily navigate your interview remarks after the interview is over.</p>
 </div>
 <div class="paragraph">
 <p><strong>Command</strong></p>
@@ -428,21 +433,22 @@ enter it.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="start-and-end-mark-of-a-question"><a class="link" href="#start-and-end-mark-of-a-question">3.4.3. Start and End Mark of A Question</a></h4>
+<h4 id="asking-questions"><a class="link" href="#asking-questions">3.4.3. Asking Questions</a></h4>
 <div class="paragraph">
-<p>You can indicate to start typing the answer for a question such that all
-the remarks that falls between the start and end of a question will be
-regarded as the answer to this question</p>
+<p>Special commands while interviewing are prefixed with a ":". These commands are
+not recorded as remarks and instead perform special actions.</p>
+</div>
+<div class="paragraph">
+<p>The start question command allows you to indicate when you asked a question during
+the interview. This allows you to easily navigate to relevant parts of the interview
+after the interview ends, while viewing the report.</p>
 </div>
 <div class="paragraph">
 <p><strong>Command</strong></p>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>:start q1
-&lt;remarks&gt;
-&lt;remarks&gt;
-:end q1</pre>
+<pre>:start q&lt;question number&gt;</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -453,25 +459,39 @@ regarded as the answer to this question</p>
 <pre>&gt; :start q1
 &gt; Strengths: resilience, ambitious, good time-management
 &gt; Weakness: perfectionist, not detail-oriented
-&gt; :end q1</pre>
+&gt; :start q2</pre>
 </div>
 </div>
 <div class="paragraph">
-<p><em>Action:</em> Stores these 2 lines of remark as the answer to Question 1.</p>
+<p><em>Output:</em></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Marked the start of question 1
+
+Added the remark
+
+Added the remark
+
+Marked the start of question 2</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><em>Action:</em> Marks the start of question 1 and 2, with the 2 remarks in the middle under question 1</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="score-attributes"><a class="link" href="#score-attributes">3.4.4. Score attributes</a></h4>
 <div class="paragraph">
-<p>Each of the interviewees have different scoring attributes and the
-interviewer could update the attributes anytime during the interview.</p>
+<p>During the interview, as you form your opinion on the candidate, you can give them scores for the
+attributes you have created earlier (see <a href="#Attributes">Section 3.3.2, &#8220;Add, Edit and Delete Attributes&#8221;</a>).</p>
 </div>
 <div class="paragraph">
 <p><strong>Command</strong></p>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>:&lt;attributes&gt; &lt;score&gt;</pre>
+<pre>:&lt;attribute&gt; &lt;score&gt;</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -483,20 +503,43 @@ interviewer could update the attributes anytime during the interview.</p>
 </div>
 </div>
 <div class="paragraph">
-<p><em>Action:</em> update the Productivity score for John Doe.</p>
+<p><em>Action:</em> update the Productivity score for John Doe (displayed on a bar chart).</p>
+</div>
+<div class="paragraph">
+<p><em>Output:</em></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Scored 5.00 to Productivity</pre>
+</div>
 </div>
 </div>
 <div class="sect3">
 <h4 id="end-interview"><a class="link" href="#end-interview">3.4.5. End interview</a></h4>
 <div class="paragraph">
-<p>This is to allow the interviewers to end the interview session.</p>
+<p>After finishing the interview, give the end command. After the interview has ended,
+you will not be allowed to make any more remarks or change the interviewee&#8217;s scores.
+Don&#8217;t end prematurely!</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+HireLah! will not allow you to end the interview if you have not assigned a score
+on all the attributes!
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p><strong>Command</strong></p>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>end</pre>
+<pre>:end</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -515,7 +558,7 @@ interviewer could update the attributes anytime during the interview.</p>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>The interview session has ended.</pre>
+<pre>Ended interview with John Doe.</pre>
 </div>
 </div>
 </div>
@@ -724,18 +767,122 @@ show the top 7 interviewes based on the extremeDictatorship metric.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="faq"><a class="link" href="#faq">4. FAQ</a></h2>
+<h2 id="advanced-features"><a class="link" href="#advanced-features">4. Advanced Features</a></h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="typing-shortcuts-prefix-matching"><a class="link" href="#typing-shortcuts-prefix-matching">4.1. Typing shortcuts - Prefix matching</a></h3>
 <div class="paragraph">
-<p>Q: How do I transfer my data to another Computer?<br>
-A: Install the app in
-the other computer and overwrite the <code>/data</code> folder with <code>/data</code> folder that
-contains the data of your previous HireLah! folder.</p>
+<p>It is often tedious to have to type out a long attribute like "Productivity"
+or "Team Player". Especially during an interview, a typing mistake may cost you
+precious time, possibly missing some important thing the interviewee said. HireLah!
+thus allows you to simply type part (a prefix) of the full word, as long as it
+uniquely identifies an attribute.</p>
+</div>
+<div class="paragraph">
+<p>For example, if you have the following attributes</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Leadership</p>
+</li>
+<li>
+<p>Ambition</p>
+</li>
+<li>
+<p>Team player</p>
+</li>
+<li>
+<p>Team motivator</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Then</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>"L", "Le" or any longer prefix can uniquely identify "Leadership"</p>
+</li>
+<li>
+<p>"A" sufficiently identifies "Ambition"</p>
+</li>
+<li>
+<p>"Team" <strong>cannot</strong> identify "Team player" as "Team motivator" shares this prefix</p>
+</li>
+<li>
+<p>To minimally distinguish the 2, you must provide "Team p" or "Team m"</p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="command-summary"><a class="link" href="#command-summary">5. Command Summary</a></h2>
+<h2 id="faq"><a class="link" href="#faq">5. FAQ</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Q: After an interview session for a role is finished, how do I start a fresh session?<br>
+A: In the home directory of HireLah! After the first time the app is run, a
+file called <code>preferences.json</code> will be created by the app to save your preferences, including
+the file where the session data is saved. Simply change the "sessionsDirectory" field to a new
+directory (with a relative path to the home directory), or just change the name and let HireLah!
+create the new directory for you!</p>
+</div>
+<div class="paragraph">
+<p>Sample <code>preferences.json</code>:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>{
+  "guiSettings" : {
+    "windowWidth" : 1382.0,
+    "windowHeight" : 744.0,
+    "windowCoordinates" : {
+      "x" : -8,
+      "y" : -8
+    }
+  },
+  "sessionsDirectory" : "data"
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>After changing the session directory:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>{
+  "guiSettings" : {
+    "windowWidth" : 1382.0,
+    "windowHeight" : 744.0,
+    "windowCoordinates" : {
+      "x" : -8,
+      "y" : -8
+    }
+  },
+  "sessionsDirectory" : "ceo-interview"
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Now HireLah! will start in an empty session called ceo-interview. To switch
+between multiple sessions, just change the sessionDirectory to the correct directory.</p>
+</div>
+<div class="paragraph">
+<p>Q: What happens if the app crashes halfway? Especially during an interview?<br>
+A: HireLah! saves your work after every change. If the app crashes during an interview,
+the next time you open the app, the interviewee you were interviewing will be in
+an "incomplete interview" state. You can simply resume the interview by calling
+the <code>interview &lt;interviewee&gt;</code> command again. Note that you cannot perform the usual
+decision phase commands (finding best interviewee, viewing report) on an interviewee whose
+interview is incomplete!</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="command-summary"><a class="link" href="#command-summary">6. Command Summary</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><strong>Initialization Phase</strong></p>
@@ -791,30 +938,23 @@ e.g. <code>delete question 1</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>Start: <code>start interview &lt;name&gt;</code><br>
-e.g. <code>start interview Jane Doe</code></p>
+<p>Start: <code>interview &lt;interviewee&gt;</code><br>
+e.g. <code>interview Jane Doe</code></p>
 </li>
 <li>
-<p>View Questions: <code>view questions</code></p>
-</li>
-<li>
-<p>Add Remarks: <code>remarks</code><br>
+<p>Add Remarks: <code>&lt;remarks&gt;</code><br>
 e.g. <code>This guy is good at bluffing</code></p>
 </li>
 <li>
-<p>Start a Question: <code>:start q&lt;no_of_question&gt;</code><br>
+<p>Start a Question: <code>:start q&lt;question number&gt;</code><br>
 e.g. <code>:start q1</code></p>
-</li>
-<li>
-<p>End a question: <code>:end q&lt;no_of_question&gt;</code><br>
-e.g. <code>:end q1</code></p>
 </li>
 <li>
 <p>Score an attribute: <code>:&lt;attribute&gt; &lt;score&gt;</code><br>
 e.g. <code>:Agility 10</code></p>
 </li>
 <li>
-<p>End: <code>end</code></p>
+<p>End: <code>:end</code></p>
 </li>
 </ul>
 </div>
@@ -860,4 +1000,4 @@ e.g. <code>best 5 -m extremeDictatorship</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-31 10:58:30 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-31 11:58:34 UTC</div></div></div></body></html>

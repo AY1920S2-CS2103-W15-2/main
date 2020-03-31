@@ -60,4 +60,11 @@ public class OpenResumeCommand extends Command {
             throw new CommandException("Cannot open pdf files!");
         }
     }
+
+    @Override
+    public boolean equals(Object other) {
+        return other == this // short circuit if same object
+                || (other instanceof OpenResumeCommand // instanceof handles nulls
+                && identifier.equals(((OpenResumeCommand) other).identifier));
+    }
 }

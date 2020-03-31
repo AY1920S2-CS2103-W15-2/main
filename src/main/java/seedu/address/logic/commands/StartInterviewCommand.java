@@ -32,4 +32,11 @@ public class StartInterviewCommand extends Command {
             throw new CommandException(e.getMessage());
         }
     }
+
+    @Override
+    public boolean equals(Object other) {
+        return other == this // short circuit if same object
+                || (other instanceof StartInterviewCommand // instanceof handles nulls
+                && identifier.equals(((StartInterviewCommand) other).identifier));
+    }
 }

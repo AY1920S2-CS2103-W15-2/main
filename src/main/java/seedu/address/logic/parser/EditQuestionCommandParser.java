@@ -9,8 +9,7 @@ import seedu.address.logic.parser.exceptions.ParseException;
 /**
  * Parses input arguments and creates a new EditQuestionCommand object
  */
-public class EditQuestionCommandParser {
-    private static final String MESSAGE_NOT_A_NUMBER = "The index given is not a number";
+public class EditQuestionCommandParser implements Parser<EditQuestionCommand> {
 
     /**
      * Parses the given {@code String} of arguments in the context of the EditQuestionCommand
@@ -34,7 +33,7 @@ public class EditQuestionCommandParser {
             int index = Integer.parseInt(argMultimap.getPreamble());
             return new EditQuestionCommand(index, argMultimap.getValue(PREFIX_QUESTION).get());
         } catch (NumberFormatException e) {
-            throw new ParseException(MESSAGE_NOT_A_NUMBER);
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, EditQuestionCommand.MESSAGE_USAGE));
         }
     }
 }

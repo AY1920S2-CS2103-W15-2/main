@@ -38,7 +38,8 @@ public class EditIntervieweeCommandParser implements Parser<EditIntervieweeComma
      * @throws ParseException If the argument is incomplete.
      */
     private void checkArgument(ArgumentMultimap argMultimap) throws ParseException {
-        if (!argMultimap.arePrefixesPresent(PREFIX_NAME) && !argMultimap.arePrefixesPresent(PREFIX_ALIAS)
+        if (argMultimap.getPreamble().equals("")
+            || !argMultimap.arePrefixesPresent(PREFIX_NAME) && !argMultimap.arePrefixesPresent(PREFIX_ALIAS)
             || (argMultimap.getValue(PREFIX_ALIAS).isPresent() && argMultimap.getValue(PREFIX_ALIAS).get().equals(""))
             || (argMultimap.getValue(PREFIX_NAME).isPresent() && argMultimap.getValue(PREFIX_NAME).get().equals(""))
         ) {

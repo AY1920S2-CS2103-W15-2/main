@@ -18,4 +18,11 @@ public class HelpCommand extends Command {
     public CommandResult execute(Model model) {
         return new HelpCommandResult(SHOWING_HELP_MESSAGE);
     }
+
+    @Override
+    public boolean equals(Object other) {
+        return other == this // short circuit if same object
+                || (other instanceof HelpCommand);
+    }
+
 }

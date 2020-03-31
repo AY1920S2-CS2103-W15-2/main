@@ -16,12 +16,12 @@ import seedu.address.model.hirelah.QuestionList;
 public class DeleteQuestionCommand extends Command {
     public static final String COMMAND_WORD = "question";
     public static final boolean DESIRED_MODEL_FINALIZED_STATE = false;
-    public static final String MESSAGE_USAGE = COMMAND_WORD
+    public static final String MESSAGE_FORMAT = "delete " + COMMAND_WORD + " <question number>";
+    public static final String MESSAGE_USAGE = MESSAGE_FORMAT
             + ": Deletes the question identified by its index number in the question list.\n"
-            + "Parameters: INDEX\n"
             + "Example: delete " + COMMAND_WORD + " 1";
 
-    public static final String MESSAGE_DELETE_QUESTION_SUCCESS = "Deleted Question: %1$s";
+    public static final String MESSAGE_DELETE_QUESTION_SUCCESS = "Deleted question: %1$s";
 
     private final int questionIndex;
 

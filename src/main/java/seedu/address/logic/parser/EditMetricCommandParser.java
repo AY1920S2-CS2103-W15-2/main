@@ -45,7 +45,7 @@ public class EditMetricCommandParser implements Parser<EditMetricCommand> {
                 List<Double> castedWeightages = weightages.stream().map(Double::valueOf).collect(Collectors.toList());
                 return new EditMetricCommand(argMultimap.getPreamble(),
                         argMultimap.arePrefixesPresent(PREFIX_NAME) ? argMultimap.getValue(PREFIX_NAME).get()
-                                                                    : argMultimap.getPreamble(),
+                                                                    : "",
                         argMultimap.getAllValues(PREFIX_ATTRIBUTE), castedWeightages);
             } catch (NumberFormatException e) {
                 throw new ParseException(MESSAGE_INVALID_WEIGHTAGE_FORMAT);

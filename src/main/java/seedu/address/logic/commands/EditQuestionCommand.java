@@ -17,12 +17,12 @@ import seedu.address.model.hirelah.QuestionList;
 public class EditQuestionCommand extends Command {
     public static final String COMMAND_WORD = "question";
     public static final boolean DESIRED_MODEL_FINALIZED_STATE = false;
-    public static final String MESSAGE_USAGE = COMMAND_WORD
-            + ": Edits the question identified by its index number in the question list.\n"
-            + "Parameters: INDEX UPDATED_DESCRIPTION\n"
-            + "Example: update " + COMMAND_WORD + " 1 what the heck is this question?";
+    public static final String MESSAGE_FORMAT = "edit " + COMMAND_WORD + " <question number> <edited question>";
+    public static final String MESSAGE_USAGE = MESSAGE_FORMAT
+            + ": Edits the question's description, identified by its number.\n"
+            + "Example: edit " + COMMAND_WORD + " 1 what the heck is this question?";
 
-    public static final String MESSAGE_EDIT_QUESTION_SUCCESS = "Successfully edited question: %s to %s";
+    public static final String MESSAGE_EDIT_QUESTION_SUCCESS = "Edited question %s to %s";
 
     private final int questionIndex;
     private final String updatedDescription;
@@ -40,8 +40,8 @@ public class EditQuestionCommand extends Command {
 
         try {
             Question question = questions.edit(questionIndex, updatedDescription);
-            return new ToggleCommandResult(String.format(MESSAGE_EDIT_QUESTION_SUCCESS, question, updatedDescription),
-                    ToggleView.QUESTION);
+            return new ToggleCommandResult(String.format(MESSAGE_EDIT_QUESTION_SUCCESS, questionIndex,
+                    updatedDescription), ToggleView.QUESTION);
         } catch (IllegalValueException e) {
             throw new CommandException(e.getMessage());
         }

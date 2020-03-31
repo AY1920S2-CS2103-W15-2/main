@@ -13,7 +13,9 @@ import seedu.address.model.Model;
 public class ListQuestionCommand extends Command {
     public static final String COMMAND_WORD = "question";
     public static final String MESSAGE_SUCCESS = "Here is the list of questions:";
-    public static final String MESSAGE_USAGE = "list " + COMMAND_WORD + ": List the questions from the Question list.\n"
+    public static final String MESSAGE_FORMAT = "list " + COMMAND_WORD;
+    public static final String MESSAGE_USAGE = MESSAGE_FORMAT
+            + ": List the questions from the Question list.\n"
             + "Example: list " + COMMAND_WORD;
 
     /**

@@ -105,7 +105,7 @@ delete interviewee <interviewee>
 
 ....
 > add interviewee Jane Doe -aka Doe
-> edit interviewee Jane Doe -n Janice Doe
+> edit interviewee Jane Doe -n Janice Doe -aka JDoe
 ....
 
 _Action:_ Interviewee Jane Doe with alias of Doe is first created and
@@ -116,7 +116,7 @@ _Output:_
 ....
 New interviewee added: Jane Doe
 
-Successfully edited interviewee: Jane Doe
+Edited interviewee: Jane Doe
 ....
 
 image::Interviewee.png[]
@@ -127,6 +127,9 @@ image::Interviewee.png[]
 In an interview, you often look out for a particular set of attributes in your candidates.
 HireLah! lets you keep track of what to look out for during the interview, and even assign
 scores for each attribute to the interviewees so you can compare them after interviewing.
+
+[TIP]
+An attribute's name can only contain alphabets and spaces, and it should not be blank!
 
 *Command*
 
@@ -145,7 +148,7 @@ scores for each attribute to the interviewees so you can compare them after inte
 > delete attribute teamwork
 ....
 
-_Action:_ teamwork and leadership is first added. leadersip (with a typo) is edited
+_Action:_ teamwork and leadersip is first added. leadersip (with a typo) is edited
 to leadership, and then teamwork is deleted.
 
 _Output:_
@@ -155,9 +158,9 @@ New attribute added: teamwork
 
 New attribute added: leadersip
 
-Successfully edited Attribute with prefix: leadersip to leadership
+Edited attribute: leadersip to leadership
 
-Deleted Attribute with prefix: teamwork
+Deleted attribute: teamwork
 ....
 
 ==== Add, Edit and Delete Interview Questions
@@ -170,7 +173,7 @@ questions.
 *Command*
 
 ....
-add question <question>
+add question <question description>
 edit question <question number> <edited question>
 delete question <question number>
 ....
@@ -181,26 +184,22 @@ delete question <question number>
 > add question What are your relevant experiences?
 > edit question 1 What do you hope to accomplish in 5 years?
 > edit question 2 How can you add value to the company?
-> list question
 > delete question 1
 ....
+
+_Action:_ A question "What are your relevant experiences?" will be added.
+Then, question 1 and 2 will be edited, before question 1 is deleted.
 
 _Output:_
 
 ....
-The following question has been added:
-  2. What are your relevant experiences?
+New question added: What are your relevant experiences?
 
-Question 1 edited
+Edited question 1 to What do you hope to accomplish in 5 years?
 
-Question 2 edited
+Edited question 2 to How can you add value to the company?
 
-These are the current questions:
-  1. What do you hope to accomplish in 5 years?
-  2. How can you add value to the company?
-
-The following question was deleted:
-  1. What do you hope to accomplish in 5 years?
+Deleted question: What do you hope to accomplish in 5 years?
 ....
 
 ==== Switching views
@@ -234,49 +233,6 @@ _Output:_
 ....
 Attributes and questions of this interview session has been finalised. You cannot change them anymore.
 ....
-
-[[Metrics]]
-==== Add, Edit and Delete Metrics
-
-Before the interview process, the interviewer may add, remove, and update Metrics to determine the relative importance of several Attributes. Each metric assigns a numerical score to one or more Attributes, and interviewees can be ranked based on their overall score for this metric in the Decision Phase.
-
-*Command*
-
-....
-add metric <name> <attribute> <score> [<attribute> <score>...]
-edit metric <name> <attribute> <score> [<attribute> <score>...]
-list metric
-delete metric <name>
-....
-
-*Example*
-
-....
-> add metric Weighted bravery 0.5 manliness 0.4 intellij 0.1
-> edit metric Weighted bravery 0.005 manliness 0.005 intellij 0.99
-> list metric
-> delete metric Weighted
-....
-
-_Output:_
-
-....
-The following metric has been added:
-  Weighted
-
-The following metric has been updated:
-  Weighted
-
-These are the current metrics:
-  1. Weighted
-    - bravery: 0.005
-    - manliness: 0.005
-    - intellij: 0.99
-
-The following metric has been deleted:
-  Weighted
-....
-
 
 === Interview Phase
 
@@ -417,6 +373,51 @@ Ended interview with John Doe.
 
 === Decision Phase
 
+[[Metrics]]
+==== Add, Edit and Delete Metrics
+
+After the interview process, the interviewer may want to compare the interviewed interviewees by
+add, remove, and update Metrics to determine the relative importance of several attributes. Each metric
+assigns a numerical score to one or more Attributes, and interviewees can be ranked based on their overall score for
+this metric in the Decision Phase.
+
+[TIP]
+A metric's name can only contain alphabets and spaces, and it should not be blank!
+
+*Command*
+
+....
+add metric <name> -a <attribute> -w <score> [-a <attribute> -w <score>]...
+edit metric <name> [-n <metric name>] [-a <attribute> -w <score>]...
+list metric
+delete metric <name>
+....
+
+*Example*
+
+....
+> add metric extremeLeader -a leadership -w 0.7 -a tenacity -w 0.6
+> edit metric extremeLeadership -n extremeDictatorship -a leadership -w 100
+> list metric
+> delete metric extremeDictatorship
+....
+
+_Action:_ Adds a metric named extremeLeader with the specified scoring scheme. Then, the extremeLeader metric
+name will be changed to extremeDictatorship with the newly specified scoring scheme. Then, the UI will
+display the list of metrics, before deleting the extremeDictatorship.
+
+_Output:_
+
+....
+New metric added: extremeLeader
+
+Edited metric
+
+Here's the list of metrics:
+
+Deleted metric: extremeDictatorship
+....
+
 ==== Viewing Interviewee Reports
 
 After interviewing a candidate, you can view the interview report any
@@ -500,28 +501,27 @@ goto <time>
 
 After interviewing all the candidates, you can find the top n candidates
 based on either a particular attribute, the average of all the
-attributes. You can also make a weighted average for scoring.
+attributes. You also can use a metric for scoring.
 
 *Command*
 
 ....
-new weightage <weightage_name>
 best <number of candidates>
 best <number of candidates> [-a <attribute>]
-best <number of candidates> [-w <weightage>]
+best <number of candidates> [-m <metric>]
 ....
 
 *Example*
 
 ....
-> best 3 -a courage
-> new weightage weight1
-ambition?
-> 0.4
-teamwork?
-> 0.6
-> best 5 -w weight1
+best 3
+best 5 -a leadership
+best 7 -m extremeDictatorship
 ....
+
+_Action_: Firstly, HireLah! will show top 3 interviewees in overall score.
+Then, it will show the top 5 interviewees based on their leadership score. Finally, it will
+show the top 7 interviewes based on the extremeDictatorship metric.
 
 == Advanced Features
 
@@ -600,19 +600,19 @@ interview is incomplete!
 
 *Initialization Phase*
 
-* `add interviewee <fullname> [-a <alias>]` +
-e.g. `add interviewee - Jane Doe -a Doe`
+* `add interviewee <full name> [-aka <alias>]` +
+e.g. `add interviewee Jane Doe -a Doe`
 * `delete interviewee <interviewee>` +
 e.g. `delete interviewee Doe`
 * `list interviewee`
-* `add attribute <attributes>` +
+* `add attribute <attribute>` +
 e.g. `add attribute teamwork`
-* `edit attribute <attributes>` +
+* `edit attribute <old attribute> -a <new attribute>` +
 e.g. `edit attribute leadership`
-* `delete attribute <attributes>` +
+* `delete attribute <attribute>` +
 e.g. `delete attribute productivity`
 * `list attribute`
-* `add question <question>` +
+* `add question <question description>` +
 e.g. `add question What are your relevant experiences?`
 * `edit question <question number> <edited question>` +
 e.g. `edit question 1 What do you hope to accomplish in 5 years?`
@@ -646,7 +646,7 @@ e.g. `at 30.00 –audio`
 * Create a new weightage: `new weightage <weightage_name>` +
 e.g. `new weightage extreme_intelligent`
 * Find the Best N candidates based on average attribute: `best <no_of_candidates>`
-* Find the Best N candidates based on a particular attribute: `best <no_of_candidates> -p <attribute>` +
+* Find the Best N candidates based on a particular attribute: `best <no_of_candidates> -a <attribute>` +
 e.g. `best 3 strength`
-* Find the Best N candidates based on a weighted attribute: `best <no_of_candidates> -w <weightage>` +
-e.g. `best 5 -w weightage1`
+* Find the Best N candidates based on a metric: `best <no_of_candidates> -m <metric>` +
+e.g. `best 5 -m extremeDictatorship`

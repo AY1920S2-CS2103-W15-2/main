@@ -31,7 +31,7 @@ public class MetricList {
     private static final String ALREADY_EXISTS_MESSAGE = "This metric is already exists!";
     private static final String DUPLICATE_MESSAGE = "There are multiple metrics with the same prefix.";
     private static final String INCOMPLETE_MESSAGE = "The number of attributes and the number of weights is not equal.";
-    private static final String NOT_FOUND_MESSAGE = "No metrics with the entered prefix.";
+    private static final String NOT_FOUND_MESSAGE = "No metrics with the entered name or prefix.";
 
     private ObservableList<Metric> metrics;
 
@@ -87,7 +87,7 @@ public class MetricList {
     public void edit(String metricPrefix, String updatedName, AttributeList attributes,
                      List<String> attributePrefixes, List<Double> weightages) throws IllegalValueException {
         Metric metric = find(metricPrefix);
-        Metric updatedMetric = metric.setName(updatedName);
+        Metric updatedMetric = metric.setName(updatedName.equals("") ? metric.getName() : updatedName);
 
         for (int i = 0; i < attributePrefixes.size(); i++) {
             Attribute attribute = attributes.find(attributePrefixes.get(i));

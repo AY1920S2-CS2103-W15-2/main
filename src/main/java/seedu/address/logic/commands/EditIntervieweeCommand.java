@@ -15,13 +15,13 @@ import seedu.address.model.hirelah.exceptions.IllegalActionException;
 
 public class EditIntervieweeCommand extends Command {
     public static final String COMMAND_WORD = "interviewee";
+    public static final String MESSAGE_FORMAT = "edit " + COMMAND_WORD + " <interviewee> [-n <new name>] "
+            + "[-aka <new alias>]";
+    public static final String MESSAGE_USAGE = MESSAGE_FORMAT
+            + ": Edits the interviewee's name and/or alias.\n"
+            + "Example: edit " + COMMAND_WORD + " Doe -n Janice Doe -aka JDoe";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD
-            + ": Edits the name of the interviewee identified by the identifier.\n"
-            + "Parameters: IDENTIFIER NAME\n"
-            + "Example: update " + COMMAND_WORD + " Doe Mario Lorenzo";
-
-    public static final String MESSAGE_EDIT_INTERVIEWEE_SUCCESS = "Successfully edited Interviewee: %1$s";
+    public static final String MESSAGE_EDIT_INTERVIEWEE_SUCCESS = "Edited interviewee: %1$s";
 
     private final String identifier;
     private final String updatedName;

@@ -17,12 +17,12 @@ import seedu.address.model.hirelah.AttributeList;
 public class EditAttributeCommand extends Command {
     public static final String COMMAND_WORD = "attribute";
     public static final boolean DESIRED_MODEL_FINALIZED_STATE = false;
-    public static final String MESSAGE_USAGE = COMMAND_WORD
-            + ": Edits the attribute identified by its prefix.\n"
-            + "Parameters: PREFIX NEW_ATTRIBUTE\n"
-            + "Example: update " + COMMAND_WORD + " lea tenacity";
+    public static final String MESSAGE_FORMAT = "edit " + COMMAND_WORD + " <old attribute> -a <new attribute>";
+    public static final String MESSAGE_USAGE = MESSAGE_FORMAT
+            + ": Edits the attribute identified by the name.\n"
+            + "Example: edit " + COMMAND_WORD + " leadership -a tenacity";
 
-    public static final String MESSAGE_EDIT_ATTRIBUTE_SUCCESS = "Successfully edited Attribute with prefix: %s to %s";
+    public static final String MESSAGE_EDIT_ATTRIBUTE_SUCCESS = "Edited attribute: %s to %s";
 
     private final String attributePrefix;
     private final String updatedAttribute;

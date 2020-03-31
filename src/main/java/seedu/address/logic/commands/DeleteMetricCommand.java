@@ -17,12 +17,11 @@ import seedu.address.model.hirelah.MetricList;
 public class DeleteMetricCommand extends Command {
     public static final String COMMAND_WORD = "metric";
     public static final boolean DESIRED_MODEL_FINALIZED_STATE = true;
-    public static final String MESSAGE_USAGE = COMMAND_WORD
-            + ": Deletes the metric identified by its prefix.\n"
-            + "Parameters: PREFIX\n"
-            + "Example: delete " + COMMAND_WORD + " lea";
+    public static final String MESSAGE_USAGE = "delete " + COMMAND_WORD + "<metric>"
+            + ": Deletes the metric identified by its name.\n"
+            + "Example: delete " + COMMAND_WORD + " extremeDictatorship";
 
-    public static final String MESSAGE_DELETE_METRIC_SUCCESS = "Deleted Metric with prefix: %1$s";
+    public static final String MESSAGE_DELETE_METRIC_SUCCESS = "Deleted metric: %1$s";
 
     private final String metricPrefix;
 

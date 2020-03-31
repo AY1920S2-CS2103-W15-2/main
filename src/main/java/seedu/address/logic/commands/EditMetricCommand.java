@@ -18,12 +18,13 @@ import seedu.address.model.hirelah.MetricList;
 public class EditMetricCommand extends Command {
     public static final String COMMAND_WORD = "metric";
     public static final boolean DESIRED_MODEL_FINALIZED_STATE = true;
-    public static final String MESSAGE_USAGE = COMMAND_WORD
-            + ": Edits the metric identified by the prefix.\n"
-            + "Parameters: IDENTIFIER NAME [-n NEW_NAME] [-a ATTRIBUTE_1] [-w WEIGHT_1]\n"
-            + "Example: edit " + COMMAND_WORD + " extremeLeadership -n extremeDictatorship -a lea -w 100";
+    public static final String MESSAGE_FORMAT = "edit " + COMMAND_WORD + "<metric> [-n <metric name>] [-a <attribute>"
+            + " -w <score>]...";
+    public static final String MESSAGE_USAGE = MESSAGE_FORMAT
+            + ": Edits the metric.\n"
+            + "Example: edit " + COMMAND_WORD + " extremeLeadership -n extremeDictatorship -a leadership -w 100";
 
-    public static final String MESSAGE_EDIT_METRIC_SUCCESS = "Successfully edited Metric";
+    public static final String MESSAGE_EDIT_METRIC_SUCCESS = "Edited metric";
 
     private final String toEdit;
     private final String updatedName;

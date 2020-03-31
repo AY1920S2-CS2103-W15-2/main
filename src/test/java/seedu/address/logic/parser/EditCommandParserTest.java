@@ -5,9 +5,9 @@ import static seedu.address.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
 //import static seedu.address.logic.commands.CommandTestUtility.VALID_ATTRIBUTE_PERSISTENCE;
 //import static seedu.address.logic.commands.CommandTestUtility.VALID_INTERVIEWEE_JANE;
 //import static seedu.address.logic.commands.CommandTestUtility.VALID_INTERVIEWEE_JANICE;
-import static seedu.address.logic.commands.CommandTestUtility.VALID_PROPERTY_ATTRIBUTE;
-import static seedu.address.logic.commands.CommandTestUtility.VALID_PROPERTY_INTERVIEWEE;
-import static seedu.address.logic.commands.CommandTestUtility.VALID_PROPERTY_QUESTION;
+//import static seedu.address.logic.commands.CommandTestUtility.VALID_PROPERTY_ATTRIBUTE;
+//import static seedu.address.logic.commands.CommandTestUtility.VALID_PROPERTY_INTERVIEWEE;
+//import static seedu.address.logic.commands.CommandTestUtility.VALID_PROPERTY_QUESTION;
 import static seedu.address.logic.commands.CommandTestUtility.WHITESPACE;
 //import static seedu.address.logic.parser.CliSyntax.PREFIX_NEW;
 //import static seedu.address.logic.parser.CliSyntax.PREFIX_OLD;
@@ -35,18 +35,18 @@ class EditCommandParserTest {
     //                new EditAttributeCommand("persistence", "integrity"));
     //    }
 
-    @Test
-    void parse_compulsoryFieldsMissing_success() {
-
-        assertParseFailure(parser, WHITESPACE + VALID_PROPERTY_INTERVIEWEE + WHITESPACE,
-                MESSAGE_UNKNOWN_COMMAND);
-
-        assertParseFailure(parser, WHITESPACE + VALID_PROPERTY_ATTRIBUTE + WHITESPACE,
-                MESSAGE_UNKNOWN_COMMAND);
-
-        assertParseFailure(parser, WHITESPACE + VALID_PROPERTY_QUESTION + WHITESPACE,
-                MESSAGE_UNKNOWN_COMMAND);
-    }
+    //    @Test
+    //    void parse_compulsoryFieldsMissing_success() {
+    //
+    //        assertParseFailure(parser, WHITESPACE + VALID_PROPERTY_INTERVIEWEE + WHITESPACE,
+    //                MESSAGE_UNKNOWN_COMMAND);
+    //
+    //        assertParseFailure(parser, WHITESPACE + VALID_PROPERTY_ATTRIBUTE + WHITESPACE,
+    //                MESSAGE_UNKNOWN_COMMAND);
+    //
+    //        assertParseFailure(parser, WHITESPACE + VALID_PROPERTY_QUESTION + WHITESPACE,
+    //                MESSAGE_UNKNOWN_COMMAND);
+    //    }
 
     @Test
     public void parse_argumentMissing_failure() {

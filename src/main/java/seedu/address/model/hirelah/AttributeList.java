@@ -27,7 +27,7 @@ import seedu.address.commons.exceptions.IllegalValueException;
  */
 public class AttributeList implements Iterable<Attribute> {
     private static final String DUPLICATE_MESSAGE = "There are multiple attributes with the same prefix.";
-    private static final String NOT_FOUND_MESSAGE = "No attributes with the entered prefix.";
+    private static final String NOT_FOUND_MESSAGE = "No attributes with the entered name or prefix.";
 
     private ObservableList<Attribute> attributes;
 

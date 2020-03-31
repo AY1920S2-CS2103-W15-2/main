@@ -18,7 +18,7 @@ import seedu.address.logic.parser.exceptions.ParseException;
 public class AddCommandParser implements Parser<Command> {
 
     private static final Pattern BASIC_ADD_COMMAND_FORMAT =
-            Pattern.compile("(?<addCommandWord>\\S+) (?<addArguments>.+)");
+            Pattern.compile("(?<addCommandWord>\\S+)(?<addArguments>.*)");
 
     /**
      * Parses the given {@code String} of arguments in the context of the AddCommand
@@ -49,7 +49,7 @@ public class AddCommandParser implements Parser<Command> {
             return new AddQuestionCommand(addArguments.trim());
 
         case AddMetricCommand.COMMAND_WORD:
-            return new AddMetricCommandParser().parse(addArguments.trim());
+            return new AddMetricCommandParser().parse(addArguments);
 
         default:
             throw new ParseException(MESSAGE_UNKNOWN_COMMAND);

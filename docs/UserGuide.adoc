@@ -106,7 +106,7 @@ delete interviewee <interviewee>
 ....
 > add interviewee Jane Doe -aka Doe
 > edit interviewee Jane Doe -n Janice Doe -aka JDoe
-> delete interviewee Jane Doe
+> delete interviewee Janice Doe
 ....
 
 _Action:_ Interviewee Jane Doe with alias of Doe is first created and
@@ -119,10 +119,10 @@ New interviewee added: Jane Doe
 
 Edited interviewee: Jane Doe
 
-Deleted interviewee: Jane Doe
+Deleted interviewee: Janice Doe
 ....
 
-image::Interviewee.png[]
+image::Screenshots/Interviewee.png[]
 
 ==== Upload Resume
 
@@ -148,6 +148,8 @@ _Output:_
 ....
 Successfully added the resume!
 ....
+
+image::Screenshots/Upload.png[]
 
 ==== Open Resume
 
@@ -209,6 +211,8 @@ Edited attribute: leadersip to leadership
 Deleted attribute: teamwork
 ....
 
+image::Screenshots/Attribute.png[]
+
 ==== Add, Edit and Delete Interview Questions
 
 Before the interview process, the interviewer may one to review the
@@ -228,6 +232,7 @@ delete question <question number>
 
 ....
 > add question What are your relevant experiences?
+> add question What are your strengths?
 > edit question 1 -q What do you hope to accomplish in 5 years?
 > edit question 2 -q How can you add value to the company?
 > delete question 1
@@ -247,6 +252,8 @@ Edited question 2 to How can you add value to the company?
 
 Deleted question: What do you hope to accomplish in 5 years?
 ....
+
+image::Screenshots/Question.png[]
 
 ==== Switching views
 
@@ -292,6 +299,8 @@ _Output:_
 Attributes and questions of this interview session has been finalised. You cannot change them anymore.
 ....
 
+image::Screenshots/Finalise.png[]
+
 === Interview Phase
 
 ==== Start Interview
@@ -313,6 +322,14 @@ interview <interviewee>
 _Action:_ Initializes an interview session with Jane. Shows the uploaded
 resume (if any), and the list of interview questions in a separate window. The app
 also starts the interview time.
+
+_Output:_
+
+....
+Interview with Jane Doe started
+....
+
+image::Screenshots/Finalise.png[]
 
 ==== Record Remarks
 
@@ -341,6 +358,8 @@ _Output:_
 Added the remark.
 ....
 
+image::Screenshots/Remark.png[]
+
 ==== Asking Questions
 
 Special commands while interviewing are prefixed with a ":". These commands are
@@ -362,7 +381,8 @@ after the interview ends, while viewing the report.
 > :start q1
 > Strengths: resilience, ambitious, good time-management
 > Weakness: perfectionist, not detail-oriented
-> :start q2
+> Short answers
+
 ....
 
 _Output:_
@@ -374,10 +394,13 @@ Added the remark
 
 Added the remark
 
-Marked the start of question 2
+Added the remark
+
 ....
 
 _Action:_ Marks the start of question 1 and 2, with the 2 remarks in the middle under question 1
+
+image::Screenshots/StartQuestion.png[]
 
 ==== Score attributes
 
@@ -393,17 +416,18 @@ attributes you have created earlier (see <<Attributes>>).
 *Example*
 
 ....
-> :Productivity 5
+> :leadership 5
 ....
 
-_Action:_ update the Productivity score for John Doe (displayed on a bar chart).
+_Action:_ update the Leadership score for John Doe (displayed on a bar chart).
 
 _Output:_
 
 ....
-Scored 5.00 to Productivity
+Scored 5.00 to Leadership
 ....
 
+image::Screenshots/AttributeScore.png[]
 
 ==== End interview
 
@@ -435,6 +459,8 @@ _Output_:
 Ended interview with John Doe.
 ....
 
+image::Screenshots/EndInterview.png[]
+
 === Decision Phase
 
 [[Metrics]]
@@ -461,9 +487,10 @@ delete metric <name>
 
 ....
 > add metric extremeLeader -a leadership -w 0.7 -a tenacity -w 0.6
-> edit metric extremeLeader -n extremeDictatorship -a leadership -w 100
+> edit metric extremeLeader -n extremeDictatorship -a leadership -w 3
 > list metric
 > delete metric extremeDictatorship
+> add metric extremeLeader -a leadership -w 0.7 -a tenacity -w 0.3
 ....
 
 _Action:_ Adds a metric named extremeLeader with the specified scoring scheme. Then, the extremeLeader metric
@@ -480,7 +507,11 @@ Edited metric: extremeLeader
 Here is the list of metrics:
 
 Deleted metric: extremeDictatorship
+
+New metric added: extremeLeader
 ....
+
+image::Screenshots/Metric.png[]
 
 ==== Viewing Interviewee Reports
 
@@ -492,19 +523,23 @@ examining the session.
 
 ....
 open <interviewee>
-close <interviewee>
 ....
 
 *Example*
 
 ....
-> open John Doe
+> open Jane Doe
 
-... view some interview details ...
+_Action_: Shows the entire list of remarks made during the interview, with
+their timestamps.
+
+_Output_:
+
+....
+Successfully opened Interviewee report: Jane Doe
 ....
 
-_Output_: The entire list of remarks made during the interview, with
-their timestamps.
+image::Screenshots/Report.png[]
 
 ==== Working in an Interviewee Report
 
@@ -528,14 +563,16 @@ goto q<question number>
 *Example*
 
 ....
-> goto q4
+> goto q2
 ....
 
 _Output_:
 
 ....
-Here is the remark of question 4!
+Here is the remark of question 2!
 ....
+
+image::Screenshots/NavigationQuestion.png[]
 
 ===== Navigating by Timestamp
 
@@ -551,14 +588,16 @@ goto <time>
 *Example*
 
 ....
-> goto 30.00
+> goto 1.00
 ....
 
 _Output_:
 
 ....
-Here is the remark at time 30.00!
+Here is the remark at time 1.00!
 ....
+
+image::Screenshots/NavigationTime.png[]
 
 ==== Find Best Candidates
 
@@ -577,24 +616,26 @@ best <number of candidates> [-m <metric>]
 *Example*
 
 ....
-best 3
-best 5 -a leadership
-best 7 -m extremeDictatorship
+best 1
+best 2 -m extremeLeader
+best 3 -a leadership
 ....
 
-_Action_: Firstly, HireLah! will show top 3 interviewees in overall score.
-Then, it will show the top 5 interviewees based on their leadership score. Finally, it will
-show the top 7 interviewes based on the extremeDictatorship metric.
+_Action_: Firstly, HireLah! will show top 1 interviewees in overall score.
+Then, it will show the top 2 interviewees based on their leadership score. Finally, it will
+show the top 3 interviewes based on the extremeDictatorship metric.
 
 _Output_:
 
 ....
+Here are the best 1 interviewees.
+
+Here are the best 2 interviewees.
+
 Here are the best 3 interviewees.
-
-Here are the best 5 interviewees.
-
-Here are the best 7 interviewees.
 ....
+
+image::Screenshots/NavigationTime.png[]
 
 == Advanced Features
 

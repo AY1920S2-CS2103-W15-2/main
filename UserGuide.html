@@ -602,7 +602,7 @@ Added the remark</pre>
 </div>
 </div>
 <div class="paragraph">
-<p><em>Action:</em> Marks the start of question 1 and 2, with the 2 remarks in the middle under question 1</p>
+<p><em>Action:</em> Marks the start of question 1, then adds some remarks related to question 1.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -709,9 +709,9 @@ on all the attributes!
 <h4 id="Metrics"><a class="link" href="#Metrics">3.5.1. Add, Edit and Delete Metrics</a></h4>
 <div class="paragraph">
 <p>After the interview process, the interviewer may want to compare the interviewed interviewees by
-add, remove, and update Metrics to determine the relative importance of several attributes. Each metric
-assigns a numerical score to one or more Attributes, and interviewees can be ranked based on their overall score for
-this metric in the Decision Phase.</p>
+creating a custom metric to determine the relative importance of several attributes. Each metric
+assigns a weight to one or more Attributes, and interviewees can be ranked based on their score calculated by
+this metric via the <code>best</code> command (see <a href="#find-best-candidates">Section 3.5.4, &#8220;Find Best Candidates&#8221;</a>.</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -732,7 +732,6 @@ A metric&#8217;s name can only contain alphabets and spaces, and it should not b
 <div class="content">
 <pre>add metric &lt;name&gt; -a &lt;attribute&gt; -w &lt;score&gt; [-a &lt;attribute&gt; -w &lt;score&gt;]...
 edit metric &lt;name&gt; [-n &lt;metric name&gt;] [-a &lt;attribute&gt; -w &lt;score&gt;]...
-list metric
 delete metric &lt;name&gt;</pre>
 </div>
 </div>
@@ -743,15 +742,16 @@ delete metric &lt;name&gt;</pre>
 <div class="content">
 <pre>&gt; add metric extremeLeader -a leadership -w 0.7 -a tenacity -w 0.6
 &gt; edit metric extremeLeader -n extremeDictatorship -a leadership -w 3
-&gt; list metric
 &gt; delete metric extremeDictatorship
 &gt; add metric extremeLeader -a leadership -w 0.7 -a tenacity -w 0.3</pre>
 </div>
 </div>
 <div class="paragraph">
-<p><em>Action:</em> Adds a metric named extremeLeader with the specified scoring scheme. Then, the extremeLeader metric
-name will be changed to extremeDictatorship with the newly specified scoring scheme. Then, the UI will
-display the list of metrics, before deleting the extremeDictatorship.</p>
+<p><em>Action:</em> Adds a metric named extremeLeader with the scoring scheme
+<em>Score = 0.7*leadership + 0.6*tenacity</em>. Then, the extremeLeader metric
+name will be changed to extremeDictatorship with the weightage of leadership increased to 3.
+Next it deletes extremeDictatorship, then adds the metric extremeLeader (again) with
+a different scoring scheme <em>Score = 0.7*leadership + 0.3*tenacity</em>.</p>
 </div>
 <div class="paragraph">
 <p><em>Output:</em></p>
@@ -761,8 +761,6 @@ display the list of metrics, before deleting the extremeDictatorship.</p>
 <pre>New metric added: extremeLeader
 
 Edited metric: extremeLeader
-
-Here is the list of metrics:
 
 Deleted metric: extremeDictatorship
 
@@ -778,9 +776,9 @@ New metric added: extremeLeader</pre>
 <div class="sect3">
 <h4 id="viewing-interviewee-reports"><a class="link" href="#viewing-interviewee-reports">3.5.2. Viewing Interviewee Reports</a></h4>
 <div class="paragraph">
-<p>After interviewing a candidate, you can view the interview report any
-time by doing an open command, and we can close it after we finish
-examining the session.</p>
+<p>After interviewing a candidate, you can view the interview transcript any
+time by doing an open command. To close the report, simply just switch to another view
+via the list commands (see <a href="#switching-views">Section 3.3.6, &#8220;Switching views&#8221;</a>) or open another person&#8217;s report.</p>
 </div>
 <div class="paragraph">
 <p><strong>Command</strong></p>
@@ -827,9 +825,8 @@ interview time.</p>
 <div class="sect4">
 <h5 id="navigating-by-question-number"><a class="link" href="#navigating-by-question-number">Navigating by Question Number</a></h5>
 <div class="paragraph">
-<p>Displays the first remark made while the current interviewee was
-answering the given question. The user can scroll up and down to see the
-rest of the remarks.</p>
+<p>Jumps to the point when the interviewee was
+answering the given question (marked by the <code>:start q&lt;question number&gt;</code> command.</p>
 </div>
 <div class="paragraph">
 <p><strong>Command</strong></p>
@@ -901,9 +898,35 @@ The user can scroll up and down to see the rest of the remarks.</p>
 <div class="sect3">
 <h4 id="find-best-candidates"><a class="link" href="#find-best-candidates">3.5.4. Find Best Candidates</a></h4>
 <div class="paragraph">
-<p>After interviewing all the candidates, you can find the top n candidates
-based on either a particular attribute, the average of all the
-attributes. You also can use a metric for scoring.</p>
+<p>After interviewing all the candidates, HireLah! can help you analyse the candidates and show
+you who scored the best in the attributes you set. By default, HireLah! allows you to compare by</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The candidates' average scores across all attributes</p>
+</li>
+<li>
+<p>A single attribute (eg. find who scored the highest in leadership)</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>However you can also specify your own custom scoring metric (see <a href="#Metrics">Section 3.5.1, &#8220;Add, Edit and Delete Metrics&#8221;</a>).</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Take note that HireLah! will only compare interviewees who have completed their interviews
+(Those who you have successfully performed an <code>:end</code> command after interviewing). This is
+to make sure all the compared candidates have been scored in all attributes.
+</td>
+</tr>
+</table>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -1013,6 +1036,11 @@ uniquely identifies an attribute.</p>
 <p>To minimally distinguish the 2, you must provide "Team p" or "Team m"</p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>HireLah! also provides this convenient function for other things that require
+typing names, such as the metric names. Questions are referenced by their question number
+and interviewees can use their interviewee ID, and a short alias can be given so the feature is not provided.</p>
 </div>
 </div>
 <div class="sect2">
@@ -1240,4 +1268,4 @@ e.g. <code>best 5 -m extremeDictatorship</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-02 17:22:12 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-02 17:37:04 UTC</div></div></div></body></html>

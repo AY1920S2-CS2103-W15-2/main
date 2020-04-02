@@ -17,7 +17,8 @@ public class FinaliseCommand extends Command {
     public static final String MESSAGE_SUCCESS = "Attributes and questions of this interview session"
             + " has been finalised. You cannot change them anymore.";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Finalises the attributes and questions "
+    public static final String MESSAGE_FUNCTION = ": Finalises the attributes and questions ";
+    public static final String MESSAGE_USAGE = COMMAND_WORD + MESSAGE_FUNCTION
             + "of an interview session.";
 
 

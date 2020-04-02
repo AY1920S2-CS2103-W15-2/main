@@ -19,8 +19,9 @@ public class EditQuestionCommand extends Command {
     public static final String COMMAND_WORD = "question";
     public static final boolean DESIRED_MODEL_FINALIZED_STATE = false;
     public static final String MESSAGE_FORMAT = "edit " + COMMAND_WORD + " <question number> <edited question>";
+    public static final String MESSAGE_FUNCTION = ": Edits the question's description, identified by its number.\n";
     public static final String MESSAGE_USAGE = MESSAGE_FORMAT
-            + ": Edits the question's description, identified by its number.\n"
+            + MESSAGE_FUNCTION
             + "Example: edit " + COMMAND_WORD + " 1 what the heck is this question?";
 
     public static final String MESSAGE_EDIT_QUESTION_SUCCESS = "Edited question %s to %s";

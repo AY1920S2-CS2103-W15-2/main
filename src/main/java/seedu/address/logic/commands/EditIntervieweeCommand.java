@@ -18,8 +18,9 @@ public class EditIntervieweeCommand extends Command {
     public static final String COMMAND_WORD = "interviewee";
     public static final String MESSAGE_FORMAT = "edit " + COMMAND_WORD + " <interviewee> [-n <new name>] "
             + "[-aka <new alias>]";
+    public static final String MESSAGE_FUNCTION = ": Edits the interviewee's name and/or alias.\n";
     public static final String MESSAGE_USAGE = MESSAGE_FORMAT
-            + ": Edits the interviewee's name and/or alias.\n"
+            + MESSAGE_FUNCTION
             + "Example: edit " + COMMAND_WORD + " Doe -n Janice Doe -aka JDoe";
 
     public static final String MESSAGE_EDIT_INTERVIEWEE_SUCCESS = "Edited interviewee: %1$s";

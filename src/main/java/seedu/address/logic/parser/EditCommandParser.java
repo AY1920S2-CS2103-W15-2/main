@@ -1,6 +1,6 @@
 package seedu.address.logic.parser;
 
-import static seedu.address.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
+import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -17,6 +17,12 @@ import seedu.address.logic.parser.exceptions.ParseException;
  */
 public class EditCommandParser implements Parser<Command> {
 
+    public static final String EXPECTED_INPUT_FORMAT =
+            EditAttributeCommand.MESSAGE_FORMAT + EditAttributeCommand.MESSAGE_FUNCTION
+            + EditIntervieweeCommand.MESSAGE_FORMAT + EditIntervieweeCommand.MESSAGE_FUNCTION
+            + EditMetricCommand.MESSAGE_FORMAT + EditMetricCommand.MESSAGE_FUNCTION
+            + EditQuestionCommand.MESSAGE_FORMAT + EditQuestionCommand.MESSAGE_FUNCTION;
+
     private static final Pattern BASIC_EDIT_COMMAND_FORMAT =
             Pattern.compile("(?<editCommandWord>\\S+) (?<editArguments>.+)");
 
@@ -31,7 +37,7 @@ public class EditCommandParser implements Parser<Command> {
         Matcher matcher = BASIC_EDIT_COMMAND_FORMAT.matcher(arguments.trim());
 
         if (!matcher.matches()) {
-            throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, EXPECTED_INPUT_FORMAT));
         }
 
         final String editCommandWord = matcher.group("editCommandWord");
@@ -50,7 +56,7 @@ public class EditCommandParser implements Parser<Command> {
         case EditMetricCommand.COMMAND_WORD:
             return new EditMetricCommandParser().parse(editArguments);
         default:
-            throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, EXPECTED_INPUT_FORMAT));
         }
     }
 

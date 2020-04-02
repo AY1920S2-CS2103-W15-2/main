@@ -1,6 +1,6 @@
 package seedu.address.logic.parser;
 
-import static seedu.address.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
+import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 
 import seedu.address.logic.commands.FinaliseCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
@@ -9,6 +9,7 @@ import seedu.address.logic.parser.exceptions.ParseException;
  * Parses input arguments and creates a new FinaliseCommand object
  */
 public class FinaliseCommandParser implements Parser<FinaliseCommand> {
+
     /**
      * Parses the given {@code String} of arguments in the context of the FinaliseCommand
      * and returns a FinaliseCommand object for execution.
@@ -18,7 +19,7 @@ public class FinaliseCommandParser implements Parser<FinaliseCommand> {
      */
     public FinaliseCommand parse(String arguments) throws ParseException {
         if (!arguments.equals("")) {
-            throw new ParseException(MESSAGE_UNKNOWN_COMMAND.trim());
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, FinaliseCommand.MESSAGE_USAGE));
         }
         return new FinaliseCommand();
     }

@@ -1,6 +1,6 @@
 package seedu.address.logic.parser;
 
-import static seedu.address.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
+import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.commands.CommandTestUtility.VALID_ATTRIBUTE_INTEGRITY;
 import static seedu.address.logic.commands.CommandTestUtility.VALID_ATTRIBUTE_PERSISTENCE;
 import static seedu.address.logic.commands.CommandTestUtility.VALID_INTERVIEWEE_JANE;
@@ -50,6 +50,7 @@ class EditCommandParserTest {
 
     @Test
     public void parse_argumentMissing_failure() {
-        assertParseFailure(parser, WHITESPACE, MESSAGE_UNKNOWN_COMMAND);
+        assertParseFailure(parser, WHITESPACE,
+                String.format(MESSAGE_INVALID_COMMAND_FORMAT, EditCommandParser.EXPECTED_INPUT_FORMAT));
     }
 }

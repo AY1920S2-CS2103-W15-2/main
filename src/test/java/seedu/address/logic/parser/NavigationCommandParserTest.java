@@ -1,6 +1,6 @@
 package seedu.address.logic.parser;
 
-import static seedu.address.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
+import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.commands.CommandTestUtility.INVALID_DUMMY_VALUE;
 import static seedu.address.logic.commands.CommandTestUtility.INVALID_QUESTION_NUMBER_1;
 import static seedu.address.logic.commands.CommandTestUtility.INVALID_QUESTION_NUMBER_2;
@@ -54,10 +54,10 @@ class NavigationCommandParserTest {
     public void parse_invalidFieldsNavigationQuestion_failure() {
 
         assertParseFailure(parser, WHITESPACE + INVALID_QUESTION_NUMBER_1,
-                MESSAGE_UNKNOWN_COMMAND);
+                String.format(MESSAGE_INVALID_COMMAND_FORMAT, NavigationCommandParser.EXPECTED_INPUT_FORMAT));
 
         assertParseFailure(parser, WHITESPACE + INVALID_QUESTION_NUMBER_2,
-                MESSAGE_UNKNOWN_COMMAND);
+                String.format(MESSAGE_INVALID_COMMAND_FORMAT, NavigationCommandParser.EXPECTED_INPUT_FORMAT));
 
     }
 
@@ -65,10 +65,10 @@ class NavigationCommandParserTest {
     public void parse_invalidFieldsNavigationTime_failure() {
 
         assertParseFailure(parser, WHITESPACE + INVALID_TIME_123,
-                MESSAGE_UNKNOWN_COMMAND);
+                String.format(MESSAGE_INVALID_COMMAND_FORMAT, NavigationCommandParser.EXPECTED_INPUT_FORMAT));
 
         assertParseFailure(parser, WHITESPACE + INVALID_TIME_1234,
-                MESSAGE_UNKNOWN_COMMAND);
+                String.format(MESSAGE_INVALID_COMMAND_FORMAT, NavigationCommandParser.EXPECTED_INPUT_FORMAT));
 
     }
 
@@ -76,12 +76,13 @@ class NavigationCommandParserTest {
     void parse_compulsoryFieldsMissing_success() {
 
         assertParseFailure(parser, WHITESPACE + INVALID_DUMMY_VALUE,
-                MESSAGE_UNKNOWN_COMMAND);
+                String.format(MESSAGE_INVALID_COMMAND_FORMAT, NavigationCommandParser.EXPECTED_INPUT_FORMAT));
 
     }
 
     @Test
     public void parse_argumentMissing_failure() {
-        assertParseFailure(parser, WHITESPACE, MESSAGE_UNKNOWN_COMMAND);
+        assertParseFailure(parser, WHITESPACE,
+                String.format(MESSAGE_INVALID_COMMAND_FORMAT, NavigationCommandParser.EXPECTED_INPUT_FORMAT));
     }
 }

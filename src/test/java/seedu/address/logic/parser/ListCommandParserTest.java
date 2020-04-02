@@ -1,6 +1,6 @@
 package seedu.address.logic.parser;
 
-import static seedu.address.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
+import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.commands.CommandTestUtility.VALID_ALIAS_JANE;
 import static seedu.address.logic.commands.CommandTestUtility.VALID_PROPERTY_ATTRIBUTE;
 import static seedu.address.logic.commands.CommandTestUtility.VALID_PROPERTY_INTERVIEWEE;
@@ -36,6 +36,6 @@ class ListCommandParserTest {
     void parse_invalidCommand_success() {
 
         assertParseFailure(parser, WHITESPACE + VALID_ALIAS_JANE,
-                MESSAGE_UNKNOWN_COMMAND);
+                String.format(MESSAGE_INVALID_COMMAND_FORMAT, ListCommandParser.EXPECTED_INPUT_FORMAT));
     }
 }

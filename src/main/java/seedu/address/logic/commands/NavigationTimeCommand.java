@@ -22,7 +22,7 @@ public class NavigationTimeCommand extends Command {
             + "Parameters: TIME (in the format mm.ss)\n"
             + "Example:  " + COMMAND_WORD + " 30.00";
 
-    public static final String MESSAGE_NAVIGATION_TIME_SUCCESS = "Here is the remark at time %d.%d";
+    public static final String MESSAGE_NAVIGATION_TIME_SUCCESS = "Here is the remark at time %d.%s";
 
     private final Duration timeQuery;
 
@@ -40,7 +40,7 @@ public class NavigationTimeCommand extends Command {
         }
         int remarkIndex = model.getCurrentTranscript().getIndexAtTime(timeQuery);
         return new NavigationCommandResult(String.format(MESSAGE_NAVIGATION_TIME_SUCCESS,
-                timeQuery.toMinutes(), timeQuery.toSecondsPart()), remarkIndex);
+                timeQuery.toMinutes(), String.format("%02d", timeQuery.toSecondsPart())), remarkIndex);
     }
 
 

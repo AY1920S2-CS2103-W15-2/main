@@ -13,12 +13,16 @@ import seedu.address.model.hirelah.storage.Storage;
  * client wants to navigate to a certain remark of the interview.
  */
 public class NavigationTimeCommand extends Command {
-    public static final String COMMAND_WORD = "goto";
-    public static final String MESSAGE_NAVIGATION_TIME_SUCCESS = "Here is the remark at time %d.%d";
-    public static final String MESSAGE_USAGE = COMMAND_WORD
-            + ": Navigate to a particular time of an interviewee's interview.\n"
+
+    public static final String COMMAND_WORD = ":";
+    public static final String MESSAGE_FORMAT = "goto <minutes>" + COMMAND_WORD + "<seconds>";
+    public static final String MESSAGE_FUNCTION = ": Navigate to a particular time of an interviewee's interview.\n";
+    public static final String MESSAGE_USAGE = MESSAGE_FORMAT
+            + MESSAGE_FUNCTION
             + "Parameters: TIME (in the format mm.ss)\n"
             + "Example:  " + COMMAND_WORD + " 30.00";
+
+    public static final String MESSAGE_NAVIGATION_TIME_SUCCESS = "Here is the remark at time %d.%d";
 
     private final Duration timeQuery;
 

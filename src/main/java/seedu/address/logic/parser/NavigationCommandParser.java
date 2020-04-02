@@ -1,6 +1,6 @@
 package seedu.address.logic.parser;
 
-import static seedu.address.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
+import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 
 import java.time.Duration;
 import java.util.regex.Matcher;
@@ -15,6 +15,10 @@ import seedu.address.logic.parser.exceptions.ParseException;
  * Parses input command and creates a new Command object
  */
 public class NavigationCommandParser implements Parser<Command> {
+
+    public static final String EXPECTED_INPUT_FORMAT =
+            NavigationQuestionCommand.MESSAGE_FORMAT + NavigationQuestionCommand.MESSAGE_FUNCTION
+            + NavigationTimeCommand.MESSAGE_FORMAT + NavigationTimeCommand.MESSAGE_FUNCTION;
 
     /**
      * Parses the given {@code String} of commandWord in the context of the Command
@@ -44,7 +48,7 @@ public class NavigationCommandParser implements Parser<Command> {
             Duration query = minutesDuration.plus(secondsDuration);
             return new NavigationTimeCommand(query);
         } else {
-            throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, EXPECTED_INPUT_FORMAT));
         }
     }
 }

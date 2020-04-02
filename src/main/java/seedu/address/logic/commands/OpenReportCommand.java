@@ -16,7 +16,8 @@ import seedu.address.model.hirelah.storage.Storage;
 public class OpenReportCommand extends Command {
     public static final String COMMAND_WORD = "open";
     public static final String MESSAGE_NOT_INTERVIEWED = "%s has not completed their interview.";
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Opens the interview report of an interviewee.\n"
+    public static final String MESSAGE_FUNCTION = ": Opens the interview report of an interviewee.\n";
+    public static final String MESSAGE_USAGE = COMMAND_WORD + MESSAGE_FUNCTION
             + "Parameters: IDENTIFIER\n"
             + "Example: " + COMMAND_WORD + " John Doe";
 

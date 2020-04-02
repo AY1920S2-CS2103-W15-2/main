@@ -17,7 +17,7 @@ import seedu.address.logic.parser.exceptions.ParseException;
  */
 public class AddCommandParser implements Parser<Command> {
 
-    private static final String EXPECTED_INPUT_FORMAT =
+    public static final String EXPECTED_INPUT_FORMAT =
             AddAttributeCommand.MESSAGE_FORMAT + AddAttributeCommand.MESSAGE_FUNCTION
             + AddIntervieweeCommand.MESSAGE_FORMAT + AddIntervieweeCommand.MESSAGE_FUNCTION
             + AddMetricCommand.MESSAGE_FORMAT + AddMetricCommand.MESSAGE_FUNCTION

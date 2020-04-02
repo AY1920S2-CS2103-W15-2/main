@@ -1,6 +1,6 @@
 package seedu.address.logic.parser;
 
-import static seedu.address.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
+import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 
 import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.ListAttributeCommand;
@@ -13,6 +13,12 @@ import seedu.address.logic.parser.exceptions.ParseException;
  * Parses input command and creates a new ListCommand object
  */
 public class ListCommandParser implements Parser<Command> {
+
+    public static final String EXPECTED_INPUT_FORMAT =
+            ListAttributeCommand.MESSAGE_FORMAT + ListAttributeCommand.MESSAGE_FUNCTION
+            + ListIntervieweeCommand.MESSAGE_FORMAT + ListIntervieweeCommand.MESSAGE_FUNCTION
+            + ListMetricCommand.MESSAGE_FORMAT + ListMetricCommand.MESSAGE_FUNCTION
+            + ListQuestionCommand.MESSAGE_FORMAT + ListQuestionCommand.MESSAGE_FUNCTION;
 
     /**
      * Parses the given {@code String} of commandWord in the context of the ListCommand
@@ -39,7 +45,7 @@ public class ListCommandParser implements Parser<Command> {
             return new ListQuestionCommand();
 
         default:
-            throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, EXPECTED_INPUT_FORMAT));
         }
     }
 

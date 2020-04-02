@@ -14,8 +14,9 @@ public class ListMetricCommand extends Command {
     public static final String COMMAND_WORD = "metric";
     public static final String MESSAGE_SUCCESS = "Here is the list of metrics:";
     public static final String MESSAGE_FORMAT = "list " + COMMAND_WORD;
+    public static final String MESSAGE_FUNCTION = ": List the metrics from the Metric list.\n";
     public static final String MESSAGE_USAGE = MESSAGE_FORMAT
-            + ": List the metrics from the Metric list.\n"
+            + MESSAGE_FUNCTION
             + "Example: list " + COMMAND_WORD;
 
     /**

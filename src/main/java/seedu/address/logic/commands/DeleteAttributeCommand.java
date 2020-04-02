@@ -18,8 +18,9 @@ public class DeleteAttributeCommand extends Command {
     public static final String COMMAND_WORD = "attribute";
     public static final boolean DESIRED_MODEL_FINALIZED_STATE = false;
     public static final String MESSAGE_FORMAT = "delete " + COMMAND_WORD + " <attribute>";
+    public static final String MESSAGE_FUNCTION = ": Deletes the attribute identified by its name.\n";
     public static final String MESSAGE_USAGE = MESSAGE_FORMAT
-            + ": Deletes the attribute identified by its name.\n"
+            + MESSAGE_FUNCTION
             + "Example: delete " + COMMAND_WORD + " leadership";
 
     public static final String MESSAGE_DELETE_ATTRIBUTE_SUCCESS = "Deleted attribute: %1$s";

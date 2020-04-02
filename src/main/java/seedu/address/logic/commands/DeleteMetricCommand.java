@@ -18,8 +18,10 @@ import seedu.address.model.hirelah.storage.Storage;
 public class DeleteMetricCommand extends Command {
     public static final String COMMAND_WORD = "metric";
     public static final boolean DESIRED_MODEL_FINALIZED_STATE = true;
-    public static final String MESSAGE_USAGE = "delete " + COMMAND_WORD + "<metric>"
-            + ": Deletes the metric identified by its name.\n"
+    public static final String MESSAGE_FORMAT = "delete " + COMMAND_WORD + "<metric>";
+    public static final String MESSAGE_FUNCTION = ": Deletes the metric identified by its name.\n";
+    public static final String MESSAGE_USAGE = MESSAGE_FORMAT
+            + MESSAGE_FUNCTION
             + "Example: delete " + COMMAND_WORD + " extremeDictatorship";
 
     public static final String MESSAGE_DELETE_METRIC_SUCCESS = "Deleted metric: %1$s";

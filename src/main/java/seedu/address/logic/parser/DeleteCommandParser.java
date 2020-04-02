@@ -1,6 +1,6 @@
 package seedu.address.logic.parser;
 
-import static seedu.address.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
+import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -16,6 +16,13 @@ import seedu.address.logic.parser.exceptions.ParseException;
  * Parses input arguments and creates a new DeleteCommand object
  */
 public class DeleteCommandParser implements Parser<Command> {
+
+    public static final String EXPECTED_INPUT_FORMAT =
+            DeleteAttributeCommand.MESSAGE_FORMAT + DeleteAttributeCommand.MESSAGE_FUNCTION
+            + DeleteIntervieweeCommand.MESSAGE_FORMAT + DeleteIntervieweeCommand.MESSAGE_FUNCTION
+            + DeleteMetricCommand.MESSAGE_FORMAT + DeleteMetricCommand.MESSAGE_FUNCTION
+            + DeleteQuestionCommand.MESSAGE_FORMAT + DeleteQuestionCommand.MESSAGE_FUNCTION;
+
     private static final Pattern BASIC_DELETE_COMMAND_FORMAT =
             Pattern.compile("(?<deleteCommandWord>\\S+)(?<deleteArguments>.*)");
 
@@ -30,7 +37,7 @@ public class DeleteCommandParser implements Parser<Command> {
         Matcher matcher = BASIC_DELETE_COMMAND_FORMAT.matcher(arguments.trim());
 
         if (!matcher.matches()) {
-            throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, EXPECTED_INPUT_FORMAT));
         }
         final String deleteCommandWord = matcher.group("deleteCommandWord");
         final String deleteArguments = matcher.group("deleteArguments");
@@ -50,14 +57,14 @@ public class DeleteCommandParser implements Parser<Command> {
                 int index = Integer.parseInt(deleteArguments.trim());
                 return new DeleteQuestionCommand(index);
             } catch (NumberFormatException e) {
-                throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
+                throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, EXPECTED_INPUT_FORMAT));
             }
 
         case DeleteMetricCommand.COMMAND_WORD:
             return new DeleteMetricCommand(deleteArguments.trim());
 
         default:
-            throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, EXPECTED_INPUT_FORMAT));
         }
     }
 }

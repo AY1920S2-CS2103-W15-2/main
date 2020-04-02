@@ -19,11 +19,12 @@ public class AddIntervieweeCommand extends Command {
 
     public static final String COMMAND_WORD = "interviewee";
     public static final String MESSAGE_SUCCESS = "New interviewee added: %1$s";
-    public static final String MESSAGE_FORMAT = "add " + COMMAND_WORD + "<full name> [-aka <alias>]";
+    public static final String MESSAGE_FORMAT = "add " + COMMAND_WORD + " <full name> [-aka <alias>]";
+    public static final String MESSAGE_FUNCTION = ": Adds an interviewee to the Interviewee list.\n";
     public static final String MESSAGE_USAGE = MESSAGE_FORMAT
-            + ": Adds an interviewee to the Interviewee list.\n"
+            + MESSAGE_FUNCTION
             + "Example: add " + COMMAND_WORD
-            + "Jane Doe "
+            + " Jane Doe "
             + PREFIX_ALIAS + " Doe";
 
     public static final String EMPTY_STRING = "";

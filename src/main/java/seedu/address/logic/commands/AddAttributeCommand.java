@@ -19,8 +19,9 @@ public class AddAttributeCommand extends Command {
     public static final boolean DESIRED_MODEL_FINALIZED_STATE = false;
     public static final String MESSAGE_SUCCESS = "New attribute added: %1$s";
     public static final String MESSAGE_FORMAT = "add " + COMMAND_WORD + " <attribute>";
+    public static final String MESSAGE_FUNCTION = ": Adds an attribute to the Attribute list.\n";
     public static final String MESSAGE_USAGE = MESSAGE_FORMAT
-            + ": Adds an attribute to the Attribute list.\n"
+            + MESSAGE_FUNCTION
             + "Example: add " + COMMAND_WORD + " leadership";
 
     private final String toAdd;

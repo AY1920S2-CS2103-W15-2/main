@@ -1,6 +1,6 @@
 package seedu.address.logic.parser;
 
-import static seedu.address.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
+import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -17,6 +17,12 @@ import seedu.address.logic.parser.exceptions.ParseException;
  */
 public class AddCommandParser implements Parser<Command> {
 
+    private static final String EXPECTED_INPUT_FORMAT =
+            AddAttributeCommand.MESSAGE_FORMAT + AddAttributeCommand.MESSAGE_FUNCTION
+            + AddIntervieweeCommand.MESSAGE_FORMAT + AddIntervieweeCommand.MESSAGE_FUNCTION
+            + AddMetricCommand.MESSAGE_FORMAT + AddMetricCommand.MESSAGE_FUNCTION
+            + AddQuestionCommand.MESSAGE_FORMAT + AddQuestionCommand.MESSAGE_FUNCTION;
+
     private static final Pattern BASIC_ADD_COMMAND_FORMAT =
             Pattern.compile("(?<addCommandWord>\\S+)(?<addArguments>.*)");
 
@@ -30,7 +36,7 @@ public class AddCommandParser implements Parser<Command> {
     public Command parse(String arguments) throws ParseException {
         Matcher matcher = BASIC_ADD_COMMAND_FORMAT.matcher(arguments.trim());
         if (!matcher.matches()) {
-            throw new ParseException(String.format(MESSAGE_UNKNOWN_COMMAND));
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, EXPECTED_INPUT_FORMAT));
         }
 
         final String addCommandWord = matcher.group("addCommandWord");
@@ -52,7 +58,7 @@ public class AddCommandParser implements Parser<Command> {
             return new AddMetricCommandParser().parse(addArguments);
 
         default:
-            throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, EXPECTED_INPUT_FORMAT));
         }
     }
 

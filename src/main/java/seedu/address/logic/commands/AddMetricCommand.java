@@ -22,8 +22,9 @@ public class AddMetricCommand extends Command {
     public static final boolean DESIRED_MODEL_FINALIZED_STATE = true;
     public static final String MESSAGE_SUCCESS = "New metric added: %1$s";
     public static final String MESSAGE_FORMAT = "add " + COMMAND_WORD + " <metric> [-a <attribute> -w <score>]...";
+    public static final String MESSAGE_FUNCTION = ": Adds a metric to the Metric list.\n";
     public static final String MESSAGE_USAGE = MESSAGE_FORMAT
-            + ": Adds a metric to the Metric list.\n"
+            + MESSAGE_FUNCTION
             + "Example: new " + COMMAND_WORD + " extremeLeader -a leadership -w 0.7 -a tenacity -w 0.6";
 
 

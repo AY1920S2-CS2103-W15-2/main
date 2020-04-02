@@ -14,7 +14,7 @@ import seedu.address.model.hirelah.storage.Storage;
  */
 public class NavigationTimeCommand extends Command {
 
-    public static final String COMMAND_WORD = ":";
+    public static final String COMMAND_WORD = ".";
     public static final String MESSAGE_FORMAT = "goto <minutes>" + COMMAND_WORD + "<seconds>";
     public static final String MESSAGE_FUNCTION = ": Navigate to a particular time of an interviewee's interview.\n";
     public static final String MESSAGE_USAGE = MESSAGE_FORMAT

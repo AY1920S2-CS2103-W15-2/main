@@ -1,3 +1,649 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Untitled</title><link rel="stylesheet" href="./gh-pages.css">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Mario Lorenzo - Project Portfolio for HireLah!</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="./coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://ay1920s2-cs2103-w15-2.github.io/main/"><img src="../images/HireLah.png" alt="HireLah!"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link active" href="../index.html">HireLah!</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">HireLah!</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S2-CS2103-W15-2/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"></div><div id="content"></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-07 12:29:32 UTC</div></div></div></body></html>
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://ay1920s2-cs2103-w15-2.github.io/main/"><img src="../images/HireLah.png" alt="HireLah!"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link active" href="../index.html">HireLah!</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">HireLah!</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S2-CS2103-W15-2/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Mario Lorenzo - Project Portfolio for HireLah!</h1></div><div id="content"><div class="sect1">
+<h2 id="about-the-project"><a class="link" href="#about-the-project">About the Project</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>HireLah! is targeted to bring greater convenience to interviewers who can type quickly and prefer typing over mouse<br>
+commands. Additionally, we included customised features in our desktop apps to help interviewers to manage interviews.</p>
+</div>
+<div class="sect2">
+<h3 id="my-role"><a class="link" href="#my-role">My Role</a></h3>
+<div class="paragraph">
+<p>My role was to create the building blocks of the components of HireLah! such as the attribute, questions, metrics,
+etc. I have also contributed in creating the CRUD commands for attributes, questions, and metrics. I have also created
+for the Find Best N Interviewees feature. The section that follows the document will follow in more detailed discussion.</p>
+</div>
+<div class="paragraph">
+<p>I have also made notable contributions to the User Guide and Developer Guide.</p>
+</div>
+<div class="paragraph">
+<p>Listed in the table below are some notations that are used throughout the document.</p>
+</div>
+<table id="Legend" class="tableblock frame-all grid-all spread">
+<caption class="title">Table 1. Legend table</caption>
+<colgroup>
+<col style="width: 15%;">
+<col style="width: 85%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-top"><strong>Icon</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-top"><div><div class="paragraph">
+<p><code>command</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Command that can be executed, or a component, class or object in the architecture of the application</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><div><div class="paragraph">
+<p><span class="icon icon-tip"><i class="fa fa-lightbulb-o fa-2x"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tips that might be helpful in navigating the application</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><div><div class="paragraph">
+<p><span class="icon icon-note blue"><i class="fa fa-info-circle fa-2x"></i></span></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Important information that should be noted</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-top"><div><div class="exampleblock">
+<div class="content">
+
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Useful information for a deeper understanding of the command</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>As shown in <a href="#Legend">Table 1, &#8220;Legend table&#8221;</a>, these icons associated to their following descriptions, such as commands, tips, important information and useful information, enable greater clarity in understanding the document. Note that useful information will have text enclosed in its box.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section shows a summary of my contributions to the team project.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Major enhancement #1</strong>: Implemented <strong>create, update, and delete</strong> feature for attributes, questions, and metrics</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: It allows the user to perform create, update, and delete commands for attributes, questions, and metrics
+as fundamental components in interviewing and assessing the capabilities of the interviewees.</p>
+</li>
+<li>
+<p>Justification: It enables the users to take note of which attributes that they want to find in the interviewees they
+want to interview, questions that would like to be asked, as well as the metrics that could be used as a parameter to
+systematically rank the interviewees.</p>
+</li>
+<li>
+<p>Highlights: This enhancement is an upgrade of the existing commands from the initial codebase.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Major enhancement #2</strong>: Implemented <strong>Find Best N Interviewees</strong> feature</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: It allows users to list the best N interviewees in the decreasing order, based on a certain parameter,
+or overall score.</p>
+</li>
+<li>
+<p>Justification: It enables users to determine the top N interviewees that the interviewer wants to hire, either based
+on overall score, a particular attribute, or even a weighted score.</p>
+</li>
+<li>
+<p>Highlights: This enhancement is relatively challenging, since it is a whole new feature that requires a well-designed
+strategy to execute the plan.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Code contributed</strong>: [<a href="https://nus-cs2103-ay1920s2.github.io/tp-dashboard/#search=mario7lorenzo">Collated code</a>]</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="other-contributions"><a class="link" href="#other-contributions">Other contributions</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Project management</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Created several milestones on GitHub page</p>
+</li>
+<li>
+<p>Assigned members to issues upon discovery of bugs (Examples: <a href="https://github.com/AY1920S2-CS2103-W15-2/main/issues/15">#15</a>, <a href="https://github.com/AY1920S2-CS2103-W15-2/main/issues/83">#83</a>)</p>
+</li>
+<li>
+<p>Reviewed Pull Requests (Examples: <a href="https://github.com/AY1920S2-CS2103-W15-2/main/pull/57">#57</a>, <a href="https://github.com/AY1920S2-CS2103-W15-2/main/pull/121">#121</a>,
+<a href="https://github.com/AY1920S2-CS2103-W15-2/main/pull/173">#173</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Enhancements to existing features:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Refactored and modified existing classes, to satisfy the requirements of the application</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Documentation:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Cleaned up the User Guide and Developer Guide (Examples: <a href="https://github.com/AY1920S2-CS2103-W15-2/main/pull/10">#10</a>,
+<a href="https://github.com/AY1920S2-CS2103-W15-2/main/pull/27">27</a>, <a href="https://github.com/AY1920S2-CS2103-W15-2/main/pull/84">84</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Community:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Offered suggestions for other teams in the class (Examples: <a href="https://github.com/nus-cs2103-AY1920S2/addressbook-level3/pull/12">12</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Listed below are sections I contributed to the User Guide, which includes the create, edit, and delete commands feature
+for attributes, questions, and metrics, as well as finding the best N interviewees from a certain parameter.</p>
+</div>
+<div class="sect3">
+<h4 id="add-edit-and-delete-attributes"><a class="link" href="#add-edit-and-delete-attributes">Add, Edit and Delete Attributes</a></h4>
+<div class="paragraph">
+<p>In an interview, you often look out for a particular set of attributes in your candidates.
+HireLah! lets you keep track of what to look out for during the interview, and even assign
+scores for each attribute to the interviewees so you can compare them after interviewing.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+An attribute&#8217;s name can only contain alphabets and spaces, and it should not be blank!
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Command</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&gt; add attribute &lt;attribute&gt;
+&gt; edit attribute &lt;old attribute&gt; -a &lt;new attribute&gt;
+&gt; delete attribute &lt;attribute&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Execution Example</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&gt; add attribute teamwork
+&gt; add attribute leadersip
+&gt; edit attribute leadersip -a leadership
+&gt; delete attribute teamwork</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><em>Action:</em> teamwork and leadersip is first added. leadersip (with a typo) is edited
+to leadership, and then teamwork is deleted.</p>
+</div>
+<div class="paragraph">
+<p><em>Output:</em></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>New attribute added: teamwork
+
+New attribute added: leadersip
+
+Edited attribute: leadersip to leadership
+
+Deleted attribute: teamwork</pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/Screenshots/Attribute.png" alt="Attribute">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="add-edit-and-delete-interview-questions"><a class="link" href="#add-edit-and-delete-interview-questions">Add, Edit and Delete Interview Questions</a></h4>
+<div class="paragraph">
+<p>Before the interview process, the interviewer may one to review the
+questions. During review process, the interviewer may wants to add more
+questions, remove the unnecessary questions and to edit the existing
+questions.</p>
+</div>
+<div class="paragraph">
+<p><strong>Command</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>add question &lt;question description&gt;
+edit question &lt;question number&gt; -q &lt;edited question&gt;
+delete question &lt;question number&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Example</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&gt; add question What are your relevant experiences?
+&gt; add question What are your strengths?
+&gt; edit question 1 -q What do you hope to accomplish in 5 years?
+&gt; edit question 2 -q How can you add value to the company?
+&gt; delete question 1</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><em>Action:</em> A question "What are your relevant experiences?" will be added.
+Then, question 1 and 2 will be edited, before question 1 is deleted.</p>
+</div>
+<div class="paragraph">
+<p><em>Output:</em></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>New question added: What are your relevant experiences?
+
+Edited question 1 to What do you hope to accomplish in 5 years?
+
+Edited question 2 to How can you add value to the company?
+
+Deleted question: What do you hope to accomplish in 5 years?</pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/Screenshots/Question.png" alt="Question">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="add-edit-and-delete-metrics"><a class="link" href="#add-edit-and-delete-metrics">Add, Edit and Delete Metrics</a></h4>
+<div class="paragraph">
+<p>After the interview process, the interviewer may want to compare the interviewed interviewees by
+creating a custom metric to determine the relative importance of several attributes. Each metric
+assigns a weight to one or more Attributes, and interviewees can be ranked based on their score calculated by
+this metric via the <code>best</code> command (see <a href="#find-best-candidates">Find Best Candidates</a>.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+A metric&#8217;s name can only contain alphabets and spaces, and it should not be blank!
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Command</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>add metric &lt;name&gt; -a &lt;attribute&gt; -w &lt;score&gt; [-a &lt;attribute&gt; -w &lt;score&gt;]...
+edit metric &lt;name&gt; [-n &lt;metric name&gt;] [-a &lt;attribute&gt; -w &lt;score&gt;]...
+delete metric &lt;name&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Example</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&gt; add metric extremeLeader -a leadership -w 0.7 -a tenacity -w 0.6
+&gt; edit metric extremeLeader -n extremeDictatorship -a leadership -w 3
+&gt; delete metric extremeDictatorship
+&gt; add metric extremeLeader -a leadership -w 0.7 -a tenacity -w 0.3</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><em>Action:</em> Adds a metric named extremeLeader with the scoring scheme
+<em>Score = 0.7*leadership + 0.6*tenacity</em>. Then, the extremeLeader metric
+name will be changed to extremeDictatorship with the weightage of leadership increased to 3.
+Next it deletes extremeDictatorship, then adds the metric extremeLeader (again) with
+a different scoring scheme <em>Score = 0.7*leadership + 0.3*tenacity</em>.</p>
+</div>
+<div class="paragraph">
+<p><em>Output:</em></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>New metric added: extremeLeader
+
+Edited metric: extremeLeader
+
+Deleted metric: extremeDictatorship
+
+New metric added: extremeLeader</pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/Screenshots/Metric.png" alt="Metric">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="find-best-candidates"><a class="link" href="#find-best-candidates">Find Best Candidates</a></h4>
+<div class="paragraph">
+<p>After interviewing all the candidates, HireLah! can help you analyse the candidates and show
+you who scored the best in the attributes you set. By default, HireLah! allows you to compare by</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The candidates' average scores across all attributes</p>
+</li>
+<li>
+<p>A single attribute (eg. find who scored the highest in leadership)</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>However you can also specify your own custom scoring metric (see <a href="#Metrics">[Metrics]</a>).</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Take note that HireLah! will only compare interviewees who have completed their interviews
+(Those who you have successfully performed an <code>:end</code> command after interviewing). This is
+to make sure all the compared candidates have been scored in all attributes.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+In case there are ties in terms of the score, e.g. if we would like to retrieve the best 5 interviewees,
+but the score between the fifth and the sixth interviewees, both interviewees will be shown.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Command</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>best &lt;number of candidates&gt;
+best &lt;number of candidates&gt; [-a &lt;attribute&gt;]
+best &lt;number of candidates&gt; [-m &lt;metric&gt;]</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Example</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>best 1
+best 2 -m extremeLeader
+best 3 -a leadership</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><em>Action</em>: Firstly, HireLah! will show top 1 interviewees in overall score.
+Then, it will show the top 2 interviewees based on their leadership score. Finally, it will
+show the top 3 interviewees based on the extremeDictatorship metric.</p>
+</div>
+<div class="paragraph">
+<p><em>Output</em>:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Here are the best 1 interviewees.
+
+Here are the best 2 interviewees.
+
+Here are the best 3 interviewees.</pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/Screenshots/Best.png" alt="Best">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="command-summary"><a class="link" href="#command-summary">Command Summary</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Initialization Phase</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Add an interviewee: <code>add interviewee &lt;interviewee&gt; [-aka &lt;alias&gt;]</code><br>
+e.g. <code>add interviewee Jane Doe -aka Doe</code></p>
+</li>
+<li>
+<p>Edit an interviewee: <code>edit interviewee &lt;interviewee&gt; [-n &lt;new full name&gt;] [-aka &lt;new alias&gt;]</code><br>
+e.g. <code>edit interviewee Jane Doe -n Janice Doe -aka JDoe</code></p>
+</li>
+<li>
+<p>Delete an interviewee: <code>delete interviewee &lt;interviewee&gt;</code><br>
+e.g. <code>delete interviewee Doe</code></p>
+</li>
+<li>
+<p>List interviewees: <code>list interviewee</code></p>
+</li>
+<li>
+<p>Add an attribute: <code>add attribute &lt;attribute&gt;</code><br>
+e.g. <code>add attribute teamwork</code></p>
+</li>
+<li>
+<p>Edit an attribute: <code>edit attribute &lt;old attribute&gt; -a &lt;new attribute&gt;</code><br>
+e.g. <code>edit attribute -a leadership</code></p>
+</li>
+<li>
+<p>Delete an attribute: <code>delete attribute &lt;attribute&gt;</code><br>
+e.g. <code>delete attribute productivity</code></p>
+</li>
+<li>
+<p>List attributes: <code>list attribute</code></p>
+</li>
+<li>
+<p>Add a question: <code>add question &lt;question description&gt;</code><br>
+e.g. <code>add question What are your relevant experiences?</code></p>
+</li>
+<li>
+<p>Edit a question: <code>edit question &lt;question number&gt; -q &lt;edited question&gt;</code><br>
+e.g. <code>edit question 1 -q What do you hope to accomplish in 5 years?</code></p>
+</li>
+<li>
+<p>Delete a question: <code>delete question &lt;question number&gt;</code><br>
+e.g. <code>delete question 1</code></p>
+</li>
+<li>
+<p>List questions: <code>list question</code></p>
+</li>
+<li>
+<p>Upload resume: <code>upload &lt;interviewee&gt; [-p &lt;path&gt;]</code></p>
+</li>
+<li>
+<p>Open resume: <code>resume &lt;interviewee&gt;</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Interviewing Phase</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Start: <code>interview &lt;interviewee&gt;</code><br>
+e.g. <code>interview Jane Doe</code></p>
+</li>
+<li>
+<p>Add Remarks: <code>&lt;remarks&gt;</code><br>
+e.g. <code>This guy is good at bluffing</code></p>
+</li>
+<li>
+<p>Start a Question: <code>:start q&lt;question number&gt;</code><br>
+e.g. <code>:start q1</code></p>
+</li>
+<li>
+<p>Score an attribute: <code>:&lt;attribute&gt; &lt;score&gt;</code><br>
+e.g. <code>:Agility 10</code></p>
+</li>
+<li>
+<p>End: <code>:end</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Decision Phase</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Open an interviewee report: <code>open &lt;interviewee&gt;</code><br>
+e.g. <code>open Jane Doe</code></p>
+</li>
+<li>
+<p>Navigate to answer of interviewee: <code>q&lt;question number&gt;</code><br>
+e.g. <code>goto q4</code></p>
+</li>
+<li>
+<p>Navigate to a time of interviewee: <code>at &lt;time&gt;</code><br>
+e.g. <code>goto 30.00</code></p>
+</li>
+<li>
+<p>Create a new metric: <code>add metric &lt;weightage_name&gt;</code><br>
+e.g. <code>add metric -a ambition -w 0.9 -a leadership -w 0.1</code></p>
+</li>
+<li>
+<p>Find the Best N candidates based on average attribute: <code>best &lt;no_of_candidates&gt;</code></p>
+</li>
+<li>
+<p>Find the Best N candidates based on a particular attribute: <code>best &lt;no_of_candidates&gt; -a &lt;attribute&gt;</code><br>
+e.g. <code>best 3 -a strength</code></p>
+</li>
+<li>
+<p>Find the Best N candidates based on a metric: <code>best &lt;no_of_candidates&gt; -m &lt;metric&gt;</code><br>
+e.g. <code>best 5 -m extremeDictatorship</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Listed below are sections I contributed to the Developer Guide, which includes the logic components, which includes the
+UML diagram, as well as the sequence diagram for an add attribute command.</p>
+</div>
+<div class="sect2">
+<h3 id="logic-component"><a class="link" href="#logic-component">Logic component</a></h3>
+<div id="fig-LogicClassDiagram" class="imageblock">
+<div class="content">
+<img src="../images/LogicClassDiagram.png" alt="LogicClassDiagram">
+</div>
+<div class="title">Figure 1. Structure of the Logic Component</div>
+</div>
+<div class="paragraph">
+<p><strong>API</strong> :
+<a href="{repoURL}/src/main/java/seedu/address/logic/Logic.java"><code>Logic.java</code></a></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>Logic</code> uses either the <code>NormalParser</code> or <code>InterviewParser</code> class to parse the user command, depending on the app phase stored in the Model.</p>
+</li>
+<li>
+<p>This results in a <code>Command</code> object which is executed by the <code>LogicManager</code>.</p>
+</li>
+<li>
+<p>The command execution can affect the <code>Model</code> (e.g. adding an attribute).</p>
+</li>
+<li>
+<p>The result of the command execution is encapsulated as a <code>CommandResult</code> object which is passed back to the <code>Ui</code>.</p>
+</li>
+<li>
+<p>In addition, the <code>CommandResult</code> object can also instruct the <code>Ui</code> to perform certain actions, such as displaying the
+list of the current attribute.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Given below is the Sequence Diagram for interactions within the <code>Logic</code> component for the <code>execute("add attribute leadership")</code> API call.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AddSequenceDiagram.png" alt="AddSequenceDiagram">
+</div>
+<div class="title">Figure 2. Interactions Inside the Logic Component for the <code>add attribute leadership</code> Command</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The lifeline for <code>AddCommandParser</code> should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-07 13:50:56 UTC</div></div></div></body></html>

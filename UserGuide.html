@@ -192,7 +192,7 @@ Your interviewees could come from anywhere after all. But do not give blanks or 
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>add interviewee &lt;interviewee&gt; [-aka &lt;alias&gt;]
+<pre>add interviewee &lt;full name&gt; [-aka &lt;alias&gt;]
 edit interviewee &lt;interviewee&gt; [-n &lt;new full name&gt;] [-aka &lt;new alias&gt;]
 delete interviewee &lt;interviewee&gt;</pre>
 </div>
@@ -416,16 +416,16 @@ Deleted question: What do you hope to accomplish in 5 years?</pre>
 <div class="sect3">
 <h4 id="switching-views"><a class="link" href="#switching-views">3.3.6. Switching views</a></h4>
 <div class="paragraph">
-<p>When working on the interviewees, attributes, questions and metrics (more about metrics in <a href="#Metrics">Section 3.5.1, &#8220;Add, Edit and Delete Metrics&#8221;</a>),
-HireLah! displays the relevant content you are working on. To switch views, HireLah! also provides the list commands.</p>
+<p>When working on the attributes, questions and metrics (more about metrics in <a href="#Metrics">Section 3.5.1, &#8220;Add, Edit and Delete Metrics&#8221;</a>),
+HireLah! displays the relevant content you are working on on the right side of the application.
+To switch views, HireLah! also provides these commands.</p>
 </div>
 <div class="paragraph">
 <p><strong>Command</strong></p>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>interviewees
-attributes
+<pre>attributes
 questions
 metrics</pre>
 </div>
@@ -438,13 +438,35 @@ metrics</pre>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>Here is the list of interviewees:
-
-Here is the list of attributes:
+<pre>Here is the list of attributes:
 
 Here is the list of questions:
 
 Here is the list of metrics:</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>On the left side of the application, all of the interviewees are listed. It will switch to only show several
+best interviewees when the the command is entered by the user. To switch back to list down the interviewees, HireLah!
+provides this command.</p>
+</div>
+<div class="paragraph">
+<p><strong>Command</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>interviewees</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><em>Action:</em> Displays the interviewee list.</p>
+</div>
+<div class="paragraph">
+<p><em>Output:</em></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Here is the list of interviewees:</pre>
 </div>
 </div>
 </div>
@@ -1182,7 +1204,7 @@ interview is incomplete!</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Add an interviewee: <code>add interviewee &lt;interviewee&gt; [-aka &lt;alias&gt;]</code><br>
+<p>Add an interviewee: <code>add interviewee &lt;full name&gt; [-aka &lt;alias&gt;]</code><br>
 e.g. <code>add interviewee Jane Doe -aka Doe</code></p>
 </li>
 <li>
@@ -1192,6 +1214,9 @@ e.g. <code>edit interviewee Jane Doe -n Janice Doe -aka JDoe</code></p>
 <li>
 <p>Delete an interviewee: <code>delete interviewee &lt;interviewee&gt;</code><br>
 e.g. <code>delete interviewee Doe</code></p>
+</li>
+<li>
+<p>List interviewees: <code>interviewees</code></p>
 </li>
 <li>
 <p>Add an attribute: <code>add attribute &lt;attribute&gt;</code><br>
@@ -1304,4 +1329,4 @@ e.g. <code>best 5 -m extremeDictatorship</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-10 09:45:26 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-10 10:08:21 UTC</div></div></div></body></html>

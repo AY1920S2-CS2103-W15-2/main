@@ -424,14 +424,14 @@ HireLah! displays the relevant content you are working on. To switch views, Hire
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>list interviewee
-list attribute
-list question
-list metric</pre>
+<pre>interviewees
+attributes
+questions
+metrics</pre>
 </div>
 </div>
 <div class="paragraph">
-<p><em>Action:</em> Switches between displaying interviewees, attributes, questions and metrics.</p>
+<p><em>Action:</em> Switches between displaying attributes, questions and metrics.</p>
 </div>
 <div class="paragraph">
 <p><em>Output:</em></p>
@@ -1194,9 +1194,6 @@ e.g. <code>edit interviewee Jane Doe -n Janice Doe -aka JDoe</code></p>
 e.g. <code>delete interviewee Doe</code></p>
 </li>
 <li>
-<p>List interviewees: <code>list interviewee</code></p>
-</li>
-<li>
 <p>Add an attribute: <code>add attribute &lt;attribute&gt;</code><br>
 e.g. <code>add attribute teamwork</code></p>
 </li>
@@ -1209,7 +1206,7 @@ e.g. <code>edit attribute -a leadership</code></p>
 e.g. <code>delete attribute productivity</code></p>
 </li>
 <li>
-<p>List attributes: <code>list attribute</code></p>
+<p>List attributes: <code>attributes</code></p>
 </li>
 <li>
 <p>Add a question: <code>add question &lt;question description&gt;</code><br>
@@ -1224,7 +1221,7 @@ e.g. <code>edit question 1 -q What do you hope to accomplish in 5 years?</code>
 e.g. <code>delete question 1</code></p>
 </li>
 <li>
-<p>List questions: <code>list question</code></p>
+<p>List questions: <code>questions</code></p>
 </li>
 <li>
 <p>Upload resume: <code>upload &lt;interviewee&gt; [-p &lt;path&gt;]</code></p>
@@ -1252,8 +1249,17 @@ e.g. <code>This guy is good at bluffing</code></p>
 e.g. <code>:start q1</code></p>
 </li>
 <li>
-<p>Score an attribute: <code>:&lt;attribute&gt; &lt;score&gt;</code><br>
-e.g. <code>:Agility 10</code></p>
+<p>Score an attribute: <code>:set &lt;attribute&gt; &lt;score&gt;</code><br>
+e.g. <code>:set Agility 10</code></p>
+</li>
+<li>
+<p>List attributes: <code>:attributes</code></p>
+</li>
+<li>
+<p>List metrics: <code>:metrics</code></p>
+</li>
+<li>
+<p>List questions: <code>:questions</code></p>
 </li>
 <li>
 <p>End: <code>:end</code></p>
@@ -1282,6 +1288,9 @@ e.g. <code>goto 30.00</code></p>
 e.g. <code>add metric -a ambition -w 0.9 -a leadership -w 0.1</code></p>
 </li>
 <li>
+<p>List metrics: <code>metrics</code></p>
+</li>
+<li>
 <p>Find the Best N candidates based on average attribute: <code>best &lt;no_of_candidates&gt;</code></p>
 </li>
 <li>
@@ -1295,4 +1304,4 @@ e.g. <code>best 5 -m extremeDictatorship</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-10 07:52:18 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-10 09:45:26 UTC</div></div></div></body></html>

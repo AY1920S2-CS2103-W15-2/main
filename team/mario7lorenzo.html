@@ -188,7 +188,7 @@ for attributes, questions, and metrics, as well as finding the best N interviewe
 <h4 id="add-edit-and-delete-attributes"><a class="link" href="#add-edit-and-delete-attributes">Add, Edit and Delete Attributes</a></h4>
 <div class="paragraph">
 <p>In an interview, you often look out for a particular set of attributes in your candidates.
-HireLah! lets you keep track of what to look out for during the interview, and even assign
+<strong>HireLah!</strong> lets you keep track of what to look out for during the interview, and even assign
 scores for each attribute to the interviewees so you can compare them after interviewing.</p>
 </div>
 <div class="admonitionblock tip">
@@ -247,14 +247,16 @@ Deleted attribute: teamwork</pre>
 <img src="../images/Screenshots/Attribute.png" alt="Attribute">
 </div>
 </div>
+<div class="paragraph">
+<p><br></p>
+</div>
 </div>
 <div class="sect3">
 <h4 id="add-edit-and-delete-interview-questions"><a class="link" href="#add-edit-and-delete-interview-questions">Add, Edit and Delete Interview Questions</a></h4>
 <div class="paragraph">
-<p>Before the interview process, the interviewer may one to review the
-questions. During review process, the interviewer may wants to add more
-questions, remove the unnecessary questions and to edit the existing
-questions.</p>
+<p>Before the interview process, the interviewer may wish to review the
+questions. During review process before the commencement of interviews, the interviewer may want to add more
+questions, remove unnecessary questions or modify existing questions.</p>
 </div>
 <div class="paragraph">
 <p><strong>Command</strong></p>
@@ -279,8 +281,8 @@ delete question &lt;question number&gt;</pre>
 </div>
 </div>
 <div class="paragraph">
-<p><em>Action:</em> A question "What are your relevant experiences?" will be added.
-Then, question 1 and 2 will be edited, before question 1 is deleted.</p>
+<p><em>Action:</em> The question "What are your relevant experiences?" will be added first, followed by the question "What are
+your strengths?". Then, question 1 and 2 are edited, before question 1 is deleted.</p>
 </div>
 <div class="paragraph">
 <p><em>Output:</em></p>
@@ -303,6 +305,9 @@ Deleted question: What do you hope to accomplish in 5 years?</pre>
 <img src="../images/Screenshots/Question.png" alt="Question">
 </div>
 </div>
+<div class="paragraph">
+<p><br></p>
+</div>
 </div>
 <div class="sect3">
 <h4 id="add-edit-and-delete-metrics"><a class="link" href="#add-edit-and-delete-metrics">Add, Edit and Delete Metrics</a></h4>
@@ -310,7 +315,7 @@ Deleted question: What do you hope to accomplish in 5 years?</pre>
 <p>After the interview process, the interviewer may want to compare the interviewed interviewees by
 creating a custom metric to determine the relative importance of several attributes. Each metric
 assigns a weight to one or more Attributes, and interviewees can be ranked based on their score calculated by
-this metric via the <code>best</code> command (see <a href="#find-best-candidates">Find Best Candidates</a>.</p>
+this metric via the <code>interviewee -best</code> command (see <a href="#find-best-candidates">Find Best Candidates</a>.</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -329,8 +334,8 @@ A metric&#8217;s name can only contain alphabets and spaces, and it should not b
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>add metric &lt;name&gt; -a &lt;attribute&gt; -w &lt;score&gt; [-a &lt;attribute&gt; -w &lt;score&gt;]...
-edit metric &lt;name&gt; [-n &lt;metric name&gt;] [-a &lt;attribute&gt; -w &lt;score&gt;]...
+<pre>add metric &lt;name&gt; -a &lt;attribute&gt; -w &lt;weight&gt; [-a &lt;attribute&gt; -w &lt;weight&gt;]...
+edit metric &lt;name&gt; [-n &lt;metric name&gt;] [-a &lt;attribute&gt; -w &lt;weight&gt;]...
 delete metric &lt;name&gt;</pre>
 </div>
 </div>
@@ -371,25 +376,28 @@ New metric added: extremeLeader</pre>
 <img src="../images/Screenshots/Metric.png" alt="Metric">
 </div>
 </div>
+<div class="paragraph">
+<p><br></p>
+</div>
 </div>
 <div class="sect3">
 <h4 id="find-best-candidates"><a class="link" href="#find-best-candidates">Find Best Candidates</a></h4>
 <div class="paragraph">
-<p>After interviewing all the candidates, HireLah! can help you analyse the candidates and show
-you who scored the best in the attributes you set. By default, HireLah! allows you to compare by</p>
+<p>After interviewing all the candidates, <strong>HireLah!</strong> can help you analyse the candidates and show
+you who scored the best in the attributes you set. By default, <strong>HireLah!</strong> allows you to compare by:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>The candidates' average scores across all attributes</p>
+<p>The candidates' average scores across all attributes.</p>
 </li>
 <li>
-<p>A single attribute (eg. find who scored the highest in leadership)</p>
+<p>A single attribute (eg. find who scored the highest in leadership).</p>
+</li>
+<li>
+<p>Your own custom scoring metric (see <a href="#Metrics">[Metrics]</a>).</p>
 </li>
 </ol>
-</div>
-<div class="paragraph">
-<p>However you can also specify your own custom scoring metric (see <a href="#Metrics">[Metrics]</a>).</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -398,7 +406,7 @@ you who scored the best in the attributes you set. By default, HireLah! allows y
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-Take note that HireLah! will only compare interviewees who have completed their interviews
+Take note that <strong>HireLah!</strong> will only compare interviewees who have completed their interviews
 (Those who you have successfully performed an <code>:end</code> command after interviewing). This is
 to make sure all the compared candidates have been scored in all attributes.
 </td>
@@ -413,7 +421,7 @@ to make sure all the compared candidates have been scored in all attributes.
 </td>
 <td class="content">
 In case there are ties in terms of the score, e.g. if we would like to retrieve the best 5 interviewees,
-but the score between the fifth and the sixth interviewees, both interviewees will be shown.
+but the score is the same between the fifth and the sixth interviewees, both interviewees will be shown.
 </td>
 </tr>
 </table>
@@ -423,9 +431,8 @@ but the score between the fifth and the sixth interviewees, both interviewees wi
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>best &lt;number of candidates&gt;
-best &lt;number of candidates&gt; [-a &lt;attribute&gt;]
-best &lt;number of candidates&gt; [-m &lt;metric&gt;]</pre>
+<pre>interviewee -best &lt;number of candidates&gt; [-a &lt;attribute&gt;]
+interviewee -best &lt;number of candidates&gt; [-m &lt;metric&gt;]</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -433,15 +440,15 @@ best &lt;number of candidates&gt; [-m &lt;metric&gt;]</pre>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>best 1
-best 2 -m extremeLeader
-best 3 -a leadership</pre>
+<pre>interviewee -best 1
+interviewee -best 2 -m extremeLeader
+interviewee -best 3 -a leadership</pre>
 </div>
 </div>
 <div class="paragraph">
-<p><em>Action</em>: Firstly, HireLah! will show top 1 interviewees in overall score.
-Then, it will show the top 2 interviewees based on their leadership score. Finally, it will
-show the top 3 interviewees based on the extremeDictatorship metric.</p>
+<p><em>Action</em>: Firstly, <strong>HireLah!</strong> will show the top interviewee in overall score.
+Then, it will show the top 2 interviewees based on the extremeLeader metric. Finally, it will
+show the top 3 interviewees based on their leadership score.</p>
 </div>
 <div class="paragraph">
 <p><em>Output</em>:</p>
@@ -555,6 +562,9 @@ e.g. <code>:set Agility 10</code></p>
 <p>List questions: <code>:questions</code></p>
 </li>
 <li>
+<p>Show resume: <code>:resume</code></p>
+</li>
+<li>
 <p>End: <code>:end</code></p>
 </li>
 </ul>
@@ -569,6 +579,10 @@ e.g. <code>:set Agility 10</code></p>
 e.g. <code>open Jane Doe</code></p>
 </li>
 <li>
+<p>Close an interviewee report: <code>close &lt;interviewee&gt;</code><br>
+e.g. <code>close Jane Doe</code></p>
+</li>
+<li>
 <p>Navigate to answer of interviewee: <code>q&lt;question number&gt;</code><br>
 e.g. <code>goto q4</code></p>
 </li>
@@ -577,21 +591,21 @@ e.g. <code>goto q4</code></p>
 e.g. <code>goto 30.00</code></p>
 </li>
 <li>
-<p>Create a new metric: <code>add metric &lt;weightage_name&gt;</code><br>
+<p>Create a new metric: <code>add metric &lt;name&gt; -a &lt;attribute&gt; -w &lt;weight&gt; [-a &lt;attribute&gt; -w &lt;weight&gt;]&#8230;&#8203;</code><br>
 e.g. <code>add metric -a ambition -w 0.9 -a leadership -w 0.1</code></p>
 </li>
 <li>
 <p>List metrics: <code>metrics</code></p>
 </li>
 <li>
-<p>Find the Best N candidates based on average attribute: <code>best &lt;no_of_candidates&gt;</code></p>
+<p>Find the Best N candidates based on average attribute: <code>interviewee -best &lt;no_of_candidates&gt;</code></p>
 </li>
 <li>
-<p>Find the Best N candidates based on a particular attribute: <code>best &lt;no_of_candidates&gt; -a &lt;attribute&gt;</code><br>
+<p>Find the Best N candidates based on a particular attribute: <code>interviewee -best &lt;no_of_candidates&gt; -a &lt;attribute&gt;</code><br>
 e.g. <code>best 3 -a strength</code></p>
 </li>
 <li>
-<p>Find the Best N candidates based on a metric: <code>best &lt;no_of_candidates&gt; -m &lt;metric&gt;</code><br>
+<p>Find the Best N candidates based on a metric: <code>interviewee -best &lt;no_of_candidates&gt; -m &lt;metric&gt;</code><br>
 e.g. <code>best 5 -m extremeDictatorship</code></p>
 </li>
 </ul>
@@ -660,4 +674,4 @@ The lifeline for <code>AddCommandParser</code> should end at the destroy marker 
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 16:37:34 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 16:44:48 UTC</div></div></div></body></html>

@@ -298,7 +298,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <h4 id="interviewee-list-display"><a class="link" href="#interviewee-list-display">4.2.3. Interviewee List Display</a></h4>
 <div class="paragraph">
 <p>Interviewee List Display shows the current list of interviewees. This list will display either the list of all
-interviewees, or a list of the best few interviewees selected based on your input ranking criteria, as shown below: (See <a href="#find-best-candidates">Section 5.5.4, &#8220;Find Best Candidates&#8221;</a>)</p>
+interviewees, or a list of the best few interviewees selected based on your input ranking criteria, as shown below: (See <a href="#find-best-candidates">Section 5.5.6, &#8220;Find Best Candidates&#8221;</a>)</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -690,7 +690,7 @@ Deleted question: What do you hope to accomplish in 5 years?</pre>
 <div class="sect3">
 <h4 id="switching-views"><a class="link" href="#switching-views">5.3.6. Switching views</a></h4>
 <div class="paragraph">
-<p>When working on the attributes, questions and metrics (more about metrics in <a href="#Metrics">Section 5.5.1, &#8220;Add, Edit and Delete Metrics&#8221;</a>),
+<p>When working on the attributes, questions and metrics (more about metrics in <a href="#Metrics">Section 5.5.2, &#8220;Add, Edit and Delete Metrics&#8221;</a>),
 <strong>HireLah!</strong> displays the relevant content you are working on on the right side of the application.
 To switch views between them, <strong>HireLah!</strong> also provides these commands.</p>
 </div>
@@ -1060,78 +1060,7 @@ on all the attributes!
 <div class="sect2">
 <h3 id="decision-phase"><a class="link" href="#decision-phase">5.5. Decision Phase</a></h3>
 <div class="sect3">
-<h4 id="Metrics"><a class="link" href="#Metrics">5.5.1. Add, Edit and Delete Metrics</a></h4>
-<div class="paragraph">
-<p>After the interview process, the interviewer may want to compare the interviewed interviewees by
-creating a custom metric to determine the relative importance of several attributes. Each metric
-assigns a weight to one or more Attributes, and interviewees can be ranked based on their score calculated by
-this metric via the <code>interviewee -best</code> command (see <a href="#find-best-candidates">Section 5.5.4, &#8220;Find Best Candidates&#8221;</a>.</p>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-A metric&#8217;s name can only contain alphabets and spaces, and it should not be blank!
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p><strong>Command</strong></p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>add metric &lt;name&gt; -a &lt;attribute&gt; -w &lt;weight&gt; [-a &lt;attribute&gt; -w &lt;weight&gt;]...
-edit metric &lt;name&gt; [-n &lt;metric name&gt;] [-a &lt;attribute&gt; -w &lt;weight&gt;]...
-delete metric &lt;name&gt;</pre>
-</div>
-</div>
-<div class="paragraph">
-<p><strong>Example</strong></p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>&gt; add metric extremeLeader -a leadership -w 0.7 -a tenacity -w 0.6
-&gt; edit metric extremeLeader -n extremeDictatorship -a leadership -w 3
-&gt; delete metric extremeDictatorship
-&gt; add metric extremeLeader -a leadership -w 0.7 -a tenacity -w 0.3</pre>
-</div>
-</div>
-<div class="paragraph">
-<p><em>Action:</em> Adds a metric named extremeLeader with the scoring scheme
-<em>Score = 0.7*leadership + 0.6*tenacity</em>. Then, the extremeLeader metric
-name will be changed to extremeDictatorship with the weightage of leadership increased to 3.
-Next it deletes extremeDictatorship, then adds the metric extremeLeader (again) with
-a different scoring scheme <em>Score = 0.7*leadership + 0.3*tenacity</em>.</p>
-</div>
-<div class="paragraph">
-<p><em>Output:</em></p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>New metric added: extremeLeader
-
-Edited metric: extremeLeader
-
-Deleted metric: extremeDictatorship
-
-New metric added: extremeLeader</pre>
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/Screenshots/Metric.png" alt="Metric">
-</div>
-</div>
-<div class="paragraph">
-<p><br></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="viewing-interviewee-reports"><a class="link" href="#viewing-interviewee-reports">5.5.2. Viewing Interviewee Reports</a></h4>
+<h4 id="viewing-interviewee-reports"><a class="link" href="#viewing-interviewee-reports">5.5.1. Viewing Interviewee Reports</a></h4>
 <div class="paragraph">
 <p>After interviewing a candidate, you can view the interview transcript any
 time by doing an open command. To close the report, you can use a close command.</p>
@@ -1175,7 +1104,68 @@ their timestamps.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="working-in-an-interviewee-report"><a class="link" href="#working-in-an-interviewee-report">5.5.3. Working in an Interviewee Report</a></h4>
+<h4 id="Metrics"><a class="link" href="#Metrics">5.5.2. Add, Edit and Delete Metrics</a></h4>
+<div class="paragraph">
+<p>After the interview process, the interviewer may want to compare the interviewed interviewees by
+creating a custom metric to determine the relative importance of several attributes. Each metric
+assigns a weight to one or more Attributes, and interviewees can be ranked based on their score calculated by
+this metric via the <code>interviewee -best</code> command (see <a href="#find-best-candidates">Section 5.5.6, &#8220;Find Best Candidates&#8221;</a>.</p>
+</div>
+<div class="paragraph">
+<p>add metric &lt;name&gt; -a &lt;attribute&gt; -w &lt;weight&gt; [-a &lt;attribute&gt; -w &lt;weight&gt;]&#8230;&#8203;
+edit metric &lt;name&gt; [-n &lt;metric name&gt;] [-a &lt;attribute&gt; -w &lt;weight&gt;]&#8230;&#8203;
+delete metric &lt;name&gt;</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/Screenshots/Metric.png" alt="Metric">
+</div>
+</div>
+<div class="paragraph">
+<p><br></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="exporting-interviewee-reports-to-pdf"><a class="link" href="#exporting-interviewee-reports-to-pdf">5.5.3. Exporting Interviewee Reports to PDF</a></h4>
+<div class="paragraph">
+<p>After interviewing a candidate, you can also export the report of the interviewee
+in the form of a PDF.</p>
+</div>
+<div class="paragraph">
+<p><strong>Command</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>export &lt;interviewee&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Example</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&gt; export Jane Doe</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><em>Action</em>: Exports the interview report of a particular interviewee in PDF.</p>
+</div>
+<div class="paragraph">
+<p><em>Output</em>:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Report of Anna exported in /Users/jane/main with file name "2.pdf".</pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/Screenshots/Export.png" alt="Export">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="working-in-an-interviewee-report"><a class="link" href="#working-in-an-interviewee-report">5.5.4. Working in an Interviewee Report</a></h4>
 <div class="paragraph">
 <p>After opening a report, you can scroll up and down to navigate through
 the remarks you made during the interview. In addition, you can zoom in
@@ -1262,7 +1252,75 @@ The user can scroll up and down to see the rest of the remarks.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="find-best-candidates"><a class="link" href="#find-best-candidates">5.5.4. Find Best Candidates</a></h4>
+<h4 id="Metrics"><a class="link" href="#Metrics">5.5.5. Add, Edit and Delete Metrics</a></h4>
+<div class="paragraph">
+<p>After the interview process, the interviewer may want to compare the interviewed interviewees by
+creating a custom metric to determine the relative importance of several attributes. Each metric
+assigns a weight to one or more Attributes, and interviewees can be ranked based on their score calculated by
+this metric via the <code>best</code> command (see <a href="#find-best-candidates">Section 5.5.6, &#8220;Find Best Candidates&#8221;</a>.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+A metric&#8217;s name can only contain alphabets and spaces, and it should not be blank!
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Command</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>add metric &lt;name&gt; -a &lt;attribute&gt; -w &lt;score&gt; [-a &lt;attribute&gt; -w &lt;score&gt;]...
+edit metric &lt;name&gt; [-n &lt;metric name&gt;] [-a &lt;attribute&gt; -w &lt;score&gt;]...
+delete metric &lt;name&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Example</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&gt; add metric extremeLeader -a leadership -w 0.7 -a tenacity -w 0.6
+&gt; edit metric extremeLeader -n extremeDictatorship -a leadership -w 3
+&gt; delete metric extremeDictatorship
+&gt; add metric extremeLeader -a leadership -w 0.7 -a tenacity -w 0.3</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><em>Action:</em> Adds a metric named extremeLeader with the scoring scheme
+<em>Score = 0.7*leadership + 0.6*tenacity</em>. Then, the extremeLeader metric
+name will be changed to extremeDictatorship with the weightage of leadership increased to 3.
+Next it deletes extremeDictatorship, then adds the metric extremeLeader (again) with
+a different scoring scheme <em>Score = 0.7*leadership + 0.3*tenacity</em>.</p>
+</div>
+<div class="paragraph">
+<p><em>Output:</em></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>New metric added: extremeLeader
+
+Edited metric: extremeLeader
+
+Deleted metric: extremeDictatorship
+
+New metric added: extremeLeader</pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/Screenshots/Metric.png" alt="Metric">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="find-best-candidates"><a class="link" href="#find-best-candidates">5.5.6. Find Best Candidates</a></h4>
 <div class="paragraph">
 <p>After interviewing all the candidates, <strong>HireLah!</strong> can help you analyse the candidates and show
 you who scored the best in the attributes you set. By default, <strong>HireLah!</strong> allows you to compare by:</p>
@@ -1276,7 +1334,7 @@ you who scored the best in the attributes you set. By default, <strong>HireLah!<
 <p>A single attribute (eg. find who scored the highest in leadership).</p>
 </li>
 <li>
-<p>Your own custom scoring metric (see <a href="#Metrics">Section 5.5.1, &#8220;Add, Edit and Delete Metrics&#8221;</a>).</p>
+<p>Your own custom scoring metric (see <a href="#Metrics">Section 5.5.2, &#8220;Add, Edit and Delete Metrics&#8221;</a>).</p>
 </li>
 </ol>
 </div>
@@ -1618,6 +1676,9 @@ e.g. <code>open Jane Doe</code></p>
 e.g. <code>close Jane Doe</code></p>
 </li>
 <li>
+<p>Export interview report of an interviewee: <code>export &lt;interviewee&gt;</code></p>
+</li>
+<li>
 <p>Navigate to answer of interviewee: <code>q&lt;question number&gt;</code><br>
 e.g. <code>goto q4</code></p>
 </li>
@@ -1646,4 +1707,4 @@ e.g. <code>best 5 -m extremeDictatorship</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 16:44:48 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 17:22:36 UTC</div></div></div></body></html>

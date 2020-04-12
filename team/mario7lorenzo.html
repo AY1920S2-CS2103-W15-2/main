@@ -317,6 +317,26 @@ creating a custom metric to determine the relative importance of several attribu
 assigns a weight to one or more Attributes, and interviewees can be ranked based on their score calculated by
 this metric via the <code>interviewee -best</code> command (see <a href="#find-best-candidates">Find Best Candidates</a>.</p>
 </div>
+<div class="paragraph">
+<p>add metric &lt;name&gt; -a &lt;attribute&gt; -w &lt;weight&gt; [-a &lt;attribute&gt; -w &lt;weight&gt;]&#8230;&#8203;
+edit metric &lt;name&gt; [-n &lt;metric name&gt;] [-a &lt;attribute&gt; -w &lt;weight&gt;]&#8230;&#8203;
+delete metric &lt;name&gt;</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/Screenshots/Metric.png" alt="Metric">
+</div>
+</div>
+<div class="paragraph">
+<p><br>
+==== Add, Edit and Delete Metrics</p>
+</div>
+<div class="paragraph">
+<p>After the interview process, the interviewer may want to compare the interviewed interviewees by
+creating a custom metric to determine the relative importance of several attributes. Each metric
+assigns a weight to one or more Attributes, and interviewees can be ranked based on their score calculated by
+this metric via the <code>best</code> command (see <a href="#find-best-candidates">Find Best Candidates</a>.</p>
+</div>
 <div class="admonitionblock tip">
 <table>
 <tr>
@@ -334,8 +354,8 @@ A metric&#8217;s name can only contain alphabets and spaces, and it should not b
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>add metric &lt;name&gt; -a &lt;attribute&gt; -w &lt;weight&gt; [-a &lt;attribute&gt; -w &lt;weight&gt;]...
-edit metric &lt;name&gt; [-n &lt;metric name&gt;] [-a &lt;attribute&gt; -w &lt;weight&gt;]...
+<pre>add metric &lt;name&gt; -a &lt;attribute&gt; -w &lt;score&gt; [-a &lt;attribute&gt; -w &lt;score&gt;]...
+edit metric &lt;name&gt; [-n &lt;metric name&gt;] [-a &lt;attribute&gt; -w &lt;score&gt;]...
 delete metric &lt;name&gt;</pre>
 </div>
 </div>
@@ -375,9 +395,6 @@ New metric added: extremeLeader</pre>
 <div class="content">
 <img src="../images/Screenshots/Metric.png" alt="Metric">
 </div>
-</div>
-<div class="paragraph">
-<p><br></p>
 </div>
 </div>
 <div class="sect3">
@@ -583,6 +600,9 @@ e.g. <code>open Jane Doe</code></p>
 e.g. <code>close Jane Doe</code></p>
 </li>
 <li>
+<p>Export interview report of an interviewee: <code>export &lt;interviewee&gt;</code></p>
+</li>
+<li>
 <p>Navigate to answer of interviewee: <code>q&lt;question number&gt;</code><br>
 e.g. <code>goto q4</code></p>
 </li>
@@ -674,4 +694,4 @@ The lifeline for <code>AddCommandParser</code> should end at the destroy marker 
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 16:44:48 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 17:22:36 UTC</div></div></div></body></html>

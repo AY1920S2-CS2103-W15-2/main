@@ -1,8 +1,10 @@
 package hirelah.logic.commands;
 
 import static hirelah.logic.commands.CommandTestUtil.assertCommandSuccess;
-import static hirelah.logic.commands.CommandTestUtility.*;
-import static org.junit.jupiter.api.Assertions.*;
+import static hirelah.logic.commands.CommandTestUtility.VALID_ATTRIBUTE_INTEGRITY;
+import static hirelah.logic.commands.CommandTestUtility.VALID_ATTRIBUTE_TEAM_WORK;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 import org.junit.jupiter.api.Test;
 

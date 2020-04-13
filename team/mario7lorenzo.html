@@ -649,7 +649,7 @@ UML diagram, as well as the sequence diagram for an add attribute command.</p>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> :
-<a href="{repoURL}/src/main/java/seedu/address/logic/Logic.java"><code>Logic.java</code></a></p>
+<a href="{repoURL}/src/main/java/hirelah/logic/Logic.java"><code>Logic.java</code></a></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -663,10 +663,13 @@ UML diagram, as well as the sequence diagram for an add attribute command.</p>
 <p>The command execution can affect the <code>Model</code> (e.g. adding an attribute).</p>
 </li>
 <li>
+<p>The command execution may also call the storage to save the Model if the command modified the Model.</p>
+</li>
+<li>
 <p>The result of the command execution is encapsulated as a <code>CommandResult</code> object which is passed back to the <code>Ui</code>.</p>
 </li>
 <li>
-<p>In addition, the <code>CommandResult</code> object can also instruct the <code>Ui</code> to perform certain actions, such as displaying the
+<p>The <code>CommandResult</code> object then instructs the <code>Ui</code> to perform certain actions, such as displaying the
 list of the current attribute.</p>
 </li>
 </ol>
@@ -687,11 +690,13 @@ list of the current attribute.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The lifeline for <code>AddCommandParser</code> should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+The lifeline for <code>AddCommandParser</code> should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.<br>
+The exact details of how <code>AddAttributeCommand</code> gets the <code>AttributeList</code> from <code>Model</code>, then modifies the list, then passes the <code>AttributeList</code> to <code>Storage</code> is left
+out in this diagram.
 </td>
 </tr>
 </table>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 03:44:33 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 03:50:43 UTC</div></div></div></body></html>

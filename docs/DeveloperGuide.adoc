@@ -324,7 +324,8 @@ Given below are several examples of usage scenarios when the user prompts for so
 
 Scenario 1. When the user provides a `command` which is not recognized by the `parser` that is associated with the
 current `phase` of the application, the respective `parser` will throw a `ParseException`, informing the user that this
-command is unknown.
+command is unknown. Suppose the app is currently at the `PreSession phase`, and the user tries to add a new interviewee,
+`add interviewee Jane Doe`.
 
 image::SessionScenario1SequenceDiagram.png[]
 
@@ -375,12 +376,29 @@ and `questions`, and assuming that the given CRUD operation is valid (e.g. `dele
 `attribute` `leadership` was there previously), given below are several examples of usage scenarios when the user prompts are related to Finalise Feature:
 
 Scenario 1. If the application has not been finalised `finalised` and the user tries to interview an interviewee,
+`interview Jane Doe`, the `Normal Parser` will parse the input and create an instance of `StartInterviewCommand`.
+The `LogicManager` will try to execute this `StartInterviewCommand` toward the `model`, but because it has not been `finalised`,
+it will throw a `CommandException` error.
 
-Scenario 2. If the application has been `finalised` and the user tries to do CRUD operations to the `attributes` and `questions`,
+image::FinaliseScenario1SequenceDiagram.png[]
 
-Scenario 3 (Ideal Scenario). If the application has not been `finalised` and the user tries to do CRUD operations to the `attributes` and `questions`.
+Scenario 2. If the application has been `finalised` and the user tries to do add a new `attribute`, `add attribute leadership`,
+the `Normal Parser` will parse the input and create an instance of `AddAttributeCommand`. The `LogicManager` will try to execute
+this AddAttributeCommand toward the `model`, but because it has been `finalised`, it will throw a `CommandException` error.
 
-Scenario 4 (Ideadl Scenario). If the application has been `finalised` and the user tries to interview an interviewee,
+image::FinaliseScenario2SequenceDiagram.png[]
+
+Scenario 3 (Ideal Scenario). If the application has been `finalised` and the user tries to interview an interviewee,
+`interview Jane Doe`, the `Normal Parser` will parse the input and create an instance of `StartInterviewCommand`.
+The `LogicManager` will execute this `StartInterviewCommand` toward the `model`,  and the result is returned.
+
+image::FinaliseScenario3SequenceDiagram.png[]
+
+Scenario 4 (Ideal Scenario). If the application has not been `finalised` and the user tries to do add a new `attribute`,
+`add attribute leadership`, the `Normal Parser` will parse the input and create an instance of AddAttributeCommand.
+The `LogicManager` will execute this AddAttributeCommand towards the `model` and the result is returned.
+
+image::FinaliseScenario4SequenceDiagram.png[]
 
 ==== Design Considerations
 

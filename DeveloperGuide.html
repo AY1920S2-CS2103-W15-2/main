@@ -28,9 +28,10 @@
 <li><a href="#implementation">4. Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#session-feature">4.1. Session Feature</a></li>
-<li><a href="#find-best-interviewees-feature">4.2. Find Best Interviewees Feature</a></li>
-<li><a href="#logging">4.3. Logging</a></li>
-<li><a href="#Implementation-Configuration">4.4. Configuration</a></li>
+<li><a href="#state-validity-and-finalise-feature">4.2. State Validity and Finalise Feature</a></li>
+<li><a href="#find-best-interviewees-feature">4.3. Find Best Interviewees Feature</a></li>
+<li><a href="#logging">4.4. Logging</a></li>
+<li><a href="#Implementation-Configuration">4.5. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a></li>
@@ -301,7 +302,7 @@ list of the current attribute.</p>
 <div class="paragraph">
 <p>Given below is the Sequence Diagram for interactions within the <code>Logic</code> component for the <code>execute("add attribute leadership")</code> API call.</p>
 </div>
-<div class="imageblock">
+<div id="AddSequenceDiagram" class="imageblock">
 <div class="content">
 <img src="images/AddSequenceDiagram.png" alt="AddSequenceDiagram">
 </div>
@@ -571,9 +572,262 @@ to start a new session without consulting the user guide.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="find-best-interviewees-feature"><a class="link" href="#find-best-interviewees-feature">4.2. Find Best Interviewees Feature</a></h3>
+<h3 id="state-validity-and-finalise-feature"><a class="link" href="#state-validity-and-finalise-feature">4.2. State Validity and Finalise Feature</a></h3>
 <div class="sect3">
 <h4 id="description"><a class="link" href="#description">4.2.1. Description</a></h4>
+<div class="paragraph">
+<p>HireLah! can process numerous different inputs from the user, starting from adding an interviewee, adding a metric,
+opening the report of an interviewee, etc. However, not all inputs are valid at any point of time. So, we need to make
+sure that the right commands are accepted at the right phase. In addition, we also need to check that the input received
+is also valid such that the Model component of our application is always in a valid state.</p>
+</div>
+<div class="paragraph">
+<p>A feature in our application that supports this state validity is the Finalise feature, the feature used to
+finalise the attributes and questions of an interview session, after the user has finished their CRUD operations to the
+attributes and questions. After finalising, the user can no longer change the attributes and questions of this interview
+session.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implementation-2"><a class="link" href="#implementation-2">4.2.2. Implementation</a></h4>
+<div class="paragraph">
+<p>Validity of our application state is achieved through three ways, which includes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Separation of the application into 3 different phases</p>
+</li>
+<li>
+<p>Command validation by the Parser and Model component</p>
+</li>
+<li>
+<p>Implementation of Finalise feature</p>
+</li>
+</ul>
+</div>
+<div class="sect4">
+<h5 id="separation-of-the-application-into-3-different-phases"><a class="link" href="#separation-of-the-application-into-3-different-phases">Separation of the application into 3 different phases</a></h5>
+<div class="paragraph">
+<p>There are 3 different phases in our application, pre-session, normal, and interview phase. At any point of time, our
+application is in one of these 3 states, and this information is stored inside the model, and it can be retrieved by calling
+<code>model.getAppPhase()</code>. The reason behind the separation of the application into 3 different phases is because we need to prevent the user from
+entering invalid commands at any point of time. For example, you cannot start interviewing person B while you are
+interviewing person A. You need to end your interview with person A then you can interview person B.</p>
+</div>
+<div class="paragraph">
+<p>When the application had just opened, it will immediately enter into the <code>pre-session phase</code>, where the user are not allowed
+to do anything except creating a new session or opening other previously-made sessions.</p>
+</div>
+<div class="paragraph">
+<p>When the user had entered into a session, the application enter the <code>normal phase</code>. In this phase, the user can prompt the application
+to execute all of the features in the application, except opening a new session and adding interview-related information
+specific to an interviewee (e.g. adding a remark to person A).</p>
+</div>
+<div class="paragraph">
+<p>When the application is in the <code>normal phase</code> and the user decided to interview a particular interviewee, the application will
+enter to the <code>interview phase</code>. During this phase, the user are only allowed to execute commands related to the interview process
+of an interviewee, which includes adding remark, scoring the attribute and adding remarks as the answer to a particular question,
+and toggling view between attributes, questions, or metrics.</p>
+</div>
+<div class="paragraph">
+<p>The implementation of these 3 different phases is achieved through the presence of 3 different <code>parsers</code> in our application.
+After retrieving the <code>current phase</code> of the application from the <code>Model</code>, the <code>Logic</code> component will then decide which <code>parser</code> of these 3
+should be used to parse the input. Through this, we make sure that only appropriate and valid <code>commands</code> at a particular <code>phase</code>
+are accepted at any point of time.</p>
+</div>
+<div class="paragraph">
+<p>Given below are several examples of usage scenarios when the user prompts for some commands at a certain phase of the application:</p>
+</div>
+<div class="paragraph">
+<p>Scenario 1. When the user provides a <code>command</code> which is not recognized by the <code>parser</code> that is associated with the
+current <code>phase</code> of the application, the respective <code>parser</code> will throw a <code>ParseException</code>, informing the user that this
+command is unknown. Suppose the app is currently at the <code>PreSession phase</code>, and the user tries to add a new interviewee,
+<code>add interviewee Jane Doe</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/SessionScenario1SequenceDiagram.png" alt="SessionScenario1SequenceDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>Scenario 2 (Ideal Scenario). When the user provides a <code>command</code> which is recognized by the <code>parser</code> that is associated with the
+current <code>phase</code> of the application, the respective <code>parser</code> will parser the <code>command</code> and execute the respective <code>CommandResult</code>
+to the model. For an example, see <a href="#AddSequenceDiagram">Figure 6, &#8220;Interactions Inside the Logic Component for the <code>add attribute leadership</code> Command&#8221;</a>.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="command-validation-by-the-parser-and-model-component"><a class="link" href="#command-validation-by-the-parser-and-model-component">Command Validation by the Parser and Model component</a></h5>
+<div class="paragraph">
+<p>By the separation of the application into 3 different phases, we had make sure that the input that is accepted at any particular
+point if time are input that are appropriate at the current application <code>phase</code>. However, this does not guarantee that this
+input will be valid according to the current state of the <code>Model</code>. For example, if the application is currently at the <code>normal phase</code>,
+it will be able to accept the <code>command</code> to interview an interviewee. However, if this interviewee has been interviewed before,
+doing an interview to the same person should not be allowed.</p>
+</div>
+<div class="paragraph">
+<p>Assuming that the prompt inserted by the user is accepted at the <code>current phase</code> of the application, given below are
+several examples of usage scenarios:</p>
+</div>
+<div class="paragraph">
+<p>Scenario 1. When the user provides a <code>command</code> that is recognized by the <code>current phase</code> of the app but it is missing compulsory fields ,
+the respective <code>parser</code> will check against it and throw <code>ParseException</code>, informing that the prompt is incomplete. For an example, see
+<a href="#Scenario-1-Best-Interviewee-Feature">[Scenario-1-Best-Interviewee-Feature]</a>.</p>
+</div>
+<div class="paragraph">
+<p>Scenario 2. When the user provides a complete and valid command that is recognized by the <code>current phase</code> of the application
+but is not valid for the current state, the <code>Model</code> will check the command and throw a <code>CommandException</code>, informing the user
+that this <code>command</code> is invalid for the current state. For an example, see <a href="#Scenario-2-Best-Interviewee-Feature">[Scenario-2-Best-Interviewee-Feature]</a>.</p>
+</div>
+<div class="paragraph">
+<p>Scenario 3 (Ideal Scenario). When the user provides a complete and valid <code>command</code> that is recognized by the <code>current phase</code> of the
+application and is valid for the current state. For an example, see <a href="#Scenario-Ideal-Best-Interviewee-Feature">[Scenario-Ideal-Best-Interviewee-Feature]</a>.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="finalise-feature"><a class="link" href="#finalise-feature">Finalise Feature</a></h5>
+<div class="paragraph">
+<p>Even with all of these implementations of <code>command</code> accepting according to the <code>current phase</code> and <code>command</code> checking in a
+particular <code>phase</code>, there is another possibility of invalid state in our application, which happens through the modification
+of the <code>interview session&#8217;s</code> <code>attributes</code> and <code>questions</code>. For example, a metric which takes in <code>attribute</code> <code>leadership</code> and <code>integrity</code>
+has been created. Later, the user can possibly delete the <code>attribute</code> <code>leadership</code>. This makes the metric create not valid anymore.</p>
+</div>
+<div class="paragraph">
+<p>Thus, we need a feature that can indicate that the <code>interview session</code> has been <code>finalised</code>, which means that all CRUD operations
+to the <code>attributes</code> and <code>questions</code> of this <code>interview session</code> is disallowed. CRUD operations to the <code>attributes</code> and <code>questions</code>
+are originally accepted in the <code>normal phase</code> and if the CRUD operation is valid. However, if the application has entered the
+<code>finalised</code> state, this disablement happens regardless of the validity of the phase and command.</p>
+</div>
+<div class="paragraph">
+<p>The <code>finalised</code> state can be achieved through the <code>Finalise Command</code> when the user inputs the word <code>finalise</code>. Before the application
+is <code>finalised</code> the user is not allowed to hold any interview with any interviewee, create any metric and find any best interviewees.
+If the application has reached <code>finalised</code> state, the user are allowed to do so.</p>
+</div>
+<div class="paragraph">
+<p>Assuming that the user is currently on the <code>normal phase</code>, the phase which accepts CRUD operations for the <code>attributes</code>
+and <code>questions</code>, and assuming that the given CRUD operation is valid (e.g. <code>delete attribute leadership</code> and
+<code>attribute</code> <code>leadership</code> was there previously), given below are several examples of usage scenarios when the user prompts are related to Finalise Feature:</p>
+</div>
+<div class="paragraph">
+<p>Scenario 1. If the application has not been finalised <code>finalised</code> and the user tries to interview an interviewee,
+<code>interview Jane Doe</code>, the <code>Normal Parser</code> will parse the input and create an instance of <code>StartInterviewCommand</code>.
+The <code>LogicManager</code> will try to execute this <code>StartInterviewCommand</code> toward the <code>model</code>, but because it has not been <code>finalised</code>,
+it will throw a <code>CommandException</code> error.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/FinaliseScenario1SequenceDiagram.png" alt="FinaliseScenario1SequenceDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>Scenario 2. If the application has been <code>finalised</code> and the user tries to do add a new <code>attribute</code>, <code>add attribute leadership</code>,
+the <code>Normal Parser</code> will parse the input and create an instance of <code>AddAttributeCommand</code>. The <code>LogicManager</code> will try to execute
+this AddAttributeCommand toward the <code>model</code>, but because it has been <code>finalised</code>, it will throw a <code>CommandException</code> error.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/FinaliseScenario2SequenceDiagram.png" alt="FinaliseScenario2SequenceDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>Scenario 3 (Ideal Scenario). If the application has been <code>finalised</code> and the user tries to interview an interviewee,
+<code>interview Jane Doe</code>, the <code>Normal Parser</code> will parse the input and create an instance of <code>StartInterviewCommand</code>.
+The <code>LogicManager</code> will execute this <code>StartInterviewCommand</code> toward the <code>model</code>,  and the result is returned.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/FinaliseScenario3SequenceDiagram.png" alt="FinaliseScenario3SequenceDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>Scenario 4 (Ideal Scenario). If the application has not been <code>finalised</code> and the user tries to do add a new <code>attribute</code>,
+<code>add attribute leadership</code>, the <code>Normal Parser</code> will parse the input and create an instance of AddAttributeCommand.
+The <code>LogicManager</code> will execute this AddAttributeCommand towards the <code>model</code> and the result is returned.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/FinaliseScenario4SequenceDiagram.png" alt="FinaliseScenario4SequenceDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>The following activity diagram shows the sequence of activities happening after <code>finalise</code> command.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/FinaliseActivityDiagram.png" alt="FinaliseActivityDiagram">
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.2.3. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-maintaining-the-consistency-of-application-state"><a class="link" href="#aspect-maintaining-the-consistency-of-application-state">Aspect: Maintaining the consistency of application state</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Have <code>finalise</code> command and disallow CRUD operation to <code>attributes</code> and <code>questions</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: There will no be any invalid values or states, like an <code>attribute</code> score assigned to null.</p>
+</li>
+<li>
+<p>Cons: Once the user decide to <code>finalise</code>, the user can no longer edit the <code>attributes</code> and <code>questions</code>. THe user will
+need to create a new session if the user wants to.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Do not have a <code>finalise</code> command. User can perform CRUD operation to <code>attributes</code> and <code>questions</code> at any time,
+including after interview has been done or some metrics have been created. Deleted <code>attributes</code> and <code>questions</code> will be removed
+from any part of the application, and newly created <code>attributes</code> will have null score and newly created <code>questions</code>
+will be assigned to no answers.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: More flexibility for the user if the user wants to change the <code>attributes</code> and <code>questions</code>.</p>
+</li>
+<li>
+<p>Cons: The user might not be aware about the consequence of deleting one <code>attribute</code> or <code>question</code>, which might lead
+to deletion of the all the <code>metrics</code> that uses this <code>attribute `, removal of all `remarks</code> associated as the answer of a <code>question</code>.
+As new <code>attribute</code> are assigned to null score, these interviewees could not be compared with the others with regards to this feature
+when the user is using the <code>best interviewee</code> feature.
+User might need to assign the score value of this newly added <code>attribute</code> to every single <code>interviewees</code> that has been interviewed
+before this addition, which is a tedious and unfriendly operation.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 3:</strong> Do not have a <code>finalise</code> command. User can perform CRUD operation to <code>attributes</code> and <code>questions</code> at any time,
+including after interview has been done or some metrics have been created. Deleted <code>attributes</code> and <code>questions</code> will be removed
+from any part of the application, and newly created <code>attributes</code> will have a default score and newly created <code>questions</code>
+will be assigned to no answers.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: More flexibility for the user if the user wants to change the <code>attributes</code> and <code>questions</code>.</p>
+</li>
+<li>
+<p>Cons: The user might not be aware about the consequence of deleting one <code>attribute</code> or <code>question</code>, which might lead
+to deletion of the all the <code>metrics</code> that uses this <code>attribute `, removal of all `remarks</code> associated as the answer of a <code>question</code>.
+As new <code>attribute</code> are assigned to default score, the result of comparison between this <code>interviewee</code> and the others might
+not be accurate anymore.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="find-best-interviewees-feature"><a class="link" href="#find-best-interviewees-feature">4.3. Find Best Interviewees Feature</a></h3>
+<div class="sect3">
+<h4 id="description-2"><a class="link" href="#description-2">4.3.1. Description</a></h4>
 <div class="paragraph">
 <p>When an interviewer wants to take a decision on hiring interviewees, it will be cumbersome for the interviewer to take
 a look of the interviewees' score, to take a decision, especially when it comes to a large scale hiring pool. Therefore,
@@ -582,7 +836,7 @@ company need, and what kind of employees does the company desire.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="implementation-2"><a class="link" href="#implementation-2">4.2.2. Implementation</a></h4>
+<h4 id="implementation-3"><a class="link" href="#implementation-3">4.3.2. Implementation</a></h4>
 <div class="paragraph">
 <p>The Find Best Interviewee feature is facilitated by the <code>BestCommand</code>. It has the following fields:</p>
 </div>
@@ -603,7 +857,7 @@ company need, and what kind of employees does the company desire.</p>
 <div class="paragraph">
 <p>Given below are several examples of usage scenarios when the user prompts for Best Interviewees:</p>
 </div>
-<div class="paragraph">
+<div id="Scenario-1-Best-Interviewee-Feature" class="paragraph">
 <p>Scenario 1. When the user provides a command with incomplete compulsory fields (e.g. number of interviewees), the
 <code>BestCommandParser</code> will throw <code>ParseException</code>, informing that the size provided is not an integer because the parser
 takes the preamble of the command to get the value for <code>numberOfInterviewees</code>.</p>
@@ -613,7 +867,7 @@ takes the preamble of the command to get the value for <code>numberOfInterviewee
 <img src="images/FindBestScenario1SequenceDiagram.png" alt="FindBestScenario1SequenceDiagram">
 </div>
 </div>
-<div class="paragraph">
+<div id="Scenario-2-Best-Interviewee-Feature" class="paragraph">
 <p>Scenario 2. When the user provides a command with valid fields, yet there are no interviewees that has been interviewed,
 a <code>CommandException</code> is thrown instead, informing that there is no interviewee that has been interviewed, thus no result
 can be shown.</p>
@@ -632,8 +886,8 @@ is thrown instead, informing that the user has provided more than 1 parameter.</
 <img src="images/FindBestScenario3SequenceDiagram.png" alt="FindBestScenario3SequenceDiagram">
 </div>
 </div>
-<div class="paragraph">
-<p>Here is the Sequence Diagram for <code>FindBestCommand</code> for an ideal case (minor method calls are omitted):</p>
+<div id="Scenario-Ideal-Best-Interviewee-Feature" class="paragraph">
+<p>Scenario 4 (Ideal Scenario). Here is the Sequence Diagram for <code>FindBestCommand</code> for an ideal case (minor method calls are omitted):</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -695,7 +949,7 @@ will also be shown. Therefore, the number of interviewees shown will be more tha
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.2.3. Design Considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.3.3. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-to-display-the-best-interviewees"><a class="link" href="#aspect-how-to-display-the-best-interviewees">Aspect: How to display the best interviewees</a></h5>
 <div class="ulist">
@@ -734,14 +988,14 @@ best interviewees list to point to this list, and the MainWindow&#8217;s BestInt
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">4.3. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">4.4. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.4, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.5, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -772,7 +1026,7 @@ best interviewees list to point to this list, and the MainWindow&#8217;s BestInt
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.4. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.5. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -2695,4 +2949,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 08:16:51 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 11:10:04 UTC</div></div></div></body></html>

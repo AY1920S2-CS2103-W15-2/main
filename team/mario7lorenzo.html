@@ -742,7 +742,7 @@ list of the current attribute.</p>
 <div class="paragraph">
 <p>Given below is the Sequence Diagram for interactions within the <code>Logic</code> component for the <code>execute("add attribute leadership")</code> API call.</p>
 </div>
-<div class="imageblock">
+<div id="AddSequenceDiagram" class="imageblock">
 <div class="content">
 <img src="../images/AddSequenceDiagram.png" alt="AddSequenceDiagram">
 </div>
@@ -796,7 +796,7 @@ company need, and what kind of employees does the company desire.</p>
 <div class="paragraph">
 <p>Given below are several examples of usage scenarios when the user prompts for Best Interviewees:</p>
 </div>
-<div class="paragraph">
+<div id="Scenario-1-Best-Interviewee-Feature" class="paragraph">
 <p>Scenario 1. When the user provides a command with incomplete compulsory fields (e.g. number of interviewees), the
 <code>BestCommandParser</code> will throw <code>ParseException</code>, informing that the size provided is not an integer because the parser
 takes the preamble of the command to get the value for <code>numberOfInterviewees</code>.</p>
@@ -806,7 +806,7 @@ takes the preamble of the command to get the value for <code>numberOfInterviewee
 <img src="../images/FindBestScenario1SequenceDiagram.png" alt="FindBestScenario1SequenceDiagram">
 </div>
 </div>
-<div class="paragraph">
+<div id="Scenario-2-Best-Interviewee-Feature" class="paragraph">
 <p>Scenario 2. When the user provides a command with valid fields, yet there are no interviewees that has been interviewed,
 a <code>CommandException</code> is thrown instead, informing that there is no interviewee that has been interviewed, thus no result
 can be shown.</p>
@@ -825,8 +825,8 @@ is thrown instead, informing that the user has provided more than 1 parameter.</
 <img src="../images/FindBestScenario3SequenceDiagram.png" alt="FindBestScenario3SequenceDiagram">
 </div>
 </div>
-<div class="paragraph">
-<p>Here is the Sequence Diagram for <code>FindBestCommand</code> for an ideal case (minor method calls are omitted):</p>
+<div id="Scenario-Ideal-Best-Interviewee-Feature" class="paragraph">
+<p>Scenario 4 (Ideal Scenario). Here is the Sequence Diagram for <code>FindBestCommand</code> for an ideal case (minor method calls are omitted):</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -927,4 +927,4 @@ best interviewees list to point to this list, and the MainWindow&#8217;s BestInt
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 08:16:51 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 11:10:04 UTC</div></div></div></body></html>

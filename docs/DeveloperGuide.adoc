@@ -400,6 +400,10 @@ The `LogicManager` will execute this AddAttributeCommand towards the `model` and
 
 image::FinaliseScenario4SequenceDiagram.png[]
 
+The following activity diagram shows the sequence of activities happening after `finalise` command.
+
+image::FinaliseActivityDiagram.png[]
+
 ==== Design Considerations
 
 ===== Aspect: Maintaining the consistency of application state

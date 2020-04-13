@@ -9,28 +9,33 @@
 <div id="toc" class="toc">
 <div id="toctitle"></div>
 <ul class="sectlevel1">
-<li><a href="#setting-up">1. Setting up</a></li>
-<li><a href="#design">2. Design</a>
+<li><a href="#introduction">1. Introduction</a>
 <ul class="sectlevel2">
-<li><a href="#Design-Architecture">2.1. Architecture</a></li>
-<li><a href="#Design-Ui">2.2. UI component</a></li>
-<li><a href="#Design-Logic">2.3. Logic component</a></li>
-<li><a href="#Design-Model">2.4. Model component</a></li>
-<li><a href="#Design-Storage">2.5. Storage component</a></li>
-<li><a href="#Design-Commons">2.6. Common classes</a></li>
+<li><a href="#purpose-and-audience">1.1. Purpose and Audience</a></li>
 </ul>
 </li>
-<li><a href="#implementation">3. Implementation</a>
+<li><a href="#setting-up">2. Setting up</a></li>
+<li><a href="#design">3. Design</a>
 <ul class="sectlevel2">
-<li><a href="#session-feature">3.1. Session Feature</a></li>
-<li><a href="#find-best-interviewees-feature">3.2. Find Best Interviewees Feature</a></li>
-<li><a href="#logging">3.3. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.4. Configuration</a></li>
+<li><a href="#Design-Architecture">3.1. Architecture</a></li>
+<li><a href="#Design-Ui">3.2. UI component</a></li>
+<li><a href="#Design-Logic">3.3. Logic component</a></li>
+<li><a href="#Design-Model">3.4. Model component</a></li>
+<li><a href="#Design-Storage">3.5. Storage component</a></li>
+<li><a href="#Design-Commons">3.6. Common classes</a></li>
 </ul>
 </li>
-<li><a href="#documentation">4. Documentation</a></li>
-<li><a href="#testing">5. Testing</a></li>
-<li><a href="#dev-ops">6. Dev Ops</a></li>
+<li><a href="#implementation">4. Implementation</a>
+<ul class="sectlevel2">
+<li><a href="#session-feature">4.1. Session Feature</a></li>
+<li><a href="#find-best-interviewees-feature">4.2. Find Best Interviewees Feature</a></li>
+<li><a href="#logging">4.3. Logging</a></li>
+<li><a href="#Implementation-Configuration">4.4. Configuration</a></li>
+</ul>
+</li>
+<li><a href="#documentation">5. Documentation</a></li>
+<li><a href="#testing">6. Testing</a></li>
+<li><a href="#dev-ops">7. Dev Ops</a></li>
 <li><a href="#product-scope">Appendix A: Product Scope</a></li>
 <li><a href="#user-stories">Appendix B: User Stories</a></li>
 <li><a href="#use-cases">Appendix C: Use Cases</a>
@@ -52,7 +57,65 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="setting-up"><a class="link" href="#setting-up">1. Setting up</a></h2>
+<h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>HireLah!</strong> is a productivity app designed to help busy interviewers manage multiple interview sessions in an orderly
+manner. During each interview session, <strong>HireLah!</strong> helps the user to keep track of interviewee information and interview
+rubrics in one central location, making the interview process more efficient.
+<br>
+<br></p>
+</div>
+<div class="paragraph">
+<p><strong>HireLah!</strong> has the following main features:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Manage multiple interview sessions.</p>
+</li>
+<li>
+<p>Manage interview rubrics for each interview session, including:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Attributes to look out for in interviewees.</p>
+</li>
+<li>
+<p>Questions to ask interviewees.</p>
+</li>
+<li>
+<p>Metrics to rank interviewees based on their performance.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Manage remarks and score entered by the user during an interview.</p>
+</li>
+<li>
+<p>Rank interviewees based on particular sets of attributes or a metric after interviews.</p>
+</li>
+<li>
+<p>Export interview transcripts as reference.</p>
+</li>
+</ol>
+</div>
+<div class="sect2">
+<h3 id="purpose-and-audience"><a class="link" href="#purpose-and-audience">1.1. Purpose and Audience</a></h3>
+<div class="paragraph">
+<p>This Developer Guide specifies the architecture, design and implementation of <strong>HireLah!</strong>, as well as our considerations
+while designing this app.</p>
+</div>
+<div class="paragraph">
+<p>It is intended for developers, software testers, and people who would like to enhance this project in
+one way or another to understand <strong>HireLah!</strong> on a deeper level.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="setting-up"><a class="link" href="#setting-up">2. Setting up</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Refer to the guide <a href="SettingUp.html">here</a>.</p>
@@ -60,10 +123,10 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="design"><a class="link" href="#design">2. Design</a></h2>
+<h2 id="design"><a class="link" href="#design">3. Design</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="Design-Architecture"><a class="link" href="#Design-Architecture">2.1. Architecture</a></h3>
+<h3 id="Design-Architecture"><a class="link" href="#Design-Architecture">3.1. Architecture</a></h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/ArchitectureDiagram.png" alt="ArchitectureDiagram">
@@ -87,7 +150,7 @@ Refer to the <a href="UsingPlantUml.html">Using PlantUML guide</a> to learn how 
 </table>
 </div>
 <div class="paragraph">
-<p><code>Main</code> has two classes called <a href="https://github.com/AY1920S2-CS2103-W15-2/main/src/main/java/hirelah/Main.java"><code>Main</code></a> and <a href="https://github.com/AY1920S2-CS2103-W15-2/main/src/main/java/hirelah/MainApp.java"><code>MainApp</code></a>. It is responsible for,</p>
+<p><code>Main</code> has two classes called <a href="https://github.com/AY1920S2-CS2103-W15-2/main/blob/master/src/main/java/hirelah/Main.java"><code>Main</code></a> and <a href="https://github.com/AY1920S2-CS2103-W15-2/main/blob/master/src/main/java/hirelah/MainApp.java"><code>MainApp</code></a>. It is responsible for,</p>
 </div>
 <div class="ulist">
 <ul>
@@ -166,7 +229,7 @@ The following class plays an important role at the architecture level:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Ui"><a class="link" href="#Design-Ui">2.2. UI component</a></h3>
+<h3 id="Design-Ui"><a class="link" href="#Design-Ui">3.2. UI component</a></h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/UiClassDiagram.png" alt="UiClassDiagram">
@@ -174,13 +237,13 @@ The following class plays an important role at the architecture level:</p>
 <div class="title">Figure 4. Structure of the UI Component</div>
 </div>
 <div class="paragraph">
-<p><strong>API</strong> : <a href="https://github.com/AY1920S2-CS2103-W15-2/main/src/main/java/hirelah/ui/Ui.java"><code>Ui.java</code></a></p>
+<p><strong>API</strong> : <a href="https://github.com/AY1920S2-CS2103-W15-2/main/blob/master/src/main/java/hirelah/ui/Ui.java"><code>Ui.java</code></a></p>
 </div>
 <div class="paragraph">
 <p>The UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>PersonListPanel</code>, <code>StatusBarFooter</code> etc. All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
 </div>
 <div class="paragraph">
-<p>The <code>UI</code> component uses JavaFx UI framework. The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder. For example, the layout of the <a href="https://github.com/AY1920S2-CS2103-W15-2/main/src/main/java/hirelah/ui/MainWindow.java"><code>MainWindow</code></a> is specified in <a href="https://github.com/AY1920S2-CS2103-W15-2/main/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
+<p>The <code>UI</code> component uses JavaFx UI framework. The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder. For example, the layout of the <a href="https://github.com/AY1920S2-CS2103-W15-2/main/blob/master/src/main/java/hirelah/ui/MainWindow.java"><code>MainWindow</code></a> is specified in <a href="https://github.com/AY1920S2-CS2103-W15-2/main/blob/master/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
 </div>
 <div class="paragraph">
 <p>The <code>UI</code> component,</p>
@@ -201,7 +264,7 @@ by the CommandResult returned by that command.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Logic"><a class="link" href="#Design-Logic">2.3. Logic component</a></h3>
+<h3 id="Design-Logic"><a class="link" href="#Design-Logic">3.3. Logic component</a></h3>
 <div id="fig-LogicClassDiagram" class="imageblock">
 <div class="content">
 <img src="images/LogicClassDiagram.png" alt="LogicClassDiagram">
@@ -210,7 +273,7 @@ by the CommandResult returned by that command.</p>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> :
-<a href="https://github.com/AY1920S2-CS2103-W15-2/main/src/main/java/hirelah/logic/Logic.java"><code>Logic.java</code></a></p>
+<a href="https://github.com/AY1920S2-CS2103-W15-2/main/blob/master/src/main/java/hirelah/logic/Logic.java"><code>Logic.java</code></a></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -260,7 +323,7 @@ out in this diagram.
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Model"><a class="link" href="#Design-Model">2.4. Model component</a></h3>
+<h3 id="Design-Model"><a class="link" href="#Design-Model">3.4. Model component</a></h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/ModelClassDiagram.png" alt="ModelClassDiagram">
@@ -268,7 +331,7 @@ out in this diagram.
 <div class="title">Figure 7. Structure of the Model Component</div>
 </div>
 <div class="paragraph">
-<p><strong>API</strong> : <a href="https://github.com/AY1920S2-CS2103-W15-2/main/src/main/java/hirelah/model/Model.java"><code>Model.java</code></a></p>
+<p><strong>API</strong> : <a href="https://github.com/AY1920S2-CS2103-W15-2/main/blob/master/src/main/java/hirelah/model/Model.java"><code>Model.java</code></a></p>
 </div>
 <div class="paragraph">
 <p>The <code>Model</code>,</p>
@@ -293,7 +356,7 @@ whether being interviewed or whose report is being viewed.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Storage"><a class="link" href="#Design-Storage">2.5. Storage component</a></h3>
+<h3 id="Design-Storage"><a class="link" href="#Design-Storage">3.5. Storage component</a></h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/StorageClassDiagram.png" alt="StorageClassDiagram">
@@ -301,7 +364,7 @@ whether being interviewed or whose report is being viewed.</p>
 <div class="title">Figure 8. Structure of the Storage Component</div>
 </div>
 <div class="paragraph">
-<p><strong>API</strong> : <a href="https://github.com/AY1920S2-CS2103-W15-2/main/src/main/java/hirelah/storage/Storage.java"><code>Storage.java</code></a></p>
+<p><strong>API</strong> : <a href="https://github.com/AY1920S2-CS2103-W15-2/main/blob/master/src/main/java/hirelah/storage/Storage.java"><code>Storage.java</code></a></p>
 </div>
 <div class="paragraph">
 <p>The <code>Storage</code> component,</p>
@@ -344,7 +407,7 @@ whether being interviewed or whose report is being viewed.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Commons"><a class="link" href="#Design-Commons">2.6. Common classes</a></h3>
+<h3 id="Design-Commons"><a class="link" href="#Design-Commons">3.6. Common classes</a></h3>
 <div class="paragraph">
 <p>Classes used by multiple components are in the <code>hirelah.commons</code> package.</p>
 </div>
@@ -352,20 +415,20 @@ whether being interviewed or whose report is being viewed.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="implementation"><a class="link" href="#implementation">3. Implementation</a></h2>
+<h2 id="implementation"><a class="link" href="#implementation">4. Implementation</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This section describes some noteworthy details on how certain features are implemented.</p>
 </div>
 <div class="sect2">
-<h3 id="session-feature"><a class="link" href="#session-feature">3.1. Session Feature</a></h3>
+<h3 id="session-feature"><a class="link" href="#session-feature">4.1. Session Feature</a></h3>
 <div class="paragraph">
 <p>HireLah! differs from AddressBook significantly in that a single user will likely have many sessions,
 as compared to just owning a single address book. The app thus provides means of managing multiple sessions from
 within the app itself, instead of having to change <code>preferences.json</code> to create a new session or switch between sessions.</p>
 </div>
 <div class="sect3">
-<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">3.1.1. Proposed Implementation</a></h4>
+<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">4.1.1. Proposed Implementation</a></h4>
 <div class="paragraph">
 <p>Having multiple sessions and changing between them from within the app means that HireLah! cannot load data from storage
 on app startup.</p>
@@ -406,7 +469,7 @@ then creating a new UI <code>InterviewPanel</code> again.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">3.1.2. Design Considerations</a></h4>
+<h4 id="design-considerations"><a class="link" href="#design-considerations">4.1.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-sessions-are-stored-in-the-app"><a class="link" href="#aspect-how-sessions-are-stored-in-the-app">Aspect: How sessions are stored in the app</a></h5>
 <div class="ulist">
@@ -508,9 +571,9 @@ to start a new session without consulting the user guide.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="find-best-interviewees-feature"><a class="link" href="#find-best-interviewees-feature">3.2. Find Best Interviewees Feature</a></h3>
+<h3 id="find-best-interviewees-feature"><a class="link" href="#find-best-interviewees-feature">4.2. Find Best Interviewees Feature</a></h3>
 <div class="sect3">
-<h4 id="description"><a class="link" href="#description">3.2.1. Description</a></h4>
+<h4 id="description"><a class="link" href="#description">4.2.1. Description</a></h4>
 <div class="paragraph">
 <p>When an interviewer wants to take a decision on hiring interviewees, it will be cumbersome for the interviewer to take
 a look of the interviewees' score, to take a decision, especially when it comes to a large scale hiring pool. Therefore,
@@ -519,7 +582,7 @@ company need, and what kind of employees does the company desire.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="implementation-2"><a class="link" href="#implementation-2">3.2.2. Implementation</a></h4>
+<h4 id="implementation-2"><a class="link" href="#implementation-2">4.2.2. Implementation</a></h4>
 <div class="paragraph">
 <p>The Find Best Interviewee feature is facilitated by the <code>BestCommand</code>. It has the following fields:</p>
 </div>
@@ -632,7 +695,7 @@ will also be shown. Therefore, the number of interviewees shown will be more tha
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.2.3. Design Considerations</a></h4>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.2.3. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-to-display-the-best-interviewees"><a class="link" href="#aspect-how-to-display-the-best-interviewees">Aspect: How to display the best interviewees</a></h5>
 <div class="ulist">
@@ -671,14 +734,14 @@ best interviewees list to point to this list, and the MainWindow&#8217;s BestInt
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.3. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">4.3. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.4, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.4, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -709,7 +772,7 @@ best interviewees list to point to this list, and the MainWindow&#8217;s BestInt
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.4. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.4. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -717,7 +780,7 @@ best interviewees list to point to this list, and the MainWindow&#8217;s BestInt
 </div>
 </div>
 <div class="sect1">
-<h2 id="documentation"><a class="link" href="#documentation">4. Documentation</a></h2>
+<h2 id="documentation"><a class="link" href="#documentation">5. Documentation</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Refer to the guide <a href="Documentation.html">here</a>.</p>
@@ -725,7 +788,7 @@ best interviewees list to point to this list, and the MainWindow&#8217;s BestInt
 </div>
 </div>
 <div class="sect1">
-<h2 id="testing"><a class="link" href="#testing">5. Testing</a></h2>
+<h2 id="testing"><a class="link" href="#testing">6. Testing</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Refer to the guide <a href="Testing.html">here</a>.</p>
@@ -733,7 +796,7 @@ best interviewees list to point to this list, and the MainWindow&#8217;s BestInt
 </div>
 </div>
 <div class="sect1">
-<h2 id="dev-ops"><a class="link" href="#dev-ops">6. Dev Ops</a></h2>
+<h2 id="dev-ops"><a class="link" href="#dev-ops">7. Dev Ops</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Refer to the guide <a href="DevOps.html">here</a>.</p>
@@ -2632,4 +2695,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 03:50:43 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 05:50:45 UTC</div></div></div></body></html>

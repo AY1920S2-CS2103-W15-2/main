@@ -33,14 +33,10 @@ the user to score candidates on the created attributes, and indicate when questi
 easy retrieval later.</p>
 </li>
 <li>
-<p>Justification: This is a critical feature for the app as without it, our app would only be
-a list keeping app (similar to the address book) which is specialized to interviewers (tracking questions,
-attributes and interviewees). By allowing the user to conduct the interview within the app, the app can make
-use of the attributes and questions the interviewer has prepared beforehand to aid the interviewer in reminding
-the interviewer on what to appraise the interviewees on during the interview. #TODO</p>
-</li>
-<li>
-<p>Highlights: #TODO</p>
+<p>Justification: This is a critical feature for the app as it allows users to be more productive using our app as
+compared to maintaining their lists of candidates, questions and interview rubrics (attributes) separately. When
+conducting the interview within the app, it is easy to check the questions, the app reminds you to assign scores to all
+attributes and makes it easy to track who is interviewed.</p>
 </li>
 <li>
 <p>Credits: Team mate Agnes Natasya for creating the Transcript class and providing a clear API for the interview
@@ -60,7 +56,831 @@ available sessions, and allows them to choose to open a previous session or star
 <li>
 <p>Justification: This feature significantly improves the user experience of the app as previously, to change sessions,
 one would have to manually modify the <code>preferences.json</code> file before starting the app, a feature which some users
-would not be able to discover while using the app</p>
+would not be able to discover while using the app.</p>
+</li>
+<li>
+<p>Highlights: This enhancement was challenging to implement as we had to retrofit it after feedback in v1.3.
+It involved planning when and how to perform the initializing of the session-specific Storage, UI and Model components
+after the app has already started, without affecting the implementation of these classes, which had been written under
+the assumption that they would be initialized at app startup.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Code contributed</strong>: <a href="https://nus-cs2103-ay1920s2.github.io/tp-dashboard/#search=corncobs&amp;sort=groupTitle&amp;sortWithin=title&amp;since=2020-02-14&amp;timeframe=commit&amp;mergegroup=false&amp;groupSelect=groupByRepos&amp;breakdown=false&amp;tabOpen=true&amp;tabType=authorship&amp;tabAuthor=CornCobs&amp;tabRepo=AY1920S2-CS2103-W15-2%2Fmain%5Bmaster%5D">Both test code and functional code here</a></p>
+</li>
+<li>
+<p><strong>Other contributions</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Project Management:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Managed release of v1.3 milestone</p>
+</li>
+<li>
+<p>Planned division of work at the beginning of each milestone v1.2-1.4</p>
+</li>
+<li>
+<p>Regularly checked on team mates progress to ensure each milestone&#8217;s goals could be met</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Review/mentoring contributions:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Some PRs reviewed: <a href="https://github.com/AY1920S2-CS2103-W15-2/main/pull/103">#103</a>, <a href="https://github.com/AY1920S2-CS2103-W15-2/main/pull/90">#90</a>, <a href="https://github.com/AY1920S2-CS2103-W15-2/main/pull/81">#81</a>, <a href="https://github.com/AY1920S2-CS2103-W15-2/main/pull/203">#203</a>, <a href="https://github.com/AY1920S2-CS2103-W15-2/main/pull/190">#190</a>, <a href="https://github.com/AY1920S2-CS2103-W15-2/main/pull/187">#187</a>, <a href="https://github.com/AY1920S2-CS2103-W15-2/main/pull/186">#186</a>, <a href="https://github.com/AY1920S2-CS2103-W15-2/main/pull/66">#66</a></p>
+</li>
+<li>
+<p>Helped team mate <a href="https://github.com/Weiichengg">Wei Cheng</a> with design and implementation of Storage component, to allow saving of individual components (AttributeList, IntervieweeList, etc),
+and saving each interviewee&#8217;s transcript into a separate json file. The design allowed HireLah! to take a fine-grained approach to saving each component when changed, improving performance, and also
+validated the stored data when loading, to ensure the Model is always in a valid state. Coauthored <a href="https://github.com/AY1920S2-CS2103-W15-2/main/pull/103">#103</a> which implemented this design.</p>
+</li>
+<li>
+<p>Bug reports filed: <a href="https://github.com/AY1920S2-CS2103-W15-2/main/issues/60">#60</a>, <a href="https://github.com/AY1920S2-CS2103-W15-2/main/issues/79">#79</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Documentation:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Updated use cases and user stories <a href="https://github.com/AY1920S2-CS2103-W15-2/main/pull/212">#212</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Team-based tasks:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Updated the team website</p>
+</li>
+<li>
+<p>Renamed the project and package name</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Tools:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Setup AppVeyor when Travis-CI was undergoing maintenance</p>
+</li>
+<li>
+<p>Setup Coveralls to check our code coverage</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="features"><a class="link" href="#features">Features</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Generally, in an interview session (for example, an interview for a role in a company), there are 3 phases:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Initialization phase (or preparation phase) - where the interviewer prepares his/her questions, manages
+candidates, receives their resumes, etc.</p>
+</li>
+<li>
+<p>Interview phase - where the interviewer actually conducts interviews, asking questions and
+making notes about each candidate</p>
+</li>
+<li>
+<p>Decision phase - after interviewing all candidates, the interviewer summarises his/her opinions, refers
+to the remarks he/she made of each interviewee and decides who to select</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>These 3 phases are clearly defined in <strong>HireLah!</strong>. What you can do in each phase is listed below.</p>
+</div>
+<div class="sect2">
+<h3 id="viewing-help"><a class="link" href="#viewing-help">Viewing help</a></h3>
+<div class="paragraph">
+<p><strong>Command</strong></p>
+</div>
+<div class="paragraph">
+<p>You never know when you need to refer to this guide. For that reason, the helpful <code>help</code> command is available
+always within the app, except during an interview, where "help" may be a remark you want to make about the current
+candidate being interviewed! Still, the help command is always accessible via the <kbd>F1</kbd> key, or by clicking the
+"Help" button on the top of the menu.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>help</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><em>Action:</em> This user guide is opened as a PDF with your system&#8217;s default PDF viewer.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="exiting-the-app"><a class="link" href="#exiting-the-app">Exiting the App</a></h3>
+<div class="paragraph">
+<p>Similar to help, <code>exit</code> is always available to close the app, except during an interview (Why would you want
+to close the app during an interview?).</p>
+</div>
+<div class="paragraph">
+<p><strong>Command</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>exit</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><em>Action:</em> The app exits.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="managing-sessions"><a class="link" href="#managing-sessions">Managing Sessions</a></h3>
+<div class="paragraph">
+<p><strong>HireLah!</strong> allows you to clearly separate your interview sessions. After all, it would be disastrous to mix up your candidates
+for one job with the candidates for a totally different role, or ask the wrong questions to the wrong person!</p>
+</div>
+<div class="sect3">
+<h4 id="new-session"><a class="link" href="#new-session">New Session</a></h4>
+<div class="paragraph">
+<p>When you first start the app, there will be no existing sessions. You can create a new session to get started via the <code>new</code> command.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Sessions are stored as directories in a <code>/data</code> directory HireLah! creates in the same location as the app. To make sure
+session names are valid, we only allow Alphanumeric characters (a, b, c or 1, 2, 3) and spaces (but not all spaces!).<br>
+Do not accidentally delete this folder! <strong>HireLah!</strong> will not be able to restore your data if you delete it!
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Command</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>new &lt;session name&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Execution Example</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&gt; new ceo interview</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><em>Action:</em> Creates a new session called "ceo interview" and opens the session.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/Screenshots/NewSession.png" alt="NewSession">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="open-and-close-sessions"><a class="link" href="#open-and-close-sessions">Open and Close Sessions</a></h4>
+<div class="paragraph">
+<p>On subsequent uses of <strong>HireLah!</strong>, you will be greeted at the starting screen with all the sessions you have
+created. You can choose to start a new session again, or open a previous session to continue working in it using the
+<code>open</code> command. After you are done for the day, or need to switch to another session, simply close the session with the
+<code>close session</code> command. Closing a session will naturally return you to the starting screen where you can open or create new
+sessions.</p>
+</div>
+<div class="paragraph">
+<p><strong>Commands</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>open &lt;session name&gt;
+close session</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="delete-session"><a class="link" href="#delete-session">Delete Session</a></h4>
+<div class="paragraph">
+<p>After a long time, old sessions may not be relevant anymore. To clear space for new interviews, use the <code>delete</code> command.</p>
+</div>
+<div class="paragraph">
+<p><strong>Command</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>delete &lt;session name&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Execution Example</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&gt; delete ceo interview</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><em>Action:</em> Deletes the ceo interview session and all its data.</p>
+</div>
+<div class="paragraph">
+<p><em>Output:</em></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Successfully deleted the session: ceo interview</pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="switching-views"><a class="link" href="#switching-views">Switching views</a></h4>
+<div class="paragraph">
+<p>When working on the attributes, questions and metrics (more about metrics in <a href="#Metrics">[Metrics]</a>),
+<strong>HireLah!</strong> displays the relevant content you are working on on the right side of the application.
+To switch views between them, <strong>HireLah!</strong> also provides these commands.</p>
+</div>
+<div class="paragraph">
+<p><strong>Command</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>attributes
+questions
+metrics</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><em>Action:</em> Switches between displaying attributes, questions and metrics.</p>
+</div>
+<div class="paragraph">
+<p><em>Output:</em></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Here is the list of attributes:
+
+Here is the list of questions:
+
+Here is the list of metrics:</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><br>
+<br>
+On the left side of the application, all of the interviewees are listed. It will switch to only show several
+best interviewees when the the command is entered by the user. To switch back to list down the interviewees, HireLah!
+provides this command.</p>
+</div>
+<div class="paragraph">
+<p><strong>Command</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>interviewees</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><em>Action:</em> Displays the interviewee list.</p>
+</div>
+<div class="paragraph">
+<p><em>Output:</em></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Here is the list of interviewees:</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><br></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="finalise-interview-attributes-and-questions"><a class="link" href="#finalise-interview-attributes-and-questions">Finalise Interview Attributes and Questions</a></h4>
+<div class="paragraph">
+<p>After the interviewer is satisfied with the list of questions and attributes created for an interview session, the
+interviewer must finalise changes in attributes and questions. This is to ensure that the interviewers will evaluate all
+interviewees fairly and equally using the same set of questions and attributes.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Finalise is <strong>irreversible</strong>! Make sure you are sure of the attributes and questions you have, since <strong>HireLah!</strong> will
+not allow you to make changes to them after giving this command. This may seem restrictive, but this consistency will
+give you guarantees that make <strong>HireLah!</strong> really useful. For example, later on, if you open someone&#8217;s interview report and
+find his/her answer to a question, then go to another report and view the same question, you are guaranteed that both interviewees
+were asked the same thing!
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Command</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>finalise</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><em>Output:</em></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Attributes and questions of this interview session has been finalised. You cannot change them anymore.</pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/Screenshots/Finalise.png" alt="Finalise">
+</div>
+</div>
+<div class="paragraph">
+<p><br></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="interview-phase"><a class="link" href="#interview-phase">Interview Phase</a></h3>
+<div class="sect3">
+<h4 id="start-interview"><a class="link" href="#start-interview">Start Interview</a></h4>
+<div class="paragraph">
+<p>After finalising, you can start to interview the interviewees.</p>
+</div>
+<div class="paragraph">
+<p><strong>Command</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>interview &lt;interviewee&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Example</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&gt; interview Jane Doe</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><em>Action:</em> Initializes an interview session with Jane. The app
+also starts the interview time.</p>
+</div>
+<div class="paragraph">
+<p><em>Output:</em></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Interview with Jane Doe started!</pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/Screenshots/Interview.png" alt="Interview">
+</div>
+</div>
+<div class="paragraph">
+<p><br></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="record-remarks"><a class="link" href="#record-remarks">Record Remarks</a></h4>
+<div class="paragraph">
+<p>After starting the interview, <strong>HireLah!</strong> allows you to easily take notes within the app itself.
+Anything you type in the Command Box, will be recorded as interview remarks, which are timestamped, allowing you to
+easily navigate your interview remarks after the interview is over.</p>
+</div>
+<div class="paragraph">
+<p><strong>Command</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&lt;remarks&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Example</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&gt; Interesting family history, all of her family members are very rich.</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><em>Action:</em> Stores this remark and maps it to the specific time when you
+enter it.</p>
+</div>
+<div class="paragraph">
+<p><em>Output:</em></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Added the remark.</pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/Screenshots/Remark.png" alt="Remark">
+</div>
+</div>
+<div class="paragraph">
+<p><br></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="asking-questions"><a class="link" href="#asking-questions">Asking Questions</a></h4>
+<div class="paragraph">
+<p>Special commands while interviewing are prefixed with a ":". These commands are
+not recorded as remarks and instead perform special actions.</p>
+</div>
+<div class="paragraph">
+<p>The start question command allows you to indicate when you asked a question during
+the interview. This allows you to easily navigate to relevant parts of the interview
+after the interview ends, while viewing the report.</p>
+</div>
+<div class="paragraph">
+<p><strong>Command</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>:start q&lt;question number&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Example</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&gt; :start q1
+&gt; Strengths: resilience, ambitious, good time-management
+&gt; Weakness: perfectionist, not detail-oriented
+&gt; Short answers</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><em>Output:</em></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Marked the start of question 1
+
+Added the remark
+
+Added the remark
+
+Added the remark</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><em>Action:</em> Marks the start of question 1, then adds some remarks related to question 1.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/Screenshots/StartQuestion.png" alt="StartQuestion">
+</div>
+</div>
+<div class="paragraph">
+<p><br></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="score-attributes"><a class="link" href="#score-attributes">Score attributes</a></h4>
+<div class="paragraph">
+<p>During the interview, as you form your opinion on the candidate, you can give them scores for the
+attributes you have created earlier (see <a href="#Attributes">[Attributes]</a>).</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+To keep things sensible, HireLah! allows you to give a score from between 0 to 10 inclusive. So
+9.6 and 0.2 are in, but don&#8217;t try and give someone -10!
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Command</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>:set &lt;attribute&gt; &lt;score&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Example</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&gt; :set leadership 5</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><em>Action:</em> update the leadership score for John Doe (displayed in a table).</p>
+</div>
+<div class="paragraph">
+<p><em>Output:</em></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Scored 5.00 to leadership</pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/Screenshots/AttributeScore.png" alt="AttributeScore">
+</div>
+</div>
+<div class="paragraph">
+<p><br></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="other-viewing-commands"><a class="link" href="#other-viewing-commands">Other Viewing Commands</a></h4>
+<div class="paragraph">
+<p>During the interview, only a small subset of the usual commands are available by placing ":" in front.
+It would be terrible if you accidentally deleted an interviewee while interviewing him/her! However, it is
+important to be able to look at the current interviewee&#8217;s resume, and look at the attributes and questions
+needed in the interview, thus these viewing operations are supported.</p>
+</div>
+<div class="paragraph">
+<p><strong>Command</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>:resume
+:questions
+:attributes
+:metrics</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Example</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&gt; :resume
+&gt; :questions</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><em>Action:</em> Opens the resume of the current interviewee. Then switches the tab to show the questions.</p>
+</div>
+<div class="paragraph">
+<p><em>Output:</em></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Resume of John Doe opened.
+
+Here is the list of questions:</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><br></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="end-interview"><a class="link" href="#end-interview">End interview</a></h4>
+<div class="paragraph">
+<p>After finishing the interview, give the end command. After the interview has ended,
+you will not be allowed to make any more remarks or change the interviewee&#8217;s scores.
+Don&#8217;t end prematurely!</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<strong>HireLah!</strong> will not allow you to end the interview if you have not assigned a score
+on all the attributes!
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Command</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>:end</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Example</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&gt; end</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><em>Action:</em> Ending the interview session.</p>
+</div>
+<div class="paragraph">
+<p><em>Output</em>:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Ended interview with Jane Doe.</pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/Screenshots/EndInterview.png" alt="EndInterview">
+</div>
+</div>
+<div class="paragraph">
+<p><br></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="decision-phase"><a class="link" href="#decision-phase">Decision Phase</a></h3>
+
+</div>
+<div class="sect2">
+<h3 id="typing-shortcuts-prefix-matching"><a class="link" href="#typing-shortcuts-prefix-matching">Typing shortcuts - Prefix matching</a></h3>
+<div class="paragraph">
+<p>It is often tedious to have to type out a long attribute like "Productivity"
+or "Team Player". Especially during an interview, a typing mistake may cost you
+precious time, possibly missing some important thing the interviewee said. HireLah!
+thus allows you to simply type part (a prefix) of the full word, as long as it
+uniquely identifies an attribute.</p>
+</div>
+<div class="paragraph">
+<p>For example, if you have the following attributes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Leadership</p>
+</li>
+<li>
+<p>Ambition</p>
+</li>
+<li>
+<p>Team player</p>
+</li>
+<li>
+<p>Team motivator</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><br>
+Then:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>"L", "Le" or any longer prefix can uniquely identify "Leadership"</p>
+</li>
+<li>
+<p>"A" sufficiently identifies "Ambition"</p>
+</li>
+<li>
+<p>"Team" <strong>cannot</strong> identify "Team player" as "Team motivator" shares this prefix</p>
+</li>
+<li>
+<p>To minimally distinguish the 2, you must provide "Team p" or "Team m"</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>HireLah!</strong> also provides this convenient function for other things that require
+typing names, such as the metric names. Questions are referenced by their question number
+and interviewees can use their interviewee ID, and a short alias can be given so the feature is not provided.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="session-feature"><a class="link" href="#session-feature">Session Feature</a></h3>
+<div class="paragraph">
+<p>HireLah! differs from AddressBook significantly in that a single user will likely have many sessions,
+as compared to just owning a single address book. The app thus provides means of managing multiple sessions from
+within the app itself, instead of having to change <code>preferences.json</code> to create a new session or switch between sessions.</p>
+</div>
+<div class="sect3">
+<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">Proposed Implementation</a></h4>
+<div class="paragraph">
+<p>Having multiple sessions and changing between them from within the app means that HireLah! cannot load data from storage
+on app startup.</p>
+</div>
+<div class="paragraph">
+<p>Instead, when the app starts, the ModelManager does not have its components (<code>IntervieweeList</code>, <code>AttributeList</code>, etc.) loaded,
+only <code>UserPrefs</code>, and the AppPhase is set to <code>PRE_SESSION</code>.</p>
+</div>
+<div class="paragraph">
+<p>UI displays the <code>SessionPanel</code> which shows the available sessions in the "sessionsDirectory" folder.</p>
+</div>
+<div class="paragraph">
+<p>In <code>PRE_SESSION</code> phase, logic uses the <code>PreSessionParser</code> which accepts commands to open an existing session or create a new one.</p>
+</div>
+<div class="paragraph">
+<p>Once a session is chosen, the command calls <code>Storage#loadSession</code> which creates new Storage components for the new session
+(<code>IntervieweeStorage</code>, <code>AttributeStorage</code> etc.) that save to the correct session directory. <code>loadSession</code> then calls
+<code>Storage#initModelManager</code>, which loads new Model components (<code>IntervieweeList</code>, <code>AttributeList</code> etc.), then replaces
+the current <code>ModelManager</code> components. <code>AppPhase</code> is then set to <code>NORMAL</code> at which the app starts its usual behavior (adding interviewees etc.).</p>
+</div>
+<div class="paragraph">
+<p>Finally after refreshing the <code>ModelManager</code>, then a new UI <code>InterviewPanel</code> is created that observes the new <code>Model</code> components.
+Since the Model&#8217;s components have been replaced (a different set of ObservableLists), the UI can only be created at this point else the UI
+would be data binding to the wrong lists.</p>
+</div>
+<div class="paragraph">
+<p>The following activity diagram shows the sequence of initialization of components when a session is opened.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/SessionActivityDiagram.png" alt="SessionActivityDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>From the <code>NORMAL</code> phase, the close session command can be given, which simply un-sets the current session in <code>Model</code> and returns the
+AppPhase to <code>PRE_SESSION</code>. Thus the app is ready to open a new session, by resetting the storage components and the Model components,
+then creating a new UI <code>InterviewPanel</code> again.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-sessions-are-stored-in-the-app"><a class="link" href="#aspect-how-sessions-are-stored-in-the-app">Aspect: How sessions are stored in the app</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Do not store information about sessions in Model. Directly read available sessions
+from the <code>/data</code> directory (or whatever the user set the "sessionsDirectory" to in <code>preferences.json</code>). Scan the
+directory again every time the SessionPanel is displayed.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Information about the available directories is always synchronized with the filesystem.
+It is possible to copy a session from somewhere else into the "sessionsDirectory" and the app will detect it.</p>
+</li>
+<li>
+<p>Cons: Simplistic - app naively treats all directories in the "sessionsDirectory" directory as sessions and displays
+them as available sessions to the user. If a folder is created externally with invalid data, it will also be treated
+as a session, only failing when the user tries to load it.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Model contains a <code>SessionList</code> which tracks what sessions have been created or deleted.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: User cannot create/delete sessions outside the app, changes to the sessions (new session/delete session)
+can be tracked within the app itself rather than repeatedly making IO calls to the filesystem.</p>
+</li>
+<li>
+<p>Cons: There is no "single source of truth" as both the file system and the app have a list of sessions, and it is not
+straightforward to ensure both are synchronized, eg. if a session data directory is deleted on the file system, the app
+will not be aware of it.</p>
 </li>
 </ul>
 </div>
@@ -68,4 +888,64 @@ would not be able to discover while using the app</p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 13:51:06 UTC</div></div></div></body></html>
+<div class="sect4">
+<h5 id="aspect-how-session-data-is-loaded-and-saved"><a class="link" href="#aspect-how-session-data-is-loaded-and-saved">Aspect: How session data is loaded and saved</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Load session only when a command is given to open a session from a directory.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Most user friendly, managing sessions is performed through the same CLI. Memory efficient - data is loaded only
+exactly when needed.</p>
+</li>
+<li>
+<p>Cons: Complex to implement</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Load all data for all sessions into memory when the app starts, open session
+merely selects the current session in focus and displays UI with current session data.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Straightforward to implement (All data can be loaded on app starting, need not change implementation from
+AddressBook). Switching between sessions is very straightforward.</p>
+</li>
+<li>
+<p>Cons: Will be memory intensive as all data even from non-active sessions and past sessions will be loaded. As HireLah!
+may include large amounts of data in interview Transcripts, loading all the Transcripts from previous sessions will likely
+negatively impact startup timing. Furthermore, it is unlikely that an interviewer needs to access previous interview sessions
+data in a current interview, making a lot of the memory consumption wasteful.</p>
+</li>
+<li>
+<p>Relevance consideration: It is not often that an interviewer would need to switch between sessions while interviewing for a
+specific thing, for example a role in the company.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 3:</strong> Require the user to configure the session to load before app starts up, in <code>preferences.json</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Simplest to implement, yet memory efficient as only the relevant data is loaded</p>
+</li>
+<li>
+<p>Cons: Not user friendly - functionality cannot be performed within the app. User cannot discover the functionality on how
+to start a new session without consulting the user guide.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 14:05:34 UTC</div></div></div></body></html>

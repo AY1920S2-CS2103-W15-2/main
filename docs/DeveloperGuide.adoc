@@ -402,16 +402,32 @@ image::FinaliseScenario4SequenceDiagram.png[]
 
 ==== Design Considerations
 
-===== Aspect: How to display the best interviewees
+===== Aspect: Maintaining the consistency of application state
 
-* **Alternative 1 (current choice):** Clears the current content of best interviewees, then add the
-best interviewees one by one.
-** Pros: Easy to implement.
-** Cons: Have a slightly lower execution time.
-* **Alternative 2:** Creates a new ObservableList for the best interviewee list, then change the Model's
-best interviewees list to point to this list, and the MainWindow's BestIntervieweeListPanel.
-** Pros: Have a slightly faster theoretical execution time.
-** Cons: The implementation is slightly trickier compared to alternative 1 since it involves multiple components of the app.
+* **Alternative 1 (current choice):** Have `finalise` command and disallow CRUD operation to `attributes` and `questions`
+** Pros: There will no be any invalid values or states, like an `attribute` score assigned to null.
+** Cons: Once the user decide to `finalise`, the user can no longer edit the `attributes` and `questions`. THe user will
+need to create a new session if the user wants to.
+* **Alternative 2:** Do not have a `finalise` command. User can perform CRUD operation to `attributes` and `questions` at any time,
+including after interview has been done or some metrics have been created. Deleted `attributes` and `questions` will be removed
+from any part of the application, and newly created `attributes` will have null score and newly created `questions`
+will be assigned to no answers.
+** Pros: More flexibility for the user if the user wants to change the `attributes` and `questions`.
+** Cons: The user might not be aware about the consequence of deleting one `attribute` or `question`, which might lead
+to deletion of the all the `metrics` that uses this `attribute `, removal of all `remarks` associated as the answer of a `question`.
+As new `attribute` are assigned to null score, these interviewees could not be compared with the others with regards to this feature
+when the user is using the `best interviewee` feature.
+User might need to assign the score value of this newly added `attribute` to every single `interviewees` that has been interviewed
+before this addition, which is a tedious and unfriendly operation.
+* **Alternative 3:** Do not have a `finalise` command. User can perform CRUD operation to `attributes` and `questions` at any time,
+including after interview has been done or some metrics have been created. Deleted `attributes` and `questions` will be removed
+from any part of the application, and newly created `attributes` will have a default score and newly created `questions`
+will be assigned to no answers.
+** Pros: More flexibility for the user if the user wants to change the `attributes` and `questions`.
+** Cons: The user might not be aware about the consequence of deleting one `attribute` or `question`, which might lead
+to deletion of the all the `metrics` that uses this `attribute `, removal of all `remarks` associated as the answer of a `question`.
+As new `attribute` are assigned to default score, the result of comparison between this `interviewee` and the others might
+not be accurate anymore.
 // end::validstate[]
 
 
@@ -457,7 +473,7 @@ image::FindBestScenario3SequenceDiagram.png[]
 
 [[Scenario-Ideal-Best-Interviewee-Feature]]
 
-Here is the Full Sequence Diagram for `FindBestCommand` for an ideal case:
+Scenario 4 (Ideal Scenario). Here is the Full Sequence Diagram for `FindBestCommand` for an ideal case:
 
 image::FindBestSequenceDiagram.png[]
 

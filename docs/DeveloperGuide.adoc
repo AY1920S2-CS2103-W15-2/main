@@ -140,6 +140,7 @@ list of the current attribute.
 
 Given below is the Sequence Diagram for interactions within the `Logic` component for the `execute("add attribute leadership")` API call.
 
+[[AddSequenceDiagram]]
 .Interactions Inside the Logic Component for the `add attribute leadership` Command
 image::AddSequenceDiagram.png[]
 
@@ -274,6 +275,128 @@ specific thing, for example a role in the company.
 to start a new session without consulting the user guide.
 
 
+// tag::validstate[]
+=== State Validity and Finalise Feature
+==== Description
+HireLah! can process numerous different inputs from the user, starting from adding an interviewee, adding a metric,
+opening the report of an interviewee, etc. However, not all inputs are valid at any point of time. So, we need to make
+sure that the right commands are accepted at the right phase. In addition, we also need to check that the input received
+is also valid such that the Model component of our application is always in a valid state.
+
+A feature in our application that supports this state validity is the Finalise feature, the feature used to
+finalise the attributes and questions of an interview session, after the user has finished their CRUD operations to the
+attributes and questions. After finalising, the user can no longer change the attributes and questions of this interview
+session.
+
+==== Implementation
+
+Validity of our application state is achieved through three ways, which includes:
+
+* Separation of the application into 3 different phases
+* Command validation by the Parser and Model component
+* Implementation of Finalise feature
+
+===== Separation of the application into 3 different phases
+There are 3 different phases in our application, pre-session, normal, and interview phase. At any point of time, our
+application is in one of these 3 states, and this information is stored inside the model, and it can be retrieved by calling
+`model.getAppPhase()`. The reason behind the separation of the application into 3 different phases is because we need to prevent the user from
+entering invalid commands at any point of time. For example, you cannot start interviewing person B while you are
+interviewing person A. You need to end your interview with person A then you can interview person B.
+
+When the application had just opened, it will immediately enter into the `pre-session phase`, where the user are not allowed
+to do anything except creating a new session or opening other previously-made sessions.
+
+When the user had entered into a session, the application enter the `normal phase`. In this phase, the user can prompt the application
+to execute all of the features in the application, except opening a new session and adding interview-related information
+specific to an interviewee (e.g. adding a remark to person A).
+
+When the application is in the `normal phase` and the user decided to interview a particular interviewee, the application will
+enter to the `interview phase`. During this phase, the user are only allowed to execute commands related to the interview process
+of an interviewee, which includes adding remark, scoring the attribute and adding remarks as the answer to a particular question,
+and toggling view between attributes, questions, or metrics.
+
+The implementation of these 3 different phases is achieved through the presence of 3 different `parsers` in our application.
+After retrieving the `current phase` of the application from the `Model`, the `Logic` component will then decide which `parser` of these 3
+should be used to parse the input. Through this, we make sure that only appropriate and valid `commands` at a particular `phase`
+are accepted at any point of time.
+
+Given below are several examples of usage scenarios when the user prompts for some commands at a certain phase of the application:
+
+Scenario 1. When the user provides a `command` which is not recognized by the `parser` that is associated with the
+current `phase` of the application, the respective `parser` will throw a `ParseException`, informing the user that this
+command is unknown.
+
+image::SessionScenario1SequenceDiagram.png[]
+
+Scenario 2 (Ideal Scenario). When the user provides a `command` which is recognized by the `parser` that is associated with the
+current `phase` of the application, the respective `parser` will parser the `command` and execute the respective `CommandResult`
+to the model. For an example, see <<AddSequenceDiagram>>.
+
+===== Command Validation by the Parser and Model component
+
+By the separation of the application into 3 different phases, we had make sure that the input that is accepted at any particular
+point if time are input that are appropriate at the current application `phase`. However, this does not guarantee that this
+input will be valid according to the current state of the `Model`. For example, if the application is currently at the `normal phase`,
+it will be able to accept the `command` to interview an interviewee. However, if this interviewee has been interviewed before,
+doing an interview to the same person should not be allowed.
+
+Assuming that the prompt inserted by the user is accepted at the `current phase` of the application, given below are
+several examples of usage scenarios:
+
+Scenario 1. When the user provides a `command` that is recognized by the `current phase` of the app but it is missing compulsory fields ,
+the respective `parser` will check against it and throw `ParseException`, informing that the prompt is incomplete. For an example, see
+<<Scenario-1-Best-Interviewee-Feature>>.
+
+Scenario 2. When the user provides a complete and valid command that is recognized by the `current phase` of the application
+but is not valid for the current state, the `Model` will check the command and throw a `CommandException`, informing the user
+that this `command` is invalid for the current state. For an example, see <<Scenario-2-Best-Interviewee-Feature>>.
+
+Scenario 3 (Ideal Scenario). When the user provides a complete and valid `command` that is recognized by the `current phase` of the
+application and is valid for the current state. For an example, see <<Scenario-Ideal-Best-Interviewee-Feature>>.
+
+===== Finalise Feature
+
+Even with all of these implementations of `command` accepting according to the `current phase` and `command` checking in a
+particular `phase`, there is another possibility of invalid state in our application, which happens through the modification
+of the `interview session's` `attributes` and `questions`. For example, a metric which takes in `attribute` `leadership` and `integrity`
+has been created. Later, the user can possibly delete the `attribute` `leadership`. This makes the metric create not valid anymore.
+
+Thus, we need a feature that can indicate that the `interview session` has been `finalised`, which means that all CRUD operations
+to the `attributes` and `questions` of this `interview session` is disallowed. CRUD operations to the `attributes` and `questions`
+are originally accepted in the `normal phase` and if the CRUD operation is valid. However, if the application has entered the
+`finalised` state, this disablement happens regardless of the validity of the phase and command.
+
+The `finalised` state can be achieved through the `Finalise Command` when the user inputs the word `finalise`. Before the application
+is `finalised` the user is not allowed to hold any interview with any interviewee, create any metric and find any best interviewees.
+If the application has reached `finalised` state, the user are allowed to do so.
+
+Assuming that the user is currently on the `normal phase`, the phase which accepts CRUD operations for the `attributes`
+and `questions`, and assuming that the given CRUD operation is valid (e.g. `delete attribute leadership` and
+`attribute` `leadership` was there previously), given below are several examples of usage scenarios when the user prompts are related to Finalise Feature:
+
+Scenario 1. If the application has not been finalised `finalised` and the user tries to interview an interviewee,
+
+Scenario 2. If the application has been `finalised` and the user tries to do CRUD operations to the `attributes` and `questions`,
+
+Scenario 3 (Ideal Scenario). If the application has not been `finalised` and the user tries to do CRUD operations to the `attributes` and `questions`.
+
+Scenario 4 (Ideadl Scenario). If the application has been `finalised` and the user tries to interview an interviewee,
+
+==== Design Considerations
+
+===== Aspect: How to display the best interviewees
+
+* **Alternative 1 (current choice):** Clears the current content of best interviewees, then add the
+best interviewees one by one.
+** Pros: Easy to implement.
+** Cons: Have a slightly lower execution time.
+* **Alternative 2:** Creates a new ObservableList for the best interviewee list, then change the Model's
+best interviewees list to point to this list, and the MainWindow's BestIntervieweeListPanel.
+** Pros: Have a slightly faster theoretical execution time.
+** Cons: The implementation is slightly trickier compared to alternative 1 since it involves multiple components of the app.
+// end::validstate[]
+
+
 // tag::findbestfeature[]
 === Find Best Interviewees Feature
 ==== Description
@@ -293,11 +416,15 @@ The Find Best Interviewee feature is facilitated by the `BestCommand`. It has th
 
 Given below are several examples of usage scenarios when the user prompts for Best Interviewees:
 
+[[Scenario-1-Best-Interviewee-Feature]]
+
 Scenario 1. When the user provides a command with incomplete compulsory fields (e.g. number of interviewees), the
 `BestCommandParser` will throw `ParseException`, informing that the size provided is not an integer because the parser
 takes the preamble of the command to get the value for `numberOfInterviewees`.
 
 image::FindBestScenario1SequenceDiagram.png[]
+
+[[Scenario-2-Best-Interviewee-Feature]]
 
 Scenario 2. When the user provides a command with valid fields, yet there are no interviewees that has been interviewed,
 a `CommandException` is thrown instead, informing that there is no interviewee that has been interviewed, thus no result
@@ -309,6 +436,8 @@ Scenario 3. When the user provides a command with multiple parameters that want 
 is thrown instead, informing that the user has provided more than 1 parameter.
 
 image::FindBestScenario3SequenceDiagram.png[]
+
+[[Scenario-Ideal-Best-Interviewee-Feature]]
 
 Here is the Full Sequence Diagram for `FindBestCommand` for an ideal case:
 

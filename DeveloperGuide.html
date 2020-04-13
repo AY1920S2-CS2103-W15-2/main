@@ -31,8 +31,10 @@
 <li><a href="#state-validity-and-finalise-feature">4.2. State Validity and Finalise Feature</a></li>
 <li><a href="#find-best-interviewees-feature">4.3. Find Best Interviewees Feature</a></li>
 <li><a href="#updating-ui-elements-after-user-commands">4.4. Updating UI elements after user commands</a></li>
-<li><a href="#logging">4.5. Logging</a></li>
-<li><a href="#Implementation-Configuration">4.6. Configuration</a></li>
+<li><a href="#saving-of-the-interviewee">4.5. Saving of the Interviewee</a></li>
+<li><a href="#updating-ui-elements-after-user-commands-2">4.6. Updating UI elements after user commands</a></li>
+<li><a href="#logging">4.7. Logging</a></li>
+<li><a href="#Implementation-Configuration">4.8. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a></li>
@@ -1163,14 +1165,31 @@ In addition, we made use of Observable classes to reduce the number of times an 
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">4.5. Logging</a></h3>
+<h3 id="saving-of-the-interviewee"><a class="link" href="#saving-of-the-interviewee">4.5. Saving of the Interviewee</a></h3>
+<div class="sect3">
+<h4 id="description-4"><a class="link" href="#description-4">4.5.1. Description</a></h4>
+<div class="paragraph">
+<p>The <code>Interviewee</code> class contains various fields, one of the more troublesome fields to save is the <code>Transcript</code>
+of the <code>Interviewee</code> as it contains the <code>RemarkList</code> and a <code>Hashmap</code> of <code>Attribute</code> to score, which is stored as
+<code>Double</code>. Additionally, <code>Interviewee `can only have `Transcript</code> once they have been interviewed and when the model is finalised.
+Hence, our group decided to split the saving of the <code>Transcript</code> from other fields of the the Interviewee such as the
+name of the <code>Interviewee</code>.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="updating-ui-elements-after-user-commands-2"><a class="link" href="#updating-ui-elements-after-user-commands-2">4.6. Updating UI elements after user commands</a></h3>
+
+</div>
+<div class="sect2">
+<h3 id="logging"><a class="link" href="#logging">4.7. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.6, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.8, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1201,7 +1220,7 @@ In addition, we made use of Observable classes to reduce the number of times an 
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.6. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.8. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -3532,4 +3551,4 @@ Expected: Charlie and Alice will be shown in the best interviewees list.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 15:08:26 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 15:11:09 UTC</div></div></div></body></html>

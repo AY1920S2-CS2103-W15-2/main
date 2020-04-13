@@ -473,7 +473,7 @@ image::FindBestScenario3SequenceDiagram.png[]
 
 [[Scenario-Ideal-Best-Interviewee-Feature]]
 
-Scenario 4 (Ideal Scenario). Here is the Full Sequence Diagram for `FindBestCommand` for an ideal case:
+Scenario 4 (Ideal Scenario). Here is the Sequence Diagram for `FindBestCommand` for an ideal case (minor method calls are omitted):
 
 image::FindBestSequenceDiagram.png[]
 

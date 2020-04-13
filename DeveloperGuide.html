@@ -373,26 +373,29 @@ whether being interviewed or whose report is being viewed.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>can save <code>UserPref</code> objects in json format and read it back.</p>
-</li>
-<li>
-<p>can save the Model data in json format and read it back.</p>
+<p>contains the various classes of <strong>Storages</strong> to support the following features.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Save IntervieweeList to interviewee.json</p>
+<p><code>UserPrefsStorage</code> saves <code>UserPref</code> objects in json format and read it back.</p>
 </li>
 <li>
-<p>Save AttributeList to attribute.json</p>
+<p><code>ModelStorage</code> saves the <code>Model</code> data in json format and read it back.</p>
 </li>
 <li>
-<p>Save QuestionList to question.json</p>
+<p><code>IntervieweeStorage</code> saves <code>IntervieweeList</code> to interviewee.json and read it back.</p>
 </li>
 <li>
-<p>Save MetricList to metric.json</p>
+<p><code>AttributeStorage</code> saves <code>AttributeList</code> to attribute.json and read it back.</p>
 </li>
 <li>
-<p>Save Transcripts of individual interviewees to separate json files in /transcript</p>
+<p><code>QuestionStorage</code> saves <code>QuestionList</code> to question.json and read it back.</p>
+</li>
+<li>
+<p><code>MetricStorage</code> saves <code>MetricList</code> to metric.json and read it back.</p>
+</li>
+<li>
+<p><code>TranscriptStorage</code> saves <code>Transcripts</code> of individual interviewees to separate json files in /transcript</p>
 <div class="ulist">
 <ul>
 <li>
@@ -405,6 +408,49 @@ whether being interviewed or whose report is being viewed.</p>
 </div>
 </li>
 </ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/IntervieweeStorageClassDiagram.png" alt="IntervieweeStorageClassDiagram">
+</div>
+<div class="title">Figure 9. Structure of the IntervieweeStorage Component</div>
+</div>
+<div class="paragraph">
+<p><strong>API</strong> : <a href="https://github.com/AY1920S2-CS2103-W15-2/main/src/main/java/hirelah/storage/Storage.java"><code>IntervieweeStorage.java</code></a></p>
+</div>
+<div class="paragraph">
+<p>The <code>IntervieweeStorage</code> component,
+is responsible for saving an <code>IntervieweeList</code>.
+An <code>Interviewee</code> contains a <code>Transcript</code> which holds contain the <code>RemarkList</code> and a <code>Hashmap</code> of <code>Attribute</code> to score.</p>
+</div>
+<div class="paragraph">
+<p>During the interview, the interviewee will rate certain desirable <code>Attribute</code> with a certain score, this is stored in
+the <code>Hashmap</code>.<code>RemarkList</code> contains all the <code>Remarks</code> for the <code>Interviewee</code> during the interview.</p>
+</div>
+<div class="paragraph">
+<p>The interviewer may give a particular <code>Remark</code> based on certain <code>Question</code>, hence the <code>RemarkList</code> would depend on the
+<code>QuestionList</code> to check for its validity.</p>
+</div>
+<div class="paragraph">
+<p>There is also a need to check for the validity of <code>Hashmap</code> by checking the <code>Attribute</code> given in the <code>Hashmap</code> against the
+<code>AttributeList</code>, which result in the dependency between <code>JsonSerializableTranscript</code> and <code>AttributeList</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AttributeStorageClassDiagram.png" alt="AttributeStorageClassDiagram">
+</div>
+<div class="title">Figure 10. Structure of the AttributeStorage Component</div>
+</div>
+<div class="paragraph">
+<p><strong>API</strong> : <a href="https://github.com/AY1920S2-CS2103-W15-2/main/src/main/java/hirelah/storage/Storage.java"><code>AttributeStorage.java</code></a></p>
+</div>
+<div class="paragraph">
+<p>All the <code>Attribute</code> are being stored as a list which is saved in a json file. When converting the json file back
+their <code>Attribute</code> Object, the <code>JsonSerializableAttributes</code> and <code>JsonAdaptedAttributes</code> classes are being deployed.</p>
+</div>
+<div class="paragraph">
+<p>The other types of storages contains the identical structure similar to  <code>AttributeStorage</code> , they
+are being omitted.</p>
 </div>
 </div>
 <div class="sect2">
@@ -2949,4 +2995,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 12:17:32 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 12:20:23 UTC</div></div></div></body></html>

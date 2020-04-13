@@ -691,7 +691,48 @@ Deleted question: What do you hope to accomplish in 5 years?</pre>
 </div>
 </div>
 <div class="sect3">
-<h4 id="switching-views"><a class="link" href="#switching-views">5.3.6. Switching views</a></h4>
+<h4 id="load-attributes-and-questions-from-other-session"><a class="link" href="#load-attributes-and-questions-from-other-session">5.3.6. Load Attributes and Questions from other Session</a></h4>
+<div class="paragraph">
+<p>In case of having multiple sessions with the same attributes and questions. There is a <code>load</code> command
+to load attributes and questions from other session. Therefore, there is no extra work to do.</p>
+</div>
+<div class="paragraph">
+<p><strong>Command</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>load attribute &lt;session&gt;
+load question &lt;session&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Example</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&gt; load attribute ceo
+&gt; load question janitor</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><em>Output:</em></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Loaded attributes from ceo
+
+Loaded questions from janitor</pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/Screenshots/Load.png" alt="Load">
+</div>
+</div>
+<div class="paragraph">
+<p><br>
+==== Switching views</p>
+</div>
 <div class="paragraph">
 <p>When working on the attributes, questions and metrics (more about metrics in <a href="#Metrics">Section 5.5.2, &#8220;Add, Edit and Delete Metrics&#8221;</a>),
 <strong>HireLah!</strong> displays the relevant content you are working on on the right side of the application.
@@ -1507,7 +1548,7 @@ interviewee, the button will say "No Resume" instead, and clicking on the button
 <h3 id="keeping-track-of-interview-rubrics"><a class="link" href="#keeping-track-of-interview-rubrics">6.3. Keeping Track of Interview Rubrics</a></h3>
 <div class="paragraph">
 <p>You may wish to refer to the attributes, questions and metrics created during an interview. As an alternative to typing
-the switching views commands (See <a href="#switching-views">Section 5.3.6, &#8220;Switching views&#8221;</a>), you may also click on the respective tab headers to view the list.</p>
+the switching views commands (See <a href="#Switching views">[Switching views]</a>), you may also click on the respective tab headers to view the list.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1710,4 +1751,4 @@ e.g. <code>best 5 -m extremeDictatorship</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 06:17:22 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 06:23:58 UTC</div></div></div></body></html>

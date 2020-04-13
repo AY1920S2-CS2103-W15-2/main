@@ -1801,6 +1801,38 @@ interview is incomplete!</p>
 <h2 id="command-summary"><a class="link" href="#command-summary">8. Command Summary</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
+<p><strong>Utility commands</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Open User Guide: <code>help</code></p>
+</li>
+<li>
+<p>Exit app: <code>exit</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Sessions</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Start new session: <code>new &lt;session name&gt;</code><br>
+e.g. <code>new ceo interview</code></p>
+</li>
+<li>
+<p>Open existing session: <code>open &lt;session name&gt;</code><br>
+e.g. <code>open ceo interview</code></p>
+</li>
+<li>
+<p>Delete existing session: <code>delete &lt;session name&gt;</code><br>
+e.g. <code>delete ceo interview</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
 <p><strong>Initialization Phase</strong></p>
 </div>
 <div class="ulist">
@@ -1906,18 +1938,17 @@ e.g. <code>:set Agility 10</code></p>
 e.g. <code>open Jane Doe</code></p>
 </li>
 <li>
-<p>Close an interviewee report: <code>close &lt;interviewee&gt;</code><br>
-e.g. <code>close Jane Doe</code></p>
+<p>Close an interviewee report: <code>close report</code></p>
 </li>
 <li>
 <p>Export interview report of an interviewee: <code>export &lt;interviewee&gt;</code></p>
 </li>
 <li>
-<p>Navigate to answer of interviewee: <code>q&lt;question number&gt;</code><br>
+<p>Navigate to answer of interviewee: <code>goto q&lt;question number&gt;</code><br>
 e.g. <code>goto q4</code></p>
 </li>
 <li>
-<p>Navigate to a time of interviewee: <code>at &lt;time&gt;</code><br>
+<p>Navigate to a time of interviewee: <code>goto &lt;time&gt;</code><br>
 e.g. <code>goto 30.00</code></p>
 </li>
 <li>
@@ -1928,17 +1959,17 @@ e.g. <code>add metric -a ambition -w 0.9 -a leadership -w 0.1</code></p>
 <p>List metrics: <code>metrics</code></p>
 </li>
 <li>
-<p>Find the Best N candidates based on average attribute: <code>interviewee -best &lt;no_of_candidates&gt;</code></p>
+<p>Find the Best N candidates based on average attribute: <code>interviewees -best &lt;no_of_candidates&gt;</code></p>
 </li>
 <li>
-<p>Find the Best N candidates based on a particular attribute: <code>interviewee -best &lt;no_of_candidates&gt; -a &lt;attribute&gt;</code><br>
-e.g. <code>best 3 -a strength</code></p>
+<p>Find the Best N candidates based on a particular attribute: <code>interviewees -best &lt;no_of_candidates&gt; -a &lt;attribute&gt;</code><br>
+e.g. <code>interviewees -best 3 -a strength</code></p>
 </li>
 <li>
-<p>Find the Best N candidates based on a metric: <code>interviewee -best &lt;no_of_candidates&gt; -m &lt;metric&gt;</code><br>
-e.g. <code>best 5 -m extremeDictatorship</code></p>
+<p>Find the Best N candidates based on a metric: <code>interviewees -best &lt;no_of_candidates&gt; -m &lt;metric&gt;</code><br>
+e.g. <code>interviewees -best 5 -m extremeDictatorship</code></p>
 </li>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 14:11:01 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 14:19:50 UTC</div></div></div></body></html>

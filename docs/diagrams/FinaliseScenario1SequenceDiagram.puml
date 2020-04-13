@@ -31,7 +31,7 @@ activate NormalParser
 
 create StartInterviewCommand
 NormalParser -> StartInterviewCommand
-activate StartInterviewCommand 
+activate StartInterviewCommand
 
 StartInterviewCommand --> NormalParser : d
 deactivate StartInterviewCommand

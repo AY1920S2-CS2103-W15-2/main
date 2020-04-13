@@ -32,7 +32,7 @@ activate NormalParser
 
 create StartInterviewCommand
 NormalParser -> StartInterviewCommand
-activate StartInterviewCommand 
+activate StartInterviewCommand
 
 StartInterviewCommand --> NormalParser : d
 deactivate StartInterviewCommand
@@ -48,7 +48,7 @@ activate StartInterviewCommand
 StartInterviewCommand -> ModelUtil : validateFinalisation()
 activate ModelUtil
 
-ModelUtil --> StartInterviewCommand 
+ModelUtil --> StartInterviewCommand
 deactivate ModelUtil
 'Hidden arrow to position the destroy marker below the end of the activation bar.
 ModelUtil -[hidden]-> StartInterviewCommand

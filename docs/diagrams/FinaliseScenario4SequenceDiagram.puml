@@ -63,7 +63,7 @@ activate AddAttributeCommand
 AddAttributeCommand -> ModelUtil : validateFinalisation()
 activate ModelUtil
 
-ModelUtil --> AddAttributeCommand 
+ModelUtil --> AddAttributeCommand
 deactivate ModelUtil
 'Hidden arrow to position the destroy marker below the end of the activation bar.
 ModelUtil -[hidden]-> AddAttributeCommand

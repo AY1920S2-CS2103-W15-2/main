@@ -498,15 +498,15 @@ to load attributes and questions from other session. Therefore, there is no extr
 *Command*
 
 ....
-load attribute <session>
-load question <session>
+load attributes <session>
+load questions <session>
 ....
 
 *Example*
 
 ....
-> load attribute ceo
-> load question janitor
+> load attributes ceo
+> load questions janitor
 ....
 
 _Output:_
@@ -632,7 +632,6 @@ Interview with Jane Doe started!
 
 image::Screenshots/Interview.png[]
 {empty} +
-
 
 
 ==== Record Remarks
@@ -816,11 +815,11 @@ image::Screenshots/EndInterview.png[]
 After interviewing a candidate, you can view the interview transcript any
 time by doing an open command. To close the report, you can use a close command.
 
-*Command*
+*Command
 ....
 
 open <interviewee>
-close <interviewee>
+close report
 ....
 
 *Example*

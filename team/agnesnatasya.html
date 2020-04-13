@@ -4,7 +4,7 @@
 <h2 id="about-the-project"><a class="link" href="#about-the-project">About the Project</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>HireLah! is targeted to bring greater convenience to interviewers who can type quickly and prefer typing over mouse<br>
+<p>HireLah! is targeted to bring greater convenience to interviewers who can type quickly and prefer typing over mouse
 commands. Additionally, we included customised features in our desktop apps to help interviewers to manage interviews.</p>
 </div>
 </div>
@@ -13,47 +13,44 @@ commands. Additionally, we included customised features in our desktop apps to h
 <h2 id="role"><a class="link" href="#role">Role</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>My contribution to the project includes implementing the parser for most of the commands that that was passed as input by the user.
-I was also involved in building the foundation blocks of an interview report, the transcript. I had also implemented the navigation commands,
-the commands that are used when the user want to navigate to a certain remark of the interview report of a particular interviewee.</p>
+<p>My contribution to the project includes implementation of command to open an interview report, exporting an interview report
+and command for navigation to a certain part of the interview report. I also implemented
+the parser for most of the commands, with test coverage increase of 93% in class, 88% in method and 90% in line amount.
+I was also involved in building the implementing the transcript of an interviewee.</p>
 </div>
 <div class="paragraph">
-<p>I also contributed to the UserGuide and DeveloperGuide of the application.</p>
+<p>I also contributed to the UserGuide, which includes a total of 6 different sections in the User Guide and DeveloperGuide,
+which includes detailed implementation of the state validity of the application, with a total of 7 UML diagrams.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of Contributions</a></h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>It is the placeholder of all information
-of a particular interview with an interviewee, including the remarks, the attributes and the score associated with it, as well as remarks
-associated as the answer to a particular question.</p>
-</div>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement #1</strong>: Implemented the parser for <strong>create, update, and delete</strong> commands of attributes, interviewees, and questions</p>
+<p><strong>Major enhancement #1</strong>: Implemented <strong>export report</strong> command for exporting a particular interview report as a PDF.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: allows the user to perform an addition, deletion and edition of attributes, interviewees, and questions
-of an interview session according to input message to the CLI</p>
+<p>What it does: allows the user to export the report of a particular interviewee in a distributable and highly useful form, which is PDF.</p>
 </li>
 <li>
-<p>Justification: These features are a crucial part of the application as it allows the user to add properties to the interview session
-in order to be able to start the interview.</p>
+<p>Justification: These features are very useful for the user as it allows them to retain a copy of the interview report outside
+the application itself and it is exported in a distributable form.</p>
 </li>
 <li>
-<p>Highlights: This enhancement are totally new and was not part of the codebase. The implementation too was challenging
-as it required careful considerations on the different possible input received from the user and to handle incorrect and
-correct input formats properly. I also added unit tests that covers most of the cases in these parser.</p>
+<p>Highlights: This enhancement are very challenging and tedious. I used Apache PDF Box library and it does not have a lot of
+support in text wrapping, positioning and pagination. Thus, I have to manually calculate and split sentences that are to be written in the PDF.
+In addition, I need to manually split  paragraphs or sections that could not fit into the current page. Furthermore, for every line
+that is written, I have to manually calculate the x and y coordinate of the starting point of this line.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Major enhancement #2</strong>: Implemented <strong>open report</strong> commands for opening a particular interview report.</p>
+<p><strong>Major enhancement #2</strong>: Implemented <strong>open report</strong> command for opening a particular interview report.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -90,8 +87,29 @@ consideration of the current interviewee, the bounds and input format given by t
 </div>
 </li>
 <li>
-<p><strong>Minor enhancement</strong>: added a finalise command for user to indicate if he/she wants to finalise the properties of an
-interview session and thus can start interviewing.</p>
+<p><strong>Major enhancement #4</strong>: Implemented the parser for <strong>create, update, and delete</strong> commands of attributes, interviewees, and questions</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: allows the user to perform an addition, deletion and edition of attributes, interviewees, and questions
+of an interview session according to input message to the CLI</p>
+</li>
+<li>
+<p>Justification: These features are a crucial part of the application as it allows the user to add properties to the interview session
+in order to be able to start the interview.</p>
+</li>
+<li>
+<p>Highlights: This enhancement are totally new and was not part of the codebase. The implementation too was challenging
+as it required careful considerations on the different possible input received from the user and to handle incorrect and
+correct input formats properly. I also added unit tests that covers most of the cases in these parser.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Minor enhancement #1</strong>: Implemented the building block of the interviewee transcript, which is the placeholder of all information
+of a particular interview with an interviewee, including the remarks, the attributes and the score associated with it, as well as remarks
+associated as the answer to a particular question.</p>
 </li>
 <li>
 <p><strong>Code contributed</strong>: [<a href="https://nus-cs2103-ay1920s2.github.io/tp-dashboard/#search=agnesnatasya">Collated code</a>]</p>
@@ -101,31 +119,22 @@ interview session and thus can start interviewing.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Project management:</p>
+<p>Project management (team-based tasks and review contribution):</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Created issues for respective milestones from v1.1 to v1.4.</p>
+<p>Created issues for respective milestones from v1.1 to v1.4 and assign them to my teammates.</p>
 </li>
 <li>
-<p>Assigned issues to some teammates.</p>
+<p>Report bugs discovered in the app and issue it to the team (e.g. <a href="https://github.com/AY1920S2-CS2103-W15-2/main/issues/197">#197</a>)</p>
 </li>
 <li>
-<p>Reviewed pull requests from other members of the team (e.g. <a href="https://github.com/AY1920S2-CS2103-W15-2/main/pull/121">#121</a>,
-<a href="https://github.com/AY1920S2-CS2103-W15-2/main/pull/96">#96</a>, <a href="https://github.com/AY1920S2-CS2103-W15-2/main/pull/81">#81</a>.</p>
-</li>
-</ul>
-</div>
+<p>Reviewed pull requests from other members of the team (e.g. <a href="https://github.com/AY1920S2-CS2103-W15-2/main/pull/186">#186</a>,
+<a href="https://github.com/AY1920S2-CS2103-W15-2/main/pull/121">#121</a>, <a href="https://github.com/AY1920S2-CS2103-W15-2/main/pull/96">#96</a>,
+<a href="https://github.com/AY1920S2-CS2103-W15-2/main/pull/81">#81</a>)</p>
 </li>
 <li>
-<p>Enhancements to existing features:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Enhanced the codebase and refactor it to suite the need of our application.</p>
-</li>
-<li>
-<p>Removed code from the codebase that are no longer used for the current application.</p>
+<p>Created the logo for HireLah!</p>
 </li>
 </ul>
 </div>
@@ -136,8 +145,15 @@ interview session and thus can start interviewing.</p>
 <ul>
 <li>
 <p>Enhanced user guide and developer guide to document things specific to our application (e.g.
-<a href="https://github.com/AY1920S2-CS2103-W15-2/main/pull/110">#110</a>, <a href="https://github.com/AY1920S2-CS2103-W15-2/main/pull/119">#119</a>.
-<a href="https://github.com/AY1920S2-CS2103-W15-2/main/pull/122">#122</a>, <a href="https://github.com/AY1920S2-CS2103-W15-2/main/pull/136">#136</a>.</p>
+<a href="https://github.com/AY1920S2-CS2103-W15-2/main/pull/218">#128</a>, <a href="https://github.com/AY1920S2-CS2103-W15-2/main/pull/110">#110</a>,
+<a href="https://github.com/AY1920S2-CS2103-W15-2/main/pull/119">#119</a>. <a href="https://github.com/AY1920S2-CS2103-W15-2/main/pull/122">#122</a>,
+<a href="https://github.com/AY1920S2-CS2103-W15-2/main/pull/136">#136</a>)</p>
+</li>
+<li>
+<p>Documented a total of 6 sections describing the features of HireLah! in the User Guide.</p>
+</li>
+<li>
+<p>Documented the detail of state validity and finalise feature of HireLah! in the Developer Guide, with a total of 7 UML diagrams created.</p>
 </li>
 <li>
 <p>Removed irrelevant documentation of the codebase.</p>
@@ -147,24 +163,11 @@ interview session and thus can start interviewing.</p>
 </li>
 <li>
 <p>Community:</p>
-</li>
-<li>
-<p>Community:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Discovered bug in other teams project and gave suggestions to remove those bugs
+<p>Reported bugs in other teams project and gave suggestions to remove them
 (e.g. <a href="https://github.com/AY1920S2-CS2103T-F10-4/main/issues/158">158</a>, <a href="https://github.com/nus-cs2103-AY1920S2/duke/pull/151">151</a>)</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Tools:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Our team used TravisCI for building the project (<a href="https://github.com">#42</a>)</p>
 </li>
 </ul>
 </div>
@@ -179,294 +182,31 @@ interview session and thus can start interviewing.</p>
 <div class="sect1">
 <h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
 <div class="sectionbody">
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 100%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
-</tr>
-</tbody>
-</table>
 <div class="paragraph">
-<p>I have edited the user guide to comply with our application. I wrote parts in user guide specifically for the
-add, edit and delete commands of attributes, questions and interviewees. I also added guide for the navigation command.</p>
+<p>I contributed to the user guide to make it comply with our application function. I wrote parts in user guide specifically for the
+add, edit and delete commands of attributes, questions and interviewees. I also added guide for the feature to open an interview report,
+exporting an interview report and navigation to a certain part of the interview report feature.</p>
 </div>
 <div class="paragraph">
 <p>In addition, I also provides screenshots of the result of all commands execution that is included in the user guide
-to increase understandability and readability by the user.</p>
+to increase understandability and readability by the user. I also contributed to the summary of all the commands available in the application.
+Here are some of the example of my contributions to the User Guide.</p>
 </div>
 <div class="sect2">
-<h3 id="add-edit-and-delete-commands-for-attributes-interviewees-and-questions"><a class="link" href="#add-edit-and-delete-commands-for-attributes-interviewees-and-questions">Add, Edit and Delete Commands for Attributes, Interviewees, and Questions</a></h3>
+<h3 id="open-report-command"><a class="link" href="#open-report-command">Open Report Command</a></h3>
 <div class="sect3">
-<h4 id="add-edit-and-delete-interviewees"><a class="link" href="#add-edit-and-delete-interviewees">Add, Edit and Delete Interviewees</a></h4>
+<h4 id="viewing-interviewee-reports"><a class="link" href="#viewing-interviewee-reports">Viewing Interviewee Reports</a></h4>
 <div class="paragraph">
-<p><strong>HireLah!</strong> allows you to manage your list of candidates from within the app. You can add interviewees to the list
-by giving their full name, and <strong>HireLah!</strong> automatically generates a unique ID for each candidate. To make things easier,
-you can also specify an alias (a shorter name) to the interviewee, so you need not memorise their IDs or type out their
-full names every time.</p>
+<p>After interviewing a candidate, you can view the interview transcript any
+time by doing an open command. To close the report, you can use a close command.</p>
 </div>
 <div class="paragraph">
-<p>Whenever you see <code>&lt;interviewee&gt;</code>, it means that you can specify the interviewee you are referring to via any of his/her
-unique identifiers - ID, full name or alias.</p>
-</div>
-<div class="paragraph">
-<p>At any time you can delete any interviewees and edit their information.</p>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-Most names and aliases are accepted - even non-English names or names with funny punctuation and numbers (eg. Larry O&#8217;Brien the 3rd).
-Your interviewees could come from anywhere after all. But do not give blanks or a name full of numbers (eg. 12345)!
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-If you are adding an interviewee with an alias, but you accidentally give an invalid alias (the same as another interviewee&#8217;s name or alias)
-<strong>HireLah!</strong> does what it can - it adds the interviewee, but tells you that it failed to add the alias.<br>
-If you are editing an interviewee and specify both a new name and new alias, if either are invalid, <strong>HireLah!</strong> will prevent you from performing that action!
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p><strong>Commands</strong></p>
+<p>*Command</p>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>add interviewee &lt;full name&gt; [-aka &lt;alias&gt;]
-edit interviewee &lt;interviewee&gt; [-n &lt;new full name&gt;] [-aka &lt;new alias&gt;]
-delete interviewee &lt;interviewee&gt;</pre>
-</div>
-</div>
-<div class="paragraph">
-<p><strong>Execution Example</strong></p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>&gt; add interviewee Jane Doe -aka Doe
-&gt; edit interviewee Jane Doe -n Janice Doe -aka JDoe
-&gt; delete interviewee Janice Doe</pre>
-</div>
-</div>
-<div class="paragraph">
-<p><em>Action:</em> Interviewee Jane Doe with alias of Doe is first created and
-then her name is changed to Janice Doe.</p>
-</div>
-<div class="paragraph">
-<p><em>Output:</em></p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>New interviewee added: Jane Doe
-
-Edited interviewee: Jane Doe
-
-Deleted interviewee: Janice Doe</pre>
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/Screenshots/Interviewee.png" alt="Interviewee">
-</div>
-</div>
-<div class="paragraph">
-<p><br></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="upload-resume"><a class="link" href="#upload-resume">Upload Resume</a></h4>
-<div class="paragraph">
-<p>Interviewer can upload a resume for a specific interviewee. If the path is specified,
-the resume will be uploaded from the specified path. Otherwise, it will open a file-picker.</p>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-<strong>HireLah!</strong> does <strong>NOT</strong> copy the file you upload! It merely remembers the location of the resume.
-If you delete or move the file, <strong>HireLah!</strong> can no longer open the resume!<br>
-We recommend that you organize all the resumes in a folder, perhaps next to the <code>/data</code> directory.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p><strong>Command</strong></p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>upload &lt;interviewee&gt; [-p &lt;path&gt;]</pre>
-</div>
-</div>
-<div class="paragraph">
-<p><strong>Execution Example</strong></p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>&gt; upload Jane Doe</pre>
-</div>
-</div>
-<div class="paragraph">
-<p><em>Action:</em> Resume is selected by the user via a file-picker window and then uploaded for the interviewee Jane Doe.</p>
-</div>
-<div class="paragraph">
-<p><em>Output after selecting the resume file:</em></p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>Successfully added the resume!</pre>
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/Screenshots/Upload.png" alt="Upload">
-</div>
-</div>
-<div class="paragraph">
-<p><br></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="open-resume"><a class="link" href="#open-resume">Open Resume</a></h4>
-<div class="paragraph">
-<p>Interviewer can open a resume from a specific interviewee.</p>
-</div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
-</td>
-<td class="content">
-Note: Make sure you have a default app for viewing PDF files, or whatever format your resumes are in!
-<strong>HireLah!</strong> tries to open the file you give as a resume, but if your system does not know how to open the file,
-<strong>HireLah!</strong> will not be able to help! As far as <strong>HireLah!</strong> is concerned, it has successfully performed its job
-to request your system to open the file.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p><strong>Command</strong></p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>resume Jane Doe</pre>
-</div>
-</div>
-<div class="paragraph">
-<p><em>Action:</em> Jane Doe&#8217;s resume is opened.</p>
-</div>
-<div class="paragraph">
-<p><em>Output:</em></p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>Resume of Jane Doe opened.</pre>
-</div>
-</div>
-<div class="paragraph">
-<p><br></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="add-edit-and-delete-attributes"><a class="link" href="#add-edit-and-delete-attributes">Add, Edit and Delete Attributes</a></h4>
-<div class="paragraph">
-<p>In an interview, you often look out for a particular set of attributes in your candidates.
-<strong>HireLah!</strong> lets you keep track of what to look out for during the interview, and even assign
-scores for each attribute to the interviewees so you can compare them after interviewing.</p>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-An attribute&#8217;s name can only contain alphabets and spaces, and it should not be blank!
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p><strong>Command</strong></p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>&gt; add attribute &lt;attribute&gt;
-&gt; edit attribute &lt;old attribute&gt; -a &lt;new attribute&gt;
-&gt; delete attribute &lt;attribute&gt;</pre>
-</div>
-</div>
-<div class="paragraph">
-<p><strong>Execution Example</strong></p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>&gt; add attribute teamwork
-&gt; add attribute leadersip
-&gt; edit attribute leadersip -a leadership
-&gt; delete attribute teamwork</pre>
-</div>
-</div>
-<div class="paragraph">
-<p><em>Action:</em> teamwork and leadersip is first added. leadersip (with a typo) is edited
-to leadership, and then teamwork is deleted.</p>
-</div>
-<div class="paragraph">
-<p><em>Output:</em></p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>New attribute added: teamwork
-
-New attribute added: leadersip
-
-Edited attribute: leadersip to leadership
-
-Deleted attribute: teamwork</pre>
-</div>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/Screenshots/Attribute.png" alt="Attribute">
-</div>
-</div>
-<div class="paragraph">
-<p><br></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="add-edit-and-delete-interview-questions"><a class="link" href="#add-edit-and-delete-interview-questions">Add, Edit and Delete Interview Questions</a></h4>
-<div class="paragraph">
-<p>Before the interview process, the interviewer may wish to review the
-questions. During review process before the commencement of interviews, the interviewer may want to add more
-questions, remove unnecessary questions or modify existing questions.</p>
-</div>
-<div class="paragraph">
-<p><strong>Command</strong></p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>add question &lt;question description&gt;
-edit question &lt;question number&gt; -q &lt;edited question&gt;
-delete question &lt;question number&gt;</pre>
+<pre>open &lt;interviewee&gt;
+close report</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -474,36 +214,24 @@ delete question &lt;question number&gt;</pre>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>&gt; add question What are your relevant experiences?
-&gt; add question What are your strengths?
-&gt; edit question 1 -q What do you hope to accomplish in 5 years?
-&gt; edit question 2 -q How can you add value to the company?
-&gt; delete question 1</pre>
+<pre>&gt; open Jane Doe</pre>
 </div>
 </div>
 <div class="paragraph">
-<p><em>Action:</em> The question "What are your relevant experiences?" will be added first, followed by the question "What are
-your strengths?". Then, question 1 and 2 are edited, before question 1 is deleted.</p>
+<p><em>Action</em>: Shows the entire list of remarks made during the interview, with
+their timestamps.</p>
 </div>
 <div class="paragraph">
-<p><em>Output:</em></p>
+<p><em>Output</em>:</p>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>New question added: What are your relevant experiences?
-
-New question added: What are your strengths?
-
-Edited question 1 to What do you hope to accomplish in 5 years?
-
-Edited question 2 to How can you add value to the company?
-
-Deleted question: What do you hope to accomplish in 5 years?</pre>
+<pre>Successfully opened Interviewee report: Jane Doe</pre>
 </div>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/Screenshots/Question.png" alt="Question">
+<img src="../images/Screenshots/Report.png" alt="Report">
 </div>
 </div>
 <div class="paragraph">
@@ -512,8 +240,46 @@ Deleted question: What do you hope to accomplish in 5 years?</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="open-report-command"><a class="link" href="#open-report-command">Open Report Command</a></h3>
-
+<h3 id="export-command"><a class="link" href="#export-command">Export Command</a></h3>
+<div class="sect3">
+<h4 id="exporting-interviewee-reports-to-pdf"><a class="link" href="#exporting-interviewee-reports-to-pdf">Exporting Interviewee Reports to PDF</a></h4>
+<div class="paragraph">
+<p>After interviewing a candidate, you can also export the report of the interviewee
+in the form of a PDF.</p>
+</div>
+<div class="paragraph">
+<p><strong>Command</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>export &lt;interviewee&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Example</strong></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&gt; export Jane Doe</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><em>Action</em>: Exports the interview report of a particular interviewee in PDF.</p>
+</div>
+<div class="paragraph">
+<p><em>Output</em>:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Report of Anna exported in /Users/jane/main with file name "2.pdf".</pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/Screenshots/Export.png" alt="Export">
+</div>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="navigation-command"><a class="link" href="#navigation-command">Navigation Command</a></h3>
@@ -610,19 +376,268 @@ The user can scroll up and down to see the rest of the remarks.</p>
 <div class="sect1">
 <h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
 <div class="sectionbody">
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 100%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
-</tr>
-</tbody>
-</table>
 <div class="paragraph">
-<p>My contributions to the developer guide includes remaking UML diagram for ModelClassDiagram, as well as editing the
-descriptions and instructions in the developer guide that was customised for the codebase instead of our current application.</p>
+<p>My contributions to the developer guide includes providing one of the most important feature in the application which is
+state validity and finalise feature. I also remade the UML diagram for ModelClassDiagram, as well as editing the
+descriptions and instructions in the developer guide that was customised for the codebase instead of our current application.
+In total, I created 7 UML diagrams in the developer guide.</p>
+</div>
+<div class="sect2">
+<h3 id="state-validity-and-finalise-feature"><a class="link" href="#state-validity-and-finalise-feature">State Validity and Finalise Feature</a></h3>
+
+</div>
+<div class="sect2">
+<h3 id="state-validity-and-finalise-feature-2"><a class="link" href="#state-validity-and-finalise-feature-2">State Validity and Finalise Feature</a></h3>
+<div class="sect3">
+<h4 id="description"><a class="link" href="#description">Description</a></h4>
+<div class="paragraph">
+<p>HireLah! can process numerous different inputs from the user, starting from adding an interviewee, adding a metric,
+opening the report of an interviewee, etc. However, not all inputs are valid at any point of time. So, we need to make
+sure that the right commands are accepted at the right phase. In addition, we also need to check that the input received
+is also valid such that the Model component of our application is always in a valid state.</p>
+</div>
+<div class="paragraph">
+<p>A feature in our application that supports this state validity is the Finalise feature, the feature used to
+finalise the attributes and questions of an interview session, after the user has finished their CRUD operations to the
+attributes and questions. After finalising, the user can no longer change the attributes and questions of this interview
+session.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
+<div class="paragraph">
+<p>Validity of our application state is achieved through three ways, which includes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Separation of the application into 3 different phases</p>
+</li>
+<li>
+<p>Command validation by the Parser and Model component</p>
+</li>
+<li>
+<p>Implementation of Finalise feature</p>
+</li>
+</ul>
+</div>
+<div class="sect4">
+<h5 id="separation-of-the-application-into-3-different-phases"><a class="link" href="#separation-of-the-application-into-3-different-phases">Separation of the application into 3 different phases</a></h5>
+<div class="paragraph">
+<p>There are 3 different phases in our application, pre-session, normal, and interview phase. At any point of time, our
+application is in one of these 3 states, and this information is stored inside the model, and it can be retrieved by calling
+<code>model.getAppPhase()</code>. The reason behind the separation of the application into 3 different phases is because we need to prevent the user from
+entering invalid commands at any point of time. For example, you cannot start interviewing person B while you are
+interviewing person A. You need to end your interview with person A then you can interview person B.</p>
+</div>
+<div class="paragraph">
+<p>When the application had just opened, it will immediately enter into the <code>pre-session phase</code>, where the user are not allowed
+to do anything except creating a new session or opening other previously-made sessions.</p>
+</div>
+<div class="paragraph">
+<p>When the user had entered into a session, the application enter the <code>normal phase</code>. In this phase, the user can prompt the application
+to execute all of the features in the application, except opening a new session and adding interview-related information
+specific to an interviewee (e.g. adding a remark to person A).</p>
+</div>
+<div class="paragraph">
+<p>When the application is in the <code>normal phase</code> and the user decided to interview a particular interviewee, the application will
+enter to the <code>interview phase</code>. During this phase, the user are only allowed to execute commands related to the interview process
+of an interviewee, which includes adding remark, scoring the attribute and adding remarks as the answer to a particular question,
+and toggling view between attributes, questions, or metrics.</p>
+</div>
+<div class="paragraph">
+<p>The implementation of these 3 different phases is achieved through the presence of 3 different <code>parsers</code> in our application.
+After retrieving the <code>current phase</code> of the application from the <code>Model</code>, the <code>Logic</code> component will then decide which <code>parser</code> of these 3
+should be used to parse the input. Through this, we make sure that only appropriate and valid <code>commands</code> at a particular <code>phase</code>
+are accepted at any point of time.</p>
+</div>
+<div class="paragraph">
+<p>Given below are several examples of usage scenarios when the user prompts for some commands at a certain phase of the application:</p>
+</div>
+<div class="paragraph">
+<p>Scenario 1. When the user provides a <code>command</code> which is not recognized by the <code>parser</code> that is associated with the
+current <code>phase</code> of the application, the respective <code>parser</code> will throw a <code>ParseException</code>, informing the user that this
+command is unknown. Suppose the app is currently at the <code>PreSession phase</code>, and the user tries to add a new interviewee,
+<code>add interviewee Jane Doe</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/SessionScenario1SequenceDiagram.png" alt="SessionScenario1SequenceDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>Scenario 2 (Ideal Scenario). When the user provides a <code>command</code> which is recognized by the <code>parser</code> that is associated with the
+current <code>phase</code> of the application, the respective <code>parser</code> will parser the <code>command</code> and execute the respective <code>CommandResult</code>
+to the model. For an example, see <a href="#AddSequenceDiagram">[AddSequenceDiagram]</a>.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="command-validation-by-the-parser-and-model-component"><a class="link" href="#command-validation-by-the-parser-and-model-component">Command Validation by the Parser and Model component</a></h5>
+<div class="paragraph">
+<p>By the separation of the application into 3 different phases, we had make sure that the input that is accepted at any particular
+point if time are input that are appropriate at the current application <code>phase</code>. However, this does not guarantee that this
+input will be valid according to the current state of the <code>Model</code>. For example, if the application is currently at the <code>normal phase</code>,
+it will be able to accept the <code>command</code> to interview an interviewee. However, if this interviewee has been interviewed before,
+doing an interview to the same person should not be allowed.</p>
+</div>
+<div class="paragraph">
+<p>Assuming that the prompt inserted by the user is accepted at the <code>current phase</code> of the application, given below are
+several examples of usage scenarios:</p>
+</div>
+<div class="paragraph">
+<p>Scenario 1. When the user provides a <code>command</code> that is recognized by the <code>current phase</code> of the app but it is missing compulsory fields ,
+the respective <code>parser</code> will check against it and throw <code>ParseException</code>, informing that the prompt is incomplete. For an example, see
+<a href="#Scenario-1-Best-Interviewee-Feature">[Scenario-1-Best-Interviewee-Feature]</a>.</p>
+</div>
+<div class="paragraph">
+<p>Scenario 2. When the user provides a complete and valid command that is recognized by the <code>current phase</code> of the application
+but is not valid for the current state, the <code>Model</code> will check the command and throw a <code>CommandException</code>, informing the user
+that this <code>command</code> is invalid for the current state. For an example, see <a href="#Scenario-2-Best-Interviewee-Feature">[Scenario-2-Best-Interviewee-Feature]</a>.</p>
+</div>
+<div class="paragraph">
+<p>Scenario 3 (Ideal Scenario). When the user provides a complete and valid <code>command</code> that is recognized by the <code>current phase</code> of the
+application and is valid for the current state. For an example, see <a href="#Scenario-Ideal-Best-Interviewee-Feature">[Scenario-Ideal-Best-Interviewee-Feature]</a>.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="finalise-feature"><a class="link" href="#finalise-feature">Finalise Feature</a></h5>
+<div class="paragraph">
+<p>Even with all of these implementations of <code>command</code> accepting according to the <code>current phase</code> and <code>command</code> checking in a
+particular <code>phase</code>, there is another possibility of invalid state in our application, which happens through the modification
+of the <code>interview session&#8217;s</code> <code>attributes</code> and <code>questions</code>. For example, a metric which takes in <code>attribute</code> <code>leadership</code> and <code>integrity</code>
+has been created. Later, the user can possibly delete the <code>attribute</code> <code>leadership</code>. This makes the metric create not valid anymore.</p>
+</div>
+<div class="paragraph">
+<p>Thus, we need a feature that can indicate that the <code>interview session</code> has been <code>finalised</code>, which means that all CRUD operations
+to the <code>attributes</code> and <code>questions</code> of this <code>interview session</code> is disallowed. CRUD operations to the <code>attributes</code> and <code>questions</code>
+are originally accepted in the <code>normal phase</code> and if the CRUD operation is valid. However, if the application has entered the
+<code>finalised</code> state, this disablement happens regardless of the validity of the phase and command.</p>
+</div>
+<div class="paragraph">
+<p>The <code>finalised</code> state can be achieved through the <code>Finalise Command</code> when the user inputs the word <code>finalise</code>. Before the application
+is <code>finalised</code> the user is not allowed to hold any interview with any interviewee, create any metric and find any best interviewees.
+If the application has reached <code>finalised</code> state, the user are allowed to do so.</p>
+</div>
+<div class="paragraph">
+<p>Assuming that the user is currently on the <code>normal phase</code>, the phase which accepts CRUD operations for the <code>attributes</code>
+and <code>questions</code>, and assuming that the given CRUD operation is valid (e.g. <code>delete attribute leadership</code> and
+<code>attribute</code> <code>leadership</code> was there previously), given below are several examples of usage scenarios when the user prompts are related to Finalise Feature:</p>
+</div>
+<div class="paragraph">
+<p>Scenario 1. If the application has not been finalised <code>finalised</code> and the user tries to interview an interviewee,
+<code>interview Jane Doe</code>, the <code>Normal Parser</code> will parse the input and create an instance of <code>StartInterviewCommand</code>.
+The <code>LogicManager</code> will try to execute this <code>StartInterviewCommand</code> toward the <code>model</code>, but because it has not been <code>finalised</code>,
+it will throw a <code>CommandException</code> error.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/FinaliseScenario1SequenceDiagram.png" alt="FinaliseScenario1SequenceDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>Scenario 2. If the application has been <code>finalised</code> and the user tries to do add a new <code>attribute</code>, <code>add attribute leadership</code>,
+the <code>Normal Parser</code> will parse the input and create an instance of <code>AddAttributeCommand</code>. The <code>LogicManager</code> will try to execute
+this AddAttributeCommand toward the <code>model</code>, but because it has been <code>finalised</code>, it will throw a <code>CommandException</code> error.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/FinaliseScenario2SequenceDiagram.png" alt="FinaliseScenario2SequenceDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>Scenario 3 (Ideal Scenario). If the application has been <code>finalised</code> and the user tries to interview an interviewee,
+<code>interview Jane Doe</code>, the <code>Normal Parser</code> will parse the input and create an instance of <code>StartInterviewCommand</code>.
+The <code>LogicManager</code> will execute this <code>StartInterviewCommand</code> toward the <code>model</code>,  and the result is returned.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/FinaliseScenario3SequenceDiagram.png" alt="FinaliseScenario3SequenceDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>Scenario 4 (Ideal Scenario). If the application has not been <code>finalised</code> and the user tries to do add a new <code>attribute</code>,
+<code>add attribute leadership</code>, the <code>Normal Parser</code> will parse the input and create an instance of AddAttributeCommand.
+The <code>LogicManager</code> will execute this AddAttributeCommand towards the <code>model</code> and the result is returned.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/FinaliseScenario4SequenceDiagram.png" alt="FinaliseScenario4SequenceDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>The following activity diagram shows the sequence of activities happening after <code>finalise</code> command.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/FinaliseActivityDiagram.png" alt="FinaliseActivityDiagram">
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-maintaining-the-consistency-of-application-state"><a class="link" href="#aspect-maintaining-the-consistency-of-application-state">Aspect: Maintaining the consistency of application state</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Have <code>finalise</code> command and disallow CRUD operation to <code>attributes</code> and <code>questions</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: There will no be any invalid values or states, like an <code>attribute</code> score assigned to null.</p>
+</li>
+<li>
+<p>Cons: Once the user decide to <code>finalise</code>, the user can no longer edit the <code>attributes</code> and <code>questions</code>. THe user will
+need to create a new session if the user wants to.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Do not have a <code>finalise</code> command. User can perform CRUD operation to <code>attributes</code> and <code>questions</code> at any time,
+including after interview has been done or some metrics have been created. Deleted <code>attributes</code> and <code>questions</code> will be removed
+from any part of the application, and newly created <code>attributes</code> will have null score and newly created <code>questions</code>
+will be assigned to no answers.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: More flexibility for the user if the user wants to change the <code>attributes</code> and <code>questions</code>.</p>
+</li>
+<li>
+<p>Cons: The user might not be aware about the consequence of deleting one <code>attribute</code> or <code>question</code>, which might lead
+to deletion of the all the <code>metrics</code> that uses this <code>attribute `, removal of all `remarks</code> associated as the answer of a <code>question</code>.
+As new <code>attribute</code> are assigned to null score, these interviewees could not be compared with the others with regards to this feature
+when the user is using the <code>best interviewee</code> feature.
+User might need to assign the score value of this newly added <code>attribute</code> to every single <code>interviewees</code> that has been interviewed
+before this addition, which is a tedious and unfriendly operation.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 3:</strong> Do not have a <code>finalise</code> command. User can perform CRUD operation to <code>attributes</code> and <code>questions</code> at any time,
+including after interview has been done or some metrics have been created. Deleted <code>attributes</code> and <code>questions</code> will be removed
+from any part of the application, and newly created <code>attributes</code> will have a default score and newly created <code>questions</code>
+will be assigned to no answers.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: More flexibility for the user if the user wants to change the <code>attributes</code> and <code>questions</code>.</p>
+</li>
+<li>
+<p>Cons: The user might not be aware about the consequence of deleting one <code>attribute</code> or <code>question</code>, which might lead
+to deletion of the all the <code>metrics</code> that uses this <code>attribute `, removal of all `remarks</code> associated as the answer of a <code>question</code>.
+As new <code>attribute</code> are assigned to default score, the result of comparison between this <code>interviewee</code> and the others might
+not be accurate anymore.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="model"><a class="link" href="#model">Model</a></h3>
@@ -662,4 +677,4 @@ whether being interviewed or whose report is being viewed.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 14:19:50 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 14:22:08 UTC</div></div></div></body></html>

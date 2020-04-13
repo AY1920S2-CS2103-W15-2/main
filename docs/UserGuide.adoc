@@ -103,6 +103,8 @@ You may use the Menu Bar to access this User Guide, or to exit *HireLah!*.
 ==== Session List Display
 Displays a list of all current interview sessions that has been created using *HireLah!*
 
+For more information, see <<Managing Sessions>>.
+
 ==== Result Display Box
 The Result Display Box displays success and error messages for your last command.
 
@@ -164,6 +166,7 @@ Refer to <<Result Display Box>>
 ==== Command Box
 Refer to <<Command Box>>
 
+// tag::FeaturesIntro[]
 == Features
 
 Generally, in an interview session (for example, an interview for a role in a company), there are 3 phases:
@@ -177,21 +180,106 @@ Generally, in an interview session (for example, an interview for a role in a co
 
 These 3 phases are clearly defined in *HireLah!*. What you can do in each phase is listed below.
 
-
-
-=== Start Session
-
-*HireLah!* takes care of this for you! By default, the first time you use HireLah!, the app will create a new folder
-`/data` in the same directory as the app and save your session data there. To learn how to configure your interview
-sessions (starting a fresh session, renaming your session, changing sessions) refer to <<FAQ>>.
-
 === Viewing help
 
 *Command*
 
-`help`
+You never know when you need to refer to this guide. For that reason, the helpful `help` command is available
+always within the app, except during an interview, where "help" may be a remark you want to make about the current
+candidate being interviewed! Still, the help command is always accessible via the kbd:[F1] key, or by clicking the
+"Help" button on the top of the menu.
+
+....
+help
+....
 
 _Action:_ This user guide is opened as a PDF with your system's default PDF viewer.
+
+=== Exiting the App
+
+Similar to help, `exit` is always available to close the app, except during an interview (Why would you want
+to close the app during an interview?).
+
+*Command*
+
+....
+exit
+....
+
+_Action:_ The app exits.
+// end::FeaturesIntro[]
+
+
+// tag::session[]
+=== Managing Sessions
+
+*HireLah!* allows you to clearly separate your interview sessions. After all, it would be disastrous to mix up your candidates
+for one job with the candidates for a totally different role, or ask the wrong questions to the wrong person!
+
+==== New Session
+
+When you first start the app, there will be no existing sessions. You can create a new session to get started via the `new` command.
+
+[TIP]
+Sessions are stored as directories in a `/data` directory HireLah! creates in the same location as the app. To make sure
+session names are valid, we only allow Alphanumeric characters (a, b, c or 1, 2, 3) and spaces (but not all spaces!). +
+Do not accidentally delete this folder! *HireLah!* will not be able to restore your data if you delete it!
+
+*Command*
+
+....
+new <session name>
+....
+
+*Execution Example*
+
+....
+> new ceo interview
+....
+
+_Action:_ Creates a new session called "ceo interview" and opens the session.
+
+image::Screenshots/NewSession.png[]
+
+==== Open and Close Sessions
+
+On subsequent uses of *HireLah!*, you will be greeted at the starting screen with all the sessions you have
+created. You can choose to start a new session again, or open a previous session to continue working in it using the
+`open` command. After you are done for the day, or need to switch to another session, simply close the session with the
+`close session` command. Closing a session will naturally return you to the starting screen where you can open or create new
+sessions.
+
+*Commands*
+
+....
+open <session name>
+close session
+....
+
+==== Delete Session
+
+After a long time, old sessions may not be relevant anymore. To clear space for new interviews, use the `delete` command.
+
+*Command*
+
+....
+delete <session name>
+....
+
+*Execution Example*
+
+....
+> delete ceo interview
+....
+
+_Action:_ Deletes the ceo interview session and all its data.
+
+_Output:_
+
+....
+Successfully deleted the session: ceo interview
+....
+// end::session[]
 
 === Initialization Phase
 
@@ -211,6 +299,11 @@ At any time you can delete any interviewees and edit their information.
 [TIP]
 Most names and aliases are accepted - even non-English names or names with funny punctuation and numbers (eg. Larry O'Brien the 3rd).
 Your interviewees could come from anywhere after all. But do not give blanks or a name full of numbers (eg. 12345)!
+
+[TIP]
+If you are adding an interviewee with an alias, but you accidentally give an invalid alias (the same as another interviewee's name or alias)
+*HireLah!* does what it can - it adds the interviewee, but tells you that it failed to add the alias. +
+If you are editing an interviewee and specify both a new name and new alias, if either are invalid, *HireLah!* will prevent you from performing that action!
 
 *Commands*
 
@@ -249,6 +342,11 @@ image::Screenshots/Interviewee.png[]
 Interviewer can upload a resume for a specific interviewee. If the path is specified,
 the resume will be uploaded from the specified path. Otherwise, it will open a file-picker.
 
+[TIP]
+*HireLah!* does *NOT* copy the file you upload! It merely remembers the location of the resume.
+If you delete or move the file, *HireLah!* can no longer open the resume! +
+We recommend that you organize all the resumes in a folder, perhaps next to the `/data` directory.
+
 *Command*
 
 ....
@@ -275,6 +373,12 @@ image::Screenshots/Upload.png[]
 ==== Open Resume
 
 Interviewer can open a resume from a specific interviewee.
+
+[WARNING]
+Note: Make sure you have a default app for viewing PDF files, or whatever format your resumes are in!
+*HireLah!* tries to open the file you give as a resume, but if your system does not know how to open the file,
+*HireLah!* will not be able to help! As far as *HireLah!* is concerned, it has successfully performed its job
+to request your system to open the file.
 
 *Command*
 
@@ -383,6 +487,7 @@ Deleted question: What do you hope to accomplish in 5 years?
 
 image::Screenshots/Question.png[]
 {empty} +
+
 // end::questions[]
 
 //tag::load[]
@@ -416,6 +521,7 @@ image::Screenshots/Load.png[]
 {empty} +
 // end::load[]
 
+// tag::view[]
 ==== Switching views
 
 When working on the attributes, questions and metrics (more about metrics in <<Metrics>>),
@@ -462,11 +568,21 @@ Here is the list of interviewees:
 ....
 {empty} +
 
+// end::view[]
+
+// tag::finalise[]
 ==== Finalise Interview Attributes and Questions
 
 After the interviewer is satisfied with the list of questions and attributes created for an interview session, the
 interviewer must finalise changes in attributes and questions. This is to ensure that the interviewers will evaluate all
 interviewees fairly and equally using the same set of questions and attributes.
+
+[WARNING]
+Finalise is *irreversible*! Make sure you are sure of the attributes and questions you have, since *HireLah!* will
+not allow you to make changes to them after giving this command. This may seem restrictive, but this consistency will
+give you guarantees that make *HireLah!* really useful. For example, later on, if you open someone's interview report and
+find his/her answer to a question, then go to another report and view the same question, you are guaranteed that both interviewees
+were asked the same thing!
 
 *Command*
 
@@ -482,6 +598,10 @@ Attributes and questions of this interview session has been finalised. You canno
 
 image::Screenshots/Finalise.png[]
 {empty} +
+
+// end::finalise[]
+
+// tag::interviewPhase[]
 
 === Interview Phase
 
@@ -501,8 +621,7 @@ interview <interviewee>
 > interview Jane Doe
 ....
 
-_Action:_ Initializes an interview session with Jane. Shows the uploaded
-resume (if any), and the list of interview questions in a separate window. The app
+_Action:_ Initializes an interview session with Jane. The app
 also starts the interview time.
 
 _Output:_
@@ -514,26 +633,6 @@ Interview with Jane Doe started!
 image::Screenshots/Interview.png[]
 {empty} +
 
-*Command*
-
-....
-:resume <interviewee>
-....
-
-*Example*
-
-....
-> :resume
-....
-
-_Action:_ Opens the resume of Jane Doe, if there is any.
-
-_Output:_
-
-....
-Opening resume..
-....
-{empty} +
 
 ==== Record Remarks
 
@@ -613,6 +712,10 @@ image::Screenshots/StartQuestion.png[]
 During the interview, as you form your opinion on the candidate, you can give them scores for the
 attributes you have created earlier (see <<Attributes>>).
 
+[TIP]
+To keep things sensible, HireLah! allows you to give a score from between 0 to 10 inclusive. So
+9.6 and 0.2 are in, but don't try and give someone -10!
+
 *Command*
 
 ....
@@ -634,6 +737,40 @@ Scored 5.00 to leadership
 ....
 
 image::Screenshots/AttributeScore.png[]
+{empty} +
+
+==== Other Viewing Commands
+
+During the interview, only a small subset of the usual commands are available by placing ":" in front.
+It would be terrible if you accidentally deleted an interviewee while interviewing him/her! However, it is
+important to be able to look at the current interviewee's resume, and look at the attributes and questions
+needed in the interview, thus these viewing operations are supported.
+
+*Command*
+
+....
+:resume
+:questions
+:attributes
+:metrics
+....
+
+*Example*
+
+....
+> :resume
+> :questions
+....
+
+_Action:_ Opens the resume of the current interviewee. Then switches the tab to show the questions.
+
+_Output:_
+
+....
+Resume of John Doe opened.
+
+Here is the list of questions:
+....
 {empty} +
 
 ==== End interview
@@ -671,6 +808,7 @@ image::Screenshots/EndInterview.png[]
 
 === Decision Phase
 
+// end::interviewPhase[]
 
 // tag::report[]
 ==== Viewing Interviewee Reports
@@ -702,24 +840,6 @@ Successfully opened Interviewee report: Jane Doe
 image::Screenshots/Report.png[]
 {empty} +
 // end::report[]
-
-[[Metrics]]
-// tag::metrics[]
-==== Add, Edit and Delete Metrics
-
-After the interview process, the interviewer may want to compare the interviewed interviewees by
-creating a custom metric to determine the relative importance of several attributes. Each metric
-assigns a weight to one or more Attributes, and interviewees can be ranked based on their score calculated by
-this metric via the `interviewee -best` command (see <<Find Best Candidates>>.
-
-
-add metric <name> -a <attribute> -w <weight> [-a <attribute> -w <weight>]...
-edit metric <name> [-n <metric name>] [-a <attribute> -w <weight>]...
-delete metric <name>
-
-image::Screenshots/Metric.png[]
-{empty} +
-// end::metrics[]
 
 // tag::export[]
 ==== Exporting Interviewee Reports to PDF
@@ -883,16 +1003,16 @@ but the score is the same between the fifth and the sixth interviewees, both int
 *Command*
 
 ....
-interviewee -best <number of candidates> [-a <attribute>]
-interviewee -best <number of candidates> [-m <metric>]
+interviewees -best <number of candidates> [-a <attribute>]
+interviewees -best <number of candidates> [-m <metric>]
 ....
 
 *Example*
 
 ....
-interviewee -best 1
-interviewee -best 2 -m extremeLeader
-interviewee -best 3 -a leadership
+interviewees -best 1
+interviewees -best 2 -m extremeLeader
+interviewees -best 3 -a leadership
 ....
 
 _Action_: Firstly, *HireLah!* will show the top interviewee in overall score.
@@ -914,6 +1034,7 @@ image::Screenshots/Best.png[]
 
 == Advanced Features
 
+// tag::prefix[]
 === Typing shortcuts - Prefix matching
 
 It is often tedious to have to type out a long attribute like "Productivity"
@@ -940,6 +1061,8 @@ Then:
 *HireLah!* also provides this convenient function for other things that require
 typing names, such as the metric names. Questions are referenced by their question number
 and interviewees can use their interviewee ID, and a short alias can be given so the feature is not provided.
+
+// end::prefix[]
 
 {empty} +
 
@@ -976,7 +1099,7 @@ image::Screenshots/InterviewRubricsTab.png[width="300"]
 
 [.big]##*Q*##: After an interview session for a role is finished, how do I start a fresh session? +
 [.big]##*A*##: You can close the current interview session with the close session command `close session`, then use the new interview session
-command `new <session>` to start a new interview session!
+command `new <session name>` to start a new interview session!
 
 .Now *HireLah!* will start in an empty session called CEO Interview.
 image::Screenshots/FAQ1.png[]

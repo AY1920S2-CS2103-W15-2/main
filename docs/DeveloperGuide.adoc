@@ -232,6 +232,7 @@ Classes used by multiple components are in the `hirelah.commons` package.
 
 This section describes some noteworthy details on how certain features are implemented.
 
+// tag::sessionFeature[]
 === Session Feature
 
 HireLah! differs from AddressBook significantly in that a single user will likely have many sessions,
@@ -307,7 +308,7 @@ specific thing, for example a role in the company.
 ** Pros: Simplest to implement, yet memory efficient as only the relevant data is loaded
 ** Cons: Not user friendly - functionality cannot be performed within the app. User cannot discover the functionality on how
 to start a new session without consulting the user guide.
-
+// end::sessionFeature[]
 
 // tag::validstate[]
 === State Validity and Finalise Feature

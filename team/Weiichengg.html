@@ -962,6 +962,120 @@ best interviewees list to point to this list, and the MainWindow&#8217;s BestInt
 </div>
 </div>
 <div class="sect2">
+<h3 id="updating-ui-elements-after-user-commands"><a class="link" href="#updating-ui-elements-after-user-commands">Updating UI elements after user commands</a></h3>
+<div class="sect3">
+<h4 id="description-3"><a class="link" href="#description-3">Description</a></h4>
+<div class="paragraph">
+<p>A lot of things goes on during the interview process. As such, HireLah! needs to handle different types of input commands
+from the user and update the GUI accordingly in response. AddressBook3, which HireLah! is based on, uses the <code>CommandResult</code>
+class to achieve this. Based on our design of HireLah! however, there are three types of command outcomes that the user&#8217;s
+input may give:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Toggle to see a different list of information, for example toggling from the <code>SessionPanel</code>, which lists out the information
+of all interview sessions created on HireLah!, to <code>InterviewPanel</code>, which shows the details of one interview session.</p>
+</li>
+<li>
+<p>Scroll to a particular entry in a list. This is required for the <code>goto</code> command, which allows the user to see an
+interviewee&#8217;s remarks at a particular timestamp by scrolling the <code>RemarkList</code> to a particular index.</p>
+</li>
+<li>
+<p>Simply printing out a message in the <code>ResultDisplay</code> to show the user.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implementation-4"><a class="link" href="#implementation-4">Implementation</a></h4>
+<div class="paragraph">
+<p>In order to handle all three types of command outcomes, we have decided to extend the original <code>CommandResult</code> class to
+produce two new subclasses: <code>ToggleCommandResult</code>, which handles type 1 outcomes, and <code>NavigationCommandResult</code>, which
+handles type 2 outcomes. The original <code>CommandResult</code> class is used to handle type 3 outcomes.</p>
+</div>
+<div class="paragraph">
+<p>In addition, we have implemented the <code>ToggleView</code> enum, which is returned as an attribute in <code>ToggleCommandResult</code> to inform
+the UI on the UI component to toggle to.</p>
+</div>
+<div class="paragraph">
+<p>Given below is a class diagram to summarise the characteristics of these three CommandResult classes, as well as the
+ToggleView enum:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/CommandResultClassDiagram.png" alt="CommandResultClassDiagram">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-to-design-and-update-the-ui-components"><a class="link" href="#aspect-how-to-design-and-update-the-ui-components">Aspect: How to design and update the UI components</a></h5>
+<div class="paragraph">
+<p><code>ToggleCommandResult</code> also signals that the relevant UI component needs to be updated, and decisions have to be made on
+how the implicated UI components should be updated</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1</strong>: Reinitialise the entire UI after every command</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: This will definitely update the changes required of the UI accordingly, as the new UI can be built to reflect the
+current state of the <code>Model</code>.</p>
+</li>
+<li>
+<p>Cons: This method is extremely inefficient, and may slow down the application considerably when the user has entered a
+lot of information.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2</strong>: Update only the UI component affected if necessary, for eg <code>IntervieweeListPanel</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: This is a lot more efficient compared to Alternative 1.</p>
+</li>
+<li>
+<p>Cons: Some commands, such as <code>:end</code> which ends an interview with an interviewee needs multiple UI components to be updated,
+such as <code>IntervieweeListPanel</code>, <code>RemarkList</code> and <code>SessionInformationCard</code>, and this method only updates <code>IntervieweeListPanel</code>
+as this command returns the ToggleView enum INTERVIEWEE.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Current Implementation: We have taken a compromise between the two approaches. UI components that are often updated together
+are grouped together, such as <code>IntervieweeListPanel</code> and <code>SessionInformationCard</code>, such that they are always updated together.
+In addition, we made use of Observable classes to reduce the number of times an UI component needs to be reinitialised.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-how-to-display-the-interviewee-s-scores-for-each-code-attribute-code-most-suitably"><a class="link" href="#aspect-how-to-display-the-interviewee-s-scores-for-each-code-attribute-code-most-suitably">Aspect: How to display the Interviewee&#8217;s scores for each <code>Attribute</code> most suitably</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1</strong> Bar Chart</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Able to display</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
 <h3 id="logging"><a class="link" href="#logging">Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
@@ -3331,4 +3445,4 @@ Expected: Charlie and Alice will be shown in the best interviewees list.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 14:22:08 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 14:40:44 UTC</div></div></div></body></html>

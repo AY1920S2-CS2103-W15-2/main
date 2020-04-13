@@ -30,8 +30,9 @@
 <li><a href="#session-feature">4.1. Session Feature</a></li>
 <li><a href="#state-validity-and-finalise-feature">4.2. State Validity and Finalise Feature</a></li>
 <li><a href="#find-best-interviewees-feature">4.3. Find Best Interviewees Feature</a></li>
-<li><a href="#logging">4.4. Logging</a></li>
-<li><a href="#Implementation-Configuration">4.5. Configuration</a></li>
+<li><a href="#updating-ui-elements-after-user-commands">4.4. Updating UI elements after user commands</a></li>
+<li><a href="#logging">4.5. Logging</a></li>
+<li><a href="#Implementation-Configuration">4.6. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a></li>
@@ -251,10 +252,14 @@ The following class plays an important role at the architecture level:</p>
 <p><strong>API</strong> : <a href="https://github.com/AY1920S2-CS2103-W15-2/main/blob/master/src/main/java/hirelah/ui/Ui.java"><code>Ui.java</code></a></p>
 </div>
 <div class="paragraph">
-<p>The UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>PersonListPanel</code>, <code>StatusBarFooter</code> etc. All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
+<p>The UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>SessionPanel</code>,
+<code>InterviewPanel</code> etc. All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
 </div>
 <div class="paragraph">
-<p>The <code>UI</code> component uses JavaFx UI framework. The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder. For example, the layout of the <a href="https://github.com/AY1920S2-CS2103-W15-2/main/blob/master/src/main/java/hirelah/ui/MainWindow.java"><code>MainWindow</code></a> is specified in <a href="https://github.com/AY1920S2-CS2103-W15-2/main/blob/master/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
+<p>The <code>UI</code> component uses JavaFx UI framework. The layout of these UI parts are defined in matching <code>.fxml</code>
+files that are in the <code>src/main/resources/view</code> folder. For example, the layout of the
+<a href="https://github.com/AY1920S2-CS2103-W15-2/main/blob/master/src/main/java/hirelah/ui/MainWindow.java"><code>MainWindow</code></a> is specified in
+<a href="https://github.com/AY1920S2-CS2103-W15-2/main/blob/master/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a>.</p>
 </div>
 <div class="paragraph">
 <p>The <code>UI</code> component,</p>
@@ -262,7 +267,7 @@ The following class plays an important role at the architecture level:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Executes user commands using the <code>Logic</code> component.</p>
+<p>Executes user commands using the <code>Logic</code> component through the <code>CommandExecutor</code> functional interface.</p>
 </li>
 <li>
 <p>After executing each command, performs command-specific view updates as instructed
@@ -273,6 +278,23 @@ by the CommandResult returned by that command.</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>When the app is launched, <code>SessionPanel</code> is displayed to allow the user to manage interview sessions. When an interview
+session is selected, <code>SessionPanel</code> becomes hidden, and the <code>InterviewPanel</code> is displayed to allow the user to conduct
+interviews. This process is summarised in <a href="#SwitchPanel">Figure 5, &#8220;Activity Diagram showing the toggling between SessionPanel and InterviewPanel&#8221;</a>. The structure of the <code>InterviewPanel</code> is shown in <a href="#InterviewPanel">Figure 6, &#8220;Structure of the InterviewPanel used to display an interview session&#8221;</a>.</p>
+</div>
+<div id="SwitchPanel" class="imageblock">
+<div class="content">
+<img src="images/UiSwitchPanelActivityDiagram.png" alt="UiSwitchPanelActivityDiagram">
+</div>
+<div class="title">Figure 5. Activity Diagram showing the toggling between SessionPanel and InterviewPanel</div>
+</div>
+<div id="InterviewPanel" class="imageblock">
+<div class="content">
+<img src="images/UiInterviewPanelClassDiagram.png" alt="UiInterviewPanelClassDiagram">
+</div>
+<div class="title">Figure 6. Structure of the InterviewPanel used to display an interview session</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="Design-Logic"><a class="link" href="#Design-Logic">3.3. Logic component</a></h3>
@@ -280,7 +302,7 @@ by the CommandResult returned by that command.</p>
 <div class="content">
 <img src="images/LogicClassDiagram.png" alt="LogicClassDiagram">
 </div>
-<div class="title">Figure 5. Structure of the Logic Component</div>
+<div class="title">Figure 7. Structure of the Logic Component</div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> :
@@ -316,7 +338,7 @@ list of the current attribute.</p>
 <div class="content">
 <img src="images/AddSequenceDiagram.png" alt="AddSequenceDiagram">
 </div>
-<div class="title">Figure 6. Interactions Inside the Logic Component for the <code>add attribute leadership</code> Command</div>
+<div class="title">Figure 8. Interactions Inside the Logic Component for the <code>add attribute leadership</code> Command</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -339,7 +361,7 @@ out in this diagram.
 <div class="content">
 <img src="images/ModelClassDiagram.png" alt="ModelClassDiagram">
 </div>
-<div class="title">Figure 7. Structure of the Model Component</div>
+<div class="title">Figure 9. Structure of the Model Component</div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> : <a href="https://github.com/AY1920S2-CS2103-W15-2/main/blob/master/src/main/java/hirelah/model/Model.java"><code>Model.java</code></a></p>
@@ -372,7 +394,7 @@ whether being interviewed or whose report is being viewed.</p>
 <div class="content">
 <img src="images/StorageClassDiagram.png" alt="StorageClassDiagram">
 </div>
-<div class="title">Figure 8. Structure of the Storage Component</div>
+<div class="title">Figure 10. Structure of the Storage Component</div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> : <a href="https://github.com/AY1920S2-CS2103-W15-2/main/blob/master/src/main/java/hirelah/storage/Storage.java"><code>Storage.java</code></a></p>
@@ -423,7 +445,7 @@ whether being interviewed or whose report is being viewed.</p>
 <div class="content">
 <img src="images/IntervieweeStorageClassDiagram.png" alt="IntervieweeStorageClassDiagram">
 </div>
-<div class="title">Figure 9. Structure of the IntervieweeStorage Component</div>
+<div class="title">Figure 11. Structure of the IntervieweeStorage Component</div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> : <a href="https://github.com/AY1920S2-CS2103-W15-2/main/src/main/java/hirelah/storage/Storage.java"><code>IntervieweeStorage.java</code></a></p>
@@ -449,7 +471,7 @@ the <code>Hashmap</code>.<code>RemarkList</code> contains all the <code>Remarks<
 <div class="content">
 <img src="images/AttributeStorageClassDiagram.png" alt="AttributeStorageClassDiagram">
 </div>
-<div class="title">Figure 10. Structure of the AttributeStorage Component</div>
+<div class="title">Figure 12. Structure of the AttributeStorage Component</div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> : <a href="https://github.com/AY1920S2-CS2103-W15-2/main/src/main/java/hirelah/storage/Storage.java"><code>AttributeStorage.java</code></a></p>
@@ -709,7 +731,7 @@ command is unknown. Suppose the app is currently at the <code>PreSession phase</
 <div class="paragraph">
 <p>Scenario 2 (Ideal Scenario). When the user provides a <code>command</code> which is recognized by the <code>parser</code> that is associated with the
 current <code>phase</code> of the application, the respective <code>parser</code> will parser the <code>command</code> and execute the respective <code>CommandResult</code>
-to the model. For an example, see <a href="#AddSequenceDiagram">Figure 6, &#8220;Interactions Inside the Logic Component for the <code>add attribute leadership</code> Command&#8221;</a>.</p>
+to the model. For an example, see <a href="#AddSequenceDiagram">Figure 8, &#8220;Interactions Inside the Logic Component for the <code>add attribute leadership</code> Command&#8221;</a>.</p>
 </div>
 </div>
 <div class="sect4">
@@ -1044,14 +1066,128 @@ best interviewees list to point to this list, and the MainWindow&#8217;s BestInt
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">4.4. Logging</a></h3>
+<h3 id="updating-ui-elements-after-user-commands"><a class="link" href="#updating-ui-elements-after-user-commands">4.4. Updating UI elements after user commands</a></h3>
+<div class="sect3">
+<h4 id="description-3"><a class="link" href="#description-3">4.4.1. Description</a></h4>
+<div class="paragraph">
+<p>A lot of things goes on during the interview process. As such, HireLah! needs to handle different types of input commands
+from the user and update the GUI accordingly in response. AddressBook3, which HireLah! is based on, uses the <code>CommandResult</code>
+class to achieve this. Based on our design of HireLah! however, there are three types of command outcomes that the user&#8217;s
+input may give:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Toggle to see a different list of information, for example toggling from the <code>SessionPanel</code>, which lists out the information
+of all interview sessions created on HireLah!, to <code>InterviewPanel</code>, which shows the details of one interview session.</p>
+</li>
+<li>
+<p>Scroll to a particular entry in a list. This is required for the <code>goto</code> command, which allows the user to see an
+interviewee&#8217;s remarks at a particular timestamp by scrolling the <code>RemarkList</code> to a particular index.</p>
+</li>
+<li>
+<p>Simply printing out a message in the <code>ResultDisplay</code> to show the user.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implementation-4"><a class="link" href="#implementation-4">4.4.2. Implementation</a></h4>
+<div class="paragraph">
+<p>In order to handle all three types of command outcomes, we have decided to extend the original <code>CommandResult</code> class to
+produce two new subclasses: <code>ToggleCommandResult</code>, which handles type 1 outcomes, and <code>NavigationCommandResult</code>, which
+handles type 2 outcomes. The original <code>CommandResult</code> class is used to handle type 3 outcomes.</p>
+</div>
+<div class="paragraph">
+<p>In addition, we have implemented the <code>ToggleView</code> enum, which is returned as an attribute in <code>ToggleCommandResult</code> to inform
+the UI on the UI component to toggle to.</p>
+</div>
+<div class="paragraph">
+<p>Given below is a class diagram to summarise the characteristics of these three CommandResult classes, as well as the
+ToggleView enum:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/CommandResultClassDiagram.png" alt="CommandResultClassDiagram">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.4.3. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-to-design-and-update-the-ui-components"><a class="link" href="#aspect-how-to-design-and-update-the-ui-components">Aspect: How to design and update the UI components</a></h5>
+<div class="paragraph">
+<p><code>ToggleCommandResult</code> also signals that the relevant UI component needs to be updated, and decisions have to be made on
+how the implicated UI components should be updated</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1</strong>: Reinitialise the entire UI after every command</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: This will definitely update the changes required of the UI accordingly, as the new UI can be built to reflect the
+current state of the <code>Model</code>.</p>
+</li>
+<li>
+<p>Cons: This method is extremely inefficient, and may slow down the application considerably when the user has entered a
+lot of information.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2</strong>: Update only the UI component affected if necessary, for eg <code>IntervieweeListPanel</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: This is a lot more efficient compared to Alternative 1.</p>
+</li>
+<li>
+<p>Cons: Some commands, such as <code>:end</code> which ends an interview with an interviewee needs multiple UI components to be updated,
+such as <code>IntervieweeListPanel</code>, <code>RemarkList</code> and <code>SessionInformationCard</code>, and this method only updates <code>IntervieweeListPanel</code>
+as this command returns the ToggleView enum INTERVIEWEE.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Current Implementation: We have taken a compromise between the two approaches. UI components that are often updated together
+are grouped together, such as <code>IntervieweeListPanel</code> and <code>SessionInformationCard</code>, such that they are always updated together.
+In addition, we made use of Observable classes to reduce the number of times an UI component needs to be reinitialised.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-how-to-display-the-interviewee-s-scores-for-each-code-attribute-code-most-suitably"><a class="link" href="#aspect-how-to-display-the-interviewee-s-scores-for-each-code-attribute-code-most-suitably">Aspect: How to display the Interviewee&#8217;s scores for each <code>Attribute</code> most suitably</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1</strong> Bar Chart</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Able to display</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="logging"><a class="link" href="#logging">4.5. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.5, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.6, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1082,7 +1218,7 @@ best interviewees list to point to this list, and the MainWindow&#8217;s BestInt
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.5. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.6. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -3413,4 +3549,4 @@ Expected: Charlie and Alice will be shown in the best interviewees list.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 14:22:08 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 14:40:44 UTC</div></div></div></body></html>

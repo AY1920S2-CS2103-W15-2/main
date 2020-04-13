@@ -4,62 +4,15 @@
 <h2 id="about-the-project"><a class="link" href="#about-the-project">About the Project</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>HireLah! is targeted to bring greater convenience to interviewers who can type quickly and prefer typing over mouse<br>
-commands. Additionally, we included customised features in our desktop apps to help interviewers to manage interviews.</p>
-</div>
-<div class="sect2">
-<h3 id="my-role"><a class="link" href="#my-role">My Role</a></h3>
-<div class="paragraph">
-<p>My role was to design and write codes to create the Graphical User Interface (GUI) of HireLah!, such that the GUI is<br>
-elegant and convenient to use. I will elaborate on my contributions in the following sections.</p>
+<p>Our team of 5 NUS students were tasked to enhance AddressBook3, a basic Command Line Interface (CLI) desktop application
+for the module CS2103 Software Engineering Projects. Over the past few weeks, we have morphed the desktop application into
+an interview productivity app, HireLah!. HireLah! is targeted to bring greater convenience to interviewers who can
+type quickly and prefer typing over mouse commands. Additionally, we included customised features in HireLah! to help
+interviewers to manage multiple interview sessions at the same time.</p>
 </div>
 <div class="paragraph">
-<p>Listed in the table below are some notations that are used throughout the document.</p>
-</div>
-<table id="Legend" class="tableblock frame-all grid-all spread">
-<caption class="title">Table 1. Legend table</caption>
-<colgroup>
-<col style="width: 15%;">
-<col style="width: 85%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-center valign-top"><strong>Icon</strong></th>
-<th class="tableblock halign-left valign-top"><strong>Description</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-center valign-top"><div><div class="paragraph">
-<p><code>command</code></p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Command that can be executed, or a component, class or object in the architecture of the application</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top"><div><div class="paragraph">
-<p><span class="icon icon-tip"><i class="fa fa-lightbulb-o fa-2x"></i></span></p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Tips that might be helpful in navigating the application</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top"><div><div class="paragraph">
-<p><span class="icon icon-note blue"><i class="fa fa-info-circle fa-2x"></i></span></p>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Important information that should be noted</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-center valign-top"><div><div class="exampleblock">
-<div class="content">
-
-</div>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Useful information for a deeper understanding of the command</p></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>As shown in <a href="#Legend">Table 1, &#8220;Legend table&#8221;</a>, these icons associated to their following descriptions, such as commands, tips, important information and useful information, enable greater clarity in understanding the document. Note that useful information will have text enclosed in its box.</p>
-</div>
+<p>My role was to design and write codes in Java and FXML to create the Graphical User Interface (GUI) of HireLah!, such
+that the GUI is elegant and convenient to use. I will elaborate on my contributions in the following sections.</p>
 </div>
 </div>
 </div>
@@ -72,29 +25,32 @@ elegant and convenient to use. I will elaborate on my contributions in the follo
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement #1</strong>: Designed and implemented the UI components of HireLah!</p>
+<p><strong>Major enhancement</strong>: Designed and implemented the UI components of HireLah!</p>
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: It enables users to view all the information relevant to an interview, including the list of<br>
-interviewees, lists of rubrics (including attributes, questions and metrics), as well as the transcript of each<br>
-interviewee after an interview. This can be done via the <code>list</code> as well as <code>open</code> commands.</p>
+<p>What it does: It enables users to view all the information relevant to an interview, including the list of
+interviewees, lists of rubrics (including attributes, questions and metrics), as well as the transcript of each
+interviewee after an interview. The UI receives user commands after they have been parsed within the Logic component and
+updates according to the user&#8217;s commands via polymorphism.</p>
 </li>
 <li>
-<p>Justification: This feature allows an user to easily navigate between and find the information that he/she needs in<br>
+<p>Justification: This feature allows an user to easily navigate between and find the information that he/she needs in
 order to conduct an interview, without the hassle of cross-referencing various sources of information.</p>
 </li>
 <li>
 <p>Highlights: This feature depends on the backend implementation of HireLah! and therefore requires consistent
-communication with the rest of my teammates in order to correctly display features implemented by them. This is not<br>
-easy as I have to take into account the constraints of the UI elements and possible use cases, such as inputting long<br>
-paragraphs of text or resizing the application, and ensure that the UI still displays correctly.</p>
+communication with the rest of my teammates in order to correctly display features implemented by them. This is not
+easy as I have to take into account the constraints of the UI elements and possible use cases, such as inputting long
+paragraphs of text or resizing the application, and ensure that the UI still displays correctly. As new features are
+added to HireLah!, such as the implementation of sessions, I have to update the UI accordingly as well.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Code contributed</strong>: The code that I have contributed to HireLah! can be found [<a href="https://nus-cs2103-ay1920s2.github.io/tp-dashboard/#search=mario7lorenzo">here</a>].</p>
+<p><strong>Code contributed</strong>: The code that I have contributed to HireLah! can be found
+[<a href="https://nus-cs2103-ay1920s2.github.io/tp-dashboard/#search=bscrow">here</a>].</p>
 </li>
 </ul>
 </div>
@@ -110,7 +66,13 @@ paragraphs of text or resizing the application, and ensure that the UI still dis
 <div class="ulist">
 <ul>
 <li>
-<p>Created issues for v1.3 and v1.4</p>
+<p>Created and managed issues during v1.3 and v1.4.</p>
+</li>
+<li>
+<p>Reviewed pull requests of team mates.</p>
+</li>
+<li>
+<p>Created bug reports and assigned them according to our roles. <a href="https://github.com/AY1920S2-CS2103-W15-2/main/issues/195">#195</a></p>
 </li>
 </ul>
 </div>
@@ -119,6 +81,9 @@ paragraphs of text or resizing the application, and ensure that the UI still dis
 <p>Enhancements to existing features:</p>
 <div class="ulist">
 <ul>
+<li>
+<p>Added ToggleView enums and refactored CommandResults to pass the correct ToggleView enum to the UI <a href="https://github.com/AY1920S2-CS2103-W15-2/main/pull/40">#40</a></p>
+</li>
 <li>
 <p>Refactored list commands <a href="https://github.com/AY1920S2-CS2103-W15-2/main/pull/56">#56</a></p>
 </li>
@@ -133,11 +98,14 @@ paragraphs of text or resizing the application, and ensure that the UI still dis
 <div class="ulist">
 <ul>
 <li>
-<p>Updated UserGuide for Metrics <a href="https://github.com/AY1920S2-CS2103-W15-2/main/pull/66">#66</a> and advanced GUI features<br>
+<p>Updated the User Guide to reflect changes in v1.4, writing sections 1 - 4 of the User Guide.</p>
+</li>
+<li>
+<p>Updated User Guide for Metrics <a href="https://github.com/AY1920S2-CS2103-W15-2/main/pull/66">#66</a> and advanced GUI features
 <a href="https://github.com/AY1920S2-CS2103-W15-2/main/pull/112">#112</a></p>
 </li>
 <li>
-<p>Updated Architecture Diagram for UI in the Developer Guide</p>
+<p>Documented the implementation of UI in Developer&#8217;s Guide</p>
 </li>
 </ul>
 </div>
@@ -159,6 +127,344 @@ paragraphs of text or resizing the application, and ensure that the UI still dis
 </tr>
 </tbody>
 </table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="introduction"><a class="link" href="#introduction">Introduction</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>HireLah!</strong> is a productivity app that helps busy interviewers like you manage multiple interview sessions in an orderly
+manner. During each interview session, <strong>HireLah!</strong> helps you to keep track of interviewee information and interview
+rubrics in one central location so that you can focus on what&#8217;s important - the interview itself!
+<br>
+<br></p>
+</div>
+<div class="paragraph">
+<p><strong>HireLah!</strong> has the following main features:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Manage multiple interview sessions, one for each different job position you are conducting interview for.</p>
+</li>
+<li>
+<p>Add and modify interview rubrics for each interview session, including:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>A list of attributes you want to look out for in an interviewee.</p>
+</li>
+<li>
+<p>A set of questions that you would like to ask all interviewees.</p>
+</li>
+<li>
+<p>A collection of metrics to score interviewees, allowing you to easily rank potential candidates.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Record your remarks for an interviewee during an interview, and score the interviewee based on the attributes.</p>
+</li>
+<li>
+<p>Identify the best interviewees based on particular attributes or metrics, so that you can follow up with them.</p>
+</li>
+<li>
+<p>Export interview transcripts for future reference.
+<br>
+<br></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>HireLah!</strong> is optimised for interviewers who are fast typists and prefer typing over other means of input. It comes with:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A Command Line Interface (CLI) which allows you to access all <strong>HireLah!</strong> features by typing.</p>
+</li>
+<li>
+<p>A Graphical User Interface (GUI) that displays the information you need to conduct an interview, with limited GUI
+convenience features.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="about-this-guide"><a class="link" href="#about-this-guide">About this Guide</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="basic-information"><a class="link" href="#basic-information">Basic Information</a></h3>
+<div class="paragraph">
+<p>This User Guide explains how you can use <strong>HireLah!</strong> to help you manage your interviews.</p>
+</div>
+<div class="paragraph">
+<p>You may refer to <a href="#quick-start">Quick Start</a> for a short tutorial on how to run <strong>HireLah!</strong> on your device and use <strong>HireLah!</strong>'s main
+features. Please refer to <a href="#gui-components">GUI Components</a> for a breakdown of <strong>HireLah!</strong>'s GUI components. For a full walkthrough of
+<strong>HireLah!</strong>, please refer to <a href="#Features">[Features]</a>.</p>
+</div>
+<div class="paragraph">
+<p>If you encounter any difficulties while using <strong>HireLah!</strong>, you can refer to <a href="#FAQ">[FAQ]</a> for a list of common issues.</p>
+</div>
+<div class="paragraph">
+<p>If you are an experienced CLI user, you can find all the <strong>HireLah!</strong> commands under <a href="#Command Summary">[Command Summary]</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="command-format"><a class="link" href="#command-format">Command Format</a></h3>
+<div class="paragraph">
+<p>This section explains the format of commands in this User Guide:</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><strong>Command Format</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Words in <code>&lt;angular brackets&gt;</code> are the parameters to be supplied by the user e.g. in <code>add interviewee &lt;full name&gt;</code>, <code>&lt;full name&gt;</code> is a parameter which can be used as <code>add interviewee John Doe</code>.</p>
+</li>
+<li>
+<p>Items in square brackets are optional e.g <code>&lt;full name&gt; [-aka &lt;alias&gt;]</code> can be used as <code>John Doe -aka Jo</code> or as <code>John Doe</code>.</p>
+</li>
+<li>
+<p>Items with <code>…</code>​ after them can be used multiple times including zero times, unless otherwise stated e.g. <code>[-a &lt;attribute&gt; -w &lt;weight&gt;]&#8230;&#8203;</code> can be used as, <code>-a ambition -w 0.5</code>, <code>-a ambition -w 0.5 -a teamwork -w 0.1</code> etc.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="quick-start"><a class="link" href="#quick-start">Quick Start</a></h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Ensure you have Java 11 or above installed in your Computer.</p>
+</li>
+<li>
+<p>Download the latest <code>HireLah.jar</code> <a href="{repoURL}/releases">here</a>.</p>
+</li>
+<li>
+<p>Copy the file to the folder you want to use as the home folder for your HireLah!.</p>
+</li>
+<li>
+<p>Double-click the file to start the app. The following window should appear within a few seconds - this is the Session
+Screen, where you can create, open, or delete interview sessions:</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/Screenshots/EmptySessionScreen.png" alt="EmptySessionScreen" width="790">
+</div>
+<div class="title">Figure 1. Image of the Session Screen</div>
+</div>
+</li>
+<li>
+<p>Type the command in the command box and press <kbd>Enter</kbd> to execute it.<br>
+e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> will open this user guide.</p>
+</li>
+<li>
+<p>Some example commands you can try:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong><code>new</code></strong> <code>CEO Interview</code>: creates an interview session named "CEO Interview" and opens the Interview Screen.</p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/Screenshots/EmptyInterviewScreen.png" alt="EmptyInterviewScreen" width="790">
+</div>
+<div class="title">Figure 2. Image of the Interview Screen</div>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Once you are on the Interview Screen shown above, here are some example commands you can try:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong><code>add interviewee</code></strong> <code>John Doe</code>: adds an interviewee named John Doe to the application</p>
+</li>
+<li>
+<p><strong><code>add question</code></strong> <code>How old are you?</code>: adds the question to the application</p>
+</li>
+<li>
+<p><strong><code>exit</code></strong>: exits the app</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Refer to <a href="#gui-components">GUI Components</a> for an explanation of the GUI and <a href="#Features">[Features]</a> for details of all the commands.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="gui-components"><a class="link" href="#gui-components">GUI Components</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>HireLah!</strong> consists of two main screens, the Session Screen as well as the Interview Screen, as shown below.</p>
+</div>
+<div class="sect2">
+<h3 id="session-screen"><a class="link" href="#session-screen">Session Screen</a></h3>
+<div class="imageblock">
+<div class="content">
+<img src="../images/Screenshots/GUIComponent1.png" alt="GUIComponent1" width="790">
+</div>
+<div class="title">Figure 3. Breakdown of the Session Screen</div>
+</div>
+<div class="sect3">
+<h4 id="menu-bar"><a class="link" href="#menu-bar">Menu Bar</a></h4>
+<div class="paragraph">
+<p>You may use the Menu Bar to access this User Guide, or to exit <strong>HireLah!</strong>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="session-list-display"><a class="link" href="#session-list-display">Session List Display</a></h4>
+<div class="paragraph">
+<p>Displays a list of all current interview sessions that has been created using <strong>HireLah!</strong></p>
+</div>
+<div class="paragraph">
+<p>For more information, see <a href="#Managing Sessions">[Managing Sessions]</a>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="result-display-box"><a class="link" href="#result-display-box">Result Display Box</a></h4>
+<div class="paragraph">
+<p>The Result Display Box displays success and error messages for your last command.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="command-box"><a class="link" href="#command-box">Command Box</a></h4>
+<div class="paragraph">
+<p>This is where you can type commands into the CLI to interact with this app.</p>
+</div>
+<div class="paragraph">
+<p><br></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="interview-screen"><a class="link" href="#interview-screen">Interview Screen</a></h3>
+<div class="imageblock">
+<div class="content">
+<img src="../images/Screenshots/GUIComponent2.png" alt="GUIComponent2" width="790">
+</div>
+<div class="title">Figure 4. Breakdown of the Interview Screen</div>
+</div>
+<div class="sect3">
+<h4 id="menu-bar-2"><a class="link" href="#menu-bar-2">Menu Bar</a></h4>
+<div class="paragraph">
+<p>Refer to <a href="#menu-bar">Menu Bar</a></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="session-info-display"><a class="link" href="#session-info-display">Session Info Display</a></h4>
+<div class="paragraph">
+<p>This panel displays a few meta information about this interview session, in order:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The name given to this interview session.</p>
+</li>
+<li>
+<p>The number of interviewees that has been interviewed over the total number of interviewees.</p>
+</li>
+<li>
+<p>Whether this session has been finalised. Refer to <a href="#Finalise Interview Attributes and Questions">[Finalise Interview Attributes and Questions]</a> for more information.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="interviewee-list-display"><a class="link" href="#interviewee-list-display">Interviewee List Display</a></h4>
+<div class="paragraph">
+<p>Interviewee List Display shows the current list of interviewees. This list will display either the list of all
+interviewees, or a list of the best few interviewees selected based on your input ranking criteria, as shown below: (See <a href="#Find Best Candidates">[Find Best Candidates]</a>)</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/Screenshots/IntervieweeVSBestInterviewee.png" alt="IntervieweeVSBestInterviewee" width="500">
+</div>
+<div class="title">Figure 5. <strong>LEFT</strong> List of all interviewees, <strong>RIGHT</strong> List of best interviewees.</div>
+</div>
+<div class="paragraph">
+<p>Each interviewee card contains the full name, ID and alias of the interviewee. It also shows whether the
+interviewee has had uploaded a resume (indicated by a green circle with a tick beside "Resume:") and the interview
+status of the interviewee (white circle indicates the interviewee has not been interviewed, yellow circle indicates
+that interview with this interviewee is currently underway/incomplete, green circle indicates that the interview with
+this interviewee has been completed).</p>
+</div>
+<div class="paragraph">
+<p>In addition, if the list of best interviewees is being shown, the score of each interviewee based on the ranking
+criteria will be displayed on each interviewee&#8217;s card.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="transcript-panel"><a class="link" href="#transcript-panel">Transcript Panel</a></h4>
+<div class="paragraph">
+<p>Transcript Panel displays the interview transcript of an interviewee. It consists of two sub-components:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A Detailed Interviewee Card on the left, which contains:</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Full name, ID and alias of the interviewee.</p>
+</li>
+<li>
+<p>A button that opens the interviewee&#8217;s resume.</p>
+</li>
+<li>
+<p>A table showing the score assigned to the interviewee for each attribute that this interview looks out for. If an
+attribute has not been scored yet, the score will be shown as "-".</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>A Remarks List showing the time-stamped remarks entered by the user about the interviewee during the interview. The
+list also contains question headers, indicating that the remarks entered after it are in response to the interviewee&#8217;s
+answer to the particular question.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="rubrics-panel"><a class="link" href="#rubrics-panel">Rubrics Panel</a></h4>
+<div class="paragraph">
+<p>Rubrics Panel displays information about attributes, questions and metrics created for this interview session. You can
+easily toggle between these lists of information by clicking on the respective tab headers at the top of this Panel.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="result-display-box-2"><a class="link" href="#result-display-box-2">Result Display Box</a></h4>
+<div class="paragraph">
+<p>Refer to <a href="#result-display-box">Result Display Box</a></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="command-box-2"><a class="link" href="#command-box-2">Command Box</a></h4>
+<div class="paragraph">
+<p>Refer to <a href="#command-box">Command Box</a></p>
+</div>
+<div class="paragraph">
+<p><br>
+<br></p>
+</div>
+</div>
+</div>
 <div class="sect2">
 <h3 id="gui-convenience-features"><a class="link" href="#gui-convenience-features">GUI Convenience Features</a></h3>
 <div class="sect3">
@@ -219,19 +525,179 @@ the switching views commands (See <a href="#Switching views">[Switching views]</
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="Design-Ui"><a class="link" href="#Design-Ui">UI component</a></h3>
 <div class="imageblock">
 <div class="content">
 <img src="../images/UiClassDiagram.png" alt="UiClassDiagram">
 </div>
+<div class="title">Figure 6. Structure of the UI Component</div>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="project-powerpointlabs"><a class="link" href="#project-powerpointlabs">PROJECT: PowerPointLabs</a></h2>
-<div class="sectionbody">
-<hr>
 <div class="paragraph">
-<p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
+<p><strong>API</strong> : <a href="{repoURL}/blob/master/src/main/java/hirelah/ui/Ui.java"><code>Ui.java</code></a></p>
+</div>
+<div class="paragraph">
+<p>The UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>SessionPanel</code>,
+<code>InterviewPanel</code> etc. All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
+</div>
+<div class="paragraph">
+<p>The <code>UI</code> component uses JavaFx UI framework. The layout of these UI parts are defined in matching <code>.fxml</code>
+files that are in the <code>src/main/resources/view</code> folder. For example, the layout of the
+<a href="{repoURL}/blob/master/src/main/java/hirelah/ui/MainWindow.java"><code>MainWindow</code></a> is specified in
+<a href="{repoURL}/blob/master/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a>.</p>
+</div>
+<div class="paragraph">
+<p>The <code>UI</code> component,</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Executes user commands using the <code>Logic</code> component through the <code>CommandExecutor</code> functional interface.</p>
+</li>
+<li>
+<p>After executing each command, performs command-specific view updates as instructed
+by the CommandResult returned by that command.</p>
+</li>
+<li>
+<p>Listens for changes to <code>Model</code> data so that the UI can be updated with the modified data.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>When the app is launched, <code>SessionPanel</code> is displayed to allow the user to manage interview sessions. When an interview
+session is selected, <code>SessionPanel</code> becomes hidden, and the <code>InterviewPanel</code> is displayed to allow the user to conduct
+interviews. This process is summarised in <a href="#SwitchPanel">Figure 7, &#8220;Activity Diagram showing the toggling between SessionPanel and InterviewPanel&#8221;</a>. The structure of the <code>InterviewPanel</code> is shown in <a href="#InterviewPanel">Figure 8, &#8220;Structure of the InterviewPanel used to display an interview session&#8221;</a>.</p>
+</div>
+<div id="SwitchPanel" class="imageblock">
+<div class="content">
+<img src="../images/UiSwitchPanelActivityDiagram.png" alt="UiSwitchPanelActivityDiagram">
+</div>
+<div class="title">Figure 7. Activity Diagram showing the toggling between SessionPanel and InterviewPanel</div>
+</div>
+<div id="InterviewPanel" class="imageblock">
+<div class="content">
+<img src="../images/UiInterviewPanelClassDiagram.png" alt="UiInterviewPanelClassDiagram">
+</div>
+<div class="title">Figure 8. Structure of the InterviewPanel used to display an interview session</div>
+</div>
+<div class="paragraph">
+<p><br>
+<br></p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 14:22:08 UTC</div></div></div></body></html>
+<div class="sect2">
+<h3 id="updating-ui-elements-after-user-commands"><a class="link" href="#updating-ui-elements-after-user-commands">Updating UI elements after user commands</a></h3>
+<div class="sect3">
+<h4 id="description"><a class="link" href="#description">Description</a></h4>
+<div class="paragraph">
+<p>A lot of things goes on during the interview process. As such, HireLah! needs to handle different types of input commands
+from the user and update the GUI accordingly in response. AddressBook3, which HireLah! is based on, uses the <code>CommandResult</code>
+class to achieve this. Based on our design of HireLah! however, there are three types of command outcomes that the user&#8217;s
+input may give:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Toggle to see a different list of information, for example toggling from the <code>SessionPanel</code>, which lists out the information
+of all interview sessions created on HireLah!, to <code>InterviewPanel</code>, which shows the details of one interview session.</p>
+</li>
+<li>
+<p>Scroll to a particular entry in a list. This is required for the <code>goto</code> command, which allows the user to see an
+interviewee&#8217;s remarks at a particular timestamp by scrolling the <code>RemarkList</code> to a particular index.</p>
+</li>
+<li>
+<p>Simply printing out a message in the <code>ResultDisplay</code> to show the user.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
+<div class="paragraph">
+<p>In order to handle all three types of command outcomes, we have decided to extend the original <code>CommandResult</code> class to
+produce two new subclasses: <code>ToggleCommandResult</code>, which handles type 1 outcomes, and <code>NavigationCommandResult</code>, which
+handles type 2 outcomes. The original <code>CommandResult</code> class is used to handle type 3 outcomes.</p>
+</div>
+<div class="paragraph">
+<p>In addition, we have implemented the <code>ToggleView</code> enum, which is returned as an attribute in <code>ToggleCommandResult</code> to inform
+the UI on the UI component to toggle to.</p>
+</div>
+<div class="paragraph">
+<p>Given below is a class diagram to summarise the characteristics of these three CommandResult classes, as well as the
+ToggleView enum:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/CommandResultClassDiagram.png" alt="CommandResultClassDiagram">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-to-design-and-update-the-ui-components"><a class="link" href="#aspect-how-to-design-and-update-the-ui-components">Aspect: How to design and update the UI components</a></h5>
+<div class="paragraph">
+<p><code>ToggleCommandResult</code> also signals that the relevant UI component needs to be updated, and decisions have to be made on
+how the implicated UI components should be updated</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1</strong>: Reinitialise the entire UI after every command</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: This will definitely update the changes required of the UI accordingly, as the new UI can be built to reflect the
+current state of the <code>Model</code>.</p>
+</li>
+<li>
+<p>Cons: This method is extremely inefficient, and may slow down the application considerably when the user has entered a
+lot of information.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2</strong>: Update only the UI component affected if necessary, for eg <code>IntervieweeListPanel</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: This is a lot more efficient compared to Alternative 1.</p>
+</li>
+<li>
+<p>Cons: Some commands, such as <code>:end</code> which ends an interview with an interviewee needs multiple UI components to be updated,
+such as <code>IntervieweeListPanel</code>, <code>RemarkList</code> and <code>SessionInformationCard</code>, and this method only updates <code>IntervieweeListPanel</code>
+as this command returns the ToggleView enum INTERVIEWEE.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Current Implementation: We have taken a compromise between the two approaches. UI components that are often updated together
+are grouped together, such as <code>IntervieweeListPanel</code> and <code>SessionInformationCard</code>, such that they are always updated together.
+In addition, we made use of Observable classes to reduce the number of times an UI component needs to be reinitialised.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-how-to-display-the-interviewee-s-scores-for-each-code-attribute-code-most-suitably"><a class="link" href="#aspect-how-to-display-the-interviewee-s-scores-for-each-code-attribute-code-most-suitably">Aspect: How to display the Interviewee&#8217;s scores for each <code>Attribute</code> most suitably</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1</strong> Bar Chart</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Able to display</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 14:40:44 UTC</div></div></div></body></html>
